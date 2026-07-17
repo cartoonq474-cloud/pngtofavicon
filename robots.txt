@@ -1,0 +1,6 @@
+# www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://pngtofavicon.com/sitemap.xml
