@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@vitalets/google-translate-api": "^9.2.1",
     "jsdom": "^29.1.1",
