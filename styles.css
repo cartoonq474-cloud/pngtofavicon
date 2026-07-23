@@ -3210,3 +3210,36 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
   display: inline;
 }
+
+.footer-contact {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.footer-contact-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-contact-link:hover,
+.footer-contact-link:focus-visible {
+  color: var(--accent-primary);
+  outline: none;
+}
+
+.footer-contact-link svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.footer-contact-link:hover svg {
+  transform: translateY(-1px);
+}
