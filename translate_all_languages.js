@@ -193,7 +193,21 @@ const translations = {
       "Contact": "اتصل بنا",
       "Privacy Policy": "سياسة الخصوصية",
       "Terms of Service": "شروط الخدمة",
-      "Cookie Policy": "سياسة ملفات الارتباط"
+      "Cookie Policy": "سياسة ملفات الارتباط",
+      "Convert PNG to favicon packages in milliseconds using your browser's local processing power.": "قم بتحويل PNG إلى حزم فافيكون في أجزاء من الثانية باستخدام قوة المعالجة المحلية لمتصفحك.",
+      "Runs entirely in your browser using HTML5 Canvas. Your image is never uploaded to any server.": "يعمل بالكامل في متصفحك باستخدام لوحة HTML5 Canvas. لا يتم تحميل صورتك أبداً إلى أي خادم.",
+      "Once you drag & drop or browse your PNG image, the browser utilizes the HTML5 FileReader API to read your file locally, converting it to a secure in-memory data stream without uploading a single byte to external servers.": "بمجرد سحب وإفلات صورة PNG أو تصفحها، يستخدم المتصفح واجهة HTML5 FileReader API لقراءة ملفك محلياً، وتحويله إلى تدفق بيانات آمن في الذاكرة دون تحميل بايت واحد إلى خوادم خارجية.",
+      "A multi-size .ico file is compiled directly in your browser. The script allocates memory headers, writes the ICO directory entry parameters, and concatenates raw PNG data streams using byte-level writer tools.": "يتم تجميع ملف .ico متعدد الأحجام مباشرة في متصفحك. يخصص السكربت رؤوس الذاكرة، ويكتب معلمات إدخال دليل ICO، ويدمج تدفقات بيانات PNG الخام باستخدام أدوات كتابة على مستوى البايت.",
+      "Ready in seconds, 100% client-side conversion": "جاهز في ثوانٍ، تحويل 100% من جانب العميل",
+      "Ensure your brand identity looks crisp and perfect across all browser tabs and device home screens.": "تأكد من أن هوية علامتك التجارية تبدو حادة ومثالية عبر جميع علامات تبويب المتصفح وشاشات الأجهزة الرئيسية.",
+      "Easily customize your personal blog or portfolio with a professional icon in seconds.": "قم بتخصيص مدونتك الشخصية أو محفظة أعمالك بسهولة بأيقونة احترافية في ثوانٍ.",
+      "Elevate your professional appearance with a high-quality favicon that builds trust.": "ارتقِ بمظهرك المهني باستخدام أيقونة موقع عالية الجودة تبني الثقة.",
+      "Trusted by professionals worldwide": "موثوق به من قبل المحترفين في جميع أنحاء العالم",
+      "What's Included in Your Download": "ما الذي تشتمل عليه عملية التنزيل",
+      "Every file you need for full cross-browser and cross-device favicon support": "كل ملف تحتاجه لدعم فافيكون الكامل عبر مختلف المتصفحات والأجهزة",
+      "The classic multi-size ICO format, containing 16×16, 32×32, and 48×48 icons. Required for legacy browser support including older versions of Internet Explorer.": "صيغة ICO الكلاسيكية متعددة الأحجام، والتي تحتوي على أيقونات 16×16 و32×32 و48×48. مطلوبة لدعم المتصفحات القديمة بما في ذلك الإصدارات السابقة من Internet Explorer.",
+      "Verified reviews on Trustpilot": "تقييمات موثقة على Trustpilot",
+      "Verified reviews on Capterra": "تقييمات موثقة على Capterra"
   },
   de: {
     // Metadata / SEO
