@@ -3201,3 +3201,12 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(255, 255, 255, 0.02);
   }
 }
+
+.faq-item summary h3 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  display: inline;
+}
