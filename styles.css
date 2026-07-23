@@ -1983,7 +1983,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.25rem;
 }
 
-.review-meta h4 {
+.review-meta h3 {
   color: var(--text-primary);
   font-weight: 700;
   margin: 0 0 0.25rem 0;
