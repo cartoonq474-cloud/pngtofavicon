@@ -522,7 +522,24 @@ const translations = {
     "favicon checker, favicon validator, test website favicon, check apple touch icon, favicon audit": "favicon checker, favicon validator, favicon testen, apple touch icon prüfen, favicon audit",
     "Validate any website's favicon, app icons, and manifest setup. Check performance and cross-device compatibility.": "Validieren Sie Favicons, App-Icons und Manifest-Setups beliebiger Websites. Überprüfen Sie Performance und geräteübergreifende Kompatibilität.",
     "Favicon Checker & Auditor — Free Online Tool": "Favicon-Checker & Auditor — Kostenloses Online-Tool",
-    "Audit and validate any site's favicon setup in seconds. Get actionable setup guides.": "Auditieren und validieren Sie das Favicon-Setup jeder Website in Sekunden. Erhalten Sie direkt anwendbare Setup-Anleitungen."
+    "Audit and validate any site's favicon setup in seconds. Get actionable setup guides.": "Auditieren und validieren Sie das Favicon-Setup jeder Website in Sekunden. Erhalten Sie direkt anwendbare Setup-Anleitungen.",
+
+    // Tutorials Landing Page specific translations
+    "Favicon Guides &": "Favicon-Anleitungen &",
+    "Learn how to generate, install, and optimize website favicons for ultimate browser compatibility and SEO visibility.": "Lernen Sie, wie Sie Website-Favicons für optimale Browserkompatibilität und SEO-Sichtbarkeit generieren, installieren und optimieren.",
+    "❓ What is a Favicon?": "❓ Was ist ein Favicon?",
+    "Learn the history and purpose of browser tab icons and why they are critical for digital branding.": "Lernen Sie die Geschichte und den Zweck von Browser-Tab-Icons kennen und erfahren Sie, warum sie für das digitale Branding entscheidend sind.",
+    "📏 Favicon Sizes Guide": "📏 Favicon-Größen-Anleitung",
+    "Learn which favicon dimensions are required for modern retina screens, Android apps, and iOS bookmarks.": "Erfahren Sie, welche Favicon-Dimensionen für moderne Retina-Bildschirme, Android-Apps und iOS-Lesezeichen erforderlich sind.",
+    "➕ How to Add a Favicon": "➕ Wie man ein Favicon hinzufügt",
+    "Generic HTML copy-paste snippets and server upload instructions to install your favicon files.": "Allgemeine HTML-Copy-Paste-Snippets und Server-Upload-Anleitungen zur Installation Ihrer Favicon-Dateien.",
+    "💡 Favicon Best Practices": "💡 Favicon Best Practices",
+    "Tips on scaling designs, optimizing file weight, and favicon SEO guidelines to boost Google CTR.": "Tipps zur Skalierung von Designs, zur Optimierung des Dateigewichts und Favicon-SEO-Richtlinien zur Steigerung der Klickrate (CTR) bei Google.",
+
+    // Head / SEO tags for Tutorials
+    "Favicon Guides & Tutorials | PNGtoFavicon": "Favicon-Anleitungen & Tutorials | PNGtoFavicon",
+    "Comprehensive guides, instructions, and tutorials covering favicon standard sizes, formats, design practices, and HTML implementations.": "Umfassende Anleitungen, Richtlinien und Tutorials zu Standard-Favicon-Größen, Formaten, Design-Praktiken und HTML-Implementierungen.",
+    "favicon tutorials, favicon sizes guide, what is favicon, learn favicon integration": "favicon tutorials, favicon größen anleitung, was ist ein favicon, favicon einbinden lernen"
   },
   es: {
     "Free": "Gratis",
