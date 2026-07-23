@@ -656,7 +656,33 @@ const translations = {
     "Although a favicon does not directly increase search engine rankings, it contributes to overall website usability and brand consistency, both of which support a positive user experience.": "Obwohl ein Favicon die Platzierung in Suchmaschinen nicht direkt verbessert, trägt es zur allgemeinen Benutzerfreundlichkeit der Website und zur Markenkonsistenz bei, was wiederum eine positive Benutzererfahrung unterstützt.",
     "Where Favicons Appear": "Wo Favicons angezeigt werden",
     "Understanding where your favicon appears highlights why choosing the right design and file format is important.": "Zu verstehen, wo Ihr Favicon angezeigt wird, verdeutiert, warum die Wahl des richtigen Designs und Dateiformats so wichtig ist.",
-    "The most common location for a favicon is the browser tab. When multiple tabs are open, users often rely on favicons rather than page titles to locate the website they want. A distinctive icon makes navigation faster and reduces confusion.": "Der häufigste Ort für ein Favicon ist der Browser-Tab. Wenn mehrere Tabs geöffnet sind, verlassen sich Benutzer oft eher auf Favicons als auf Seitentitel, um die gewünschte Website zu finden. Ein markantes Symbol beschleunigt die Navigation und verringert Verwirrung."
+    "The most common location for a favicon is the browser tab. When multiple tabs are open, users often rely on favicons rather than page titles to locate the website they want. A distinctive icon makes navigation faster and reduces confusion.": "Der häufigste Ort für ein Favicon ist der Browser-Tab. Wenn mehrere Tabs geöffnet sind, verlassen sich Benutzer oft eher auf Favicons als auf Seitentitel, um die gewünschte Website zu finden. Ein markantes Symbol beschleunigt die Navigation und verringert Verwirrung.",
+
+    // Favicon Sizes Guide specific translations
+    "Complete Favicon": "Vollständige Favicon-",
+    "Sizes Guide": "Größen-Anleitung",
+    "Learn which dimensions each browser, device, and progressive web app install surface expects in 2026.": "Erfahren Sie, welche Abmessungen die einzelnen Browser, Geräte und Progressive-Web-App-Installationsflächen im Jahr 2026 erwarten.",
+    "Standard Favicon Dimensions Table": "Standard-Favicon-Dimensionstabelle",
+    "Use this table to understand the purpose of each image file included in our converter packages:": "Verwenden Sie diese Tabelle, um den Zweck jeder in unseren Konverterpaketen enthaltenen Bilddatei zu verstehen:",
+    "Size": "Größe",
+    "Target Platform / Surface": "Zielplattform / Oberfläche",
+    "16 × 16 px": "16 × 16 Px",
+    "Standard desktop browser tabs fallback": "Fallback für Standard-Desktop-Browser-Tabs",
+    "32 × 32 px": "32 × 32 Px",
+    "HiDPI / Retina desktop browser tabs": "HiDPI- / Retina-Desktop-Browser-Tabs",
+    "48 × 48 px": "48 × 48 Px",
+    "Windows taskbar / Desktop shortcuts fallback": "Fallback für Windows-Taskleiste / Desktop-Verknüpfungen",
+    "180 × 180 px": "180 × 180 Px",
+    "Apple iOS Touch Icon (iPhone & iPad home screen bookmark)": "Apple iOS Touch Icon (iPhone- & iPad-Startbildschirm-Lesezeichen)",
+    "192 × 192 px": "192 × 192 Px",
+    "Android Chrome home screen icon / PWA launch badge": "Android Chrome Startbildschirm-Icon / PWA-Start-Badge",
+    "512 × 512 px": "512 × 512 Px",
+    "PWA splash screens / High-density app launcher": "PWA-Splash-Screens / App-Launcher mit hoher Dichte",
+
+    // Head / SEO tags for Favicon Sizes
+    "Favicon Sizes Guide (2026 Standards) | PNGtoFavicon": "Favicon-Größen-Anleitung (2026 Standards) | PNGtoFavicon",
+    "Complete size reference guide for favicons. Learn which dimensions you need for ICO fallback, Apple iOS, Android Chrome, and manifest setups.": "Vollständiger Größen-Referenzleitfaden für Favicons. Erfahren Sie, welche Abmessungen Sie für ICO-Fallback, Apple iOS, Android Chrome und Manifest-Setups benötigen.",
+    "favicon sizes, apple touch icon size, android favicon dimensions, manifest icon sizes": "favicon größen, apple touch icon größe, android favicon maße, manifest icon größen"
   },
   es: {
     "Free": "Gratis",
