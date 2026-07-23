@@ -439,7 +439,41 @@ const translations = {
     "text to favicon, initials favicon generator, letter favicon maker, custom favicon, free favicon generator": "text in favicon, initialen favicon generator, buchstaben favicon generator, favicon erstellen buchstaben",
     "Create premium text-based favicons with customized fonts, colors, and shapes. Download full favicon ZIP.": "Erstellen Sie hochwertige textbasierte Favicons mit benutzerdefinierten Schriftarten, Farben und Formen. Laden Sie das vollständige Favicon-ZIP herunter.",
     "Text to Favicon Generator — Free Online Tool": "Text-in-Favicon-Generator — Kostenloses Online-Tool",
-    "Create custom text-based favicons instantly. Choose styles and download ZIP.": "Erstellen Sie sofort benutzerdefinierte textbasierte Favicons. Stile auswählen und ZIP herunterladen."
+    "Create custom text-based favicons instantly. Choose styles and download ZIP.": "Erstellen Sie sofort benutzerdefinierte textbasierte Favicons. Stile auswählen und ZIP herunterladen.",
+
+    // Emoji to Favicon specific translations
+    "Convert your favorite emoji into a complete favicon package. Select a symbol, style the background frame, and download all sizes in a single click.": "Konvertieren Sie Ihr Lieblings-Emoji in ein vollständiges Favicon-Paket. Wählen Sie ein Symbol, gestalten Sie den Hintergrundrahmen und laden Sie alle Größen mit einem Klick herunter.",
+    "🚀 1000+ Emojis": "🚀 Über 1000 Emojis",
+    "⚙️ Interactive Styling": "⚙️ Interaktives Styling",
+    "🚀 Choose & Style Emoji": "🚀 Emoji auswählen & anpassen",
+    "Selected Emoji": "Ausgewähltes Emoji",
+    "Keep transparent (Icon only)": "Transparenz beibehalten (nur Icon)",
+    "Emoji Scale": "Emoji-Skalierung",
+    "📦 Live Favicon Preview": "📦 Live-Favicon-Vorschau",
+    "🔗 Copy & Paste HTML": "🔗 HTML kopieren & einfügen",
+    "Add this to your HTML <head> section:": "Fügen Sie dies in den <head>-Bereich Ihres HTMLs ein:",
+    "How this Emoji to Favicon tool works": "Wie dieses Emoji-in-Favicon-Tool funktioniert",
+    "The tool uses HTML5 Canvas to instantly draw backgrounds and native system emojis in real-time, straight in your browser.": "Das Tool verwendet HTML5-Canvas, um Hintergründe und native System-Emojis sofort in Echtzeit direkt in Ihrem Browser zu zeichnen.",
+    "Why Generate Emoji Favicons Here?": "Warum emoji-basierte Favicons hier generieren?",
+    "Discover how our emoji to favicon tool works across different scenarios": "Erfahren Sie, wie unser Emoji-in-Favicon-Tool in verschiedenen Szenarien funktioniert",
+    "Instantly generate all required favicon sizes for your web projects from a simple emoji.": "Generieren Sie aus einem einfachen Emoji sofort alle erforderlichen Favicon-Größen für Ihre Webprojekte.",
+    "Emoji Favicon Generator vs Other Tools": "Emoji-Favicon-Generator im Vergleich to anderen Tools",
+    "Why use an emoji favicon?": "Warum ein Emoji-Favicon verwenden?",
+    "Emoji favicons are fun, descriptive, and instantly recognizable. They are fantastic for developer tools, personal blogs, SaaS projects, and lightweight web apps. Since emojis are highly standardized, they look consistent across multiple display screens.": "Emoji-Favicons sind spielerisch, aussagekräftig und sofort erkennbar. Sie eignen sich hervorragend für Entwickler-Tools, persönliche Blogs, SaaS-Projekte und schlanke Web-Apps. Da Emojis stark standardisiert sind, sehen sie auf verschiedensten Bildschirmen einheitlich aus.",
+    "Does this tool work with custom system emojis?": "Funktioniert dieses Tool mit benutzerdefinierten System-Emojis?",
+    "Yes! You can type or paste any single emoji directly into the \"Selected Emoji\" field, and our rendering canvas will draw it instantly.": "Ja! Sie können jedes beliebige Emoji direkt in das Feld „Ausgewähltes Emoji“ eingeben oder einfügen, und unser Rendering-Canvas zeichnet es sofort.",
+    "Can I make the background transparent?": "Kann ich den Hintergrund transparent machen?",
+    "Yes. Check the \"Keep transparent (Icon only)\" box, and the tool will render the emoji directly on a transparent canvas, saving it as transparent PNG files.": "Ja. Wenn Sie das Kontrollkästchen „Transparenz beibehalten (nur Icon)“ aktivieren, rendert das Tool das Emoji direkt auf einer transparenten Arbeitsfläche und speichert es als transparente PNG-Dateien.",
+    "Are these icons free for commercial use?": "Sind diese Icons für die kommerzielle Nutzung kostenlos?",
+    "Native system emojis rendered on canvas are standard system fonts, which are safe for personal and commercial web deployment.": "Auf Canvas gerenderte native System-Emojis sind Standard-Systemschriftarten, deren Verwendung für die private und kommerzielle Web-Bereitstellung unbedenklich ist.",
+
+    // Head / SEO tags for Emoji to Favicon
+    "Emoji to Favicon Generator — Free Online Tool | PNGtoFavicon": "Emoji-in-Favicon-Generator — Kostenloses Online-Tool | PNGtoFavicon",
+    "Generate a custom favicon from emojis. Choose from hundreds of emojis, customize background shapes, colors, and download your complete favicon package. 100% free.": "Erstellen Sie ein individuelles Favicon aus Emojis. Wählen Sie aus Hunderten von Emojis, passen Sie Hintergrundformen und Farben an und laden Sie Ihr komplettes Favicon-Paket herunter. 100 % kostenlos.",
+    "emoji to favicon, emoji favicon generator, custom emoji favicon, free favicon generator, online favicon maker": "emoji in favicon, emoji favicon generator, custom emoji favicon, favicon erstellen emoji",
+    "Create premium emoji-based favicons. Choose your favorite emoji, customize style, and download full ZIP.": "Erstellen Sie hochwertige emoji-basierte Favicons. Wählen Sie Ihr Lieblings-Emoji, passen Sie den Stil an und laden Sie das vollständige ZIP-Paket herunter.",
+    "Emoji to Favicon Generator — Free Online Tool": "Emoji-in-Favicon-Generator — Kostenloses Online-Tool",
+    "Create custom emoji-based favicons instantly. Choose styles and download ZIP.": "Erstellen Sie sofort benutzerdefinierte emoji-basierte Favicons. Stile auswählen und ZIP herunterladen."
   },
   es: {
     "Free": "Gratis",
