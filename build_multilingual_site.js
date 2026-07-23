@@ -296,6 +296,59 @@ async function localizePage(relativePath, targetLang) {
 
     // 8. Translate UI Elements using static translations dictionary
     const dict = existingTranslations[targetLang] || {};
+
+    // Translate Head elements (title and meta tags)
+    if (doc.title && dict[doc.title.trim()]) {
+        doc.title = dict[doc.title.trim()];
+    }
+    doc.querySelectorAll('meta[name="description"], meta[name="keywords"], meta[property="og:title"], meta[property="og:description"], meta[property="twitter:title"], meta[property="twitter:description"]').forEach(meta => {
+        const content = meta.getAttribute('content');
+        if (content && dict[content.trim()]) {
+            meta.setAttribute('content', dict[content.trim()]);
+        }
+    });
+
+    // Translate specific attributes (aria-label, placeholder, alt, title)
+    doc.querySelectorAll('[aria-label], [placeholder], [alt], [title]').forEach(el => {
+        ['aria-label', 'placeholder', 'alt', 'title'].forEach(attr => {
+            const val = el.getAttribute(attr);
+            if (val && dict[val.trim()]) {
+                el.setAttribute(attr, dict[val.trim()]);
+            }
+        });
+    });
+
+    // Translate JSON-LD scripts (structured schema data)
+    doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+        try {
+            const data = JSON.parse(script.textContent);
+            
+            const translateObject = (obj) => {
+                if (typeof obj === 'string') {
+                    const trimmed = obj.trim();
+                    if (dict[trimmed]) {
+                        return dict[trimmed];
+                    }
+                    return obj;
+                } else if (Array.isArray(obj)) {
+                    return obj.map(translateObject);
+                } else if (typeof obj === 'object' && obj !== null) {
+                    const newObj = {};
+                    for (const key in obj) {
+                        newObj[key] = translateObject(obj[key]);
+                    }
+                    return newObj;
+                }
+                return obj;
+            };
+            
+            const translatedData = translateObject(data);
+            script.textContent = JSON.stringify(translatedData, null, 2);
+        } catch (e) {
+            console.error("Error translating JSON-LD script", e);
+        }
+    });
+
     const treeWalker = doc.createTreeWalker(doc.body, dom.window.NodeFilter.SHOW_TEXT);
     let currentNode;
     while (currentNode = treeWalker.nextNode()) {
