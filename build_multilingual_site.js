@@ -946,7 +946,8 @@ async function localizePage(relativePath, targetLang) {
         const navLinksList = doc.querySelectorAll('#navLinks a');
         navLinksList.forEach(link => {
             const text = link.textContent.trim();
-            if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
             else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
             else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
             else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
@@ -1670,7 +1671,8 @@ async function localizePage(relativePath, targetLang) {
         const navLinksList = doc.querySelectorAll('#navLinks a');
         navLinksList.forEach(link => {
             const text = link.textContent.trim();
-            if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
             else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
             else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
             else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
@@ -1687,7 +1689,7 @@ async function localizePage(relativePath, targetLang) {
         });
 
         if (faqSec) {
-            const title = faqSec.querySelector('h2.section-title');
+            const title = faqSec.querySelector('h2');
             if (title) title.textContent = 'الأسئلة الشائعة';
 
             const subtitle = faqSec.querySelector('p.section-subtitle');
@@ -1696,25 +1698,25 @@ async function localizePage(relativePath, targetLang) {
             const items = faqSec.querySelectorAll('.faq-item');
             if (items.length >= 4) {
                 // Item 1
-                const q_1 = items[0].querySelector('summary');
+                const q_1 = items[0].querySelector('summary h3') || items[0].querySelector('summary');
                 const a_1 = items[0].querySelector('.faq-answer');
                 if (q_1) q_1.textContent = 'لماذا أستخدم أيقونة نصية بدلاً من صورة؟';
                 if (a_1) a_1.textContent = 'تعد الأيقونات النصية مثالية للعلامات التجارية في مراحلها الأولى، وحافظات الأعمال الشخصية، والمدونات، والمواقع البسيطة الأنيقة. يسهل التعرف على الأحرف الأولى في علامات تبويب المتصفح المزدحمة، مما يعزز تمييز العلامة التجارية دون الحاجة إلى تصميم رسومي معقد.';
 
                 // Item 2
-                const q_2 = items[1].querySelector('summary');
+                const q_2 = items[1].querySelector('summary h3') || items[1].querySelector('summary');
                 const a_2 = items[1].querySelector('.faq-answer');
                 if (q_2) q_2.textContent = 'ما هو الخط الأنسب لأيقونة الموقع (Favicon)؟';
                 if (a_2) a_2.textContent = 'يُوصى بشدة باستخدام الخطوط العريضة والسميكة من نوع sans-serif مثل Space Grotesk وMontserrat وOutfit. كما تبدو الخطوط أحادية المسافة (Monospaced) ممتازة أيضاً. حاول تجنب الخطوط الرفيعة للغاية، لأنها تصبح غير مقروءة عند تصغيرها إلى مقاس 16×16 بكسل.';
 
                 // Item 3
-                const q_3 = items[2].querySelector('summary');
+                const q_3 = items[2].querySelector('summary h3') || items[2].querySelector('summary');
                 const a_3 = items[2].querySelector('.faq-answer');
                 if (q_3) q_3.textContent = 'هل بياناتي خاصة وآمنة على هذا الموقع؟';
                 if (a_3) a_3.textContent = 'نعم، بنسبة 100%. يعمل المولد بالكامل داخل متصفح الويب الخاص بك باستخدام HTML5 Canvas. لا يتم رفع نصوصك وتصميماتك المخصصة والملفات التي تم إنشاؤها إلى خوادمنا، مما يحافظ على خصوصية هوية علامتك التجارية.';
 
                 // Item 4
-                const q_4 = items[3].querySelector('summary');
+                const q_4 = items[3].querySelector('summary h3') || items[3].querySelector('summary');
                 const a_4 = items[3].querySelector('.faq-answer');
                 if (q_4) q_4.textContent = 'ما هي تنسيقات الملفات التي تنتجها هذه الأداة؟';
                 if (a_4) a_4.innerHTML = 'ينتج مولد الأيقونات النصية الخاص بنا ملف <strong>favicon.ico</strong> قياسي متعدد الأحجام (يحتوي على مقاسات 16 و32 و48 بكسل)، وعدة أيقونات <strong>PNG</strong> عالية الدقة لعلامات تبويب المتصفح، وأيقونات <strong>Apple Touch</strong> بحجم 180×180 بكسل، وأيقونات <strong>Android Chrome</strong> بمقاسات 192×192 و512×512 بكسل، وملف التكوين <strong>site.webmanifest</strong>.';
