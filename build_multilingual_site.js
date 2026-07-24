@@ -305,6 +305,49 @@ async function localizePage(relativePath, targetLang) {
     // 8. Translate UI Elements using static translations dictionary
     const dict = existingTranslations[targetLang] || {};
 
+    // Global translation block for Arabic pages
+    if (targetLang === 'ar') {
+        // Explore More Favicon Tools Section
+        let exploreSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && (h2.textContent.includes('Explore More Favicon Tools') || h2.textContent.includes('استكشف المزيد من أدوات Favicon'))) {
+                exploreSec = sec;
+            }
+        });
+
+        if (exploreSec) {
+            const h2 = exploreSec.querySelector('h2.section-title');
+            if (h2) h2.textContent = 'استكشف المزيد من أدوات Favicon';
+
+            const subtitle = exploreSec.querySelector('.section-subtitle') || exploreSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لتلبية جميع احتياجات أيقونات المواقع الخاصة بك.';
+
+            exploreSec.querySelectorAll('.tool-card').forEach(card => {
+                const titleEl = card.querySelector('h3');
+                const descEl = card.querySelector('p');
+                const linkEl = card.querySelector('.tool-card-link');
+
+                if (titleEl) {
+                    const titleText = titleEl.textContent.trim();
+                    if (titleText === 'Text to Favicon') {
+                        titleEl.textContent = 'النص إلى Favicon';
+                        if (descEl) descEl.textContent = 'أنشئ أيقونة Favicon باستخدام النص أو الحروف الأولى لعلامتك التجارية. اختر الخطوط، الألوان، والتنسيقات لإنشاء أيقونة فريدة.';
+                        if (linkEl) linkEl.textContent = 'جربه مجاناً ←';
+                    } else if (titleText === 'Emoji to Favicon') {
+                        titleEl.textContent = 'الرموز التعبيرية إلى Favicon';
+                        if (descEl) descEl.textContent = 'اختر من بين مئات الرموز التعبيرية لإنشاء أيقونة favicon ملونة ومعبرة فوراً. مثالي للمشاريع الشخصية، والمدونات، والنماذج السريعة.';
+                        if (linkEl) linkEl.textContent = 'جربه مجاناً ←';
+                    } else if (titleText === 'Favicon Checker') {
+                        titleEl.textContent = 'فاحص الـ Favicon';
+                        if (descEl) descEl.textContent = 'تحقق من صحة إعدادات أيقونة موقعك. أدخل أي رابط للتحقق من المقاسات المفقودة، التنسيقات الخاطئة، ومشاكل التوافق عبر المنصات.';
+                        if (linkEl) linkEl.textContent = 'افحص الآن ←';
+                    }
+                }
+            });
+        }
+    }
+
     // Custom logic for Arabic index.html hero section translation
     if (targetLang === 'ar' && relativePath === 'index.html') {
         // H1
