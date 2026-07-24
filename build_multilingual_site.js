@@ -201,6 +201,11 @@ async function localizePage(relativePath, targetLang) {
     
     // 1. Update lang attribute
     doc.documentElement.setAttribute('lang', targetLang);
+    if (['ar', 'ur'].includes(targetLang)) {
+        doc.documentElement.setAttribute('dir', 'rtl');
+    } else {
+        doc.documentElement.removeAttribute('dir');
+    }
     
     // 2. Update canonical and OG URLs
     const updateUrl = (url) => {
@@ -296,6 +301,70 @@ async function localizePage(relativePath, targetLang) {
 
     // 8. Translate UI Elements using static translations dictionary
     const dict = existingTranslations[targetLang] || {};
+
+    // Custom logic for Arabic index.html hero section translation
+    if (targetLang === 'ar' && relativePath === 'index.html') {
+        // H1
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'محول <span class="gradient-text">PNG إلى Favicon</span> المجاني';
+        }
+
+        // Subtitle
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.innerHTML = 'حوّل أي صورة بصيغة <strong>PNG</strong> إلى حزمة <strong>Favicon</strong> متكاملة في لحظات. مجاني، سريع، ويعمل بالكامل داخل متصفحك، لذلك لا تغادر ملفاتك جهازك أبدًا.';
+        }
+
+        // Dropzone content
+        const dropZone = doc.getElementById('dropZone');
+        if (dropZone) {
+            dropZone.setAttribute('aria-label', 'منطقة الرفع. اسحب وأفلت صورة PNG هنا أو انقر لتصفح الملفات.');
+        }
+
+        const dropZoneContent = doc.getElementById('dropZoneContent');
+        if (dropZoneContent) {
+            const paragraphs = dropZoneContent.querySelectorAll('p.text');
+            if (paragraphs.length >= 3) {
+                paragraphs[0].textContent = 'اسحب وأفلت صورة PNG هنا';
+                paragraphs[1].innerHTML = 'أو <span class="browse-btn" id="browseBtn">تصفح الملفات</span>';
+                paragraphs[2].textContent = 'الصيغ المدعومة: PNG، JPG، SVG، WEBP، GIF (الحد الأقصى: 5 ميجابايت)';
+            }
+        }
+
+        // Trust badges
+        const badgePrivate = doc.getElementById('badge-private');
+        if (badgePrivate) badgePrivate.textContent = '🔒 خصوصية تامة 100%';
+
+        const badgeInstant = doc.getElementById('badge-instant');
+        if (badgeInstant) badgeInstant.textContent = '⚡ تحويل فوري';
+
+        const badgeSizes = doc.getElementById('badge-sizes');
+        if (badgeSizes) badgeSizes.textContent = '📦 جميع الأحجام مضمنة';
+
+        const badgeFree = doc.getElementById('badge-free');
+        if (badgeFree) badgeFree.textContent = '💰 مجاني بالكامل';
+
+        // Head SEO metadata
+        doc.title = 'محول PNG إلى Favicon المجاني | PNGtoFavicon';
+        
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) {
+            metaDesc.setAttribute('content', 'قم بتحويل أي صورة بصيغة PNG إلى حزمة Favicon متكاملة في لحظات. مجاني، سريع، ويعمل بالكامل داخل متصفحك.');
+        }
+        
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'محول PNG إلى Favicon المجاني | PNGtoFavicon');
+
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'قم بتحويل أي صورة بصيغة PNG إلى حزمة Favicon متكاملة في لحظات. مجاني، سريع، ويعمل بالكامل داخل متصفحك.');
+
+        const twitterTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute('content', 'محول PNG إلى Favicon المجاني | PNGtoFavicon');
+
+        const twitterDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twitterDesc) twitterDesc.setAttribute('content', 'قم بتحويل أي صورة بصيغة PNG إلى حزمة Favicon متكاملة في لحظات. مجاني، سريع، ويعمل بالكامل داخل متصفحك.');
+    }
 
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
