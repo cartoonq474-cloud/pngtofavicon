@@ -1792,6 +1792,578 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic emoji-to-favicon page translation
+    if (targetLang === 'ar' && normPath === 'emoji-to-favicon/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'مولّد الرموز التعبيرية إلى Favicon — أداة مجانية عبر الإنترنت | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'حوّل الرمز التعبيري المفضل لديك إلى حزمة أيقونة favicon كاملة. اختر الرمز، ونسق إطار الخلفية، وقم بتنزيل كافة الأحجام بنقرة واحدة.');
+
+        // H1
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'مولّد <span class="gradient-text">الرموز التعبيرية</span> إلى Favicon';
+        }
+
+        // Subtitle
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'حوّل الرمز التعبيري المفضل لديك إلى حزمة أيقونة favicon كاملة. اختر الرمز، ونسق إطار الخلفية، وقم بتنزيل كافة الأحجام بنقرة واحدة.';
+        }
+
+        // Badges
+        const badgeFree = doc.getElementById('badge-free');
+        if (badgeFree) badgeFree.textContent = '💰 مجاني 100%';
+        const badgeEmojis = doc.getElementById('badge-emojis');
+        if (badgeEmojis) badgeEmojis.textContent = '🚀 أكثر من 1000 رمز تعبيري';
+        const badgeStyle = doc.getElementById('badge-style');
+        if (badgeStyle) badgeStyle.textContent = '⚙️ تنسيق تفاعلي';
+        const badgePrivate = doc.getElementById('badge-private');
+        if (badgePrivate) badgePrivate.textContent = '🔒 خاص وآمن 100%';
+
+        // Controls Card / Settings Card Title
+        const controlsTitle = doc.querySelector('.controls-card h3');
+        if (controlsTitle) controlsTitle.textContent = '🚀 اختر ونسق الرمز التعبيري';
+
+        // Labels
+        doc.querySelectorAll('label').forEach(label => {
+            const text = label.textContent.trim();
+            if (text.includes('Selected Emoji')) {
+                label.childNodes[0].textContent = 'الرمز التعبيري المحدد';
+            } else if (text.includes('Background Color')) {
+                label.textContent = 'لون الخلفية';
+            } else if (text.includes('Keep transparent (Icon only)')) {
+                label.childNodes[1].textContent = 'خلفية شفافة (أيقونة فقط)';
+            } else if (text.includes('Background Shape')) {
+                label.textContent = 'شكل الخلفية';
+            } else if (text.includes('Emoji Scale')) {
+                label.textContent = 'حجم الرمز التعبيري';
+            } else if (text.includes('Include site.webmanifest')) {
+                label.childNodes[1].textContent = 'تضمين ملف site.webmanifest (PWA)';
+            }
+        });
+
+        // Select Options
+        doc.querySelectorAll('select option').forEach(opt => {
+            const text = opt.textContent.trim();
+            if (text === 'Circle') opt.textContent = 'دائرة';
+            else if (text === 'Rounded Square') opt.textContent = 'مربع بحواف مستديرة';
+            else if (text === 'Square') opt.textContent = 'مربع';
+        });
+
+        // Preview Title
+        const previewCol = doc.querySelector('.preview-col');
+        if (previewCol) {
+            const h3 = previewCol.querySelector('h3');
+            if (h3) h3.textContent = '📦 المعاينة المباشرة';
+            
+            const zipBtn = previewCol.querySelector('#downloadZip');
+            if (zipBtn) zipBtn.textContent = 'تنزيل حزمة Favicon (ZIP)';
+        }
+
+        // Copy panel
+        const codeCol = doc.querySelector('.code-col');
+        if (codeCol) {
+            const h3 = codeCol.querySelector('h3');
+            if (h3) h3.textContent = '🔗 نسخ ولصق كود HTML';
+            
+            const p = codeCol.querySelector('p');
+            if (p) p.textContent = 'أضف هذا الكود إلى قسم <head> في صفحة HTML الخاصة بك:';
+
+            const copyBtn = codeCol.querySelector('#copyCode');
+            if (copyBtn) copyBtn.textContent = 'نسخ';
+        }
+
+        // Section 3: How This Tool Works
+        let howItWorksSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('How this Emoji to Favicon')) {
+                howItWorksSec = sec;
+            }
+        });
+
+        if (howItWorksSec) {
+            const h2 = howItWorksSec.querySelector('h2');
+            if (h2) h2.textContent = 'كيف تعمل أداة تحويل الرموز التعبيرية إلى Favicon؟';
+
+            const p = howItWorksSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'تعالج الأداة كل شيء محليًا داخل متصفحك بنسبة 100%، مما يضمن السرعة والخصوصية والأمان.';
+
+            const steps = howItWorksSec.querySelectorAll('.step-card');
+            if (steps.length >= 4) {
+                // Step 1
+                const h3_1 = steps[0].querySelector('h3');
+                const p_1 = steps[0].querySelector('p');
+                if (h3_1) h3_1.textContent = '1. الرسم الفوري باستخدام Canvas';
+                if (p_1) p_1.textContent = 'تستخدم الأداة HTML5 Canvas لرسم الخلفيات والرموز التعبيرية الأصلية للنظام في الوقت الفعلي مباشرة داخل متصفحك، مما يتيح معاينة فورية لأي تغييرات.';
+
+                // Step 2
+                const h3_2 = steps[1].querySelector('h3');
+                const p_2 = steps[1].querySelector('p');
+                if (h3_2) h3_2.textContent = '2. إنشاء ملف ICO ثنائي';
+                if (p_2) p_2.textContent = 'بدلاً من الاعتماد على أدوات خارجية، يقوم البرنامج بتجميع ملف favicon.ico الثنائي المتوافق مباشرة من مصفوفات البايت الخاصة بالصور.';
+
+                // Step 3
+                const h3_3 = steps[2].querySelector('h3');
+                const p_3 = steps[2].querySelector('p');
+                if (h3_3) h3_3.textContent = '3. إنشاء حزمة ZIP';
+                if (p_3) p_3.textContent = 'تُجمع جميع الأحجام وملف site.webmanifest ديناميكيًا داخل حزمة ZIP باستخدام JSZip، وكل ذلك محليًا داخل المتصفح.';
+
+                // Step 4
+                const h3_4 = steps[3].querySelector('h3');
+                const p_4 = steps[3].querySelector('p');
+                if (h3_4) h3_4.textContent = '4. التنزيل مباشرة من المتصفح';
+                if (p_4) p_4.textContent = 'تُحوَّل الحزمة إلى رابط Blob URL مؤقت، مما يتيح تنزيلًا فوريًا وآمنًا دون أي تفاعل مع الخوادم أو المساس بخصوصيتك.';
+            }
+
+            const footerBadge = howItWorksSec.querySelector('.section-footer .badge');
+            if (footerBadge) footerBadge.textContent = 'أصول مجانية وآمنة للمطورين بنسبة 100%';
+        }
+
+        // Section 4: Why Generate
+        let whyGenerateSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Why Generate Emoji Favicons')) {
+                whyGenerateSec = sec;
+            }
+        });
+
+        if (whyGenerateSec) {
+            const h2 = whyGenerateSec.querySelector('h2');
+            if (h2) h2.textContent = 'لماذا تنشئ Favicon من الرموز التعبيرية هنا؟';
+
+            const p = whyGenerateSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'أداة مجانية متقدمة لإنشاء Favicons احترافية ومتوافقة مع جميع المتصفحات، بدقة عالية وسرعة فائقة.';
+
+            const features = whyGenerateSec.querySelectorAll('.feature-card');
+            if (features.length >= 6) {
+                // 1
+                const h3_1 = features[0].querySelector('h3');
+                const p_1 = features[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'محرك فوري يعمل داخل المتصفح';
+                if (p_1) p_1.textContent = 'أنشئ حزم Favicon في أجزاء من الثانية باستخدام قوة المعالجة المحلية داخل متصفحك.';
+
+                // 2
+                const h3_2 = features[1].querySelector('h3');
+                const p_2 = features[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'إعادة تحجيم دقيقة على مستوى البكسل';
+                if (p_2) p_2.textContent = 'تقنية تصغير عالية الدقة تحافظ على وضوح الحواف ودقة التفاصيل حتى عند أحجام 16×16 بكسل.';
+
+                // 3
+                const h3_3 = features[2].querySelector('h3');
+                const p_3 = features[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'يدعم جميع تنسيقات الصور';
+                if (p_3) p_3.textContent = 'يعمل بسلاسة مع PNG وJPG وSVG وWEBP وGIF وغيرها من تنسيقات الصور الشائعة.';
+
+                // 4
+                const h3_4 = features[3].querySelector('h3');
+                const p_4 = features[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'دعم شامل لجميع الأجهزة';
+                if (p_4) p_4.textContent = 'ينشئ ملفات ICO التقليدية، وأيقونات Apple Touch وأيقونات Android Chrome وPWA في حزمة ZIP واحدة.';
+
+                // 5
+                const h3_5 = features[4].querySelector('h3');
+                const p_5 = features[4].querySelector('p');
+                if (h3_5) h3_5.textContent = 'آمن وخاص بنسبة 100%';
+                if (p_5) p_5.textContent = 'تتم معالجة الصور بالكامل محلياً. لا يتم رفع ملفاتك إلى أي خادم، مما يضمن سرية أصولك تماماً.';
+
+                // 6
+                const h3_6 = features[5].querySelector('h3');
+                const p_6 = features[5].querySelector('p');
+                if (h3_6) h3_6.textContent = 'مجاني بالكامل ومفتوح للجميع';
+                if (p_6) p_6.textContent = 'لا يلزم التسجيل أو البريد الإلكتروني. وصول غير محدود لجميع أدوات المطورين مجاناً.';
+            }
+
+            const footerBadge = whyGenerateSec.querySelector('.section-footer .badge');
+            if (footerBadge) footerBadge.textContent = 'ميزات قوية بين يديك';
+        }
+
+        // Section 5: Use Cases
+        let useCasesSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Perfect for Every Use Case')) {
+                useCasesSec = sec;
+            }
+        });
+
+        if (useCasesSec) {
+            const h2 = useCasesSec.querySelector('h2');
+            if (h2) h2.textContent = 'مثالي لجميع الاستخدامات';
+
+            const p = useCasesSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'اكتشف كيف يساعدك مولد Emoji to Favicon في مختلف السيناريوهات.';
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                // 1
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'مطورو الويب';
+                if (p_1) p_1.textContent = 'أنشئ بسرعة جميع أحجام favicon المطلوبة لمشاريع الويب الخاصة بك من رمز تعبيري بسيط.';
+
+                // 2
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'مصممو UI/UX';
+                if (p_2) p_2.textContent = 'تأكد من أن هوية علامتك التجارية تبدو واضحة ومثالية عبر جميع علامات تبويب المتصفح وشاشات الأجهزة.';
+
+                // 3
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'المدونون وصناع المحتوى';
+                if (p_3) p_3.textContent = 'قم بتخصيص مدونتك الشخصية أو معرض أعمالك بسهولة مع أيقونة احترافية خلال ثوانٍ معدودة.';
+
+                // 4
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'أصحاب الأعمال';
+                if (p_4) p_4.textContent = 'امنح موقعك مظهراً أكثر تميزاً واحترافية باستخدام Favicon عالية الجودة تعزز ثقة الزوار.';
+            }
+
+            const footerBadge = useCasesSec.querySelector('.section-footer .badge');
+            if (footerBadge) footerBadge.textContent = 'موثوق به من قبل محترفين حول العالم';
+        }
+
+        // Section 6: Comparison Table
+        let compSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Emoji Favicon Generator vs Other Tools')) {
+                compSec = sec;
+            }
+        });
+
+        if (compSec) {
+            const h2 = compSec.querySelector('h2');
+            if (h2) h2.textContent = 'مقارنةً بالأدوات الأخرى';
+
+            const subtitle = compSec.querySelector('.section-subtitle');
+            if (subtitle) subtitle.textContent = 'اطّلع على كيفية تفوق أداتنا على مولدات Favicon الأخرى.';
+
+            const headers = compSec.querySelectorAll('th');
+            if (headers.length >= 3) {
+                headers[0].textContent = 'الميزة';
+                headers[1].textContent = 'أداتنا (Emoji to Favicon)';
+                headers[2].textContent = 'الأدوات الأخرى';
+            }
+
+            const rows = compSec.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const td = row.querySelector('td');
+                if (td) {
+                    const text = td.textContent.trim();
+                    if (text === 'Price') td.textContent = 'السعر';
+                    else if (text === 'Privacy') td.textContent = 'الخصوصية';
+                    else if (text === 'Speed') td.textContent = 'السرعة';
+                    else if (text === 'File Formats') td.textContent = 'تنسيقات الملفات';
+                    else if (text === 'Registration') td.textContent = 'التسجيل';
+                    else if (text === 'Platform Support') td.textContent = 'دعم الأجهزة';
+                    else if (text === 'HTML Code') td.textContent = 'كود HTML';
+                    else if (text === 'Open Source') td.textContent = 'مفتوح المصدر';
+                }
+
+                const cells = row.querySelectorAll('td');
+                if (cells.length >= 3) {
+                    // Translate our tool cells
+                    const textOur = cells[1].textContent.trim();
+                    if (textOur === 'Free') cells[1].textContent = 'مجاني 100%';
+                    else if (textOur === '100% Client-side (Safe)') cells[1].textContent = 'آمن بالكامل (محلي)';
+                    else if (textOur === 'Instant (ms)') cells[1].textContent = 'فوري (أجزاء من الثانية)';
+                    else if (textOur === 'ICO, PNG, Webmanifest') cells[1].textContent = 'ICO, PNG, Webmanifest';
+                    else if (textOur === 'No account required') cells[1].textContent = 'لا يلزم حساب';
+                    else if (textOur === 'iOS, Android, Browsers') cells[1].textContent = 'iOS، Android، المتصفحات';
+                    else if (textOur === 'Auto-generated') cells[1].textContent = 'يتم إنشاؤه تلقائياً';
+                    else if (textOur === 'Yes') cells[1].textContent = 'نعم';
+
+                    // Translate other tools cells
+                    const textOther = cells[2].textContent.trim();
+                    if (textOther === 'Often Paid / Ads') cells[2].textContent = 'مدفوع غالباً / إعلانات';
+                    else if (textOther === 'Uploads to server') cells[2].textContent = 'يرفع الملفات إلى خوادم';
+                    else if (textOther === 'Slow (Server queue)') cells[2].textContent = 'بطيء (انتظار الخادم)';
+                    else if (textOther === 'ICO only') cells[2].textContent = 'ICO فقط';
+                    else if (textOther === 'Requires email') cells[2].textContent = 'يتطلب البريد الإلكتروني';
+                    else if (textOther === 'Basic browser support') cells[2].textContent = 'دعم أساسي للمتصفح فقط';
+                    else if (textOther === 'None or manual') cells[2].textContent = 'لا يوجد أو يدوي';
+                    else if (textOther === 'No') cells[2].textContent = 'لا';
+                }
+            });
+        }
+
+        // Section 7: Testimonials
+        let testimonialsSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) {
+                testimonialsSec = sec;
+            }
+        });
+
+        if (testimonialsSec) {
+            const h2 = testimonialsSec.querySelector('h2');
+            if (h2) h2.textContent = 'ماذا يقول مستخدمونا؟';
+
+            const p = testimonialsSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'يثق أكثر من 50,000 مطور ومصمم وصانع محتوى في PNGtoFavicon لإنجاز مشاريعهم.';
+
+            const cards = testimonialsSec.querySelectorAll('.testimonial-card');
+            cards.forEach(card => {
+                const authorRole = card.querySelector('.author-role');
+                if (authorRole) {
+                    const roleText = authorRole.textContent.trim();
+                    if (roleText === 'Frontend Developer') authorRole.textContent = 'مطوّر واجهات أمامية';
+                    else if (roleText === 'UI/UX Designer') authorRole.textContent = 'مصممة UI/UX';
+                    else if (roleText === 'Indie Hacker') authorRole.textContent = 'مطور مستقل (Indie Hacker)';
+                    else if (roleText === 'Agency Owner') authorRole.textContent = 'صاحب وكالة تصميم';
+                    else if (roleText === 'Full Stack Dev') authorRole.textContent = 'مطور Full Stack';
+                    else if (roleText === 'Product Manager') authorRole.textContent = 'مدير منتج';
+                    else if (roleText === 'Software Engineer') authorRole.textContent = 'مهندس برمجيات';
+                    else if (roleText === 'Marketing Director') authorRole.textContent = 'مديرة تسويق';
+                    else if (roleText === 'Startup Founder') authorRole.textContent = 'مؤسس شركة ناشئة';
+                    else if (roleText === 'Freelance Web Designer') authorRole.textContent = 'مصمم ويب مستقل';
+                    else if (roleText === 'CTO') authorRole.textContent = 'مدير تكنولوجيا (CTO)';
+                    else if (roleText === 'Blogger') authorRole.textContent = 'مدون';
+                }
+
+                const quote = card.querySelector('p');
+                if (quote) {
+                    const text = quote.textContent.trim();
+                    if (text.includes("fastest way to get a clean favicon")) {
+                        quote.textContent = 'أسرع طريقة للحصول على أيقونة favicon نظيفة للمشاريع التجريبية السريعة. أحب مدى سرعة التخصيص!';
+                    } else if (text.includes("The transparency support is flawless")) {
+                        quote.textContent = 'دعم الشفافية لا تشوبه شائبة. الرمز التعبيري على لوح رسم شفاف تبدو مذهلة تماماً.';
+                    } else if (text.includes("No subscriptions, no watermarks")) {
+                        quote.textContent = 'لا اشتراكات، ولا علامات مائية. أداة ممتازة ومباشرة للمطورين!';
+                    } else if (text.includes("Having the site.webmanifest auto-generated")) {
+                        quote.textContent = 'توليد ملف site.webmanifest تلقائياً يوفر الكثير من الوقت لأجهزة Android.';
+                    } else if (text.includes("We build dozens of client landing pages")) {
+                        quote.textContent = 'نبني عشرات الصفحات الهبوط لعملائنا، وهذه الأداة أصبحت خيارنا الأساسي لإنشاء أيقونات favicon فورية.';
+                    } else if (text.includes("Clean code output and immediate zip downloads")) {
+                        quote.textContent = 'مخرجات كود نظيفة وتنزيل ملف zip فوري. أداة رائعة ومتقنة جداً!';
+                    } else if (text.includes("Perfect for bootstrapping new ideas")) {
+                        quote.textContent = 'مثالية لإطلاق الأفكار الجديدة بسرعة. بضع ثوانٍ والـ favicon جاهزة بالكامل.';
+                    } else if (text.includes("Love the simple user interface")) {
+                        quote.textContent = 'أعشق واجهة المستخدم البسيطة. لا تعقيد، فقط اختر الرمز التعبيري وقم بالتنزيل.';
+                    } else if (text.includes("It has saved me so much time")) {
+                        quote.textContent = 'لقد وفرت علي الكثير من الوقت مقارنة بفتح Photoshop لقص وتصدير الأيقونات.';
+                    } else if (text.includes("Beautifully designed and extremely fast")) {
+                        quote.textContent = 'تصميم جميل وسريع للغاية. أداة خفيفة ومريحة جداً للاستخدام.';
+                    } else if (text.includes("The Apple Touch Icon size works perfectly")) {
+                        quote.textContent = 'حجم أيقونة Apple Touch يعمل بشكل مثالي على أجهزة iOS. ممتاز!';
+                    } else if (text.includes("Highly recommended tool for any blogger")) {
+                        quote.textContent = 'أداة موصى بها بشدة لأي مدون يريد تخصيص موقعه في ثوانٍ.';
+                    }
+                }
+            });
+        }
+
+        // Section 8: What's Included in Your Download
+        let whatsIncludedSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes("What's Included in Your Download")) {
+                whatsIncludedSec = sec;
+            }
+        });
+
+        if (whatsIncludedSec) {
+            const h2 = whatsIncludedSec.querySelector('h2');
+            if (h2) h2.textContent = 'ما الذي تتضمنه حزمة التنزيل؟';
+
+            const subtitle = whatsIncludedSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'كل الملفات التي تحتاجها لضمان دعم كامل لـ Favicon عبر جميع المتصفحات والأجهزة.';
+
+            // favicon.ico
+            const fcIco = whatsIncludedSec.querySelector('#file-ico');
+            if (fcIco) {
+                const badge = fcIco.querySelector('.file-badge');
+                const p = fcIco.querySelector('p');
+                if (badge) badge.textContent = 'ICO';
+                if (p) p.innerHTML = 'تنسيق <strong>ICO</strong> الكلاسيكي متعدد الأحجام، ويحتوي على أيقونات بمقاسات <strong>16×16</strong> و<strong>32×32</strong> و<strong>48×48</strong> بكسل. مطلوب لدعم المتصفحات القديمة.';
+            }
+
+            // favicon-16
+            const fc16 = whatsIncludedSec.querySelector('#file-png-16');
+            if (fc16) {
+                const badge = fc16.querySelector('.file-badge');
+                const p = fc16.querySelector('p');
+                if (badge) badge.textContent = '16';
+                if (p) p.innerHTML = 'أيقونة متصفح قياسية بمقاس <strong>16×16</strong> بكسل لعلامات التبويب. تستخدمها معظم المتصفحات كأيقونة رئيسية.';
+            }
+
+            // favicon-32
+            const fc32 = whatsIncludedSec.querySelector('#file-png-32');
+            if (fc32) {
+                const badge = fc32.querySelector('.file-badge');
+                const p = fc32.querySelector('p');
+                if (badge) badge.textContent = '32';
+                if (p) p.innerHTML = 'أيقونة متصفح عالية الدقة بمقاس <strong>32×32</strong> بكسل لعلامات التبويب، تُعرض على شاشات <strong>Retina</strong> و<strong>HiDPI</strong> لمنح وضوح إضافي.';
+            }
+
+            // apple-touch
+            const fcApple = whatsIncludedSec.querySelector('#file-apple');
+            if (fcApple) {
+                const badge = fcApple.querySelector('.file-badge');
+                const p = fcApple.querySelector('p');
+                if (badge) badge.textContent = '180';
+                if (p) p.innerHTML = 'أيقونة <strong>Apple Touch</strong> بمقاس <strong>180×180</strong> بكسل لأجهزة <strong>iPhone</strong> و<strong>iPad</strong>، تُعرض عند إضافة الموقع إلى الشاشة الرئيسية.';
+            }
+
+            // android-chrome-192
+            const fc192 = whatsIncludedSec.querySelector('#file-android-192');
+            if (fc192) {
+                const badge = fc192.querySelector('.file-badge');
+                const p = fc192.querySelector('p');
+                if (badge) badge.textContent = '192';
+                if (p) p.innerHTML = 'أيقونة الشاشة الرئيسية لنظام <strong>Android</strong> بحجم <strong>192×192</strong> بكسل، تُستخدم عند إضافة الموقع إلى الشاشة الرئيسية عبر <strong>Chrome</strong>.';
+            }
+
+            // android-chrome-512
+            const fc512 = whatsIncludedSec.querySelector('#file-android-512');
+            if (fc512) {
+                const badge = fc512.querySelector('.file-badge');
+                const p = fc512.querySelector('p');
+                if (badge) badge.textContent = '512';
+                if (p) p.innerHTML = 'أيقونة <strong>PWA</strong> عالية الدقة بحجم <strong>512×512</strong> بكسل، مطلوبة لتطبيقات الويب التقدمية وشاشات البدء.';
+            }
+
+            // site.webmanifest
+            const fcManifest = whatsIncludedSec.querySelector('#file-manifest');
+            if (fcManifest) {
+                const badge = fcManifest.querySelector('.file-badge');
+                const p = fcManifest.querySelector('p');
+                if (badge) badge.textContent = 'JSON';
+                if (p) p.innerHTML = 'ملف <strong>Web App Manifest</strong> الذي يحتوي على مراجع الأيقونات ولون السمة ولون الخلفية، ويُعد عنصرًا أساسيًا لدعم <strong>PWA</strong> والتكامل مع الشاشة الرئيسية في <strong>Android</strong>.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) {
+                faqSec = sec;
+            }
+        });
+
+        if (faqSec) {
+            const title = faqSec.querySelector('h2');
+            if (title) title.textContent = 'الأسئلة الشائعة';
+
+            const subtitle = faqSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'اعثر على إجابات للأسئلة الشائعة حول خدمة تحويل أيقونات المواقع الخاصة بنا';
+
+            const items = faqSec.querySelectorAll('.faq-item');
+            if (items.length >= 4) {
+                // Item 1
+                const q_1 = items[0].querySelector('summary h3') || items[0].querySelector('summary');
+                const a_1 = items[0].querySelector('.faq-answer');
+                if (q_1) q_1.textContent = 'لماذا أستخدم رمزاً تعبيرياً (Emoji) كأيقونة موقع؟';
+                if (a_1) a_1.textContent = 'تعد أيقونات الرموز التعبيرية (Emoji) ممتعة ومعبرة وسهلة التعرف عليها على الفور. وهي رائعة لأدوات المطورين، والمدونات الشخصية، ومشاريع SaaS، وتطبيقات الويب الخفيفة. ونظراً لأن الرموز التعبيرية قياسية للغاية، فإنها تبدو متسقة عبر شاشات العرض المتنوعة.';
+
+                // Item 2
+                const q_2 = items[1].querySelector('summary h3') || items[1].querySelector('summary');
+                const a_2 = items[1].querySelector('.faq-answer');
+                if (q_2) q_2.textContent = 'هل تعمل هذه الأداة مع الرموز التعبيرية المخصصة للنظام؟';
+                if (a_2) a_2.textContent = 'نعم! يمكنك كتابة أو لصق أي رمز تعبيري مفرد مباشرة في حقل "الرمز التعبيري المحدد"، وسيقوم لوح الرسم الخاص بنا برسمه على الفور.';
+
+                // Item 3
+                const q_3 = items[2].querySelector('summary h3') || items[2].querySelector('summary');
+                const a_3 = items[2].querySelector('.faq-answer');
+                if (q_3) q_3.textContent = 'هل يمكنني جعل الخلفية شفافة؟';
+                if (a_3) a_3.textContent = 'نعم. حدد خيار "خلفية شفافة (أيقونة فقط)"، وستقوم الأداة برسم الرمز التعبيري مباشرة على لوح رسم شفاف، وحفظه كملفات PNG شفافة.';
+
+                // Item 4
+                const q_4 = items[3].querySelector('summary h3') || items[3].querySelector('summary');
+                const a_4 = items[3].querySelector('.faq-answer');
+                if (q_4) q_4.textContent = 'هل هذه الأيقونات مجانية للاستخدام التجاري؟';
+                if (a_4) a_4.textContent = 'الرموز التعبيرية الأصلية للنظام التي يتم رسمها على لوح الرسم هي خطوط نظام قياسية، وهي آمنة للنشر والاستخدام الشخصي والتجاري على الويب.';
+            }
+        }
+
+        // CTA Section
+        let ctaSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Start Converting PNG to Favicon')) {
+                ctaSec = sec;
+            }
+        });
+
+        if (ctaSec) {
+            const h2 = ctaSec.querySelector('h2');
+            if (h2) h2.textContent = 'ابدأ بتحويل PNG إلى Favicon مجاناً اليوم';
+
+            const p = ctaSec.querySelector('p');
+            if (p) p.textContent = 'انضم إلى أكثر من 50,000 مستخدم يثقون بموقع PNGtoFavicon.com لإنشاء أيقونات دقيقة وسريعة ومجانية تماماً.';
+
+            const btn = ctaSec.querySelector('.btn');
+            if (btn) btn.textContent = 'ابدأ التحويل الآن - إنه مجاني!';
+        }
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                waLink.childNodes.forEach(node => {
+                    if (node.nodeType === 3 && node.textContent.trim().includes('Chat on WhatsApp')) {
+                        node.textContent = 'دردشة عبر واتساب';
+                    }
+                });
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
