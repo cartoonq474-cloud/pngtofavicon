@@ -419,6 +419,62 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+
+        // How It Works Section
+        const stepsContainer = doc.querySelector('.steps');
+        if (stepsContainer) {
+            const section = stepsContainer.parentElement;
+            if (section) {
+                const title = section.querySelector('h2.section-title');
+                if (title) title.textContent = 'كيف يعمل محول PNG إلى Favicon؟';
+
+                const subtitle = section.querySelector('p.section-subtitle');
+                if (subtitle) subtitle.textContent = 'اكتشف التقنية المتقدمة التي تعمل بالكامل داخل متصفحك لإنشاء أيقونات Favicon بأمان، دون الحاجة إلى تحميل ملفاتك إلى أي خادم.';
+
+                const steps = stepsContainer.querySelectorAll('.step');
+                if (steps.length >= 5) {
+                    // Step 1
+                    const h3_1 = steps[0].querySelector('h3');
+                    const p_1 = steps[0].querySelector('p');
+                    if (h3_1) h3_1.textContent = '1. قراءة الملف محليًا';
+                    if (p_1) p_1.innerHTML = 'بمجرد سحب صورة PNG وإفلاتها أو اختيارها من جهازك، يستخدم المتصفح واجهة <strong>HTML5 FileReader API</strong> لقراءة الملف محليًا وتحويله إلى تدفق بيانات آمن داخل الذاكرة، دون إرسال أي جزء منه إلى خوادم خارجية.';
+
+                    // Step 2
+                    const h3_2 = steps[1].querySelector('h3');
+                    const p_2 = steps[1].querySelector('p');
+                    if (h3_2) h3_2.textContent = '2. تصغير الصورة خارج الشاشة';
+                    if (p_2) p_2.innerHTML = 'لإنشاء جميع الأحجام المطلوبة، يستخدم المحول عناصر <strong>HTML5 Canvas</strong> مخفية تعمل خارج الشاشة. ويطبّق خوارزميات تصغير عالية الجودة للحفاظ على وضوح الشعار وحدة الحواف عند جميع المقاسات.';
+
+                    // Step 3
+                    const h3_3 = steps[2].querySelector('h3');
+                    const p_3 = steps[2].querySelector('p');
+                    if (h3_3) h3_3.textContent = '3. معالجة خيارات التخصيص';
+                    if (p_3) p_3.textContent = 'عند تخصيص الإعدادات، يتم تعديل عملية معالجة الصورة تلقائيًا. فعند تعطيل الشفافية، يُضاف لون خلفية ثابت، بينما يؤدي تفعيل الزوايا المستديرة إلى تطبيق قناع دائري يمنح الأيقونة مظهرًا أكثر سلاسة.';
+
+                    // Step 4
+                    const h3_4 = steps[3].querySelector('h3');
+                    const p_4 = steps[3].querySelector('p');
+                    if (h3_4) h3_4.textContent = '4. إنشاء ملف ICO';
+                    if (p_4) p_4.innerHTML = 'يتم إنشاء ملف <strong>ICO</strong> متعدد الأحجام بالكامل داخل متصفحك. حيث تُنشئ الأداة رؤوس الملف، وتكتب بيانات دليل <strong>ICO</strong>، ثم تجمع بيانات صور <strong>PNG</strong> في ملف واحد باستخدام معالجة ثنائية مباشرة.';
+
+                    // Step 5
+                    const h3_5 = steps[4].querySelector('h3');
+                    const p_5 = steps[4].querySelector('p');
+                    if (h3_5) h3_5.textContent = '5. ضغط الملفات وتنزيلها';
+                    if (p_5) p_5.innerHTML = 'تُجمع جميع الملفات، بما في ذلك ملف <strong>site.webmanifest</strong>، داخل حزمة <strong>ZIP</strong> باستخدام <strong>JSZip</strong>. يتم إنشاء الحزمة محليًا داخل المتصفح، ثم يُنشأ رابط تنزيل مؤقت لبدء حفظ الملف على جهازك.';
+                }
+
+                // Footer badge text
+                const stepsBadgeFooter = section.querySelector('.steps-badge');
+                if (stepsBadgeFooter) {
+                    stepsBadgeFooter.childNodes.forEach(node => {
+                        if (node.nodeType === 3 && node.textContent.trim().includes('Ready in seconds')) {
+                            node.textContent = ' جاهز خلال ثوانٍ، مع معالجة محلية بالكامل بنسبة 100%';
+                        }
+                    });
+                }
+            }
+        }
     }
 
     // Translate Head elements (title and meta tags)

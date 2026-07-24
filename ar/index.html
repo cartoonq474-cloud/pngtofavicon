@@ -478,8 +478,8 @@
 
     <section class="section section-alt" id="how-it-works">
       <div class="container text-center">
-        <h2 class="section-title">How Our PNG to Favicon Converter Works</h2>
-        <p class="section-subtitle">Discover the advanced browser-based technology we use to generate your favicons securely</p>
+        <h2 class="section-title">كيف يعمل محول PNG إلى Favicon؟</h2>
+        <p class="section-subtitle">اكتشف التقنية المتقدمة التي تعمل بالكامل داخل متصفحك لإنشاء أيقونات Favicon بأمان، دون الحاجة إلى تحميل ملفاتك إلى أي خادم.</p>
         
         <div class="steps">
           <!-- Step 1 -->
@@ -497,8 +497,8 @@
               </svg>
             </div>
             <div class="step-number-badge">1</div>
-            <h3>Local File Reading</h3>
-            <p>Once you drag &amp; drop or browse your PNG image, the browser utilizes the HTML5 FileReader API to read your file locally, converting it to a secure in-memory data stream without uploading a single byte to external servers.</p>
+            <h3>1. قراءة الملف محليًا</h3>
+            <p>بمجرد سحب صورة PNG وإفلاتها أو اختيارها من جهازك، يستخدم المتصفح واجهة <strong>HTML5 FileReader API</strong> لقراءة الملف محليًا وتحويله إلى تدفق بيانات آمن داخل الذاكرة، دون إرسال أي جزء منه إلى خوادم خارجية.</p>
           </div>
           
           <!-- Step 2 -->
@@ -510,8 +510,8 @@
               </svg>
             </div>
             <div class="step-number-badge">2</div>
-            <h3>Offscreen Downscaling</h3>
-            <p>To generate all necessary resolutions, the tool spins up hidden, offscreen HTML5 Canvas elements. It applies bilinear interpolation filters to scale down your logo while maintaining crisp, sharp contours.</p>
+            <h3>2. تصغير الصورة خارج الشاشة</h3>
+            <p>لإنشاء جميع الأحجام المطلوبة، يستخدم المحول عناصر <strong>HTML5 Canvas</strong> مخفية تعمل خارج الشاشة. ويطبّق خوارزميات تصغير عالية الجودة للحفاظ على وضوح الشعار وحدة الحواف عند جميع المقاسات.</p>
           </div>
           
           <!-- Step 3 -->
@@ -523,8 +523,8 @@
               </svg>
             </div>
             <div class="step-number-badge">3</div>
-            <h3>Options Processing</h3>
-            <p>If you customize settings, the canvas modifies the rendering stack. Toggling off transparency paints a solid background layer, and rounded corners apply a circular clipping mask over the bounding box.</p>
+            <h3>3. معالجة خيارات التخصيص</h3>
+            <p>عند تخصيص الإعدادات، يتم تعديل عملية معالجة الصورة تلقائيًا. فعند تعطيل الشفافية، يُضاف لون خلفية ثابت، بينما يؤدي تفعيل الزوايا المستديرة إلى تطبيق قناع دائري يمنح الأيقونة مظهرًا أكثر سلاسة.</p>
           </div>
 
           <!-- Step 4 -->
@@ -536,8 +536,8 @@
               </svg>
             </div>
             <div class="step-number-badge">4</div>
-            <h3>Binary ICO Compilation</h3>
-            <p>A multi-size .ico file is compiled directly in your browser. The script allocates memory headers, writes the ICO directory entry parameters, and concatenates raw PNG data streams using byte-level writer tools.</p>
+            <h3>4. إنشاء ملف ICO</h3>
+            <p>يتم إنشاء ملف <strong>ICO</strong> متعدد الأحجام بالكامل داخل متصفحك. حيث تُنشئ الأداة رؤوس الملف، وتكتب بيانات دليل <strong>ICO</strong>، ثم تجمع بيانات صور <strong>PNG</strong> في ملف واحد باستخدام معالجة ثنائية مباشرة.</p>
           </div>
 
           <!-- Step 5 -->
@@ -550,16 +550,14 @@
               </svg>
             </div>
             <div class="step-number-badge">5</div>
-            <h3>ZIP Compressing &amp; Download</h3>
-            <p>The files and site.webmanifest schema are loaded into a virtual folder using JSZip. The browser builds the package locally, registers a temporary URL reference, and triggers a prompt to save the ZIP.</p>
+            <h3>5. ضغط الملفات وتنزيلها</h3>
+            <p>تُجمع جميع الملفات، بما في ذلك ملف <strong>site.webmanifest</strong>، داخل حزمة <strong>ZIP</strong> باستخدام <strong>JSZip</strong>. يتم إنشاء الحزمة محليًا داخل المتصفح، ثم يُنشأ رابط تنزيل مؤقت لبدء حفظ الملف على جهازك.</p>
           </div>
         </div>
 
         <div class="steps-badge-container">
           <div class="steps-badge">
-            <span class="badge-dot"></span>
-            Ready in seconds, 100% client-side conversion
-          </div>
+            <span class="badge-dot"></span> جاهز خلال ثوانٍ، مع معالجة محلية بالكامل بنسبة 100%</div>
         </div>
       </div>
     </section>
