@@ -1890,35 +1890,35 @@ async function localizePage(relativePath, targetLang) {
             const p = howItWorksSec.querySelector('p.section-subtitle');
             if (p) p.textContent = 'تعالج الأداة كل شيء محليًا داخل متصفحك بنسبة 100%، مما يضمن السرعة والخصوصية والأمان.';
 
-            const steps = howItWorksSec.querySelectorAll('.step-card');
+            const steps = howItWorksSec.querySelectorAll('.step');
             if (steps.length >= 4) {
                 // Step 1
                 const h3_1 = steps[0].querySelector('h3');
                 const p_1 = steps[0].querySelector('p');
-                if (h3_1) h3_1.textContent = '1. الرسم الفوري باستخدام Canvas';
-                if (p_1) p_1.textContent = 'تستخدم الأداة HTML5 Canvas لرسم الخلفيات والرموز التعبيرية الأصلية للنظام في الوقت الفعلي مباشرة داخل متصفحك، مما يتيح معاينة فورية لأي تغييرات.';
+                if (h3_1) h3_1.textContent = 'الرسم الفوري باستخدام Canvas';
+                if (p_1) p_1.textContent = 'تستخدم الأداة HTML5 Canvas لرسم الخلفيات ورموز Emoji الأصلية للنظام مباشرةً وفي الوقت الفعلي داخل متصفحك.';
 
                 // Step 2
                 const h3_2 = steps[1].querySelector('h3');
                 const p_2 = steps[1].querySelector('p');
-                if (h3_2) h3_2.textContent = '2. إنشاء ملف ICO ثنائي';
-                if (p_2) p_2.textContent = 'بدلاً من الاعتماد على أدوات خارجية، يقوم البرنامج بتجميع ملف favicon.ico الثنائي المتوافق مباشرة من مصفوفات البايت الخاصة بالصور.';
+                if (h3_2) h3_2.textContent = 'إنشاء ملف ICO';
+                if (p_2) p_2.textContent = 'بدلاً من الاعتماد على أدوات أو خوادم خارجية، يقوم البرنامج بتجميع بيانات PNG الخام يدويًا لإنشاء بنية ICO ثنائية متوافقة بالكامل مع المعايير.';
 
                 // Step 3
                 const h3_3 = steps[2].querySelector('h3');
                 const p_3 = steps[2].querySelector('p');
-                if (h3_3) h3_3.textContent = '3. إنشاء حزمة ZIP';
-                if (p_3) p_3.textContent = 'تُجمع جميع الأحجام وملف site.webmanifest ديناميكيًا داخل حزمة ZIP باستخدام JSZip، وكل ذلك محليًا داخل المتصفح.';
+                if (h3_3) h3_3.textContent = 'إنشاء حزمة ZIP';
+                if (p_3) p_3.textContent = 'تُنشأ جميع أحجام الأيقونات وملفات site.webmanifest الديناميكية مباشرةً داخل الذاكرة باستخدام JSZip الذي يعمل بالكامل داخل المتصفح.';
 
                 // Step 4
                 const h3_4 = steps[3].querySelector('h3');
                 const p_4 = steps[3].querySelector('p');
-                if (h3_4) h3_4.textContent = '4. التنزيل مباشرة من المتصفح';
-                if (p_4) p_4.textContent = 'تُحوَّل الحزمة إلى رابط Blob URL مؤقت، مما يتيح تنزيلًا فوريًا وآمنًا دون أي تفاعل مع الخوادم أو المساس بخصوصيتك.';
+                if (h3_4) h3_4.textContent = 'التنزيل مباشرة من المتصفح';
+                if (p_4) p_4.textContent = 'تُحوَّل الحزمة إلى رابط Blob URL لتوفير تنزيل فوري وآمن، دون أي تفاعل مع الخوادم أو أي مخاطر على الخصوصية.';
             }
 
             const footerBadge = howItWorksSec.querySelector('.section-footer .badge');
-            if (footerBadge) footerBadge.textContent = 'أصول مجانية وآمنة للمطورين بنسبة 100%';
+            if (footerBadge) footerBadge.textContent = 'أدوات مجانية وآمنة للمطورين بنسبة 100%';
         }
 
         // Section 4: Why Generate
