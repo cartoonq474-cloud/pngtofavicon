@@ -364,6 +364,61 @@ async function localizePage(relativePath, targetLang) {
 
         const twitterDesc = doc.querySelector('meta[property="twitter:description"]');
         if (twitterDesc) twitterDesc.setAttribute('content', 'قم بتحويل أي صورة بصيغة PNG إلى حزمة Favicon متكاملة في لحظات. مجاني، سريع، ويعمل بالكامل داخل متصفحك.');
+
+        // Why Choose Section
+        const whyChooseTitle = doc.querySelector('h2.section-title');
+        if (whyChooseTitle) whyChooseTitle.textContent = 'لماذا تختار PNGtoFavicon.com لإنشاء أيقونات Favicon؟';
+
+        const whyChooseSubtitle = doc.querySelector('p.section-subtitle');
+        if (whyChooseSubtitle) whyChooseSubtitle.textContent = 'أقوى أداة مجانية عبر الإنترنت لإنشاء أيقونات Favicon، تُحوّل الصور إلى ملفات متوافقة مع معايير المتصفحات بدقة احترافية وسرعة فائقة.';
+
+        const cards = doc.querySelectorAll('.features-grid .feature-card');
+        if (cards.length >= 6) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = 'محرك فوري يعمل داخل المتصفح';
+            if (p_1) p_1.textContent = 'حوّل صور PNG إلى حزم Favicon في أجزاء من الثانية باستخدام قوة المعالجة المحلية داخل متصفحك.';
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = 'إعادة تحجيم دقيقة على مستوى البكسل';
+            if (p_2) p_2.textContent = 'تقنية تصغير عالية الدقة تحافظ على وضوح الحواف ودقة التفاصيل حتى عند أحجام 16×16 بكسل.';
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = 'يدعم جميع تنسيقات الصور';
+            if (p_3) p_3.textContent = 'يعمل بسلاسة مع PNG وJPG وSVG وWEBP وGIF وغيرها من تنسيقات الصور الشائعة.';
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = 'دعم شامل لجميع الأجهزة';
+            if (p_4) p_4.textContent = 'ينشئ ملفات ICO التقليدية، وأيقونات Apple Touch، وأحجام Android Chrome، وأيقونات تطبيقات الويب التقدمية (PWA)، ويجمعها جميعًا داخل ملف ZIP واحد.';
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = 'آمن وخاص بنسبة 100%';
+            if (p_5) p_5.textContent = 'يعمل بالكامل داخل متصفحك باستخدام تقنية HTML5 Canvas. لا يتم تحميل صورتك أو إرسالها إلى أي خادم مطلقًا.';
+
+            // Card 6
+            const h3_6 = cards[5].querySelector('h3');
+            const p_6 = cards[5].querySelector('p');
+            if (h3_6) h3_6.textContent = 'مجاني بالكامل ومفتوح للجميع';
+            if (p_6) p_6.textContent = 'لا يتطلب تسجيل بريد إلكتروني، ولا اشتراكات، ولا جدران دفع. أدوات مجانية بالكامل للمطورين.';
+        }
+
+        const stepsBadge = doc.querySelector('.steps-badge');
+        if (stepsBadge) {
+            stepsBadge.childNodes.forEach(node => {
+                if (node.nodeType === 3 && node.textContent.trim().includes('Powerful features')) {
+                    node.textContent = ' ميزات قوية بين يديك';
+                }
+            });
+        }
     }
 
     // Translate Head elements (title and meta tags)
