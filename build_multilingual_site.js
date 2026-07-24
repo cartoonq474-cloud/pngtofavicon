@@ -160,6 +160,8 @@ function injectLanguageDropdown(relativePath, doc, targetLang) {
         `;
     });
     
+    const langLabel = targetLang === 'ar' ? 'اللغة' : (targetLang === 'hi' ? 'भाषा' : 'Language');
+
     wrapper.innerHTML = `
         <div class="lang-dropdown">
             <a href="#" class="lang-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">
@@ -169,7 +171,7 @@ function injectLanguageDropdown(relativePath, doc, targetLang) {
                     </svg>
                 </div>
                 <div class="lang-dropdown-label">
-                    <span>Language</span>
+                    <span>${langLabel}</span>
                     <span>${currentInfo.name}</span>
                 </div>
                 <svg class="lang-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -936,6 +938,187 @@ async function localizePage(relativePath, targetLang) {
                     if (q_4) q_4.textContent = 'هل هذا المحول مجاني بالكامل؟';
                     if (a_4) a_4.textContent = 'نعم، مجاني 100% بدون حدود، وبدون أي علامات مائية أو رسوم خفية أو باقات اشتراك.';
                 }
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Options Panel
+        const optionsPanel = doc.getElementById('optionsPanel');
+        if (optionsPanel) {
+            const h3 = optionsPanel.querySelector('h3');
+            if (h3) h3.textContent = '⚙️ الخيارات';
+
+            const labels = optionsPanel.querySelectorAll('label');
+            labels.forEach(label => {
+                const text = label.childNodes[0]?.textContent?.trim() || label.textContent.trim();
+                if (text.includes('Output Sizes')) {
+                    label.childNodes[0].textContent = 'أحجام الإخراج';
+                } else if (text.includes('Background Color')) {
+                    label.textContent = 'لون الخلفية (لصور PNG الشفافة)';
+                } else if (text.includes('Keep transparent')) {
+                    const checkbox = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (checkbox) label.appendChild(checkbox);
+                    label.appendChild(doc.createTextNode(' الحفاظ على الشفافية'));
+                } else if (text.includes('Round corners')) {
+                    const checkbox = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (checkbox) label.appendChild(checkbox);
+                    label.appendChild(doc.createTextNode(' حواف مستديرة'));
+                } else if (text.includes('Include site.webmanifest')) {
+                    const checkbox = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (checkbox) label.appendChild(checkbox);
+                    label.appendChild(doc.createTextNode(' تضمين ملف site.webmanifest'));
+                }
+            });
+        }
+
+        // Preview & HTML output
+        const outputSection = doc.getElementById('outputSection');
+        if (outputSection) {
+            const h3s = outputSection.querySelectorAll('h3');
+            h3s.forEach(h3 => {
+                if (h3.textContent.includes('Preview')) h3.textContent = '📦 المعاينة';
+                else if (h3.textContent.includes('HTML Code')) h3.textContent = '🔗 كود HTML';
+            });
+
+            const downloadBtn = doc.getElementById('downloadAllBtn');
+            if (downloadBtn) {
+                const svg = downloadBtn.querySelector('svg');
+                downloadBtn.innerHTML = '';
+                if (svg) downloadBtn.appendChild(svg);
+                downloadBtn.appendChild(doc.createTextNode(' تنزيل الكل (ZIP)'));
+            }
+
+            const htmlP = outputSection.querySelector('p');
+            if (htmlP && htmlP.textContent.includes("Add this to your website")) {
+                htmlP.innerHTML = 'أضف هذا إلى علامة <code>&lt;head&gt;</code> الخاصة بموقعك:';
+            }
+
+            const copyBtn = doc.getElementById('copyHtmlBtn');
+            if (copyBtn) copyBtn.textContent = 'نسخ';
+        }
+
+        // CTA Section
+        let ctaSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Start Converting PNG to Favicon')) {
+                ctaSec = sec;
+            }
+        });
+
+        if (ctaSec) {
+            const h2 = ctaSec.querySelector('h2');
+            if (h2) h2.textContent = 'ابدأ بتحويل PNG إلى Favicon مجاناً اليوم';
+
+            const p = ctaSec.querySelector('p');
+            if (p) p.textContent = 'انضم إلى أكثر من 50,000 مستخدم يثقون بموقع PNGtoFavicon.com لإنشاء أيقونات دقيقة وسريعة ومجانية تماماً.';
+
+            const btn = ctaSec.querySelector('.btn');
+            if (btn) btn.textContent = 'ابدأ التحويل الآن - إنه مجاني!';
+        }
+
+        // More tools Section
+        let toolsSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Explore More Favicon Tools')) {
+                toolsSec = sec;
+            }
+        });
+
+        if (toolsSec) {
+            const title = toolsSec.querySelector('h2.section-title');
+            if (title) title.textContent = 'استكشف المزيد من أدوات الأيقونات';
+
+            const subtitle = toolsSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لجميع احتياجاتك الخاصة بأيقونات المواقع';
+
+            const cards = toolsSec.querySelectorAll('.tool-card');
+            if (cards.length >= 3) {
+                // Card 1: Text to Favicon
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                const l_1 = cards[0].querySelector('.tool-card-link');
+                if (h3_1) h3_1.textContent = 'نص إلى أيقونة';
+                if (p_1) p_1.textContent = 'أنشئ أيقونة من الحروف أو الأحرف الأولى أو أي نص. اختر الخطوط والألوان والأنماط لإنشاء أيقونة نصية فريدة لعلامتك التجارية.';
+                if (l_1) l_1.textContent = 'جربه مجاناً ←';
+
+                // Card 2: Emoji to Favicon
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                const l_2 = cards[1].querySelector('.tool-card-link');
+                if (h3_2) h3_2.textContent = 'رمز تعبيري إلى أيقونة';
+                if (p_2) p_2.textContent = 'اختر من بين مئات الرموز التعبيرية لإنشاء أيقونة ملونة ومعبرة على الفور. مثالية للمشاريع الشخصية والمدونات والنماذج الأولية السريعة.';
+                if (l_2) l_2.textContent = 'جربه مجاناً ←';
+
+                // Card 3: Favicon Checker
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                const l_3 = cards[2].querySelector('.tool-card-link');
+                if (h3_3) h3_3.textContent = 'فاحص الأيقونات';
+                if (p_3) p_3.textContent = 'تحقق من إعدادات أيقونة موقعك الإلكتروني. أدخل أي عنوان URL للتحقق من الأحجام المفقودة والتنسيقات غير الصحيحة ومشكلات التوافق.';
+                if (l_3) l_3.textContent = 'افحص الآن ←';
+            }
+        }
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                waLink.childNodes.forEach(node => {
+                    if (node.nodeType === 3 && node.textContent.trim().includes('Chat on WhatsApp')) {
+                        node.textContent = 'دردشة عبر واتساب';
+                    }
+                });
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
             }
         }
     }

@@ -174,11 +174,11 @@
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="/ar/" class="active" aria-current="page">Converter</a></li>
-          <li><a href="/ar/text-to-favicon/">Text to Favicon</a></li>
-          <li><a href="/ar/emoji-to-favicon/">Emoji to Favicon</a></li>
-          <li><a href="/ar/favicon-checker/">Favicon Checker</a></li>
-          <li><a href="/ar/tutorials/">Tutorials</a></li>
-          <li><a href="/ar/blog/">Blog</a></li>
+          <li><a href="/ar/text-to-favicon/">نص إلى أيقونة</a></li>
+          <li><a href="/ar/emoji-to-favicon/">رمز تعبيري إلى أيقونة</a></li>
+          <li><a href="/ar/favicon-checker/">فاحص الأيقونات</a></li>
+          <li><a href="/ar/tutorials/">دروس تعليمية</a></li>
+          <li><a href="/ar/blog/">المدونة</a></li>
         <li class="lang-dropdown-wrapper">
         <div class="lang-dropdown">
             <a href="#" class="lang-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Select Language">
@@ -188,7 +188,7 @@
                     </svg>
                 </div>
                 <div class="lang-dropdown-label">
-                    <span>Language</span>
+                    <span>اللغة</span>
                     <span>العربية</span>
                 </div>
                 <svg class="lang-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -294,10 +294,10 @@
 
             <!-- Options Panel -->
             <div class="options-panel glass-card hidden" id="optionsPanel">
-              <h3>⚙️ Options</h3>
+              <h3>⚙️ الخيارات</h3>
 
               <div class="option-group">
-                <label id="sizeLabel">Output Sizes</label>
+                <label id="sizeLabel">أحجام الإخراج</label>
                 <div class="checkbox-grid" id="sizeCheckboxes" role="group" aria-labelledby="sizeLabel">
                   <label class="checkbox-item"><input type="checkbox" value="16" checked=""> 16×16</label>
                   <label class="checkbox-item"><input type="checkbox" value="32" checked=""> 32×32</label>
@@ -309,25 +309,19 @@
               </div>
 
               <div class="option-group">
-                <label for="bgColor">Background Color (for transparent PNGs)</label>
+                <label for="bgColor">لون الخلفية (لصور PNG الشفافة)</label>
                 <div class="color-picker-wrapper">
                   <input type="color" id="bgColor" value="#ffffff">
-                  <label class="checkbox-item">
-                    <input type="checkbox" id="transparentBg" checked=""> Keep transparent
-                  </label>
+                  <label class="checkbox-item"><input type="checkbox" id="transparentBg" checked=""> الحفاظ على الشفافية</label>
                 </div>
               </div>
 
               <div class="option-group">
-                <label class="checkbox-item">
-                  <input type="checkbox" id="roundCorners"> Round corners
-                </label>
+                <label class="checkbox-item"><input type="checkbox" id="roundCorners"> حواف مستديرة</label>
               </div>
 
               <div class="option-group">
-                <label class="checkbox-item">
-                  <input type="checkbox" id="includeManifest" checked=""> Include site.webmanifest
-                </label>
+                <label class="checkbox-item"><input type="checkbox" id="includeManifest" checked=""> تضمين ملف site.webmanifest</label>
               </div>
             </div>
           </div>
@@ -335,19 +329,16 @@
           <!-- RIGHT COLUMN: Output -->
           <div class="tool-output hidden" id="outputSection" aria-live="polite">
             <div class="glass-card">
-              <h3>📦 Preview</h3>
+              <h3>📦 المعاينة</h3>
               <div class="preview-grid" id="previewGrid" aria-live="polite">
                 <!-- Populated by converter.js -->
               </div>
 
-              <button class="btn btn-success btn-lg btn-block" id="downloadAllBtn" disabled="">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:0.5rem;" aria-hidden="true">
+              <button class="btn btn-success btn-lg btn-block" id="downloadAllBtn" disabled=""><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline;vertical-align:middle;margin-right:0.5rem;" aria-hidden="true">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                   <polyline points="7 10 12 15 17 10"></polyline>
                   <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download All (ZIP)
-              </button>
+                </svg> تنزيل الكل (ZIP)</button>
 
               <div class="progress-bar hidden" id="progressBar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                 <div class="fill" style="width: 0%"></div>
@@ -356,10 +347,10 @@
 
             <!-- HTML Code Snippet -->
             <div class="glass-card" style="margin-top: 1.5rem;">
-              <h3>🔗 HTML Code</h3>
-              <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">Add this to your website's <code>&lt;head&gt;</code> tag:</p>
+              <h3>🔗 كود HTML</h3>
+              <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1rem;">أضف هذا إلى علامة <code>&lt;head&gt;</code> الخاصة بموقعك:</p>
               <div class="code-block">
-                <button class="copy-btn" id="copyHtmlBtn" data-copy="htmlCode" aria-label="Copy HTML code to clipboard">Copy</button>
+                <button class="copy-btn" id="copyHtmlBtn" data-copy="htmlCode" aria-label="Copy HTML code to clipboard">نسخ</button>
                 <pre><code id="htmlCode">&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 &lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
 &lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
@@ -1102,9 +1093,9 @@
     <!-- ============================== -->
     <section class="section bottom-cta">
       <div class="container text-center">
-        <h2>Start Converting PNG to Favicon for Free Today</h2>
-        <p>Join 50,000+ users who trust PNGtoFavicon.com for accurate, fast, and completely free favicon generation.</p>
-        <a href="#hero" class="btn btn-cta-white smooth-scroll">Start Converting Now - It's Free!</a>
+        <h2>ابدأ بتحويل PNG إلى Favicon مجاناً اليوم</h2>
+        <p>انضم إلى أكثر من 50,000 مستخدم يثقون بموقع PNGtoFavicon.com لإنشاء أيقونات دقيقة وسريعة ومجانية تماماً.</p>
+        <a href="#hero" class="btn btn-cta-white smooth-scroll">ابدأ التحويل الآن - إنه مجاني!</a>
       </div>
     </section>
 
@@ -1115,8 +1106,8 @@
     <!-- ============================== -->
     <section class="section" id="other-tools">
       <div class="container">
-        <h2 class="section-title">Explore More Favicon Tools</h2>
-        <p class="section-subtitle">PNGtoFavicon offers a complete suite of tools for all your favicon needs</p>
+        <h2 class="section-title">استكشف المزيد من أدوات الأيقونات</h2>
+        <p class="section-subtitle">يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لجميع احتياجاتك الخاصة بأيقونات المواقع</p>
         <div class="tools-grid">
           <a href="/ar/text-to-favicon/" class="tool-card" id="tool-text">
             <div class="tool-card-icon">
@@ -1126,9 +1117,9 @@
                 <line x1="12" y1="4" x2="12" y2="20"></line>
               </svg>
             </div>
-            <h3>Text to Favicon</h3>
-            <p>Create a favicon from letters, initials, or any text. Choose fonts, colors, and styles to generate a unique text-based favicon for your brand.</p>
-            <span class="tool-card-link">Try it free →</span>
+            <h3>نص إلى أيقونة</h3>
+            <p>أنشئ أيقونة من الحروف أو الأحرف الأولى أو أي نص. اختر الخطوط والألوان والأنماط لإنشاء أيقونة نصية فريدة لعلامتك التجارية.</p>
+            <span class="tool-card-link">جربه مجاناً ←</span>
           </a>
           <a href="/ar/emoji-to-favicon/" class="tool-card" id="tool-emoji">
             <div class="tool-card-icon">
@@ -1139,9 +1130,9 @@
                 <line x1="15" y1="9" x2="15.01" y2="9"></line>
               </svg>
             </div>
-            <h3>Emoji to Favicon</h3>
-            <p>Choose from hundreds of emojis to instantly create a colorful, expressive favicon. Perfect for personal projects, blogs, and quick prototypes.</p>
-            <span class="tool-card-link">Try it free →</span>
+            <h3>رمز تعبيري إلى أيقونة</h3>
+            <p>اختر من بين مئات الرموز التعبيرية لإنشاء أيقونة ملونة ومعبرة على الفور. مثالية للمشاريع الشخصية والمدونات والنماذج الأولية السريعة.</p>
+            <span class="tool-card-link">جربه مجاناً ←</span>
           </a>
           <a href="/ar/favicon-checker/" class="tool-card" id="tool-checker">
             <div class="tool-card-icon">
@@ -1150,9 +1141,9 @@
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
               </svg>
             </div>
-            <h3>Favicon Checker</h3>
-            <p>Validate your website's favicon setup. Enter any URL to check for missing sizes, incorrect formats, and cross-platform compatibility issues.</p>
-            <span class="tool-card-link">Check now →</span>
+            <h3>فاحص الأيقونات</h3>
+            <p>تحقق من إعدادات أيقونة موقعك الإلكتروني. أدخل أي عنوان URL للتحقق من الأحجام المفقودة والتنسيقات غير الصحيحة ومشكلات التوافق.</p>
+            <span class="tool-card-link">افحص الآن ←</span>
           </a>
         </div>
       </div>
@@ -1211,35 +1202,35 @@
 
         <!-- Column 2: Tools -->
         <div class="footer-col">
-          <h4>Tools</h4>
+          <h4>الأدوات</h4>
           <ul>
-            <li><a href="/ar/">PNG to Favicon Converter</a></li>
-            <li><a href="/ar/text-to-favicon/">Text to Favicon</a></li>
-            <li><a href="/ar/emoji-to-favicon/">Emoji to Favicon</a></li>
-            <li><a href="/ar/favicon-checker/">Favicon Checker</a></li>
+            <li><a href="/ar/">محول PNG إلى Favicon</a></li>
+            <li><a href="/ar/text-to-favicon/">نص إلى أيقونة</a></li>
+            <li><a href="/ar/emoji-to-favicon/">رمز تعبيري إلى أيقونة</a></li>
+            <li><a href="/ar/favicon-checker/">فاحص الأيقونات</a></li>
           </ul>
         </div>
 
         <!-- Column 3: Resources -->
         <div class="footer-col">
-          <h4>Resources</h4>
+          <h4>المصادر</h4>
           <ul>
-            <li><a href="/ar/tutorials/">Tutorials</a></li>
-            <li><a href="/ar/blog/">Blog</a></li>
-            <li><a href="/ar/tutorials/favicon-sizes/">Favicon Sizes Guide</a></li>
-            <li><a href="/ar/tutorials/what-is-a-favicon/">What is a Favicon?</a></li>
+            <li><a href="/ar/tutorials/">دروس تعليمية</a></li>
+            <li><a href="/ar/blog/">المدونة</a></li>
+            <li><a href="/ar/tutorials/favicon-sizes/">دليل مقاسات الأيقونات</a></li>
+            <li><a href="/ar/tutorials/what-is-a-favicon/">ما هو الفافيكون (Favicon)؟</a></li>
           </ul>
         </div>
 
         <!-- Column 4: Company -->
         <div class="footer-col">
-          <h4>Company</h4>
+          <h4>الشركة</h4>
           <ul>
-            <li><a href="/ar/about/">About</a></li>
-            <li><a href="/ar/contact/">Contact</a></li>
-            <li><a href="/ar/privacy/">Privacy Policy</a></li>
-            <li><a href="/ar/terms/">Terms of Service</a></li>
-            <li><a href="/ar/cookie-policy/">Cookie Policy</a></li>
+            <li><a href="/ar/about/">من نحن</a></li>
+            <li><a href="/ar/contact/">اتصل بنا</a></li>
+            <li><a href="/ar/privacy/">سياسة الخصوصية</a></li>
+            <li><a href="/ar/terms/">شروط الخدمة</a></li>
+            <li><a href="/ar/cookie-policy/">سياسة ملفات الارتباط</a></li>
           </ul>
         </div>
       </div>
@@ -1249,7 +1240,7 @@
 
       <!-- Copyright -->
       <div class="footer-bottom">
-        <p>© 2026 PNGtoFavicon.com — All rights reserved.</p>
+        <p>© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.</p>
       </div>
     </div>
   </footer>
