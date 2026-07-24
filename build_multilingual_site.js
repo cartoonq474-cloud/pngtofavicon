@@ -788,6 +788,156 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) {
+                faqSec = sec;
+            }
+        });
+
+        if (faqSec) {
+            const title = faqSec.querySelector('h2.section-title');
+            if (title) title.textContent = 'الأسئلة الشائعة';
+
+            const subtitle = faqSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'اعثر على إجابات للأسئلة الشائعة حول خدمة تحويل أيقونات المواقع الخاصة بنا';
+
+            // Tabs
+            const tabBtns = faqSec.querySelectorAll('.faq-tab-btn');
+            if (tabBtns.length >= 4) {
+                tabBtns[0].textContent = 'البداية';
+                tabBtns[1].textContent = 'الميزات';
+                tabBtns[2].textContent = 'التقنية';
+                tabBtns[3].textContent = 'من نحن';
+            }
+
+            // Getting Started Group
+            const gsGroup = faqSec.querySelector('#faq-getting-started');
+            if (gsGroup) {
+                const items = gsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = 'ما هو الفافيكون (Favicon)؟';
+                    if (a_1) a_1.textContent = 'أيقونة المفضلة (Favicon) هي أيقونة صغيرة تمثل موقعك الإلكتروني في علامات تبويب المتصفح، والإشارات المرجعية، وسجلات المحفوظات، وشريط العنوان. تساعد المستخدمين على التعرف على علامتك التجارية بصرياً.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = 'كيف يمكنني تحويل صورة PNG إلى أيقونة موقع عبر الإنترنت؟';
+                    if (a_2) a_2.textContent = 'ما عليك سوى سحب صورة PNG وإفلاتها في صندوق الرفع في الأعلى، وتخصيص لون الخلفية أو الهوامش أو الزوايا، وتنزيل حزمة ZIP المجمعة على الفور.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = 'هل أحتاج إلى تثبيت أي برامج؟';
+                    if (a_3) a_3.textContent = 'لا، يعمل محول الأيقونات الخاص بنا بنسبة 100% داخل متصفح الويب الخاص بك. لا داعي لتثبيت أي ملحقات أو إضافات أو برامج.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = 'هل أحتاج إلى إنشاء حساب؟';
+                    if (a_4) a_4.textContent = 'لا، الأداة مجانية ومفتوحة تماماً وتعمل دون تحديد هوية. لا يلزم التسجيل أو إدخال بريد إلكتروني أو أي اشتراك.';
+                }
+            }
+
+            // Features Group
+            const ftGroup = faqSec.querySelector('#faq-features');
+            if (ftGroup) {
+                const items = ftGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = 'ما هي تنسيقات الملفات التي تنشئها الأداة؟';
+                    if (a_1) a_1.textContent = 'تنتج الأداة ملف favicon.ico متعدد الأحجام (16 و32 و48 بكسل)، وأيقونات متصفح PNG عالية الدقة، وأيقونات Apple Touch (180x180)، وأيقونات Android Chrome (192x192 و512x512)، وملف site.webmanifest.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = 'هل تدعم الأداة صور PNG الشفافة؟';
+                    if (a_2) a_2.textContent = 'نعم! تحافظ الأداة على الشفافية افتراضياً. يمكنك أيضاً إيقاف تشغيل الشفافية وملء الخلفية بأي لون تختاره.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = 'هل يمكنني اختيار أحجام مخرجات محددة؟';
+                    if (a_3) a_3.textContent = 'نعم، تتيح لك لوحة الخيارات اختيار أو إلغاء تحديد أحجام معينة بحيث تقوم فقط بتنزيل الأيقونات التي تحتاجها بالفعل.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = 'ما هو ملف site.webmanifest؟';
+                    if (a_4) a_4.textContent = 'هو ملف تكوين بتنسيق JSON يحتوي على بيانات وصفية لاسم التطبيق ومسارات الأيقونات التي تتطلبها أجهزة Android الحديثة وتطبيقات الويب التقدمية (PWA) لتثبيت موقعك على الشاشة الرئيسية.';
+                }
+            }
+
+            // Technology Group
+            const techGroup = faqSec.querySelector('#faq-technology');
+            if (techGroup) {
+                const items = techGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = 'كيف يعمل تحويل الأيقونات من جانب العميل؟';
+                    if (a_1) a_1.textContent = 'نستخدم لوحة HTML5 Canvas لقياس ورسم الصور، ونقوم بتجميع ملف favicon.ico الثنائي باستخدام مخازن صفائف البايت (ArrayBuffers) مباشرة في ذاكرة متصفحك.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = 'هل يدعم المحول الصور الكبيرة؟';
+                    if (a_2) a_2.textContent = 'نعم، يتعامل المحول بسهولة مع الصور عالية الدقة حتى 5 ميجابايت، ويغير حجمها باستخدام مرشح الاستكمال الثنائي للحفاظ على الخطوط واضحة ونقية.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = 'لماذا يعد ملف favicon.ico مهماً؟';
+                    if (a_3) a_3.textContent = 'على الرغم من أن المتصفحات الحديثة تدعم أيقونات PNG، لا يزال تنسيق favicon.ico القديم مطلوباً كحل بديل لإصدارات Internet Explorer القديمة وبعض مديري اختصارات سطح المكتب.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = 'ما مدى سرعة عملية التحويل؟';
+                    if (a_4) a_4.textContent = 'التحويل فوري تقريباً (أقل من 50 مللي ثانية) لأنه يعالج كل شيء محلياً على جهاز الكمبيوتر الخاص بك بدلاً من تحميله إلى خادم بعيد.';
+                }
+            }
+
+            // About Us Group
+            const aboutUsGroup = faqSec.querySelector('#faq-about-us');
+            if (aboutUsGroup) {
+                const items = aboutUsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = 'هل صورتي آمنة وخاصة؟';
+                    if (a_1) a_1.textContent = 'نعم، بكل تأكيد. لا تغادر صورك متصفحك أبداً لأن المعالجة تتم محلياً. نحن لا نقوم بنقل أو تحليل أو تخزين أي من ملفاتك.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = 'لماذا يجب أن أختار موقع PNGtoFavicon.com؟';
+                    if (a_2) a_2.textContent = 'نحن نقدم أداة صديقة للمطورين، تركز على الخصوصية أولاً، وتعمل بشكل تلقائي بالكامل وتوفر حزم أيقونات متوافقة مع جميع المعايير والأجهزة مجاناً بالكامل.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = 'هل يمكنني استخدام هذه الأداة على الأجهزة المحمولة؟';
+                    if (a_3) a_3.textContent = 'نعم! الموقع ومحرك التحويل متوافقان تماماً مع الهواتف والأجهزة اللوحية، بحيث يمكنك إنشاء وتنزيل أيقوناتك من أي جهاز.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = 'هل هذا المحول مجاني بالكامل؟';
+                    if (a_4) a_4.textContent = 'نعم، مجاني 100% بدون حدود، وبدون أي علامات مائية أو رسوم خفية أو باقات اشتراك.';
+                }
+            }
+        }
     }
 
     // Translate Head elements (title and meta tags)
