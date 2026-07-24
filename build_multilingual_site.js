@@ -2112,55 +2112,71 @@ async function localizePage(relativePath, targetLang) {
             const h2 = testimonialsSec.querySelector('h2');
             if (h2) h2.textContent = 'ماذا يقول مستخدمونا؟';
 
-            const p = testimonialsSec.querySelector('p.section-subtitle');
-            if (p) p.textContent = 'يثق أكثر من 50,000 مطور ومصمم وصانع محتوى في PNGtoFavicon لإنجاز مشاريعهم.';
+            const subtitle = testimonialsSec.querySelector('.section-subtitle') || testimonialsSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'يثق أكثر من 50,000 مطور ومصمم وصانع محتوى في PNGtoFavicon لإنجاز مشاريعهم.';
 
-            const cards = testimonialsSec.querySelectorAll('.testimonial-card');
+            const cards = testimonialsSec.querySelectorAll('.review-card');
             cards.forEach(card => {
-                const authorRole = card.querySelector('.author-role');
-                if (authorRole) {
-                    const roleText = authorRole.textContent.trim();
-                    if (roleText === 'Frontend Developer') authorRole.textContent = 'مطوّر واجهات أمامية';
-                    else if (roleText === 'UI/UX Designer') authorRole.textContent = 'مصممة UI/UX';
-                    else if (roleText === 'Indie Hacker') authorRole.textContent = 'مطور مستقل (Indie Hacker)';
-                    else if (roleText === 'Agency Owner') authorRole.textContent = 'صاحب وكالة تصميم';
-                    else if (roleText === 'Full Stack Dev') authorRole.textContent = 'مطور Full Stack';
-                    else if (roleText === 'Product Manager') authorRole.textContent = 'مدير منتج';
-                    else if (roleText === 'Software Engineer') authorRole.textContent = 'مهندس برمجيات';
-                    else if (roleText === 'Marketing Director') authorRole.textContent = 'مديرة تسويق';
-                    else if (roleText === 'Startup Founder') authorRole.textContent = 'مؤسس شركة ناشئة';
-                    else if (roleText === 'Freelance Web Designer') authorRole.textContent = 'مصمم ويب مستقل';
-                    else if (roleText === 'CTO') authorRole.textContent = 'مدير تكنولوجيا (CTO)';
-                    else if (roleText === 'Blogger') authorRole.textContent = 'مدون';
+                const authorRoleEl = card.querySelector('.review-meta p');
+                const dateEl = card.querySelector('.review-date');
+                const quoteEl = card.querySelector('p:not(.review-meta p)');
+
+                if (authorRoleEl) {
+                    const roleText = authorRoleEl.textContent.trim();
+                    if (roleText === 'Frontend Developer') authorRoleEl.textContent = 'مطوّر واجهات أمامية';
+                    else if (roleText === 'UI/UX Designer') authorRoleEl.textContent = 'مصممة UI/UX';
+                    else if (roleText === 'Indie Hacker') authorRoleEl.textContent = 'مطور مستقل (Indie Hacker)';
+                    else if (roleText === 'Agency Owner') authorRoleEl.textContent = 'صاحب وكالة تصميم';
+                    else if (roleText === 'Full Stack Dev') authorRoleEl.textContent = 'مطور Full Stack';
+                    else if (roleText === 'Product Manager') authorRoleEl.textContent = 'مدير منتج';
+                    else if (roleText === 'Software Engineer') authorRoleEl.textContent = 'مهندس برمجيات';
+                    else if (roleText === 'Marketing Director') authorRoleEl.textContent = 'مديرة تسويق';
+                    else if (roleText === 'Startup Founder') authorRoleEl.textContent = 'مؤسس شركة ناشئة';
+                    else if (roleText === 'Freelance Web Designer') authorRoleEl.textContent = 'مصمم ويب مستقل';
+                    else if (roleText === 'CTO') authorRoleEl.textContent = 'مدير تكنولوجيا (CTO)';
+                    else if (roleText === 'Blogger') authorRoleEl.textContent = 'مدون';
                 }
 
-                const quote = card.querySelector('p');
-                if (quote) {
-                    const text = quote.textContent.trim();
-                    if (text.includes("fastest way to get a clean favicon")) {
-                        quote.textContent = 'أسرع طريقة للحصول على أيقونة favicon نظيفة للمشاريع التجريبية السريعة. أحب مدى سرعة التخصيص!';
-                    } else if (text.includes("The transparency support is flawless")) {
-                        quote.textContent = 'دعم الشفافية لا تشوبه شائبة. الرمز التعبيري على لوح رسم شفاف تبدو مذهلة تماماً.';
-                    } else if (text.includes("No subscriptions, no watermarks")) {
-                        quote.textContent = 'لا اشتراكات، ولا علامات مائية. أداة ممتازة ومباشرة للمطورين!';
-                    } else if (text.includes("Having the site.webmanifest auto-generated")) {
-                        quote.textContent = 'توليد ملف site.webmanifest تلقائياً يوفر الكثير من الوقت لأجهزة Android.';
-                    } else if (text.includes("We build dozens of client landing pages")) {
-                        quote.textContent = 'نبني عشرات الصفحات الهبوط لعملائنا، وهذه الأداة أصبحت خيارنا الأساسي لإنشاء أيقونات favicon فورية.';
-                    } else if (text.includes("Clean code output and immediate zip downloads")) {
-                        quote.textContent = 'مخرجات كود نظيفة وتنزيل ملف zip فوري. أداة رائعة ومتقنة جداً!';
-                    } else if (text.includes("Perfect for bootstrapping new ideas")) {
-                        quote.textContent = 'مثالية لإطلاق الأفكار الجديدة بسرعة. بضع ثوانٍ والـ favicon جاهزة بالكامل.';
-                    } else if (text.includes("Love the simple user interface")) {
-                        quote.textContent = 'أعشق واجهة المستخدم البسيطة. لا تعقيد، فقط اختر الرمز التعبيري وقم بالتنزيل.';
-                    } else if (text.includes("It has saved me so much time")) {
-                        quote.textContent = 'لقد وفرت علي الكثير من الوقت مقارنة بفتح Photoshop لقص وتصدير الأيقونات.';
-                    } else if (text.includes("Beautifully designed and extremely fast")) {
-                        quote.textContent = 'تصميم جميل وسريع للغاية. أداة خفيفة ومريحة جداً للاستخدام.';
-                    } else if (text.includes("The Apple Touch Icon size works perfectly")) {
-                        quote.textContent = 'حجم أيقونة Apple Touch يعمل بشكل مثالي على أجهزة iOS. ممتاز!';
-                    } else if (text.includes("Highly recommended tool for any blogger")) {
-                        quote.textContent = 'أداة موصى بها بشدة لأي مدون يريد تخصيص موقعه في ثوانٍ.';
+                if (dateEl) {
+                    const dateText = dateEl.textContent.trim();
+                    if (dateText.includes('Oct')) dateEl.textContent = dateText.replace('Oct', 'أكتوبر');
+                    else if (dateText.includes('Sep')) dateEl.textContent = dateText.replace('Sep', 'سبتمبر');
+                    else if (dateText.includes('Aug')) dateEl.textContent = dateText.replace('Aug', 'أغسطس');
+                    else if (dateText.includes('Jul')) dateEl.textContent = dateText.replace('Jul', 'يوليو');
+                    else if (dateText.includes('Jun')) dateEl.textContent = dateText.replace('Jun', 'يونيو');
+                    else if (dateText.includes('May')) dateEl.textContent = dateText.replace('May', 'مايو');
+                    else if (dateText.includes('Apr')) dateEl.textContent = dateText.replace('Apr', 'أبريل');
+                    else if (dateText.includes('Mar')) dateEl.textContent = dateText.replace('Mar', 'مارس');
+                    else if (dateText.includes('Feb')) dateEl.textContent = dateText.replace('Feb', 'فبراير');
+                    else if (dateText.includes('Nov')) dateEl.textContent = dateText.replace('Nov', 'نوفمبر');
+                }
+
+                if (quoteEl) {
+                    const text = quoteEl.textContent.trim();
+                    if (text.includes("fastest way to get a clean favicon") || text.includes("fastest way to generate all favicon sizes")) {
+                        quoteEl.textContent = '"أسرع طريقة لإنشاء جميع أحجام الأيقونات. يستغرق الأمر ثانيتين فقط ويتعامل مع ملف site.webmanifest الجديد بشكل مثالي."';
+                    } else if (text.includes("I used to use 3 different tools") || text.includes("The transparency support is flawless")) {
+                        quoteEl.textContent = '"دعم الشفافية لا تشوبه شائبة. الرمز التعبيري على لوح رسم شفاف تبدو مذهلة تماماً."';
+                    } else if (text.includes("Clean interface, no ads, and it respects privacy") || text.includes("No subscriptions, no watermarks")) {
+                        quoteEl.textContent = '"لا اشتراكات، ولا علامات مائية. أداة ممتازة ومباشرة للمطورين!"';
+                    } else if (text.includes("We use this for all our client projects now") || text.includes("Having the site.webmanifest auto-generated")) {
+                        quoteEl.textContent = '"توليد ملف site.webmanifest تلقائياً يوفر الكثير من الوقت لأجهزة Android."';
+                    } else if (text.includes("Finally a favicon generator that understands") || text.includes("We build dozens of client landing pages")) {
+                        quoteEl.textContent = '"نبني عشرات الصفحات الهبوط لعملائنا، وهذه الأداة أصبحت خيارنا الأساسي لإنشاء أيقونات favicon فورية."';
+                    } else if (text.includes("Super reliable tool") || text.includes("Clean code output and immediate zip downloads")) {
+                        quoteEl.textContent = '"مخرجات كود نظيفة وتنزيل ملف zip فوري. أداة رائعة ومتقنة جداً!"';
+                    } else if (text.includes("Absolutely flawless execution") || text.includes("Perfect for bootstrapping new ideas")) {
+                        quoteEl.textContent = '"مثالية لإطلاق الأفكار الجديدة بسرعة. بضع ثوانٍ والـ favicon جاهزة بالكامل."';
+                    } else if (text.includes("It took me less than a minute") || text.includes("Love the simple user interface")) {
+                        quoteEl.textContent = '"أعشق واجهة المستخدم البسيطة. لا تعقيد، فقط اختر الرمز التعبيري وقم بالتنزيل."';
+                    } else if (text.includes("One less thing to worry about") || text.includes("It has saved me so much time")) {
+                        quoteEl.textContent = '"لقد وفرت علي الكثير من الوقت مقارنة بفتح Photoshop لقص وتصدير الأيقونات."';
+                    } else if (text.includes("I recommend this tool to all my peers") || text.includes("Beautifully designed and extremely fast")) {
+                        quoteEl.textContent = '"تصميم جميل وسريع للغاية. أداة خفيفة ومريحة جداً للاستخدام."';
+                    } else if (text.includes("Simple, effective, and does exactly") || text.includes("The Apple Touch Icon size works perfectly")) {
+                        quoteEl.textContent = '"حجم أيقونة Apple Touch يعمل بشكل مثالي على أجهزة iOS. ممتاز!"';
+                    } else if (text.includes("I am not very technical, but this tool made it so easy") || text.includes("Highly recommended tool for any blogger")) {
+                        quoteEl.textContent = '"أداة موصى بها بشدة لأي مدون يريد تخصيص موقعه في ثوانٍ."';
                     }
                 }
             });
