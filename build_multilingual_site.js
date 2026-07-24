@@ -2043,53 +2043,60 @@ async function localizePage(relativePath, targetLang) {
             const subtitle = compSec.querySelector('.section-subtitle');
             if (subtitle) subtitle.textContent = 'اطّلع على كيفية تفوق أداتنا على مولدات Favicon الأخرى.';
 
-            const headers = compSec.querySelectorAll('th');
-            if (headers.length >= 3) {
-                headers[0].textContent = 'الميزة';
-                headers[1].textContent = 'أداتنا (Emoji to Favicon)';
-                headers[2].textContent = 'الأدوات الأخرى';
+            const table = compSec.querySelector('#comparisonTable');
+            if (table) {
+                // Headers
+                const ths = table.querySelectorAll('thead th');
+                if (ths.length >= 3) {
+                    ths[0].textContent = 'الميزة';
+                    ths[1].textContent = 'أداتنا (Emoji to Favicon)';
+                    ths[2].textContent = 'الأدوات الأخرى';
+                }
+
+                // Body rows
+                const rows = table.querySelectorAll('tbody tr');
+                if (rows.length >= 8) {
+                    // Row 1: Price
+                    rows[0].querySelectorAll('td')[0].textContent = 'السعر';
+                    rows[0].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> مجاني مدى الحياة';
+                    rows[0].querySelectorAll('td')[2].textContent = 'خطط مجانية محدودة أو مدفوعة';
+
+                    // Row 2: Privacy
+                    rows[1].querySelectorAll('td')[0].textContent = 'الخصوصية';
+                    rows[1].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> معالجة محلية 100% داخل المتصفح';
+                    rows[1].querySelectorAll('td')[2].textContent = 'يتم رفع الملفات إلى الخوادم';
+
+                    // Row 3: Speed
+                    rows[2].querySelectorAll('td')[0].textContent = 'السرعة';
+                    rows[2].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> معالجة فورية';
+                    rows[2].querySelectorAll('td')[2].textContent = 'تعتمد على ضغط الخادم';
+
+                    // Row 4: File Formats
+                    rows[3].querySelectorAll('td')[0].textContent = 'تنسيقات الملفات';
+                    rows[3].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> ICO + PNG + Manifest';
+                    rows[3].querySelectorAll('td')[2].textContent = 'غالبًا تدعم ICO فقط';
+
+                    // Row 5: Registration
+                    rows[4].querySelectorAll('td')[0].textContent = 'بدون تسجيل';
+                    rows[4].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> لا يتطلب إنشاء حساب';
+                    rows[4].querySelectorAll('td')[2].textContent = 'قد يكون التسجيل مطلوبًا';
+
+                    // Row 6: Platform Support
+                    rows[5].querySelectorAll('td')[0].textContent = 'دعم المنصات';
+                    rows[5].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> يعمل على جميع الأجهزة والمتصفحات';
+                    rows[5].querySelectorAll('td')[2].textContent = 'دعم محدود لبعض المنصات';
+
+                    // Row 7: HTML Code
+                    rows[6].querySelectorAll('td')[0].textContent = 'مقتطف كود HTML';
+                    rows[6].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> يتم إنشاؤه تلقائيًا';
+                    rows[6].querySelectorAll('td')[2].textContent = 'يتطلب إضافته يدويًا';
+
+                    // Row 8: Open Source
+                    rows[7].querySelectorAll('td')[0].textContent = 'مفتوح المصدر';
+                    rows[7].querySelectorAll('td')[1].innerHTML = '<span class="check-icon">✅</span> عملية شفافة';
+                    rows[7].querySelectorAll('td')[2].textContent = 'حلول مغلقة المصدر';
+                }
             }
-
-            const rows = compSec.querySelectorAll('tbody tr');
-            rows.forEach(row => {
-                const td = row.querySelector('td');
-                if (td) {
-                    const text = td.textContent.trim();
-                    if (text === 'Price') td.textContent = 'السعر';
-                    else if (text === 'Privacy') td.textContent = 'الخصوصية';
-                    else if (text === 'Speed') td.textContent = 'السرعة';
-                    else if (text === 'File Formats') td.textContent = 'تنسيقات الملفات';
-                    else if (text === 'Registration') td.textContent = 'التسجيل';
-                    else if (text === 'Platform Support') td.textContent = 'دعم الأجهزة';
-                    else if (text === 'HTML Code') td.textContent = 'كود HTML';
-                    else if (text === 'Open Source') td.textContent = 'مفتوح المصدر';
-                }
-
-                const cells = row.querySelectorAll('td');
-                if (cells.length >= 3) {
-                    // Translate our tool cells
-                    const textOur = cells[1].textContent.trim();
-                    if (textOur === 'Free') cells[1].textContent = 'مجاني 100%';
-                    else if (textOur === '100% Client-side (Safe)') cells[1].textContent = 'آمن بالكامل (محلي)';
-                    else if (textOur === 'Instant (ms)') cells[1].textContent = 'فوري (أجزاء من الثانية)';
-                    else if (textOur === 'ICO, PNG, Webmanifest') cells[1].textContent = 'ICO, PNG, Webmanifest';
-                    else if (textOur === 'No account required') cells[1].textContent = 'لا يلزم حساب';
-                    else if (textOur === 'iOS, Android, Browsers') cells[1].textContent = 'iOS، Android، المتصفحات';
-                    else if (textOur === 'Auto-generated') cells[1].textContent = 'يتم إنشاؤه تلقائياً';
-                    else if (textOur === 'Yes') cells[1].textContent = 'نعم';
-
-                    // Translate other tools cells
-                    const textOther = cells[2].textContent.trim();
-                    if (textOther === 'Often Paid / Ads') cells[2].textContent = 'مدفوع غالباً / إعلانات';
-                    else if (textOther === 'Uploads to server') cells[2].textContent = 'يرفع الملفات إلى خوادم';
-                    else if (textOther === 'Slow (Server queue)') cells[2].textContent = 'بطيء (انتظار الخادم)';
-                    else if (textOther === 'ICO only') cells[2].textContent = 'ICO فقط';
-                    else if (textOther === 'Requires email') cells[2].textContent = 'يتطلب البريد الإلكتروني';
-                    else if (textOther === 'Basic browser support') cells[2].textContent = 'دعم أساسي للمتصفح فقط';
-                    else if (textOther === 'None or manual') cells[2].textContent = 'لا يوجد أو يدوي';
-                    else if (textOther === 'No') cells[2].textContent = 'لا';
-                }
-            });
         }
 
         // Section 7: Testimonials
