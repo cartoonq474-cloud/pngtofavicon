@@ -4235,6 +4235,179 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic blog/favicon-seo-guide/index.html page translation
+    if (targetLang === 'ar' && normPath === 'blog/favicon-seo-guide/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'دليل سيو (SEO) لأيقونة الموقع: زيادة نسبة النقر إلى الظهور لمقتطفات البحث | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'تعرض مقتطفات نتائج بحث Google (SERP) أيقونات المواقع بجانب أسماء المواقع. تعلّم كيفية تحسين أيقونتك لكسب المزيد من النقرات في البحث المجاني.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'دليل سيو (SEO) <span class="gradient-text">لأيقونة الموقع</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'تعرض مقتطفات نتائج بحث Google (SERP) أيقونات المواقع بجانب أسماء المواقع. تعلّم كيفية تحسين أيقونتك لكسب المزيد من النقرات في البحث المجاني.';
+        }
+
+        // Post meta
+        const postMeta = doc.querySelector('.post-meta');
+        if (postMeta) {
+            postMeta.innerHTML = '<span>نشر في: 15 يناير 2026</span> • <span>وقت القراءة: 4 دقائق</span>';
+        }
+
+        // Main content card
+        const card = doc.querySelector('.glass-card');
+        if (card) {
+            const pList = card.querySelectorAll('p');
+            if (pList.length >= 2) {
+                pList[0].textContent = 'لم تعد أيقونات المواقع مجرد عناصر جمالية في علامات تبويب المتصفح. ففي مشهد البحث المجاني اليوم، تعمل كمعرفات بارزة للهوية التجارية مباشرة داخل صفحات نتائج محرك البحث (SERPs).';
+                pList[1].textContent = 'على الرغم من أن Google لا يرتب موقعك في مرتبة أعلى لمجرد وجود أيقونة موقع، إلا أن الرمز المرئي يؤثر بشكل مباشر على سلوك الباحثين. تزيد الأيقونة الاحترافية والواضحة وذات التباين العالي بجانب عنوان صفحتك من مصداقية العلامة التجارية والملاءمة البصرية، مما يؤدي إلى زيادة نسبة النقر إلى الظهور (CTR). وتشير نسبة النقر إلى الظهور العالية في البحث المجاني إلى جودة الصفحة لخوارزميات البحث، مما يعزز ترتيب موقعك بشكل غير مباشر.';
+            }
+
+            const h2List = card.querySelectorAll('h2');
+            if (h2List.length >= 2) {
+                h2List[0].textContent = 'لماذا تعتبر أيقونة الموقع مهمة لتحسين محركات البحث سيو (SEO)؟';
+                h2List[1].textContent = 'إرشادات Google الخاصة بأيقونات المواقع';
+            }
+
+            const listItems = card.querySelectorAll('ul li');
+            if (listItems.length >= 3) {
+                listItems[0].innerHTML = '<strong>أن تكون ممثلة للعلامة التجارية:</strong> يجب أن تشبه الأيقونة شعار علامتك التجارية أو رمزها. قد يتم استبدال الأيقونات العامة أو المضللة بأيقونة الكرة الأرضية الافتراضية.';
+                listItems[1].innerHTML = '<strong>رابط URL قابل للزحف:</strong> تأكد من أن مسار أيقونتك غير محظور بواسطة ملف robots.txt الخاص بك، خاصةً لبرنامج الزحف Googlebot-Image.';
+                listItems[2].innerHTML = '<strong>نسبة عرض إلى ارتفاع مربعة:</strong> على سبيل المثال، 48×48 بكسل أو 96×96 بكسل أو 192×192 بكسل. يقوم Google تلقائياً بتصغير الأيقونة إلى 16×16 بكسل لعرضها في نتائج البحث.';
+            }
+        }
+
+        // Bottom CTA Section
+        let bottomCta = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            if (sec.className.includes('bottom-cta')) {
+                bottomCta = sec;
+            }
+        });
+
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = 'ابدأ تحويل ملفات PNG إلى أيقونات مواقع مجاناً اليوم';
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = 'انضم إلى أكثر من 50,000 مستخدم يثقون في موقع PNGtoFavicon.com لإنشاء أيقونات مواقع بدقة وسرعة ومجانًا بالكامل.';
+
+            const btn = bottomCta.querySelector('.btn');
+            if (btn) btn.textContent = 'ابدأ التحويل الآن - الخدمة مجانية!';
+        }
+
+        // Explore More Favicon Tools
+        let toolsSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Explore More Favicon Tools')) {
+                toolsSec = sec;
+            }
+        });
+
+        if (toolsSec) {
+            const h2 = toolsSec.querySelector('h2');
+            if (h2) h2.textContent = 'استكشف المزيد من أدوات الأيقونات';
+
+            const subtitle = toolsSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لتلبية جميع احتياجات الأيقونات الخاصة بك';
+
+            const cardsList = toolsSec.querySelectorAll('.tool-card');
+            if (cardsList.length >= 3) {
+                // Card 1: Text to Favicon
+                const h3_1 = cardsList[0].querySelector('h3');
+                const p_1 = cardsList[0].querySelector('p');
+                const link_1 = cardsList[0].querySelector('.tool-card-link');
+                if (h3_1) h3_1.textContent = 'نص إلى أيقونة';
+                if (p_1) p_1.textContent = 'أنشئ أيقونة موقع من الأحرف أو الأحرف الأولى لاسم شركتك أو أي نص آخر. اختر الخطوط والألوان والأنماط لإنشاء أيقونة فريدة لعلامتك التجارية.';
+                if (link_1) link_1.textContent = 'جربها مجاناً ←';
+
+                // Card 2: Emoji to Favicon
+                const h3_2 = cardsList[1].querySelector('h3');
+                const p_2 = cardsList[1].querySelector('p');
+                const link_2 = cardsList[1].querySelector('.tool-card-link');
+                if (h3_2) h3_2.textContent = 'رمز تعبيري إلى أيقونة';
+                if (p_2) p_2.textContent = 'حول أي رمز تعبيري (Emoji) إلى أيقونة favicon متوافقة مع جميع الأجهزة. اختر الخلفية والأشكال والأحجام وقم بالتنزيل فوراً.';
+                if (link_2) link_2.textContent = 'جربها مجاناً ←';
+
+                // Card 3: Favicon Checker
+                const h3_3 = cardsList[2].querySelector('h3');
+                const p_3 = cardsList[2].querySelector('p');
+                const link_3 = cardsList[2].querySelector('.tool-card-link');
+                if (h3_3) h3_3.textContent = 'فاحص الأيقونات';
+                if (p_3) p_3.textContent = 'افحص أي موقع إلكتروني مباشر للتحقق من الإعداد الصحيح وقابلية اكتشاف متصفحات الويب لأيقونة الموقع وأيقونة Apple وملف manifest.';
+                if (link_3) link_3.textContent = 'جربها مجاناً ←';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
