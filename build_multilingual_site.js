@@ -4577,6 +4577,115 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic about/index.html page translation
+    if (targetLang === 'ar' && normPath === 'about/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'من نحن | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'نحن نؤمن بأن أدوات تصميم الويب يجب أن تكون سريعة، ومحسنة للغاية، وتحترم خصوصية المستخدم. تعرف على رسالتنا وطرق الاتصال بنا.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'حول موقع <span class="gradient-text">PNGtoFavicon</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'نحن نؤمن بأن أدوات تصميم الويب يجب أن تكون سريعة، ومحسنة للغاية، وتحترم خصوصية المستخدم.';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 2) {
+            // Card 1: Our Mission
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = 'رسالتنا';
+            const pList_1 = cards[0].querySelectorAll('p');
+            if (pList_1.length >= 2) {
+                pList_1[0].textContent = 'لقد أنشأنا موقع PNGtoFavicon لحل مشكلة بسيطة: معظم مولدات الأيقونات (favicon) عبر الإنترنت تقوم برفع رسومات علامتك التجارية الخاصة إلى خوادمها، وتعمل ببطء، وتملأ صفحاتها بالإعلانات المنبثقة المزعجة.';
+                pList_1[1].textContent = 'تعمل أداتنا محلياً بنسبة 100% داخل متصفح الويب الخاص بك باستخدام HTML5 Canvas. لا تغادر ملفات شعارك جهاز الكمبيوتر الخاص بك أبداً، وتتم عملية المعالجة والتصدير بشكل فوري، كما أن صيغ الملفات الناتجة محسنة لتتوافق مع معايير سيو (SEO) الحديثة.';
+            }
+
+            // Card 2: Contact & Support
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = 'الاتصال والدعم';
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = 'هل لديك أسئلة، أو ملاحظات، أو تحتاج إلى مساعدة مباشرة في استخدام أدواتنا؟ تواصل معنا عبر أي من القنوات التالية:';
+
+            const h3List = cards[1].querySelectorAll('h3');
+            if (h3List.length >= 2) {
+                h3List[0].textContent = 'الاتصال المباشر';
+                h3List[1].textContent = 'قنوات الدعم';
+            }
+
+            const waSpan = cards[1].querySelector('a[href*="wa.me"] span');
+            if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
