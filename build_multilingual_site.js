@@ -3696,6 +3696,347 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic tutorials/what-is-a-favicon/index.html page translation
+    if (targetLang === 'ar' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'ما هو الفافيكون (Favicon)؟ الدليل الكامل للمبتدئين | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'تعرف على تاريخ وفائدة وأهمية أيقونات المواقع (favicons)، وأين تظهر، وكيف يمكنها تحسين تجربة المستخدم وعلامتك التجارية.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'ما هو <span class="gradient-text">الفافيكون (Favicon)</span>؟';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'تعرف على تاريخ وفائدة وأهمية أيقونات المواقع (favicons)، وأين تظهر، وكيف يمكنها تحسين تجربة المستخدم وعلامتك التجارية.';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 6) {
+            // Card 1: Intro
+            const pList_1 = cards[0].querySelectorAll('p');
+            if (pList_1.length >= 2) {
+                pList_1[0].textContent = 'كل موقع إلكتروني له هوية مميزة، وأيقونة الموقع (Favicon) هي واحدة من أصغر عناصر الهوية التجارية وأكثرها تمييزاً وسهولة في التعرف عليها. الأيقونة هي الرمز الصغير المعروض بجانب عنوان صفحة الويب في علامات تبويب المتصفح، والإشارات المرجعية، وسجل المتصفح، ونتائج البحث على الأجهزة المدعومة. على الرغم من أنها تشغل بضعة بكسلات فقط، إلا أنها تلعب دوراً هاماً في مساعدة المستخدمين على تحديد موقع الويب الخاص بك بسرعة وتعزيز علامتك التجارية عبر تجارب التصفح المختلفة.';
+                pList_1[1].textContent = 'يركز العديد من أصحاب المواقع على الشعارات، والخطوط، ومخططات الألوان ولكنهم يغفلون عن أيقونة الموقع (Favicon) أثناء تطوير الموقع. يمكن أن تؤدي الأيقونات المفقودة أو سيئة التصميم إلى جعل الموقع يبدو غير مكتمل أو أقل جدارة بالثقة. في المقابل، تساعد الأيقونة الواضحة والمميزة الزوار على تمييز موقعك من بين عشرات التبويب المفتوحة، وتحسن من ظهور الإشارات المرجعية، وتخلق حضوراً أكثر احترافية على الإنترنت.';
+            }
+
+            // Card 2: What is a favicon?
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = 'ما هي أيقونة الموقع (Favicon)؟';
+            const pList_2 = cards[1].querySelectorAll('p');
+            if (pList_2.length >= 3) {
+                pList_2[0].textContent = 'أيقونة الموقع (Favicon - اختصار لـ favorite icon) هي رسم صغير يمثل موقع ويب أو تطبيق ويب. وتعمل كمعرف مرئي، مما يسهل على المستخدمين التعرف على موقعك من بين العديد من علامات تبويب المتصفح، والإشارات المرجعية، وسجلات المتصفح، والمواقع الأخرى التي تدرج فيها مواقع الويب.';
+                pList_2[1].textContent = 'على عكس الشعار كامل الحجم، تم تصميم أيقونة favicon لتظل واضحة ومميزة حتى في الأبعاد الصغيرة جداً، والتي غالباً ما تكون صغيرة مثل 16 × 16 بكسل. وبسبب هذه المساحة المحدودة، تستخدم الأيقونات الفعالة أشكالاً بسيطة، وتبايناً قوياً، وتفاصيل دنيوية.';
+                pList_2[2].textContent = 'عندما يزور شخص ما موقعك، يطلب متصفحه ملف الأيقونة مع موارد الموقع الأخرى مثل HTML و CSS و JavaScript والصور. بمجرد تحميلها، يعرض المتصفح الأيقونة في الأماكن المناسبة، مما يساعد على بناء اتساق الهوية التجارية.';
+            }
+
+            // Card 3: Where Favicons Appear
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = 'أين تظهر أيقونات المواقع (Favicons)؟';
+            const pList_3 = cards[2].querySelectorAll('p');
+            if (pList_3.length >= 2) {
+                pList_3[0].textContent = 'يعتقد الكثير من الناس أن أيقونة الموقع تظهر فقط في علامات تبويب المتصفح، ولكن المتصفحات وأنظمة التشغيل ومحركات البحث الحديثة تعرض أيقونات المواقع في عدة أماكن.';
+                pList_3[1].textContent = 'إن فهم مكان ظهور أيقونة موقعك يوضح سبب أهمية اختيار التصميم وصيغة الملف المناسبين.';
+            }
+            const gridItems = cards[2].querySelectorAll('div > div');
+            if (gridItems.length >= 9) {
+                // Item 1
+                const h4_1 = gridItems[0].querySelector('h4');
+                const gp_1 = gridItems[0].querySelector('p');
+                if (h4_1) h4_1.textContent = 'علامات تبويب المتصفح';
+                if (gp_1) gp_1.textContent = 'المكان الأكثر شيوعاً لأيقونة الموقع هو علامة تبويب المتصفح. عندما تكون هناك علامات تبويب متعددة مفتوحة، غالباً ما يعتمد المستخدمون على الأيقونات بدلاً من عناوين الصفحات لتحديد موقع الويب الذي يريدونه. الأيقونة المميزة تجعل التنقل أسرع وتقلل من الارتباك.';
+
+                // Item 2
+                const h4_2 = gridItems[1].querySelector('h4');
+                const gp_2 = gridItems[1].querySelector('p');
+                if (h4_2) h4_2.textContent = 'الإشارات المرجعية للمتصفح';
+                if (gp_2) gp_2.textContent = 'تظهر أيقونات المواقع أيضاً بجانب الصفحات المحفوظة في الإشارات المرجعية. تعرض معظم المتصفحات أيقونة الموقع بجانب كل إشارة مرجعية، مما يتيح للمستخدمين تصفح مجلدات الإشارات المرجعية بسرعة دون قراءة كل عنوان.';
+
+                // Item 3
+                const h4_3 = gridItems[2].querySelector('h4');
+                const gp_3 = gridItems[2].querySelector('p');
+                if (h4_3) h4_3.textContent = 'سجل المتصفح';
+                if (gp_3) gp_3.textContent = 'تعرض العديد من متصفحات الكمبيوتر والهواتف أيقونات المواقع داخل سجل التصفح. وبدلاً من عرض أيقونة مستند افتراضية عامة، تستخدم المتصفحات الأيقونة لتمييز المواقع بصرياً، مما يسهل فحص سجل التصفح.';
+
+                // Item 4
+                const h4_4 = gridItems[3].querySelector('h4');
+                const gp_4 = gridItems[3].querySelector('p');
+                if (h4_4) h4_4.textContent = 'شريط العنوان وواجهة المتصفح';
+                if (gp_4) gp_4.textContent = 'تعرض بعض المتصفحات أيقونات المواقع داخل شريط العنوان، أو منطقة معلومات الصفحة، أو واجهة إدارة علامات التبويب. وعلى الرغم من اختلاف طريقة التثبيت بين المتصفحات، إلا أن دعم هذه البيئات يساعد في الحفاظ على اتساق العلامة التجارية عبر الأنظمة المختلفة.';
+
+                // Item 5
+                const h4_5 = gridItems[4].querySelector('h4');
+                const gp_5 = gridItems[4].querySelector('p');
+                if (h4_5) h4_5.textContent = 'نتائج بحث Google';
+                if (gp_5) gp_5.textContent = 'قد يعرض Google أيقونة الموقع في نتائج البحث على الهواتف وبعض تجارب البحث على أجهزة الكمبيوتر. عند ظهورها بجانب عنوان صفحتك واسم النطاق، توفر الأيقونة إشارة إضافية للعلامة التجارية تساعد المستخدمين على التعرف على موقعك.';
+
+                // Item 6
+                const h4_6 = gridItems[5].querySelector('h4');
+                const gp_6 = gridItems[5].querySelector('p');
+                if (h4_6) h4_6.textContent = 'اختصارات الشاشة الرئيسية للهواتف';
+                if (gp_6) gp_6.textContent = 'عندما يحفظ المستخدمون موقع ويب على الشاشة الرئيسية لهواتفهم الذكية، تستخدم المتصفحات عادةً أيقونة مخصصة بناءً على الأيقونة أو أيقونة Apple Touch الخاصة بموقعك. إذا كان موقعك يتضمن أيقونات معدة بشكل صحيح، فإن الاختصار سيبدو مشابهاً لتطبيق الهاتف الأصلي.';
+
+                // Item 7
+                const h4_7 = gridItems[6].querySelector('h4');
+                const gp_7 = gridItems[6].querySelector('p');
+                if (h4_7) h4_7.textContent = 'تطبيقات الويب التقدمية (PWA)';
+                if (gp_7) gp_7.textContent = 'تستخدم تطبيقات الويب التقدمية مقاسات أيقونات متعددة مشتقة من مجموعة أيقونات الموقع. عندما يقوم المستخدمون بتثبيت تطبيق ويب تقدمي، تصبح هذه الأيقونات هي أيقونة تشغيل التطبيق، وأيقونة شاشة البدء، وأيقونة مبدل المهام، وأيقونة الإشعارات.';
+
+                // Item 8
+                const h4_8 = gridItems[7].querySelector('h4');
+                const gp_8 = gridItems[7].querySelector('p');
+                if (h4_8) h4_8.textContent = 'صفحات بدء المتصفح';
+                if (gp_8) gp_8.textContent = 'تعرض العديد من المتصفحات المواقع التي تتم زيارتها بشكل متكرر في صفحات التبويب الجديدة أو لوحات معلومات الصفحة الرئيسية. تُستخدم أيقونات المواقع بشكل شائع كمعرف مرئي لكل موقع ويب، مما يسهل التعرف عليها بلمحة بصر.';
+
+                // Item 9
+                const h4_9 = gridItems[8].querySelector('h4');
+                const gp_9 = gridItems[8].querySelector('p');
+                if (h4_9) h4_9.textContent = 'مديرو كلمات المرور والتعبئة التلقائية للمتصفح';
+                if (gp_9) gp_9.textContent = 'يعرض بعض مديري كلمات المرور ومديري بيانات اعتبار المتصفح أيقونات المواقع بجانب بيانات تسجيل الدخول المحفوظة. ويساعد هذا المستخدمين على تحديد موقع الويب الصحيح بسرعة قبل التعبئة التلقائية لأسماء المستخدمين وكلمات المرور.';
+            }
+
+            // Card 4: Why is a favicon important?
+            const h2_4 = cards[3].querySelector('h2');
+            if (h2_4) h2_4.textContent = 'لماذا تعتبر أيقونة الموقع (Favicon) مهمة؟';
+            const pList_4 = cards[3].querySelectorAll('p');
+            if (pList_4.length >= 2) {
+                pList_4[0].textContent = 'للوهلة الأولى، قد تبدو أيقونة الموقع عنصراً ثانوياً في التصميم. ففي النهاية، غالباً ما تكون أبعادها 16 × 16 أو 32 × 32 بكسل فقط. ومع ذلك، فإن تأثيرها يمتد إلى ما هو أبعد بكثير من حجمها. تعمل الأيقونة كمعرف مرئي لموقعك عبر المتصفحات، والإشارات المرجعية، ونتائج البحث، والأجهزة المحمولة، مما يساعد المستخدمين على التعرف على علامتك التجارية والوثوق بها.';
+                pList_4[1].textContent = 'بالنسبة للشركات، والمدونين، ومتاجر التجارة الإلكترونية، وشركات البرمجيات كخدمة (SaaS)، والمواقع الشخصية، تعد أيقونة الموقع جزءاً أساسياً من تصميم الويب الاحترافي. وبدونها، غالباً ما تعرض المتصفحات أيقونة افتراضية عامة، مما قد يجعل الموقع يبدو غير مكتمل أو أقل مصداقية.';
+            }
+            const h3List_4 = cards[3].querySelectorAll('h3');
+            if (h3List_4.length >= 8) {
+                h3List_4[0].textContent = 'تحسين التعرف على العلامة التجارية';
+                h3List_4[1].textContent = 'تسهيل التعرف على علامات تبويب المتصفح';
+                h3List_4[2].textContent = 'تحسين تجربة المستخدم (UX)';
+                h3List_4[3].textContent = 'بناء الثقة والاحترافية';
+                h3List_4[4].textContent = 'تحسين ظهور الإشارات المرجعية';
+                h3List_4[5].textContent = 'دعم تجربة مستخدم الهاتف المحمول';
+                h3List_4[6].textContent = 'دعم اتساق العلامة التجارية عبر المنصات المختلفة';
+                h3List_4[7].textContent = 'يمكن أن تحسن نسب النقر إلى الظهور بشكل غير مباشر';
+            }
+            const pWithH3_List = cards[3].querySelectorAll('p:not([style*="font-size: 1.15rem"])');
+            pWithH3_List.forEach(p => {
+                const text = p.textContent.trim();
+                if (text.includes("One of the biggest advantages of a favicon")) {
+                    p.textContent = 'واحدة من أكبر مزايا أيقونة الموقع هي أنها تعزز التعرف على العلامة التجارية. يربط الناس بشكل طبيعي الرموز المرئية بالعلامات التجارية بشكل أسرع من النصوص. تعزز الأيقونة المصممة جيداً هوية موقعك في كل مرة يفتح فيها شخص ما علامة تبويب متصفح، أو يتحقق من إشاراته المرجعية، أو يرى موقعك في نتائج البحث المدعومة.';
+                } else if (text.includes("Modern internet users rarely keep")) {
+                    p.textContent = 'نادراً ما يكتفي مستخدمو الإنترنت المعاصرون بفتح علامة تبويب متصفح واحدة فقط. يعمل الكثير من الأشخاص على عشرات التبويب في وقت واحد، وينتقلون بين المواقع طوال اليوم. وعندما يتم تقصير عناوين الصفحات بسبب ضيق مساحة التبويب، غالباً ما تصبح الأيقونة هي الدليل المرئي الأساسي الذي يساعد المستخدمين على تحديد علامة التبويب الصحيحة.';
+                } else if (text.includes("User experience is influenced by many")) {
+                    p.textContent = 'تتأثر تجربة المستخدم بالعديد من التفاصيل الصغيرة، وأيقونة الموقع هي واحدة منها. على الرغم من أنها لا تغير طريقة عمل موقعك، إلا أنها تحسن كيفية تفاعل المستخدمين معه من خلال توفير سياق مرئي واضح.';
+                } else if (text.includes("A missing favicon may not prevent visitors")) {
+                    p.textContent = 'قد لا تمنع أيقونة الموقع المفقودة الزوار من استخدام موقعك، ولكنها قد تؤثر بشكل خفي على الانطباع الأول. عندما تعرض المتصفحات أيقونة افتراضية عامة بدلاً من أيقونة مخصصة لعلامتك التجارية، قد يرى المستخدمون الموقع غير مكتمل أو قديماً أو أقل موثوقية. تشير الأيقونة المخصصة إلى الاهتمام بالتفاصيل والاحترافية.';
+                } else if (text.includes("Many users bookmark websites they plan")) {
+                    p.textContent = 'يقوم العديد من المستخدمين بحفظ المواقع التي يخططون لإعادة زيارتها في الإشارات المرجعية. تعرض المتصفحات الأيقونات بجانب عناوين الإشارات المرجعية. عندما يتم تنظيم الإشارات المرجعية في مجلدات تحتوي على عشرات المواقع، فإن الأيقونة الممينة تساعد موقعك على البروز، مما يزيد من احتمالية تكرار الزيارات.';
+                } else if (text.includes("Favicons are no longer limited to desktop")) {
+                    p.textContent = 'لم تعد أيقونات المواقع مقتصرة على متصفحات الكمبيوتر. فعلى الهواتف الذكية والأجهزة اللوحية، تستخدم المتصفحات أيقونات المواقع عندما يضيف المستخدمون صفحات إلى شاشاتهم الرئيسية. وتعتمد تطبيقات الويب التقدمية (PWAs) أيضاً على هذه الأيقونات لتشغيل التطبيق، وشاشات البدء، والإشعارات، ومبدلات المهام.';
+                } else if (text.includes("A consistent favicon ensures your brand remains")) {
+                    p.textContent = 'تضمن الأيقونة المتسقة بقاء علامتك التجارية قابلة للتمييز بغض النظر عن المكان الذي يواجه فيه المستخدمون موقعك: متصفحات الكمبيوتر، الشاشات الرئيسية للهواتف، سجل المتصفح، مديرو كلمات المرور، أو نتائج البحث.';
+                } else if (text.includes("In supported search experiences, a recognizable")) {
+                    p.textContent = 'في تجارب البحث المدعومة، تساعد أيقونة الموقع المميزة المعروضة بجانب عنوان موقعك ورابط URL المستخدمين على تحديد علامتك التجارية بسرعة. يمكن أن تؤدي الهوية التجارية المألوفة إلى زيادة الثقة وتشجيع النقر في نتائج البحث.';
+                }
+            });
+            const listItems_4 = cards[3].querySelectorAll('ul li');
+            listItems_4.forEach(li => {
+                const text = li.innerHTML;
+                if (text.includes("Reinforces visual identity")) {
+                    li.innerHTML = '<strong>تعزيز الهوية البصرية:</strong> يخلق صلة لا تُنسى مع الزوار.';
+                } else if (text.includes("Increases brand recall")) {
+                    li.innerHTML = '<strong>زيادة تذكر العلامة التجارية:</strong> يساعد المستخدمين على تذكر اسم علامتك التجارية وأسلوب شعارك.';
+                } else if (text.includes("Creates consistency")) {
+                    li.innerHTML = '<strong>خلق الاتساق والتكامل:</strong> يحافظ على أسلوب موحد عبر المتصفحات والأجهزة.';
+                } else if (text.includes("Makes website memorable")) {
+                    li.innerHTML = '<strong>جعل الموقع مميزاً:</strong> يميز علامتك التجارية بصرياً.';
+                } else if (text.includes("Simplify navigation")) {
+                    li.textContent = 'تبسيط التنقل بين عدة علامات تبويب مفتوحة';
+                } else if (text.includes("Improve bookmark organization")) {
+                    li.textContent = 'تحسين تنظيم الإشارات المرجعية';
+                } else if (text.includes("Make browser history easier to scan")) {
+                    li.textContent = 'تسهيل فحص سجل المتصفح';
+                } else if (text.includes("Help users quickly locate")) {
+                    li.textContent = 'مساعدة المستخدمين في تحديد موقع المواقع المحفوظة بسرعة';
+                } else if (text.includes("Provide visual continuity")) {
+                    li.textContent = 'توفير الاستمرارية البصرية عبر الأجهزة المختلفة';
+                }
+            });
+            const noFaviconHeader = cards[3].querySelector('h5[style*="color: #ef4444"]');
+            if (noFaviconHeader) noFaviconHeader.textContent = 'بدون أيقونة موقع';
+            const noFaviconP = noFaviconHeader?.nextElementSibling;
+            if (noFaviconP) noFaviconP.textContent = 'تعرض علامات التبويب المتعددة أيقونات افتراضية عامة متطابقة. ويجب على المستخدمين قراءة العناوين المبتورة، مما يجعل العثور على الموقع الصحيح أبطأ وأكثر إرباكاً.';
+
+            const withFaviconHeader = cards[3].querySelector('h5[style*="color: #06d6a0"]');
+            if (withFaviconHeader) withFaviconHeader.textContent = 'مع أيقونة موقع';
+            const withFaviconP = withFaviconHeader?.nextElementSibling;
+            if (withFaviconP) withFaviconP.textContent = 'كل موقع ويب له معرف مرئي فريد. يمكن للمستخدمين تحديد موقع علامة التبويب الصحيحة بشكل فوري تقريباً، مما يجعل التنقل أسرع وأكثر سهولة.';
+
+            // Card 5: Does a favicon directly improve SEO?
+            const h2_5 = cards[4].querySelector('h2');
+            if (h2_5) h2_5.textContent = 'هل تعمل أيقونة الموقع (Favicon) على تحسين سيو (SEO) بشكل مباشر؟';
+            const pList_5 = cards[4].querySelectorAll('p');
+            if (pList_5.length >= 3) {
+                pList_5[0].innerHTML = 'أيقونة الموقع ليست عامل ترتيب <strong>مباشر</strong> في Google. وجود الأيقونة بمفرده لن يحسن ترتيبك في نتائج محرك البحث.';
+                pList_5[1].textContent = 'ومع ذلك، يمكنها دعم سيو (SEO) بشكل غير مباشر من خلال تعزيز تجربة المستخدم العامة وتقوية علامتك التجارية:';
+                pList_5[2].textContent = 'تكافئ محركات البحث بشكل متزايد مواقع الويب التي توفر تجربة مستخدم إيجابية. بينما تعد أيقونة الموقع مجرد مكون صغير واحد، إلا أنها تكمل التحسينات الفنية والتصميمية الأخرى التي تساهم في إنشاء موقع ويب عالي الجودة.';
+            }
+            const listItems_5 = cards[4].querySelectorAll('ul li');
+            if (listItems_5.length >= 6) {
+                listItems_5[0].textContent = 'تعرف أفضل على العلامة التجارية وثقة أكبر من المستخدمين';
+                listItems_5[1].textContent = 'تحسين ثقة المستخدمين والمصداقية المهنية';
+                listItems_5[2].textContent = 'زيادة الوضوح والظهور في علامات التبويب والإشارات المرجعية للمتصفح';
+                listItems_5[3].textContent = 'اتساق وتكامل أقوى للعلامة التجارية عبر المنصات المختلفة';
+                listItems_5[4].textContent = 'احتمالية أعلى لنسب النقر إلى الظهور في نتائج البحث المدعومة';
+                listItems_5[5].textContent = 'تنقل أسهل للزوار المتكررين';
+            }
+
+            // Card 6: Key Takeaways
+            const h2_6 = cards[5].querySelector('h2');
+            if (h2_6) h2_6.textContent = 'النقاط الرئيسية المستخلصة';
+            const pList_6 = cards[5].querySelectorAll('p');
+            if (pList_6.length >= 3) {
+                pList_6[0].textContent = 'أيقونة الموقع (Favicon) هي أكثر بكثير من مجرد رمز زخرفي. إنها أصل أساسي للهوية التجارية يعمل على تحسين التعرف والسهولة والاحترافية عبر المتصفحات، والإشارات المرجعية، والأجهزة المحمولة، وواجهات البحث.';
+                pList_6[1].textContent = 'من خلال تثبيت أيقونة موقع مصممة جيداً، يمكنك:';
+                pList_6[2].textContent = 'على الرغم من أنها تشغل بضعة بكسلات فقط، إلا أن أيقونة الموقع لها تأثير دائم على كيفية إدراك المستخدمين لموقعك وتفاعلهم معه.';
+            }
+            const listItems_6 = cards[5].querySelectorAll('ul li');
+            if (listItems_6.length >= 6) {
+                listItems_6[0].textContent = 'تقوية هوية علامتك التجارية';
+                listItems_6[1].textContent = 'مساعدة المستخدمين في التعرف على موقعك فوراً';
+                listItems_6[2].textContent = 'تحسين التنقل عبر علامات التبويب والإشارات المرجعية للمتصفح';
+                listItems_6[3].textContent = 'إنشاء مظهر أكثر صقلاً وجدارة بالثقة';
+                listItems_6[4].textContent = 'دعم تجربة مستخدم أفضل بشكل عام';
+                listItems_6[5].textContent = 'المساهمة بشكل غير مباشر في تفاعل المستخدمين وأداء سيو (SEO)';
+            }
+        }
+
+        // Bottom CTA Section
+        let bottomCta = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            if (sec.className.includes('bottom-cta')) {
+                bottomCta = sec;
+            }
+        });
+
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = 'ابدأ تحويل صور PNG إلى أيقونات مواقع (Favicon) مجانًا اليوم';
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = 'انضم إلى أكثر من 50,000 مستخدم يثقون في موقع PNGtoFavicon.com للحصول على خدمة دقيقة وسريعة ومجانية تماماً لإنشاء أيقونات المواقع.';
+
+            const btn = bottomCta.querySelector('.btn');
+            if (btn) btn.textContent = 'ابدأ التحويل الآن - الخدمة مجانية!';
+        }
+
+        // Explore More Favicon Tools
+        let toolsSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Explore More Favicon Tools')) {
+                toolsSec = sec;
+            }
+        });
+
+        if (toolsSec) {
+            const h2 = toolsSec.querySelector('h2');
+            if (h2) h2.textContent = 'استكشف المزيد من أدوات الأيقونات';
+
+            const subtitle = toolsSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لتلبية جميع احتياجات الأيقونات الخاصة بك';
+
+            const cardsList = toolsSec.querySelectorAll('.tool-card');
+            if (cardsList.length >= 3) {
+                // Card 1: Text to Favicon
+                const h3_1 = cardsList[0].querySelector('h3');
+                const p_1 = cardsList[0].querySelector('p');
+                const link_1 = cardsList[0].querySelector('.tool-card-link');
+                if (h3_1) h3_1.textContent = 'نص إلى أيقونة';
+                if (p_1) p_1.textContent = 'أنشئ أيقونة موقع من الأحرف أو الأحرف الأولى لاسم شركتك أو أي نص آخر. اختر الخطوط والألوان والأنماط لإنشاء أيقونة فريدة لعلامتك التجارية.';
+                if (link_1) link_1.textContent = 'جربها مجاناً ←';
+
+                // Card 2: Emoji to Favicon
+                const h3_2 = cardsList[1].querySelector('h3');
+                const p_2 = cardsList[1].querySelector('p');
+                const link_2 = cardsList[1].querySelector('.tool-card-link');
+                if (h3_2) h3_2.textContent = 'رمز تعبيري إلى أيقونة';
+                if (p_2) p_2.textContent = 'حول أي رمز تعبيري (Emoji) إلى أيقونة favicon متوافقة مع جميع الأجهزة. اختر الخلفية والأشكال والأحجام وقم بالتنزيل فوراً.';
+                if (link_2) link_2.textContent = 'جربها مجاناً ←';
+
+                // Card 3: Favicon Checker
+                const h3_3 = cardsList[2].querySelector('h3');
+                const p_3 = cardsList[2].querySelector('p');
+                const link_3 = cardsList[2].querySelector('.tool-card-link');
+                if (h3_3) h3_3.textContent = 'فاحص الأيقونات';
+                if (p_3) p_3.textContent = 'افحص أي موقع إلكتروني مباشر للتحقق من الإعداد الصحيح وقابلية اكتشاف متصفحات الويب لأيقونة الموقع وأيقونة Apple وملف manifest.';
+                if (link_3) link_3.textContent = 'جربها مجاناً ←';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
