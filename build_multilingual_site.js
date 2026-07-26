@@ -2242,39 +2242,39 @@ async function localizePage(relativePath, targetLang) {
             if (subtitle) subtitle.textContent = 'كل الملفات التي تحتاجها لضمان دعم كامل لـ Favicon عبر جميع المتصفحات والأجهزة.';
 
             // favicon.ico
-            const fcIco = whatsIncludedSec.querySelector('#file-ico');
+            const fcIco = whatsIncludedSec.querySelector('#file-favicon-ico');
             if (fcIco) {
                 const badge = fcIco.querySelector('.file-badge');
                 const p = fcIco.querySelector('p');
                 if (badge) badge.textContent = 'ICO';
-                if (p) p.innerHTML = 'تنسيق <strong>ICO</strong> الكلاسيكي متعدد الأحجام، ويحتوي على أيقونات بمقاسات <strong>16×16</strong> و<strong>32×32</strong> و<strong>48×48</strong> بكسل. مطلوب لدعم المتصفحات القديمة.';
+                if (p) p.innerHTML = 'صيغة <strong>ICO</strong> الكلاسيكية متعددة الأحجام، تحتوي على أيقونات بأحجام <strong>16×16</strong> و<strong>32×32</strong> و<strong>48×48</strong> بكسل. مطلوبة لدعم المتصفحات القديمة، بما في ذلك الإصدارات الأقدم من إنترنت إكسبلورر.';
             }
 
             // favicon-16
-            const fc16 = whatsIncludedSec.querySelector('#file-png-16');
+            const fc16 = whatsIncludedSec.querySelector('#file-favicon-16');
             if (fc16) {
                 const badge = fc16.querySelector('.file-badge');
                 const p = fc16.querySelector('p');
                 if (badge) badge.textContent = '16';
-                if (p) p.innerHTML = 'أيقونة متصفح قياسية بمقاس <strong>16×16</strong> بكسل لعلامات التبويب. تستخدمها معظم المتصفحات كأيقونة رئيسية.';
+                if (p) p.innerHTML = 'أيقونة تبويب المتصفح القياسية بحجم <strong>16×16</strong> بكسل. تستخدمها معظم المتصفحات الحديثة كأيقونة تبويب رئيسية للشاشات ذات الكثافة القياسية.';
             }
 
             // favicon-32
-            const fc32 = whatsIncludedSec.querySelector('#file-png-32');
+            const fc32 = whatsIncludedSec.querySelector('#file-favicon-32');
             if (fc32) {
                 const badge = fc32.querySelector('.file-badge');
                 const p = fc32.querySelector('p');
                 if (badge) badge.textContent = '32';
-                if (p) p.innerHTML = 'أيقونة متصفح عالية الدقة بمقاس <strong>32×32</strong> بكسل لعلامات التبويب، تُعرض على شاشات <strong>Retina</strong> و<strong>HiDPI</strong> لمنح وضوح إضافي.';
+                if (p) p.innerHTML = 'أيقونة تبويب المتصفح عالية الدقة بحجم <strong>32×32</strong> بكسل. تُعرض على شاشات <strong>Retina</strong> و<strong>HiDPI</strong> لعرض أيقونات واضحة وحادة في علامات تبويب المتصفح.';
             }
 
             // apple-touch
-            const fcApple = whatsIncludedSec.querySelector('#file-apple');
+            const fcApple = whatsIncludedSec.querySelector('#file-apple-touch');
             if (fcApple) {
                 const badge = fcApple.querySelector('.file-badge');
                 const p = fcApple.querySelector('p');
                 if (badge) badge.textContent = '180';
-                if (p) p.innerHTML = 'أيقونة <strong>Apple Touch</strong> بمقاس <strong>180×180</strong> بكسل لأجهزة <strong>iPhone</strong> و<strong>iPad</strong>، تُعرض عند إضافة الموقع إلى الشاشة الرئيسية.';
+                if (p) p.innerHTML = 'أيقونة <strong>Apple Touch</strong> بمقاس <strong>180×180</strong> بكسل لأجهزة <strong>iPhone</strong> و<strong>iPad</strong> و<strong>iPod Touch</strong>. تُعرض عندما يضيف المستخدمون موقع الويب الخاص بك إلى الشاشة الرئيسية لجهاز <strong>iOS</strong>.';
             }
 
             // android-chrome-192
