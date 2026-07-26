@@ -1859,8 +1859,8 @@ async function localizePage(relativePath, targetLang) {
         if (badgeFree) badgeFree.textContent = '💰 مجاني 100%';
         const badgeEmojis = doc.getElementById('badge-emojis');
         if (badgeEmojis) badgeEmojis.textContent = '🚀 أكثر من 1000 رمز تعبيري';
-        const badgeStyle = doc.getElementById('badge-style');
-        if (badgeStyle) badgeStyle.textContent = '⚙️ تنسيق تفاعلي';
+        const badgeStyle = doc.getElementById('badge-custom');
+        if (badgeStyle) badgeStyle.textContent = '⚙️ التنسيق التفاعلي';
         const badgePrivate = doc.getElementById('badge-private');
         if (badgePrivate) badgePrivate.textContent = '🔒 خاص وآمن 100%';
 
