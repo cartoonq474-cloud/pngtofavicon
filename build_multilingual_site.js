@@ -1865,24 +1865,24 @@ async function localizePage(relativePath, targetLang) {
         if (badgePrivate) badgePrivate.textContent = '🔒 خاص وآمن 100%';
 
         // Controls Card / Settings Card Title
-        const controlsTitle = doc.querySelector('.controls-card h3');
+        const controlsTitle = doc.querySelector('.tool-input h3');
         if (controlsTitle) controlsTitle.textContent = '🚀 اختر ونسق الرمز التعبيري';
 
         // Labels
         doc.querySelectorAll('label').forEach(label => {
             const text = label.textContent.trim();
             if (text.includes('Selected Emoji')) {
-                label.childNodes[0].textContent = 'الرمز التعبيري المحدد';
+                label.textContent = 'الرمز التعبيري المحدد';
             } else if (text.includes('Background Color')) {
                 label.textContent = 'لون الخلفية';
             } else if (text.includes('Keep transparent (Icon only)')) {
-                label.childNodes[1].textContent = 'خلفية شفافة (أيقونة فقط)';
+                if (label.childNodes[2]) label.childNodes[2].textContent = ' خلفية شفافة (أيقونة فقط)';
             } else if (text.includes('Background Shape')) {
                 label.textContent = 'شكل الخلفية';
             } else if (text.includes('Emoji Scale')) {
                 label.textContent = 'حجم الرمز التعبيري';
             } else if (text.includes('Include site.webmanifest')) {
-                label.childNodes[1].textContent = 'تضمين ملف site.webmanifest (PWA)';
+                if (label.childNodes[2]) label.childNodes[2].textContent = ' تضمين ملف site.webmanifest (PWA)';
             }
         });
 
@@ -1894,26 +1894,25 @@ async function localizePage(relativePath, targetLang) {
             else if (text === 'Square') opt.textContent = 'مربع';
         });
 
-        // Preview Title
-        const previewCol = doc.querySelector('.preview-col');
-        if (previewCol) {
-            const h3 = previewCol.querySelector('h3');
-            if (h3) h3.textContent = '📦 المعاينة المباشرة';
+        // Preview & Copy panels
+        const toolOutput = doc.querySelector('.tool-output');
+        if (toolOutput) {
+            const h3List = toolOutput.querySelectorAll('h3');
+            if (h3List.length >= 2) {
+                h3List[0].textContent = '📦 المعاينة المباشرة';
+                h3List[1].textContent = '🔗 نسخ ولصق كود HTML';
+            }
             
-            const zipBtn = previewCol.querySelector('#downloadZip');
+            const zipBtn = toolOutput.querySelector('#downloadAllBtn');
             if (zipBtn) zipBtn.textContent = 'تنزيل حزمة Favicon (ZIP)';
-        }
 
-        // Copy panel
-        const codeCol = doc.querySelector('.code-col');
-        if (codeCol) {
-            const h3 = codeCol.querySelector('h3');
-            if (h3) h3.textContent = '🔗 نسخ ولصق كود HTML';
-            
-            const p = codeCol.querySelector('p');
-            if (p) p.textContent = 'أضف هذا الكود إلى قسم <head> في صفحة HTML الخاصة بك:';
+            toolOutput.querySelectorAll('p').forEach(p => {
+                if (p.textContent.includes('Add this to your HTML')) {
+                    p.textContent = 'أضف هذا الكود إلى قسم <head> في صفحة HTML الخاصة بك:';
+                }
+            });
 
-            const copyBtn = codeCol.querySelector('#copyCode');
+            const copyBtn = toolOutput.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'نسخ';
         }
 
@@ -2037,7 +2036,7 @@ async function localizePage(relativePath, targetLang) {
             if (h2) h2.textContent = 'مثالي لجميع الاستخدامات';
 
             const p = useCasesSec.querySelector('p.section-subtitle');
-            if (p) p.textContent = 'اكتشف كيف يساعدك مولد Emoji to Favicon في مختلف السيناريوهات.';
+            if (p) p.textContent = 'اكتشف كيف يساعدك مولد الرموز التعبيرية إلى Favicon في مختلف السيناريوهات.';
 
             const cards = useCasesSec.querySelectorAll('.use-case-card');
             if (cards.length >= 4) {
@@ -2152,14 +2151,48 @@ async function localizePage(relativePath, targetLang) {
         });
 
         if (testimonialsSec) {
+            const accent = testimonialsSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'آراء المستخدمين';
+
             const h2 = testimonialsSec.querySelector('h2');
             if (h2) h2.textContent = 'ماذا يقول مستخدمونا؟';
 
             const subtitle = testimonialsSec.querySelector('.section-subtitle') || testimonialsSec.querySelector('p');
             if (subtitle) subtitle.textContent = 'يثق أكثر من 50,000 مطور ومصمم وصانع محتوى في PNGtoFavicon لإنجاز مشاريعهم.';
 
+            // Rating Details
+            const ratingDetails = testimonialsSec.querySelectorAll('.rating-details');
+            ratingDetails.forEach(detail => {
+                const count = detail.querySelector('.rating-count');
+                if (count) {
+                    const text = count.textContent.trim();
+                    if (text.includes('Trustpilot')) {
+                        count.textContent = 'تقييمات موثقة على Trustpilot';
+                    } else if (text.includes('Capterra')) {
+                        count.textContent = 'تقييمات موثقة على Capterra';
+                    }
+                }
+            });
+
             const cards = testimonialsSec.querySelectorAll('.review-card');
             cards.forEach(card => {
+                const authorEl = card.querySelector('h3');
+                if (authorEl) {
+                    const name = authorEl.textContent.trim();
+                    if (name === 'Alex M.') authorEl.textContent = 'أليكس م.';
+                    else if (name === 'Sarah J.') authorEl.textContent = 'سارة ج.';
+                    else if (name === 'David K.') authorEl.textContent = 'ديفيد ك.';
+                    else if (name === 'Elena R.') authorEl.textContent = 'إيلينا ر.';
+                    else if (name === 'Michael T.') authorEl.textContent = 'مايكل ت.';
+                    else if (name === 'Jessica L.') authorEl.textContent = 'جيسيكا ل.';
+                    else if (name === 'Ryan P.') authorEl.textContent = 'رايان ب.';
+                    else if (name === 'Amanda B.') authorEl.textContent = 'أماندا ب.';
+                    else if (name === 'Chris W.') authorEl.textContent = 'كريس و.';
+                    else if (name === 'Nina S.') authorEl.textContent = 'نينا س.';
+                    else if (name === 'Tom H.') authorEl.textContent = 'توم هـ.';
+                    else if (name === 'Laura C.') authorEl.textContent = 'لورا ك.';
+                }
+
                 const authorRoleEl = card.querySelector('.review-meta p');
                 const dateEl = card.querySelector('.review-date');
                 const quoteEl = card.querySelector('p:not(.review-meta p)');
@@ -2224,6 +2257,30 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+
+        // Steps Badges & Trusted Badge
+        doc.querySelectorAll('.steps-badge').forEach(badge => {
+            const text = badge.textContent.trim();
+            if (text.includes('Free & secure') || text.includes('أصول مطور')) {
+                badge.innerHTML = '<span class="badge-dot"></span>أدوات مجانية وآمنة للمطورين بنسبة 100%';
+            } else if (text.includes('Powerful features') || text.includes('ميزات قوية')) {
+                badge.innerHTML = '<span class="badge-dot"></span>ميزات قوية بين يديك';
+            }
+        });
+
+        doc.querySelectorAll('.trusted-badge').forEach(badge => {
+            const text = badge.textContent.trim();
+            if (text.includes('Trusted by professionals') || text.includes('موثوق به')) {
+                badge.innerHTML = `
+            <div class="dots-group">
+              <span class="dot blue-dot"></span>
+              <span class="dot purple-dot"></span>
+              <span class="dot pink-dot"></span>
+            </div>
+            موثوق به من قبل محترفين حول العالم
+                `;
+            }
+        });
 
         // Section 8: What's Included in Your Download
         let whatsIncludedSec = null;
@@ -2384,14 +2441,17 @@ async function localizePage(relativePath, targetLang) {
         // Footer Section
         const footer = doc.querySelector('footer');
         if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
             // WhatsApp Link
             const waLink = footer.querySelector('a[href*="wa.me"]');
             if (waLink) {
-                waLink.childNodes.forEach(node => {
-                    if (node.nodeType === 3 && node.textContent.trim().includes('Chat on WhatsApp')) {
-                        node.textContent = 'دردشة عبر واتساب';
-                    }
-                });
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
             }
 
             // Columns headers
