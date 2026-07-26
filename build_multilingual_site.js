@@ -3193,6 +3193,125 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic blog/index.html page translation
+    if (targetLang === 'ar' && normPath === 'blog/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'مدونة الأيقونات وتحسين المواقع | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'تابع أحدث معايير الويب، وقوائم مراجعة سيو (SEO)، ونصائح التصميم الخاصة بمقتطفات نتائج البحث وعلامات تبويب المتصفح.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'مدونة <span class="gradient-text">الهوية والأيقونات</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'تابع أحدث معايير الويب، وقوائم مراجعة سيو (SEO)، ونصائح التصميم الخاصة بمقتطفات نتائج البحث وعلامات تبويب المتصفح.';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 2) {
+            // Card 1
+            const span1 = cards[0].querySelector('span');
+            if (span1) span1.textContent = 'سيو والعلامة التجارية';
+            const h2_1 = cards[0].querySelector('h2 a');
+            if (h2_1) h2_1.textContent = 'دليل سيو الأيقونات (Favicon SEO): تحسين نسب النقر إلى الظهور في نتائج البحث';
+            const p1 = cards[0].querySelector('p');
+            if (p1) p1.textContent = 'تعرف على كيفية قيام Google بتحليل أيقونات المواقع لصفحات نتائج البحث على أجهزة الهاتف والكمبيوتر وكيف تؤثر الأيقونة على نسبة النقر إلى الظهور.';
+            const metaDiv1 = cards[0].querySelector('div:last-of-type');
+            if (metaDiv1) {
+                const dateSpan = metaDiv1.querySelector('span');
+                if (dateSpan) dateSpan.textContent = '10 يوليو 2026 · قراءة لمدة 6 دقائق';
+                const readLink = metaDiv1.querySelector('a');
+                if (readLink) {
+                    readLink.textContent = 'اقرأ المقال ←';
+                }
+            }
+
+            // Card 2
+            const span2 = cards[1].querySelector('span');
+            if (span2) span2.textContent = 'صيغ الملفات';
+            const h2_2 = cards[1].querySelector('h2 a');
+            if (h2_2) h2_2.textContent = 'PNG مقابل ICO مقابل SVG: اختيار الصيغة المناسبة لأيقونة موقعك';
+            const p2 = cards[1].querySelector('p');
+            if (p2) p2.textContent = 'تحليل عميق لصيغ أيقونات المتصفح. قارن بين صيغة ICO الكلاسيكية الاحتياطية، وأيقونات تبويب PNG الواضحة، وأصول SVG المتجاوبة والمتجهة الحديثة.';
+            const metaDiv2 = cards[1].querySelector('div:last-of-type');
+            if (metaDiv2) {
+                const dateSpan = metaDiv2.querySelector('span');
+                if (dateSpan) dateSpan.textContent = '5 يوليو 2026 · قراءة لمدة 8 دقائق';
+                const readLink = metaDiv2.querySelector('a');
+                if (readLink) {
+                    readLink.textContent = 'اقرأ المقال ←';
+                }
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
