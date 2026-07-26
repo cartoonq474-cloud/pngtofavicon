@@ -3084,6 +3084,115 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic tutorials/index.html page translation
+    if (targetLang === 'ar' && normPath === 'tutorials/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'دليل وإرشادات أيقونات المواقع (Favicon) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'تعلم كيفية إنشاء وتثبيت وتحسين أيقونات المواقع (favicons) لتحقيق أقصى قدر من التوافق مع المتصفحات وتحسين سيو (SEO) محركات البحث.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'أدلة وإرشادات <span class="gradient-text">أيقونات المواقع (Favicon)</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'تعلم كيفية إنشاء وتثبيت وتحسين أيقونات المواقع لضمان التوافق التام مع المتصفحات وظهورها بشكل مثالي في نتائج البحث (SEO).';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.tools-grid .tool-card');
+        if (cards.length >= 4) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = '❓ ما هو الفافيكون (Favicon)؟';
+            if (p_1) p_1.textContent = 'تعرف على تاريخ وفائدة أيقونات تبويب المتصفح ولماذا تعتبر بالغة الأهمية للهوية الرقمية.';
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = '📏 دليل مقاسات الأيقونات (Favicon)';
+            if (p_2) p_2.textContent = 'تعرف على مقاسات الأيقونات المطلوبة لشاشات retina الحديثة، وتطبيقات Android، وإشارات المرجعية لنظام iOS.';
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = '➕ كيفية إضافة أيقونة Favicon';
+            if (p_3) p_3.textContent = 'مقتطفات كود HTML عامة قابلة للنسخ واللصق وإرشادات الرفع على الخادم لتثبيت ملفات الأيقونة الخاصة بك.';
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = '💡 أفضل الممارسات لأيقونة Favicon';
+            if (p_4) p_4.textContent = 'نصائح حول ملاءمة حجم التصاميم، وتقليل حجم الملف، وإرشادات سيو (SEO) للأيقونة لتحسين نسبة النقر إلى الظهور في Google.';
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
