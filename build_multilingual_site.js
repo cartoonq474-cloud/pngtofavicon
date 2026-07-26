@@ -3484,6 +3484,218 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for Arabic tutorials/favicon-sizes/index.html page translation
+    if (targetLang === 'ar' && normPath === 'tutorials/favicon-sizes/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'دليل مقاسات الأيقونات (معايير عام 2026) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'تعرف على المقاسات والأبعاد المطلوبة لكل متصفح وجهاز ومنصة تطبيقات الويب التقدمية (PWA) في عام 2026.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'دليل مقاسات الأيقونات <span class="gradient-text">الكامل لعام 2026</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'تعرف على المقاسات والأبعاد المطلوبة لكل متصفح وجهاز ومنصة تطبيقات الويب التقدمية (PWA) لضمان العرض الدقيق والاحترافي للأيقونة.';
+        }
+
+        // Table
+        const tableSec = doc.querySelector('.section') || doc.querySelector('section');
+        if (tableSec) {
+            const h2 = tableSec.querySelector('h2');
+            if (h2) h2.textContent = 'جدول مقاسات الأيقونات (Favicon) القياسية';
+
+            const table = tableSec.querySelector('table');
+            if (table) {
+                const thList = table.querySelectorAll('th');
+                if (thList.length >= 3) {
+                    thList[0].textContent = 'المقاس';
+                    thList[1].textContent = 'الصيغة';
+                    thList[2].textContent = 'المنصة المستهدفة / الاستخدام';
+                }
+
+                const rows = table.querySelectorAll('tbody tr');
+                if (rows.length >= 6) {
+                    // Row 1
+                    const tds_1 = rows[0].querySelectorAll('td');
+                    if (tds_1.length >= 3) {
+                        tds_1[0].textContent = '16 × 16 بكسل';
+                        tds_1[1].textContent = 'PNG / ICO';
+                        tds_1[2].textContent = 'أيقونة تبويب متصفح الكمبيوتر القياسية الاحتياطية';
+                    }
+
+                    // Row 2
+                    const tds_2 = rows[1].querySelectorAll('td');
+                    if (tds_2.length >= 3) {
+                        tds_2[0].textContent = '32 × 32 بكسل';
+                        tds_2[1].textContent = 'PNG / ICO';
+                        tds_2[2].textContent = 'أيقونات تبويب متصفح الكمبيوتر شاشات Retina / HiDPI عالية الدقة';
+                    }
+
+                    // Row 3
+                    const tds_3 = rows[2].querySelectorAll('td');
+                    if (tds_3.length >= 3) {
+                        tds_3[0].textContent = '48 × 48 بكسل';
+                        tds_3[1].textContent = 'ICO';
+                        tds_3[2].textContent = 'شريط مهام Windows / أيقونات اختصارات سطح المكتب الاحتياطية';
+                    }
+
+                    // Row 4
+                    const tds_4 = rows[3].querySelectorAll('td');
+                    if (tds_4.length >= 3) {
+                        tds_4[0].textContent = '180 × 180 بكسل';
+                        tds_4[1].textContent = 'PNG';
+                        tds_4[2].textContent = 'أيقونة Apple iOS Touch (إشارات المرجعية للشاشة الرئيسية لأجهزة iPhone و iPad)';
+                    }
+
+                    // Row 5
+                    const tds_5 = rows[4].querySelectorAll('td');
+                    if (tds_5.length >= 3) {
+                        tds_5[0].textContent = '192 × 192 بكسل';
+                        tds_5[1].textContent = 'PNG';
+                        tds_5[2].textContent = 'أيقونة الشاشة الرئيسية لمتصفح Chrome على Android / شارة تشغيل تطبيقات PWA';
+                    }
+
+                    // Row 6
+                    const tds_6 = rows[5].querySelectorAll('td');
+                    if (tds_6.length >= 3) {
+                        tds_6[0].textContent = '512 × 512 بكسل';
+                        tds_6[1].textContent = 'PNG';
+                        tds_6[2].textContent = 'شاشات البدء (Splash screens) لتطبيقات PWA / مشغل تطبيقات عالي الدقة';
+                    }
+                }
+            }
+        }
+
+        // Bottom CTA Section
+        let bottomCta = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            if (sec.className.includes('bottom-cta')) {
+                bottomCta = sec;
+            }
+        });
+
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = 'ابدأ تحويل صور PNG إلى أيقونات مواقع (Favicon) مجانًا اليوم';
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = 'انضم إلى أكثر من 50,000 مستخدم يثقون في موقع PNGtoFavicon.com للحصول على خدمة دقيقة وسريعة ومجانية تماماً لإنشاء أيقونات المواقع.';
+
+            const btn = bottomCta.querySelector('.btn');
+            if (btn) btn.textContent = 'ابدأ التحويل الآن - الخدمة مجانية!';
+        }
+
+        // Explore More Favicon Tools
+        let toolsSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Explore More Favicon Tools')) {
+                toolsSec = sec;
+            }
+        });
+
+        if (toolsSec) {
+            const h2 = toolsSec.querySelector('h2');
+            if (h2) h2.textContent = 'استكشف المزيد من أدوات الأيقونات';
+
+            const subtitle = toolsSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'يقدم موقع PNGtoFavicon مجموعة كاملة من الأدوات لتلبية جميع احتياجات الأيقونات الخاصة بك';
+
+            const cards = toolsSec.querySelectorAll('.tool-card');
+            if (cards.length >= 3) {
+                // Card 1: Text to Favicon
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                const link_1 = cards[0].querySelector('.tool-card-link');
+                if (h3_1) h3_1.textContent = 'نص إلى أيقونة';
+                if (p_1) p_1.textContent = 'أنشئ أيقونة موقع من الأحرف أو الأحرف الأولى لاسم شركتك أو أي نص آخر. اختر الخطوط والألوان والأنماط لإنشاء أيقونة فريدة لعلامتك التجارية.';
+                if (link_1) link_1.textContent = 'جربها مجاناً ←';
+
+                // Card 2: Emoji to Favicon
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                const link_2 = cards[1].querySelector('.tool-card-link');
+                if (h3_2) h3_2.textContent = 'رمز تعبيري إلى أيقونة';
+                if (p_2) p_2.textContent = 'حول أي رمز تعبيري (Emoji) إلى أيقونة favicon متوافقة مع جميع الأجهزة. اختر الخلفية والأشكال والأحجام وقم بالتنزيل فوراً.';
+                if (link_2) link_2.textContent = 'جربها مجاناً ←';
+
+                // Card 3: Favicon Checker
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                const link_3 = cards[2].querySelector('.tool-card-link');
+                if (h3_3) h3_3.textContent = 'فاحص الأيقونات';
+                if (p_3) p_3.textContent = 'افحص أي موقع إلكتروني مباشر للتحقق من الإعداد الصحيح وقابلية اكتشاف متصفحات الويب لأيقونة الموقع وأيقونة Apple وملف manifest.';
+                if (link_3) link_3.textContent = 'جربها مجاناً ←';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'حوّل صور PNG إلى Favicon فوراً — أداة مجانية عبر الإنترنت';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'دردشة عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'المصادر';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'محول PNG إلى Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+                else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+                else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+                else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل مقاسات الأيقونات';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هو الفافيكون (Favicon)؟';
+                else if (text === 'About') link.textContent = 'من نحن';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     // Translate Head elements (title and meta tags)
     if (doc.title && dict[doc.title.trim()]) {
         doc.title = dict[doc.title.trim()];
