@@ -3431,6 +3431,258 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for German tutorials/what-is-a-favicon/index.html page translation
+    if (targetLang === 'de' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'Was ist ein Favicon? Ein Leitfaden für Anfänger | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie alles über die Geschichte, den Zweck und die Bedeutung von Favicons, wo sie angezeigt werden und wie sie das Benutzererlebnis und das Branding verbessern.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'Was ist ein <span class="gradient-text">Favicon</span>?';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'Jede Website besitzt eine Identität, und das Favicon ist eines ihrer kleinsten, aber zugleich markantesten Branding-Elemente. Erfahren Sie, warum es im Jahr 2026 von Bedeutung ist.';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 6) {
+            // Card 1: Intro
+            const pList_1 = cards[0].querySelectorAll('p');
+            if (pList_1.length >= 4) {
+                pList_1[0].textContent = 'Jede Website besitzt eine Identität, und das Favicon ist eines ihrer kleinsten, aber zugleich markantesten Branding-Elemente. Ein Favicon ist das winzige Symbol, das auf unterstützten Geräten neben dem Seitentitel in Browser-Tabs, Lesezeichen, dem Browserverlauf und den Suchergebnissen angezeigt wird. Obwohl es nur wenige Pixel einnimmt, spielt es eine wichtige Rolle dabei, Nutzern die schnelle Identifizierung Ihrer Website zu ermöglichen und Ihre Marke über verschiedene Browsing-Szenarien hinweg zu stärken.';
+                pList_1[1].textContent = 'Viele Website-Betreiber konzentrieren sich auf Logos, Typografie und Farbschemata, vernachlässigen jedoch das Favicon bei der Website-Entwicklung. Fehlende oder schlecht gestaltete Favicons können dazu führen, dass eine Website unfertig oder weniger vertrauenswürdig wirkt. Ein klares und wiedererkennbares Favicon hingegen hilft Besuchern, Ihre Seite inmitten Dutzender geöffneter Tabs zu unterscheiden, verbessert die Sichtbarkeit in Lesezeichen und sorgt für einen professionelleren Gesamteindruck.';
+                pList_1[2].textContent = 'Moderne Browser, Suchmaschinen und Mobilgeräte verwenden Favicons an mehr Stellen als je zuvor. Google zeigt sie unter Umständen in mobilen Suchergebnissen an, Browser präsentieren sie in Tabs und Lesezeichen, und Progressive Web Apps (PWAs) nutzen sie als Teil des App-Icons. Aufgrund dieser vielfältigen Einsatzmöglichkeiten ist die Erstellung eines optimal gestalteten Favicons zu einem festen Bestandteil von Webdesign und technischer SEO geworden.';
+                pList_1[3].textContent = 'Dieser Leitfaden erklärt, was ein Favicon ist, warum es wichtig ist, wo es angezeigt wird, welche Größen und Dateiformate am besten geeignet sind, wie man eines erstellt und installiert, welche häufigen Fehler vermieden werden sollten und ob ein Favicon die SEO beeinflusst.';
+            }
+
+            // Card 2: What Is a Favicon?
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Was ist ein Favicon?';
+            const pList_2 = cards[1].querySelectorAll('p');
+            if (pList_2.length >= 9) {
+                pList_2[0].textContent = 'Ein Favicon (kurz für „Favorite Icon“ bzw. Favoritensymbol) ist eine kleine Grafik, die eine Website oder Webanwendung repräsentiert. Es dient als visueller Identifikator, der es Nutzern erleichtert, Ihre Website unter mehreren Browser-Tabs, Lesezeichen, Browserverlaufseinträgen und anderen Stellen, an denen Websites aufgelistet sind, wiederzuerkennen.';
+                pList_2[1].textContent = 'Im Gegensatz zu einem Logo in voller Größe ist ein Favicon so konzipiert, dass es auch bei sehr kleinen Abmessungen (oft nur 16 × 16 Pixel) erkennbar bleibt. Aufgrund dieses begrenzten Platzes verwenden effektive Favicons einfache Formen, starken Kontrast und minimale Details.';
+                pList_2[2].textContent = 'Wenn jemand Ihre Website besucht, fordert sein Browser die Favicon-Datei zusammen mit anderen Website-Ressourcen wie HTML, CSS, JavaScript und Bildern an. Nach dem Laden zeigt der Browser das Symbol an den entsprechenden Stellen an, was den Nutzern hilft, die Seite schnell mit Ihrer Marke zu assoziieren.';
+                pList_2[3].innerHTML = 'Das Wort <strong>Favicon</strong> leitet sich von „Favorite Icon“ ab.';
+                pList_2[4].textContent = 'Der Begriff entstand in den späten 1990er Jahren, als Microsoft die Unterstützung für ein kleines Symbol in Verbindung mit Websites einführte. Ursprünglich wurden diese Symbole nur angezeigt, wenn Benutzer Websites zu ihrer Favoritenliste im Internet Explorer hinzufügten. Im Laufe der Zeit übernahmen andere Browser das Konzept und weiteten seine Verwendung auf Tabs, Lesezeichen, Verlaufsseiten, mobile Verknüpfungen und installierte Webanwendungen aus.';
+                pList_2[5].textContent = 'Der Hauptzweck eines Favicons besteht darin, einer Website eine visuelle Identität zu verleihen.';
+                pList_2[6].textContent = 'Anstatt sich ausschließlich auf Seitentitel verlassen zu müssen, können Nutzer eine Website schnell an ihrem Symbol erkennen. Dies ist besonders nützlich, wenn viele Tabs geöffnet sind, Browserfenster überfüllt sind oder Lesezeichen Hunderte von gespeicherten Websites enthalten.';
+                pList_2[7].textContent = 'Ein Favicon hilft bei:';
+                pList_2[8].textContent = 'Obwohl ein Favicon das Ranking in Suchmaschinen nicht direkt verbessert, trägt es zur allgemeinen Benutzerfreundlichkeit und Markenkonsistenz der Website bei, was wiederum ein positives Benutzererlebnis unterstützt.';
+            }
+            const h3List_2 = cards[1].querySelectorAll('h3');
+            if (h3List_2.length >= 2) {
+                h3List_2[0].textContent = 'Die Herkunft des Begriffs „Favicon“';
+                h3List_2[1].textContent = 'Was ist der Hauptzweck eines Favicons?';
+            }
+            const ulList_2 = cards[1].querySelectorAll('ul li');
+            if (ulList_2.length >= 5) {
+                ulList_2[0].innerHTML = '<strong>Stärkung der visuellen Identität:</strong> Schafft eine einprägsame Verbindung zu den Besuchern.';
+                ulList_2[1].innerHTML = '<strong>Erhöhung des Markenwiedererkennungswerts:</strong> Hilft Nutzern, sich an Ihren Markennamen und Logo-Stil zu erinnern.';
+                ulList_2[2].innerHTML = '<strong>Schaffung von Konsistenz:</strong> Behält ein einheitliches Styling über Browser und Geräte hinweg bei.';
+                ulList_2[3].innerHTML = '<strong>Die Website einprägsam machen:</strong> Hebt Ihre Marke visuell hervor.';
+            }
+
+            // Card 3: Where Favicons Appear
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = 'Wo werden Favicons angezeigt?';
+            const pList_3 = cards[2].querySelectorAll('p');
+            if (pList_3.length >= 2) {
+                pList_3[0].textContent = 'Viele Menschen gehen davon aus, dass ein Favicon nur in Browser-Tabs erscheint, aber moderne Browser, Betriebssysteme und Suchmaschinen zeigen Favicons an verschiedenen Stellen an.';
+                pList_3[1].textContent = 'Zu verstehen, wo Ihr Favicon angezeigt wird, verdeutlicht, warum die Wahl des richtigen Designs und Dateiformats wichtig ist.';
+            }
+            const h4List_3 = cards[2].querySelectorAll('h4');
+            const pDescList_3 = cards[2].querySelectorAll('div > div > p');
+            if (h4List_3.length >= 9 && pDescList_3.length >= 9) {
+                h4List_3[0].textContent = 'Browser-Tabs';
+                pDescList_3[0].textContent = 'Der häufigste Ort für ein Favicon ist der Browser-Tab. Wenn mehrere Tabs geöffnet sind, verlassen sich Nutzer oft eher auf Favicons als auf Seitentitel, um die gewünschte Website zu finden. Ein markantes Symbol macht die Navigation schneller und verringert Verwirrung.';
+
+                h4List_3[1].textContent = 'Browser-Lesezeichen';
+                pDescList_3[1].textContent = 'Favicons werden auch neben als Lesezeichen gespeicherten Seiten angezeigt. Die meisten Browser zeigen das Website-Symbol neben jedem Lesezeichen an, sodass Benutzer Lesezeichenordner schnell durchsuchen können, ohne jeden Titel lesen zu müssen.';
+
+                h4List_3[2].textContent = 'Browserverlauf';
+                pDescList_3[2].textContent = 'Viele Desktop- und Mobil-Browser zeigen Favicons im Browserverlauf an. Anstatt ein allgemeines Dokumentsymbol anzuzeigen, verwenden Browser das Favicon, um Websites visuell zu unterscheiden, was das Durchsuchen des Verlaufs erleichtert.';
+
+                h4List_3[3].textContent = 'Adressleiste und Browser-Oberfläche';
+                pDescList_3[3].textContent = 'Einige Browser zeigen Favicons in der Adressleiste, im Seiteninformationsbereich oder in der Tab-Verwaltung an. Obwohl die Implementierung je nach Browser variiert, hilft die Unterstützung dieser Umgebungen dabei, ein konsistentes Branding über Plattformen hinweg aufrechtzuerhalten.';
+
+                h4List_3[4].textContent = 'Google-Suchergebnisse';
+                pDescList_3[4].textContent = 'Google zeigt das Favicon einer Website unter Umständen in mobilen Suchergebnissen und bei bestimmten Desktop-Sucheinstellungen an. Wenn es neben Ihrem Seitentitel und Domainnamen angezeigt wird, liefert das Favicon ein zusätzliches Branding-Signal, das den Nutzern hilft, Ihre Website zu erkennen.';
+
+                h4List_3[5].textContent = 'Verknüpfungen auf dem Startbildschirm';
+                pDescList_3[5].textContent = 'Wenn Benutzer eine Website auf dem Startbildschirm ihres Smartphones speichern, verwenden Browser in der Regel ein bestimmtes Symbol, das auf Ihrem Favicon oder Apple Touch Icon basiert. Wenn Ihre Website über ordnungsgemäß konfigurierte Symbole verfügt, sieht die Verknüpfung ähnlich aus wie eine native mobile Anwendung.';
+
+                h4List_3[6].textContent = 'Progressive Web Apps (PWAs)';
+                pDescList_3[6].textContent = 'Progressive Web Apps verwenden mehrere Symbolgrößen, die aus dem Symbolset der Website abgeleitet werden. Wenn Benutzer eine PWA installieren, werden diese Symbole zum Starter-Symbol der Anwendung, zum Ladebildschirm-Symbol (Splash Screen), zum Task-Umschalter-Symbol und zum Benachrichtigungssymbol.';
+
+                h4List_3[7].textContent = 'Browser-Startseiten';
+                pDescList_3[7].textContent = 'Viele Browser zeigen häufig besuchte Websites auf neuen Tab-Seiten oder Homepage-Dashboards an. Favicons werden häufig als visueller Identifikator für jede Website verwendet, sodass sie auf einen Blick leichter zu erkennen sind.';
+
+                h4List_3[8].textContent = 'Passwort-Manager und Autofill';
+                pDescList_3[8].textContent = 'Einige Passwort-Manager und Browser-Anmeldeinformations-Manager zeigen Favicons neben gespeicherten Website-Logins an. Dies hilft Benutzern, schnell die richtige Website zu identifizieren, bevor sie Benutzernamen und Passwörter automatisch ausfüllen.';
+            }
+
+            // Card 4: Why Is a Favicon Important?
+            const h2_4 = cards[3].querySelector('h2');
+            if (h2_4) h2_4.textContent = 'Warum ist ein Favicon wichtig?';
+            const pList_4 = cards[3].querySelectorAll('p');
+            if (pList_4.length >= 12) {
+                pList_4[0].textContent = 'Auf den ersten Blick mag ein Favicon wie ein unbedeutendes Designelement erscheinen. Schließlich misst es oft nur 16 × 16 oder 32 × 32 Pixel. Seine Wirkung reicht jedoch weit über seine Größe hinaus. Ein Favicon fungiert als visueller Identifikator für Ihre Website in Browsern, Lesezeichen, Suchergebnissen und mobilen Geräten und hilft den Benutzern, Ihre Marke wiederzuerkennen und ihr zu vertrauen.';
+                pList_4[1].textContent = 'Für Unternehmen, Blogger, E-Commerce-Shops, SaaS-Unternehmen und persönliche Websites ist ein Favicon ein Standardbestandteil von professionellem Webdesign. Ohne eines zeigen Browser oft ein allgemeines Platzhaltersymbol an, was dazu führen kann, dass eine Website unvollständig oder weniger vertrauenswürdig wirkt.';
+                pList_4[2].textContent = 'Einer der größten Vorteile eines Favicons besteht darin, dass es die Markenwiedererkennung stärkt. Menschen bringen visuelle Symbole natürlicherweise schneller mit Marken in Verbindung als Text. Ein gut gestaltetes Favicon verstärkt die Identität Ihrer Website jedes Mal, wenn jemand einen Browser-Tab öffnet, seine Lesezeichen überprüft oder Ihre Website in unterstützten Suchergebnissen sieht.';
+                pList_4[3].textContent = 'Moderne Internetnutzer haben selten nur einen einzigen Browser-Tab geöffnet. Viele Menschen arbeiten mit Dutzenden von Tabs gleichzeitig und wechseln den ganzen Tag über zwischen Websites. Wenn Seitentitel aufgrund des begrenzten Platzes im Tab gekürzt werden, wird das Favicon oft zum primären visuellen Hinweis, der den Nutzern hilft, den richtigen Tab zu identifizieren.';
+                pList_4[4].textContent = 'Mehrere Tabs zeigen identische allgemeine Symbole. Benutzer müssen gekürzte Titel lesen, was das Finden der richtigen Website langsamer und verwirrender macht.';
+                pList_4[5].textContent = 'Jede Website verfügt über einen eindeutigen visuellen Identifikator. Benutzer können den richtigen Tab fast sofort finden, was die Navigation schneller und intuitiver macht.';
+                pList_4[6].textContent = 'Das Benutzererlebnis (UX) wird von vielen kleinen Details beeinflusst, und ein Favicon is eines davon. Obwohl es die Funktionsweise Ihrer Website nicht verändert, verbessert es die Interaktion der Benutzer mit ihr, indem es einen klaren visuellen Kontext liefert.';
+                pList_4[7].textContent = 'Ein fehlendes Favicon hindert Besucher vielleicht nicht daran, Ihre Website zu nutzen, aber es kann den ersten Eindruck subtil beeinflussen. Wenn Browser ein allgemeines Platzhaltersymbol anstelle eines gebrandeten Favicons anzeigen, können Benutzer die Website als unfertig, veraltet oder weniger zuverlässig wahrnehmen. Ein benutzerdefiniertes Favicon signalisiert Liebe zum Detail und Professionalität.';
+                pList_4[8].textContent = 'Viele Benutzer speichern Websites, die sie wieder besuchen möchten, als Lesezeichen. Browser zeigen Favicons neben den Lesezeichentiteln an. Wenn Lesezeichen in Ordnern organisiert sind, die Dutzende von Seiten enthalten, hilft ein markantes Favicon Ihrer Website, sich abzuheben, was die Wahrscheinlichkeit von wiederholten Besuchen erhöht.';
+                pList_4[9].textContent = 'Favicons sind nicht mehr nur auf Desktop-Browser beschränkt. Auf Smartphones und Tablets verwenden Browser Website-Symbole, wenn Benutzer Seiten zu ihrem Startbildschirm hinzufügen. Progressive Web Apps (PWAs) verlassen sich ebenfalls auf diese Symbole für App-Starter, Ladebildschirme, Benachrichtigungen und Task-Umschalter.';
+                pList_4[10].textContent = 'Ein konsistentes Favicon stellt sicher, dass Ihre Marke erkennbar bleibt, unabhängig davon, wo Benutzer auf Ihre Website stoßen: in Desktop-Browsern, auf mobilen Startbildschirmen, im Browserverlauf, in Passwort-Managern oder in Suchergebnissen.';
+                pList_4[11].textContent = 'In unterstützten Suchumgebungen hilft ein erkennbares Favicon, das neben dem Titel und der URL Ihrer Website angezeigt wird, den Nutzern, Ihre Marke schnell zu identifizieren. Ein vertrautes Branding kann das Vertrauen stärken und Klicks in den Suchergebnissen fördern.';
+            }
+            const h3List_4 = cards[3].querySelectorAll('h3');
+            if (h3List_4.length >= 8) {
+                h3List_4[0].textContent = 'Verbessert die Markenwiedererkennung';
+                h3List_4[1].textContent = 'Erleichtert die Identifizierung von Browser-Tabs';
+                h3List_4[2].textContent = 'Verbessert das Benutzererlebnis (UX)';
+                h3List_4[3].textContent = 'Baut Vertrauen und Professionalität auf';
+                h3List_4[4].textContent = 'Verbessert die Sichtbarkeit von Lesezeichen';
+                h3List_4[5].textContent = 'Unterstützt die mobile Benutzererfahrung';
+                h3List_4[6].textContent = 'Unterstützt konsistentes Branding über Plattformen hinweg';
+                h3List_4[7].textContent = 'Kann die Klickraten indirekt verbessern';
+            }
+            const h5List_4 = cards[3].querySelectorAll('h5');
+            if (h5List_4.length >= 2) {
+                h5List_4[0].textContent = 'Ohne Favicon';
+                h5List_4[1].textContent = 'Mit Favicon';
+            }
+            const ulList_4 = cards[3].querySelectorAll('ul');
+            if (ulList_4.length >= 2) {
+                const liList_4_1 = ulList_4[0].querySelectorAll('li');
+                if (liList_4_1.length >= 4) {
+                    liList_4_1[0].innerHTML = '<strong>Stärkt die visuelle Identität:</strong> Schafft eine einprägsame Verbindung zu den Besuchern.';
+                    liList_4_1[1].innerHTML = '<strong>Erhöht die Markenpräsenz:</strong> Hilft Nutzern, sich an Ihren Markennamen und Logo-Stil zu erinnern.';
+                    liList_4_1[2].innerHTML = '<strong>Schafft Konsistenz:</strong> Hält das Design über verschiedene Browser und Geräte hinweg einheitlich.';
+                    liList_4_1[3].innerHTML = '<strong>Macht die Website einprägsam:</strong> Hebt Ihre Marke visuell ab.';
+                }
+                const liList_4_2 = ulList_4[1].querySelectorAll('li');
+                if (liList_4_2.length >= 5) {
+                    liList_4_2[0].textContent = 'Vereinfachung der Navigation zwischen mehreren geöffneten Tabs';
+                    liList_4_2[1].textContent = 'Verbesserung der Lesezeichen-Organisation';
+                    liList_4_2[2].textContent = 'Leichtere Durchsuchbarkeit des Browserverlaufs';
+                    liList_4_2[3].textContent = 'Hilfe beim schnellen Auffinden gespeicherter Websites';
+                    liList_4_2[4].textContent = 'Visuelle Kontinuität über verschiedene Geräte hinweg';
+                }
+            }
+
+            // Card 5: Does a Favicon Directly Improve SEO?
+            const h2_5 = cards[4].querySelector('h2');
+            if (h2_5) h2_5.textContent = 'Verbessert ein Favicon direkt die SEO?';
+            const pList_5 = cards[4].querySelectorAll('p');
+            if (pList_5.length >= 3) {
+                pList_5[0].innerHTML = 'Ein Favicon ist <strong>kein</strong> direkter Google-Rankingfaktor. Das Vorhandensein eines Favicons allein wird Ihre Position in den Suchergebnissen nicht verbessern.';
+                pList_5[1].textContent = 'Es kann die SEO jedoch indirekt unterstützen, indem es das allgemeine Benutzererlebnis verbessert und Ihre Marke stärkt:';
+                pList_5[2].textContent = 'Suchmaschinen belohnen zunehmend Websites, die eine positive Benutzererfahrung bieten. Obwohl ein Favicon nur eine kleine Komponente ist, ergänzt es andere technische und gestalterische Verbesserungen, die zu einer qualitativ hochwertigen Website beitragen.';
+            }
+            const liList_5 = cards[4].querySelectorAll('ul li');
+            if (liList_5.length >= 6) {
+                liList_5[0].textContent = 'Bessere Markenwiedererkennung und Benutzervertrauen';
+                liList_5[1].textContent = 'Erhöhtes Nutzervertrauen und professionelle Glaubwürdigkeit';
+                liList_5[2].textContent = 'Verbesserte Sichtbarkeit in Browser-Tabs und Lesezeichen';
+                liList_5[3].textContent = 'Stärkere Markenkonsistenz über Plattformen hinweg';
+                liList_5[4].textContent = 'Potenziell höhere Klickraten in unterstützten Suchergebnissen';
+                liList_5[5].textContent = 'Leichtere Navigation für wiederkehrende Besucher';
+            }
+
+            // Card 6: Key Takeaways
+            const h2_6 = cards[5].querySelector('h2');
+            if (h2_6) h2_6.textContent = 'Wichtigste Erkenntnisse';
+            const pList_6 = cards[5].querySelectorAll('p');
+            if (pList_6.length >= 3) {
+                pList_6[0].textContent = 'Ein Favicon ist weit mehr als nur ein dekoratives Symbol. Es ist ein wichtiges Branding-Element, das die Wiedererkennung, Benutzerfreundlichkeit und Professionalität in Browsern, Lesezeichen, mobilen Geräten und Suchschnittstellen verbessert.';
+                pList_6[1].textContent = 'Durch die Implementierung eines gut gestalteten Favicons können Sie:';
+                pList_6[2].textContent = 'Auch wenn es nur wenige Pixel einnimmt, hat ein Favicon einen nachhaltigen Einfluss darauf, wie Benutzer Ihre Website wahrnehmen und mit ihr interagieren.';
+            }
+            const liList_6 = cards[5].querySelectorAll('ul li');
+            if (liList_6.length >= 6) {
+                liList_6[0].textContent = 'Ihre Markenidentität stärken';
+                liList_6[1].textContent = 'Nutzern helfen, Ihre Website sofort zu identifizieren';
+                liList_6[2].textContent = 'Die Navigation in Browser-Tabs und Lesezeichen verbessern';
+                liList_6[3].textContent = 'Für ein professionelleres und vertrauenswürdigeres Erscheinungsbild sorgen';
+                liList_6[4].textContent = 'Ein besseres allgemeines Benutzererlebnis unterstützen';
+                liList_6[5].textContent = 'Indirekt zu Nutzerengagement und SEO-Performance beitragen';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'Konvertieren Sie PNG sofort in Favicon — ein kostenloses Online-Tool.';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Auf WhatsApp chatten';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'PNG-zu-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden für Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzerklärung';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinie';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
     // Custom logic for Arabic tutorials/how-to-add-favicon/index.html page translation
     if (targetLang === 'ar' && normPath === 'tutorials/how-to-add-favicon/index.html') {
         // Title & Description
