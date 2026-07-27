@@ -6668,6 +6668,90 @@ async function localizePage(relativePath, targetLang) {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tous droits réservés.';
             }
         }
+
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) faqSec = sec;
+        });
+
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = 'Foire aux questions';
+
+            const p = faqSec.querySelector('p.section-subtitle') || faqSec.querySelector('p');
+            if (p) p.textContent = 'Trouvez des réponses aux questions fréquemment posées sur notre service de conversion de favicon';
+
+            // FAQ tabs
+            const tabButtons = faqSec.querySelectorAll('.faq-tab-btn');
+            tabButtons.forEach(btn => {
+                const txt = btn.textContent.trim();
+                if (txt === 'Getting Started') btn.textContent = 'Premiers pas';
+                else if (txt === 'Features') btn.textContent = 'Fonctionnalités';
+                else if (txt === 'Technology') btn.textContent = 'Technologie';
+                else if (txt === 'About Us') btn.textContent = 'À propos de nous';
+            });
+
+            // FAQ items (questions and answers)
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('What is a favicon?')) {
+                        summary.textContent = 'Qu\'est-ce qu\'un favicon ?';
+                        if (p) p.textContent = 'Un favicon (raccourci pour « favorite icon ») est une petite icône qui représente votre site web dans les onglets du navigateur, les favoris, l\'historique et les barres d\'adresse. Il aide les utilisateurs à identifier visuellement votre marque.';
+                    } else if (qTxt.includes('How can I convert a PNG to a favicon online?')) {
+                        summary.textContent = 'Comment puis-je convertir un PNG en favicon en ligne ?';
+                        if (p) p.textContent = 'Faites simplement glisser et déposer votre image PNG dans la zone de téléchargement ci-dessus, personnalisez la couleur d\'arrière-plan, la marge ou les coins, et téléchargez instantanément le package ZIP compilé.';
+                    } else if (qTxt.includes('Do I need to install any software?')) {
+                        summary.textContent = 'Dois-je installer un logiciel ?';
+                        if (p) p.textContent = 'Non, notre convertisseur de favicon fonctionne à 100 % dans votre navigateur web. Aucun plugin, extension ou installation de logiciel n\'est nécessaire.';
+                    } else if (qTxt.includes('Do I need to create an account?')) {
+                        summary.textContent = 'Dois-je créer un compte ?';
+                        if (p) p.textContent = 'Non, l\'outil est entièrement gratuit, libre et anonyme. Aucune inscription par e-mail, aucun enregistrement ou abonnement n\'est requis.';
+                    } else if (qTxt.includes('What file formats does the tool generate?')) {
+                        summary.textContent = 'Quels formats de fichiers l\'outil génère-t-il ?';
+                        if (p) p.textContent = 'Il génère un fichier favicon.ico multi-tailles (16px, 32px, 48px), des icônes de navigateur PNG haute résolution, des icônes tactiles Apple (180x180), des icônes Android Chrome (192x192, 512x512) et un fichier site.webmanifest.';
+                    } else if (qTxt.includes('Does the tool support transparent PNGs?')) {
+                        summary.textContent = 'L\'outil prend-il en charge les PNG transparents ?';
+                        if (p) p.textContent = 'Oui ! Il préserve la transparence par défaut. Vous pouvez également désactiver la transparence et remplir l\'arrière-plan avec la couleur de votre choix.';
+                    } else if (qTxt.includes('Can I choose specific output sizes?')) {
+                        summary.textContent = 'Puis-je choisir des tailles de sortie spécifiques ?';
+                        if (p) p.textContent = 'Oui, notre panneau d\'options vous permet de sélectionner ou de désélectionner des tailles spécifiques afin que vous ne téléchargiez que les icônes dont vous avez besoin.';
+                    } else if (qTxt.includes('What is a site.webmanifest file?')) {
+                        summary.textContent = 'Qu\'est-ce qu\'un fichier site.webmanifest ?';
+                        if (p) p.textContent = 'Il s\'agit d\'un fichier de configuration JSON contenant les métadonnées du nom de l\'application et les chemins d\'accès aux icônes, requis par les appareils Android modernes et les applications web progressives (PWA) pour installer votre site sur l\'écran d\'accueil.';
+                    } else if (qTxt.includes('How does client-side favicon conversion work?')) {
+                        summary.textContent = 'Comment fonctionne la conversion de favicon côté client ?';
+                        if (p) p.textContent = 'We utilisons HTML5 Canvas pour redimensionner et dessiner les images, et nous compilons le fichier binaire favicon.ico à l\'aide d\'ArrayBuffers au niveau de l\'octet directement dans la mémoire de votre navigateur.';
+                    } else if (qTxt.includes('Does the converter support large images?')) {
+                        summary.textContent = 'Le convertisseur prend-il en charge les grandes images ?';
+                        if (p) p.textContent = 'Oui, il prend facilement en charge les images haute résolution jusqu\'à 5 Mo, en les redimensionnant à l\'aide d\'un filtre bilinéaire pour préserver des contours nets.';
+                    } else if (qTxt.includes('Why is the favicon.ico file important?')) {
+                        summary.textContent = 'Pourquoi le fichier favicon.ico est-il important ?';
+                        if (p) p.textContent = 'Bien que les navigateurs modernes prennent en charge les favicons au format PNG, l\'ancien format favicon.ico reste requis comme solution de secours pour les anciennes versions d\'Internet Explorer et certains gestionnaires de raccourcis de bureau.';
+                    } else if (qTxt.includes('How fast is the conversion process?')) {
+                        summary.textContent = 'À quelle vitesse se fait le processus de conversion ?';
+                        if (p) p.textContent = 'La conversion est presque instantanée (moins de 50 millisecondes) car elle traite tout localement sur votre ordinateur au lieu de charger le fichier sur un serveur distant.';
+                    } else if (qTxt.includes('Is my image secure and private?')) {
+                        summary.textContent = 'Mon image est-elle sécurisée et privée ?';
+                        if (p) p.textContent = 'Oui, absolument. Vos images ne quittent jamais votre navigateur car le traitement s\'effectue localement. Nous ne transmettons, n\'analysons ni ne stockons aucun de vos fichiers.';
+                    } else if (qTxt.includes('Why should I choose PNGtoFavicon.com?')) {
+                        summary.textContent = 'Pourquoi devrais-je choisir PNGtoFavicon.com ?';
+                        if (p) p.textContent = 'Nous proposons un outil entièrement gratuit, automatisé, respectueux de la vie privée et conçu pour les développeurs, qui fournit des packages d\'icônes complets et conformes aux normes pour tous les appareils modernes.';
+                    } else if (qTxt.includes('Can I use this tool on mobile devices?')) {
+                        summary.textContent = 'Puis-je utiliser cet outil sur des appareils mobiles ?';
+                        if (p) p.textContent = 'Oui ! Le site web et le moteur de conversion sont entièrement réactifs, ce qui vous permet de créer et de télécharger vos favicons sur n\'importe quel téléphone mobile ou tablette.';
+                    } else if (qTxt.includes('Is this converter completely free?')) {
+                        summary.textContent = 'Ce convertisseur est-il entièrement gratuit ?';
+                        if (p) p.textContent = 'Oui, 100 % gratuit, sans limites, sans filigrane ni abonnement caché.';
+                    }
+                }
+            });
+        }
     }
 
     // Translate Head elements (title and meta tags)
