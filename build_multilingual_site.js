@@ -3683,6 +3683,134 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for German tutorials/how-to-add-favicon/index.html page translation
+    if (targetLang === 'de' && normPath === 'tutorials/how-to-add-favicon/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'So fügen Sie Ihrer Website ein Favicon hinzu | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie Ihre Favicon-Pakete auf statischen Hosting-Servern oder in benutzerdefinierten CMS-Frameworks einbinden.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'So fügen Sie Ihrer Website ein <span class="gradient-text">Favicon</span> hinzu';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'Erfahren Sie, wie Sie Ihre Favicon-Pakete auf statischen Hosting-Servern oder in benutzerdefinierten CMS-Frameworks einbinden.';
+        }
+
+        // Steps cards
+        const stepsSec = doc.querySelector('.section');
+        if (stepsSec) {
+            const cards = stepsSec.querySelectorAll('.glass-card');
+            if (cards.length >= 3) {
+                // Step 1
+                const h2_1 = cards[0].querySelector('h2');
+                const p_1 = cards[0].querySelector('p');
+                if (h2_1) h2_1.textContent = 'Schritt 1: Dateien generieren';
+                if (p_1) p_1.textContent = 'Laden Sie Ihre Grafik in unser Online-Tool hoch, um die ZIP-Datei zu erstellen. Entpacken Sie das Paket, um auf die Dateien zuzugreifen.';
+
+                // Step 2
+                const h2_2 = cards[1].querySelector('h2');
+                const p_2 = cards[1].querySelector('p');
+                if (h2_2) h2_2.textContent = 'Schritt 2: Dateien in das Stammverzeichnis hochladen';
+                if (p_2) p_2.innerHTML = 'Laden Sie alle entpackten Favicon-Dateien (favicon.ico, apple-touch-icon.png usw.) direkt in das öffentliche Hauptverzeichnis (Root-Verzeichnis) Ihrer Website hoch (meist <code>public_html</code> oder <code>public</code>). Sie sollten beispielsweise unter <code>yoursite.com/favicon.ico</code> erreichbar sein.';
+
+                // Step 3
+                const h2_3 = cards[2].querySelector('h2');
+                const p_3 = cards[2].querySelector('p');
+                if (h2_3) h2_3.textContent = 'Schritt 3: Header-Code einfügen';
+                if (p_3) p_3.textContent = 'Fügen Sie die folgenden Standard-Links in den Header-Bereich all Ihrer Seitendateien ein:';
+
+                const copyBtn = cards[2].querySelector('.copy-btn');
+                if (copyBtn) copyBtn.textContent = 'Kopieren';
+            }
+        }
+
+        // Bottom CTA Section
+        let bottomCta = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            if (sec.className.includes('bottom-cta')) {
+                bottomCta = sec;
+            }
+        });
+
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = 'Beginnen Sie noch heute mit der kostenlosen Konvertierung von PNG in Favicons';
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = 'Schließen Sie sich über 50.000 Benutzern an, die PNGtoFavicon.com für eine präzise, schnelle und 100% kostenlose Favicon-Erstellung vertrauen.';
+
+            const btn = bottomCta.querySelector('.btn');
+            if (btn) btn.textContent = 'Jetzt mit der Konvertierung beginnen — Es ist kostenlos!';
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'Konvertieren Sie PNG sofort in Favicon — ein kostenloses Online-Tool.';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Auf WhatsApp chatten';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'PNG-zu-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden für Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzerklärung';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinie';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
     // Custom logic for Arabic tutorials/how-to-add-favicon/index.html page translation
     if (targetLang === 'ar' && normPath === 'tutorials/how-to-add-favicon/index.html') {
         // Title & Description
