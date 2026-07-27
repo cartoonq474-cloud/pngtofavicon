@@ -5387,6 +5387,115 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    // Custom logic for German about/index.html page translation
+    if (targetLang === 'de' && normPath === 'about/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'Über uns | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Wir glauben, dass Webdesign-Tools schnell, hochgradig optimiert und die Privatsphäre der Benutzer respektieren sollten. Erfahren Sie mehr über unsere Mission.');
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'Über <span class="gradient-text">PNGtoFavicon</span>';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = 'Wir glauben, dass Webdesign-Tools schnell, hochgradig optimiert und die Privatsphäre der Benutzer respektieren sollten.';
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 2) {
+            // Card 1: Our Mission
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Unsere Mission';
+            const pList_1 = cards[0].querySelectorAll('p');
+            if (pList_1.length >= 2) {
+                pList_1[0].textContent = 'Wir haben PNGtoFavicon entwickelt, um ein einfaches Problem zu lösen: Die meisten Online-Favicon-Generatoren laden Ihre privaten Marken-Grafiken auf ihre Server hoch, verarbeiten sie langsam und überladen ihre Seiten mit nervigen Pop-up-Anzeigen.';
+                pList_1[1].textContent = 'Unser Tool läuft zu 100 % lokal in Ihrem Webbrowser unter Verwendung von HTML5 Canvas. Ihre Logo-Dateien verlassen niemals Ihren Computer, das Rendering erfolgt augenblicklich und das Ausgabeformat ist für moderne SEO-Standards optimiert.';
+            }
+
+            // Card 2: Contact & Support
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Kontakt & Support';
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = 'Haben Sie Fragen, Feedback oder benötigen Sie direkte Unterstützung mit unseren Tools? Kontaktieren Sie uns über einen der folgenden Kanäle:';
+
+            const h3List = cards[1].querySelectorAll('h3');
+            if (h3List.length >= 2) {
+                h3List[0].textContent = 'Direkter Kontakt';
+                h3List[1].textContent = 'Support-Kanäle';
+            }
+
+            const waSpan = cards[1].querySelector('a[href*="wa.me"] span');
+            if (waSpan) waSpan.textContent = 'Auf WhatsApp chatten';
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'Konvertieren Sie PNG sofort in Favicon — ein kostenloses Online-Tool.';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Auf WhatsApp chatten';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'PNG-zu-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Tester';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden für Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzerklärung';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinie';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
     // Custom logic for Arabic contact/index.html page translation
     if (targetLang === 'ar' && normPath === 'contact/index.html') {
         // Title & Description
