@@ -5843,14 +5843,14 @@ async function localizePage(relativePath, targetLang) {
         if (card) {
             const h2List = card.querySelectorAll('h2');
             if (h2List.length >= 2) {
-                h2List[0].textContent = 'Lokale Verarbeitung (Keine Server-Uploads)';
-                h2List[1].textContent = 'Cookies & Analysen';
+                h2List[0].textContent = 'Datenverarbeitung';
+                h2List[1].textContent = 'Cookies';
             }
 
             const pList = card.querySelectorAll('p');
             if (pList.length >= 2) {
-                pList[0].textContent = 'Im Gegensatz zu herkömmlichen Favicon-Generatoren laden wir Ihre hochgeladenen PNG-Bilder niemals auf unsere Webserver hoch. Alle Konvertierungen, Skalierungen und Generierungsprozesse finden zu 100 % lokal in Ihrem Webbrowser unter Verwendung von HTML5 Canvas und clientseitigen Javascript-Bibliotheken statt. Da Ihre Grafikdateien Ihren Computer niemals verlassen, bleibt Ihr geistiges Eigentum vollständig geschützt und Ihre Privatsphäre ist absolut sicher.';
-                pList[1].textContent = 'Wir verwenden Cookies, um Ihre Spracheinstellungen zu speichern und anonyme Website-Verkehrsstatistiken zur Verbesserung unserer Tools zu sammeln. Wir erfassen oder speichern keine persönlich identifizierbaren Informationen (PII) aus Ihrer Nutzung des Favicon-Generators.';
+                pList[0].textContent = 'PNGtoFavicon.com funktioniert ausschließlich als clientseitige Anwendung. Hochgeladene Bilder, eingegebene Texte oder gestaltete Emojis werden lokal in Ihrem Browser-Cache verarbeitet. Ihre Grafikdateien werden weder übertragen noch kopiert oder auf unseren Webservern gespeichert.';
+                pList[1].textContent = 'Wir verwenden eine minimale Anzahl an Cookies, um Statistiken zur Website-Leistung zu erfassen und Einstellungen zum Design (Theme) zu speichern. Es werden keine personenbezogenen Daten erhoben.';
             }
         }
 
