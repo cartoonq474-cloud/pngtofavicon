@@ -6909,6 +6909,49 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const h2 = otherToolsSec.querySelector('h2');
+            if (h2) h2.textContent = "Explorez d'autres outils pour favicon";
+
+            const p = otherToolsSec.querySelector('.section-subtitle') || otherToolsSec.querySelector('p');
+            if (p) p.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicon.";
+
+            // Text to Favicon card
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "Texte dans Favicon";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez des polices, des couleurs et des styles pour générer un favicon textuel unique pour votre marque.";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            // Emoji to Favicon card
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "Emoji dans Favicon";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            // Favicon Checker card
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "Vérificateur de Favicon";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Vérifier maintenant →";
+            }
+        }
     }
 
     // Translate Head elements (title and meta tags)
