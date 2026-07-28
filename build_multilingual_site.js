@@ -7262,6 +7262,48 @@ async function localizePage(relativePath, targetLang) {
                 else if (txt === 'Proprietary black-box') td.textContent = 'Propriétaire (boîte noire)';
             });
         }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "Foire aux questions";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why use a text favicon instead of an image?')) {
+                        summary.innerHTML = "<h3>Pourquoi utiliser un favicon en texte plutôt qu'une image ?</h3>";
+                        if (p) p.textContent = "Les favicons textuels sont parfaits pour les marques en phase de lancement, les portfolios personnels, les blogs et les sites web minimalistes et épurés. Les initiales sont facilement repérables parmi de nombreux onglets de navigateur, ce qui renforce la notoriété de la marque sans nécessiter de graphisme complexe.";
+                    } else if (qTxt.includes('What font looks best for a favicon?')) {
+                        summary.innerHTML = "<h3>Quelle police convient le mieux pour un favicon ?</h3>";
+                        if (p) p.textContent = "Nous recommandons fortement les polices sans empattement grasses et épaisses telles que Space Grotesk, Montserrat et Outfit. Les polices à chasse fixe sont également très esthétiques. Évitez les polices trop fines, car elles deviennent illisibles à une taille de 16 × 16 pixels.";
+                    } else if (qTxt.includes('Is my data private on this website?')) {
+                        summary.innerHTML = "<h3>Mes données sont-elles privées sur ce site web ?</h3>";
+                        if (p) p.textContent = "Oui, absolument. Le générateur fonctionne entièrement dans votre navigateur web grâce à HTML5 Canvas. Vos textes, vos designs personnalisés et les fichiers générés ne sont jamais téléchargés sur nos serveurs, garantissant ainsi la confidentialité de votre identité visuelle.";
+                    } else if (qTxt.includes('What file formats does this tool output?')) {
+                        summary.innerHTML = "<h3>Quels formats de fichiers cet outil génère-t-il ?</h3>";
+                        if (p) p.textContent = "Notre générateur de favicon texte produit un fichier favicon.ico standard multi-tailles (incluant les formats 16 px, 32 px et 48 px), plusieurs PNG haute résolution pour onglets de navigateur, des icônes Apple Touch (180 x 180), des icônes Android Chrome (192 x 192 et 512 x 512) et un fichier de configuration site.webmanifest.";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui font confiance à PNGtoFavicon.com pour une génération de favicon précise, rapide et entièrement gratuite.";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
+        }
     }
 
     // Translate Head elements (title and meta tags)
