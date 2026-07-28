@@ -7926,6 +7926,87 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "Foire aux questions";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why use an emoji favicon?')) {
+                        summary.innerHTML = "<h3>Pourquoi utiliser un favicon emoji ?</h3>";
+                        if (p) p.textContent = "Les favicons emoji sont amusants, descriptifs et instantanément reconnaissables. Ils sont parfaits pour les outils de développement, les blogs personnels, les projets SaaS et les applications web légères. Les emojis étant hautement standardisés, ils s'affichent de manière cohérente sur de nombreux types d'écrans.";
+                    } else if (qTxt.includes('Does this tool work with custom system emojis?')) {
+                        summary.innerHTML = "<h3>Cet outil fonctionne-t-il avec des emojis système personnalisés ?</h3>";
+                        if (p) p.textContent = "Oui ! Vous pouvez saisir ou coller n'importe quel emoji directement dans le champ « Emojis sélectionnés », et notre canvas de rendu le dessinera instantanément.";
+                    } else if (qTxt.includes('Can I make the background transparent?')) {
+                        summary.innerHTML = "<h3>Puis-je rendre l'arrière-plan transparent ?</h3>";
+                        if (p) p.textContent = "Oui. Cochez la case « Conserver la transparence (icône uniquement) » et l'outil affichera l'emoji directement sur un canvas transparent, puis l'enregistrera sous forme de fichiers PNG transparents.";
+                    } else if (qTxt.includes('Are these icons free for commercial use?')) {
+                        summary.innerHTML = "<h3>Ces icônes sont-elles gratuites pour un usage commercial ?</h3>";
+                        if (p) p.textContent = "Les emojis système natifs affichés sur le canvas sont des polices système standard, qui peuvent être utilisées en toute sécurité pour des déploiements web personnels et commerciaux.";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui font confiance à PNGtoFavicon.com pour une génération de favicon précise, rapide et entièrement gratuite.";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "Explorez d'autres outils pour favicon";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicon.";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "Texte dans Favicon";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez des polices, des couleurs et des styles pour générer un favicon textuel unique pour votre marque.";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "Emoji dans Favicon";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "Vérificateur de Favicon";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Vérifier maintenant →";
+            }
+        }
     }
 
     // Translate Head elements (title and meta tags)
