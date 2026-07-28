@@ -743,7 +743,17 @@ const translations = {
     "Full Stack Dev": "Développeur Full Stack",
     "Product Manager": "Chef de Produit",
     "Indie Hacker": "Développeur Indépendant",
-    "Tech Lead": "Responsable Technique"
+    "Tech Lead": "Responsable Technique",
+    "Explore More Favicon Tools": "Explorez d'autres outils pour favicon",
+    "PNGtoFavicon offers a complete suite of tools for all your favicon needs": "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicon.",
+    "Text to Favicon": "Texte dans Favicon",
+    "Create a favicon from letters, initials, or any text. Choose fonts, colors, and styles to generate a unique text-based favicon for your brand.": "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez des polices, des couleurs et des styles pour générer un favicon textuel unique pour votre marque.",
+    "Try it free →": "Essayez gratuitement →",
+    "Emoji to Favicon": "Emoji dans Favicon",
+    "Choose from hundreds of emojis to instantly create a colorful, expressive favicon. Perfect for personal projects, blogs, and quick prototypes.": "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.",
+    "Favicon Checker": "Vérificateur de Favicon",
+    "Validate your website's favicon setup. Enter any URL to check for missing sizes, incorrect formats, and cross-platform compatibility issues.": "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.",
+    "Check now →": "Vérifier maintenant →"
   },
   hi: {
       "PNG to Favicon Converter — Free Online Tool | PNGtoFavicon": "PNG to Favicon कनवर्टर — मुफ्त ऑनलाइन टूल | PNGtoFavicon",
