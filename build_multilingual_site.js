@@ -6854,7 +6854,7 @@ async function localizePage(relativePath, targetLang) {
             const faqItems = faqSec.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const summary = item.querySelector('summary');
-                const p = item.querySelector('p');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
                 if (summary) {
                     const qTxt = summary.textContent.trim();
                     if (qTxt.includes('What is a favicon?')) {
@@ -6883,7 +6883,7 @@ async function localizePage(relativePath, targetLang) {
                         if (p) p.textContent = 'Il s\'agit d\'un fichier de configuration JSON contenant les métadonnées du nom de l\'application et les chemins d\'accès aux icônes, requis par les appareils Android modernes et les applications web progressives (PWA) pour installer votre site sur l\'écran d\'accueil.';
                     } else if (qTxt.includes('How does client-side favicon conversion work?')) {
                         summary.textContent = 'Comment fonctionne la conversion de favicon côté client ?';
-                        if (p) p.textContent = 'We utilisons HTML5 Canvas pour redimensionner et dessiner les images, et nous compilons le fichier binaire favicon.ico à l\'aide d\'ArrayBuffers au niveau de l\'octet directement dans la mémoire de votre navigateur.';
+                        if (p) p.textContent = 'Nous utilisons HTML5 Canvas pour redimensionner et dessiner les images, et nous compilons le fichier binaire favicon.ico à l\'aide d\'ArrayBuffers au niveau de l\'octet directement dans la mémoire de votre navigateur.';
                     } else if (qTxt.includes('Does the converter support large images?')) {
                         summary.textContent = 'Le convertisseur prend-il en charge les grandes images ?';
                         if (p) p.textContent = 'Oui, il prend facilement en charge les images haute résolution jusqu\'à 5 Mo, en les redimensionnant à l\'aide d\'un filtre bilinéaire pour préserver des contours nets.';
