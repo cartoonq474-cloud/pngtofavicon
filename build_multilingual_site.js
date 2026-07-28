@@ -7442,6 +7442,37 @@ async function localizePage(relativePath, targetLang) {
                 }
             }
         }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "Contenu du téléchargement :";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Tous les fichiers nécessaires pour une compatibilité optimale avec tous les navigateurs et appareils.";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "Le format ICO classique multi-tailles, contenant des icônes 16×16, 32×32 et 48×48. Requis pour la compatibilité avec les anciens navigateurs, notamment les anciennes versions d'Internet Explorer.";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "Icône d'onglet standard de 16×16 pixels. Utilisée par la plupart des navigateurs modernes comme icône d'onglet principale pour les écrans à densité de pixels standard.";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "Icône d'onglet haute résolution de 32×32 pixels. Affichée sur les écrans Retina et haute résolution pour un rendu net et précis des icônes d'onglet dans les navigateurs.";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "Icône tactile Apple de 180 × 180 pixels pour iPhone, iPad et iPod Touch. Affichée lorsque les utilisateurs ajoutent votre site web à leur écran d'accueil iOS.";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "Icône d'écran d'accueil Android de 192 × 192 pixels. Utilisée lorsque les utilisateurs Android ajoutent votre site à leur écran d'accueil via Chrome ou d'autres navigateurs.";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "Icône PWA haute résolution de 512 × 512 pixels. Requise pour les invites d'installation et les écrans de démarrage des applications web progressives sur les appareils Android.";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "Fichier manifeste d'application web contenant les références d'icônes, la couleur du thème et la couleur d'arrière-plan. Essentiel pour la prise en charge des PWA et l'intégration à l'écran d'accueil Android.";
+                }
+            });
+        }
     }
 
     // Translate Head elements (title and meta tags)
