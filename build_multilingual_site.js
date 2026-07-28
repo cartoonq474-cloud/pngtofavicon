@@ -7304,6 +7304,144 @@ async function localizePage(relativePath, targetLang) {
             const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
             if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
         }
+
+        // Testimonials Section
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'Témoignages';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'Ce que disent nos utilisateurs';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'Plus de 50 000 développeurs, designers et créateurs font confiance à PNGtoFavicon pour leurs projets.';
+
+            // Rating blocks
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Avis vérifiés sur Trustpilot';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Avis vérifiés sur Capterra';
+            }
+
+            // Trustpilot Reviews
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Alex M.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Développeur front-end';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Octobre 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '« La méthode la plus rapide pour générer toutes les tailles de favicon. Cela prend littéralement 2 secondes et gère parfaitement les nouveaux formats manifest.json. »';
+
+                    // Card 2: Sarah J.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Concepteur UI/UX';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Septembre 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '« Avant, j\'utilisais 3 outils différents pour convertir mes PNG en ICO et en icônes Apple Touch. Celui-ci fait tout en un seul clic. »';
+
+                    // Card 3: David K.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Développeur indépendant';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Août 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '« Interface épurée, sans publicité et respectueuse de la vie privée. Fortement recommandé pour les concepteurs et développeurs d\'interfaces utilisateur. »';
+
+                    // Card 4: Elena R.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Propriétaire d\'agence';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Juillet 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '« Nous l\'utilisons désormais pour tous nos projets clients. Les résultats sont toujours impeccables, et les extraits de code HTML nous font gagner un temps précieux. »';
+
+                    // Card 5: Michael T.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'Développeur Full Stack';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Juin 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '« Enfin un générateur de favicon qui comprend les exigences du web moderne ! Le thème en mode sombre du site est magnifique ! »';
+
+                    // Card 6: Jessica L.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Chef de produit';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Mai 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '« Un outil super fiable. J\'adore le fait qu\'il fournisse exactement ce dont on a besoin sans avoir à passer par des étapes compliquées ni à s\'inscrire. »';
+                }
+            }
+
+            // Capterra Reviews
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Ryan P.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Ingénieur logiciel';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Novembre 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '« Exécution absolument impeccable. Le fichier ZIP généré est parfaitement organisé et les icônes s\'affichent très bien sur tous les appareils. »';
+
+                    // Card 2: Amanda B.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Directrice marketing';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Octobre 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '« Il m\'a fallu moins d\'une minute pour mettre à jour les favicons du site de notre entreprise. Le processus est incroyablement intuitif. »';
+
+                    // Card 3: Chris W.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Fondateur de startup';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Septembre 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '« Une chose de moins à gérer lors du lancement d\'un nouveau produit. Glissez, déposez et vous obtenez des favicons parfaits. »';
+
+                    // Card 4: Nina S.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Web designer indépendante';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Août 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '« Je recommande cet outil à tous mes pairs. Il gère parfaitement la transparence et les fichiers ICO sont toujours valides. »';
+
+                    // Card 5: Tom H.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'CTO';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Juillet 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '« Simple, efficace et fait exactement ce qu\'il promet. Pas de fonctionnalités superflues, juste un utilitaire solide. »';
+
+                    // Card 6: Laura C.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Blogueuse';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Juin 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '« Je ne suis pas très technique, mais cet outil a rendu très facile l\'obtention d\'une icône professionnelle pour mon blog. Merci ! »';
+                }
+            }
+        }
     }
 
     // Translate Head elements (title and meta tags)
