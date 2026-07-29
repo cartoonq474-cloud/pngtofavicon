@@ -7425,6 +7425,65 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'tutorials/index.html') {
+        // Page title & metadata
+        doc.title = "Guides et tutoriels sur les favicons | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Apprenez à générer, installer et optimiser les favicons de votre site web pour une compatibilité navigateur optimale et un référencement naturel performant.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Guides et tutoriels sur les favicons | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Apprenez à générer, installer et optimiser les favicons de votre site web pour une compatibilité navigateur optimale et un référencement naturel performant.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Guides et tutoriels sur les favicons");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Apprenez à générer, installer et optimiser les favicons de votre site web pour une compatibilité navigateur optimale et un référencement naturel performant.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Tutorials Index"')) {
+                jsonText = jsonText.replace(/"Tutorials Index"/g, '"Guides et tutoriels sur les favicons"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Guides et <span class='gradient-text'>tutoriels</span> sur les favicons";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Apprenez à générer, installer et optimiser les favicons de votre site web pour une compatibilité navigateur optimale et un référencement naturel performant.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.tools-grid a.tool-card');
+        if (cards.length >= 4) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = "❓ Qu'est-ce qu'un favicon ?";
+            if (p_1) p_1.textContent = "Découvrez l'histoire et l'utilité des icônes d'onglets de navigateur et pourquoi elles sont essentielles à votre image de marque numérique.";
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = "📏 Guide des tailles de favicons";
+            if (p_2) p_2.textContent = "Découvrez les dimensions de favicon requises pour les écrans Retina modernes, les applications Android et les favoris iOS.";
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = "➕ Comment ajouter un favicon";
+            if (p_3) p_3.textContent = "Extraits de code HTML génériques à copier-coller et instructions de chargement sur serveur pour installer vos fichiers favicon.";
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = "💡 Bonnes pratiques pour les favicons";
+            if (p_4) p_4.textContent = "Conseils pour adapter les designs, optimiser le poids des fichiers et bonnes pratiques SEO pour améliorer votre taux de clics sur Google.";
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
