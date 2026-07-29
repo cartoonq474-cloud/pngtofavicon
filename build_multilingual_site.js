@@ -6957,6 +6957,474 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'favicon-checker/index.html') {
+        // Page title & metadata
+        doc.title = "Vérificateur et validateur de favicons | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Analyse n'importe quel site web en ligne pour vérifier si les favicons, les icônes tactiles Apple et les fichiers manifestes PWA sont correctement configurés et accessibles aux navigateurs.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Vérificateur et validateur de favicons | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Analyse n'importe quel site web en ligne pour vérifier si les favicons, les icônes tactiles Apple et les fichiers manifestes PWA sont correctement configurés et accessibles aux navigateurs.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Vérificateur et validateur de favicons");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Analyse n'importe quel site web en ligne pour vérifier si les favicons, les icônes tactiles Apple et les fichiers manifestes PWA sont correctement configurés et accessibles aux navigateurs.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Favicon Checker & Validator"')) {
+                jsonText = jsonText.replace(/"Favicon Checker & Validator"/g, '"Vérificateur et validateur de favicons"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "<span class='gradient-text'>Vérificateur et validateur</span> de favicons";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Analyse n'importe quel site web en ligne pour vérifier si les favicons, les icônes tactiles Apple et les fichiers manifestes PWA sont correctement configurés et accessibles aux navigateurs.";
+            
+            const bFree = heroSec.querySelector('#badge-free');
+            if (bFree) bFree.textContent = "💰 100 % gratuit";
+            const bInstant = heroSec.querySelector('#badge-instant');
+            if (bInstant) bInstant.textContent = "⚡ Audit en temps réel";
+            const bDetails = heroSec.querySelector('#badge-details');
+            if (bDetails) bDetails.textContent = "📋 Rapport détaillé";
+            const bGuide = heroSec.querySelector('#badge-guide');
+            if (bGuide) bGuide.textContent = "💡 Conseils pratiques";
+        }
+
+        // Checker input card
+        const checkerSec = doc.getElementById('checker-section');
+        if (checkerSec) {
+            const h3 = checkerSec.querySelector('h3');
+            if (h3) h3.textContent = "🔍 Audit de l'URL du site web";
+            const p = checkerSec.querySelector('p');
+            if (p) p.textContent = "Saisissez votre nom de domaine pour vérifier l'état des icônes et le balisage d'installation :";
+            const input = checkerSec.querySelector('#checkerUrl');
+            if (input) input.setAttribute('placeholder', "https://example.com");
+            const btn = checkerSec.querySelector('#auditBtn');
+            if (btn) btn.textContent = "Audit de favicons";
+        }
+
+        // How it works
+        const howToSec = doc.getElementById('how-to-generate');
+        if (howToSec) {
+            const title = howToSec.querySelector('.section-title');
+            if (title) title.textContent = "Fonctionnement de la validation des favicons";
+            const sub = howToSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Suivez ces étapes simples pour auditer les favicons de votre site web :";
+
+            const badge = howToSec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Ressources pour développeurs 100 % gratuites et sécurisées'));
+            }
+
+            // Steps
+            const step1 = howToSec.querySelector('#step-1');
+            if (step1) {
+                const h3 = step1.querySelector('h3');
+                if (h3) h3.textContent = "URL du site web";
+                const p = step1.querySelector('p');
+                if (p) p.textContent = "Collez l'adresse HTTP ou HTTPS complète du site web à analyser.";
+            }
+            const step2 = howToSec.querySelector('#step-2');
+            if (step2) {
+                const h3 = step2.querySelector('h3');
+                if (h3) h3.textContent = "Récupération et analyse du code source";
+                const p = step2.querySelector('p');
+                if (p) p.textContent = "Notre moteur côté client récupère le code source de la page et inspecte les en-têtes pour trouver les liens correspondants.";
+            }
+            const step3 = howToSec.querySelector('#step-3');
+            if (step3) {
+                const h3 = step3.querySelector('h3');
+                if (h3) h3.textContent = "Validation des fichiers";
+                const p = step3.querySelector('p');
+                if (p) p.textContent = "Vérifie si les fichiers favicon.ico, apple-touch-icon et le fichier manifeste sont correctement installés et accessibles.";
+            }
+            const step4 = howToSec.querySelector('#step-4');
+            if (step4) {
+                const h3 = step4.querySelector('h3');
+                if (h3) h3.textContent = "Obtenir un rapport";
+                const p = step4.querySelector('p');
+                if (p) p.textContent = "Recevez instantanément des vérifications d'état sur les fichiers de secours, les configurations d'affichage Retina et des recommandations concrètes.";
+            }
+        }
+
+        // Whychoose / Why audit
+        const whySec = doc.getElementById('why-choose-features');
+        if (whySec) {
+            const title = whySec.querySelector('.section-title');
+            if (title) title.textContent = "Pourquoi auditer vos favicons ici ?";
+            const sub = whySec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Le générateur de favicons en ligne gratuit le plus puissant, qui convertit les images en ressources conformes aux normes pour navigateurs avec une précision professionnelle et une rapidité fulgurante.";
+
+            const badge = whySec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Des fonctionnalités puissantes à portée de main'));
+            }
+
+            // Feature cards
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Moteur côté client instantané";
+                if (p_1) p_1.textContent = "Obtenez des résultats d'audit instantanés, sans attente.";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Redimensionnement au pixel près";
+                if (p_2) p_2.textContent = "Un sous-échantillonnage haute fidélité qui préserve la netteté des contours et la lisibilité des détails à une taille de 16 × 16 px.";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Tous les formats d'image pris en charge";
+                if (p_3) p_3.textContent = "Compatible avec les formats PNG, JPG, SVG, WEBP, GIF et autres formats d'image populaires.";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Compatibilité universelle avec les appareils";
+                if (p_4) p_4.textContent = "Génère des icônes ICO, des icônes tactiles Apple, des icônes Android Chrome et des PWA dans un seul fichier ZIP.";
+
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = "100 % sécurisé et confidentiel";
+                if (p_5) p_5.textContent = "Fonctionne entièrement dans votre navigateur grâce à HTML5 Canvas. Votre image n'est jamais téléchargée sur un serveur.";
+
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = "Entièrement gratuit et ouvert";
+                if (p_6) p_6.textContent = "Aucune inscription par e-mail, aucun abonnement, aucun contenu payant. Des outils de développement entièrement gratuits.";
+            }
+        }
+
+        // Use cases
+        const useCasesSec = doc.getElementById('use-cases');
+        if (useCasesSec) {
+            const title = useCasesSec.querySelector('.section-title');
+            if (title) title.textContent = "Idéal pour tous les cas d'utilisation";
+            const sub = useCasesSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Assurez-vous que vos projets web disposent d'une favicon parfaitement configurée.";
+
+            const badge = useCasesSec.querySelector('.trusted-badge');
+            if (badge) {
+                const dots = badge.querySelector('.dots-group');
+                badge.innerHTML = '';
+                if (dots) badge.appendChild(dots);
+                badge.appendChild(doc.createTextNode(' Approuvé par les professionnels du monde entier'));
+            }
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Développeurs web";
+                if (p_1) p_1.textContent = "Vérifiez instantanément toutes les tailles de favicon requises pour vos projets web.";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Concepteurs UI/UX";
+                if (p_2) p_2.textContent = "Garantissez une identité visuelle impeccable sur tous les onglets de navigateur et écrans d'accueil d'appareils.";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Blogueurs et créateurs";
+                if (p_3) p_3.textContent = "Personnalisez facilement votre blog ou portfolio avec une icône professionnelle en quelques secondes.";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Chefs d'entreprise";
+                if (p_4) p_4.textContent = "Améliorez votre image professionnelle avec une favicon de haute qualité qui inspire confiance.";
+            }
+        }
+
+        // Testimonials
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'Témoignages';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'Ce que disent nos utilisateurs';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'Plus de 50 000 développeurs, designers et créateurs font confiance à PNGtoFavicon pour leurs projets.';
+
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Avis vérifiés sur Trustpilot';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Avis vérifiés sur Capterra';
+            }
+
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Développeur Front-end';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Oct. 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '« Le moyen le plus rapide de générer des favicons de toutes tailles. Cela prend littéralement 2 secondes et gère parfaitement les nouveaux formats manifest.json.»';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Designer UI/UX';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Sept. 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '« Avant, j’utilisais 3 outils différents pour convertir mes PNG en ICO et en icônes Apple Touch. Celui-ci fait tout en un clic.»';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Développeur indépendant';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Août 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '« Interface épurée, sans publicité et respecteux de la vie privée. Fortement recommandé pour les designers et développeurs d’interfaces utilisateur. »';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Propriétaire d\'agence';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Juillet 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '« Nous l\'utilisons désormais pour tous nos projets clients. Les résultats sont toujours impeccables et les extraits de code HTML nous font gagner un temps précieux.»';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'Développeur Full Stack';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Juin 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '« Enfin un générateur de favicon qui comprend les exigences du web moderne ! Le thème sombre du site est magnifique !»';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Chef de produit';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Mai 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '« Un outil extrêmement fiable. J\'apprécie qu\'il fournisse exactement ce dont on a besoin, sans aucune formalité complexe ni inscription. »';
+                }
+            }
+
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Ingénieur logiciel';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Nov. 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '« Exécution absolument impeccable. Le fichier zip généré est parfaitement organisé et les icônes s\'affichent parfaitement sur tous les appareils.»';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Directrice marketing';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Oct. 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '« Il m\'a fallu moins d\'une minute pour mettre à jour les favicons du site web de notre entreprise. Le processus est incroyablement intuitif.»';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Fondateur de startup';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Sept. 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '« Un souci de moins lors du lancement d\'un nouveau produit. Un simple glisser-déposer suffit pour obtenir des favicons parfaits.»';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Webdesigner freelance';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Août 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '« Je recommande cet outil à tous mes collègues. Il gère parfaitement la transparence et les fichiers ICO sont toujours valides.»';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'Directeur technique';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Juillet 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '« Simple, efficace et conforme à sa description. Pas de fonctionnalités superflues, juste un utilitaire fiable. »';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Blogueuse';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Juin 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '« Je ne suis pas très douée en informatique, mais cet outil m\'a permis d\'obtenir très facilement une icône professionnelle pour mon blog. Merci ! »';
+                }
+            }
+        }
+
+        // Comparison Section
+        const whyPngSec = doc.getElementById('why-pngtofavicon');
+        if (whyPngSec) {
+            const title = whyPngSec.querySelector('.section-title');
+            if (title) title.textContent = "Vérificateur de favicon vs Autres outils";
+            const sub = whyPngSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Découvrez comment nous nous comparons aux autres générateurs de favicon du marché";
+
+            const ths = whyPngSec.querySelectorAll('th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "Fonctionnalités";
+                ths[1].textContent = "PNG vers favicon";
+                ths[2].textContent = "Autres outils";
+            }
+
+            const tds = whyPngSec.querySelectorAll('td');
+            tds.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'Prix';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> Gratuit (à vie)';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'Formules Freemium/Payantes';
+                else if (txt === 'Privacy') td.textContent = 'Confidentialité';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100 % axée sur le client';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'Fichiers téléchargés sur les serveurs';
+                else if (txt === 'Speed') td.textContent = 'Vitesse';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> Traitement instantané';
+                else if (txt === 'Depends on server load') td.textContent = 'Dépend de la charge du serveur';
+                else if (txt === 'File Formats') td.textContent = 'Formats de fichiers';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + Manifeste';
+                else if (txt === 'Often ICO only') td.textContent = 'Souvent ICO uniquement';
+                else if (txt === 'No Registration') td.textContent = 'Aucune inscription';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> Aucune inscription requise';
+                else if (txt === 'Sometimes required') td.textContent = 'Parfois requise';
+                else if (txt === 'Multi-platform') td.textContent = 'Multiplateforme';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> Compatible avec tous les appareils et navigateurs';
+                else if (txt === 'Limited platform support') td.textContent = 'Compatibilité limitée';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'Extrait de code HTML';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> Généré automatiquement';
+                else if (txt === 'Manual integration') td.textContent = 'Intégration manuelle';
+                else if (txt === 'Open Source') td.textContent = 'Open Source';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> Processus transparent';
+                else if (txt === 'Proprietary black-box') td.textContent = 'Solution propriétaire opaque';
+            });
+        }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "Contenu du téléchargement :";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Tous les fichiers nécessaires pour une compatibilité favicon optimale avec tous les navigateurs et appareils";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "Le format ICO classique multi-tailles, comprenant les formats 16×16, 32×32 et 464. Icônes 48×48. Nécessaires pour la compatibilité avec les anciens navigateurs, notamment les anciennes versions d'Internet Explorer.";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "Icône d'onglet standard du navigateur (16×16 pixels). Utilisée par la plupart des navigateurs modernes comme favicon principal pour les écrans à densité de pixels standard.";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "Icône d'onglet haute résolution (32×32 pixels). Affichée sur les écrans Retina et haute résolution pour un rendu net et précis des favicons dans les onglets du navigateur.";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "Icône tactile Apple (180×180 pixels) pour iPhone, iPad et iPod Touch. Affichée lorsque les utilisateurs ajoutent votre site web à leur écran d'accueil iOS.";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "Icône d'écran d'accueil Android (192×192 pixels). Utilisé lorsque les utilisateurs Android ajoutent votre site à leur écran d'accueil via Chrome ou d'autres navigateurs.";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "Icône PWA haute résolution (512 × 512 pixels). Requise pour les invites d'installation et les écrans de démarrage des applications web progressives sur les appareils Android.";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "Fichier manifeste de l'application web contenant les références des icônes, la couleur du thème et la couleur d'arrière-plan. Indispensable pour la prise en charge des PWA et l'intégration à l'écran d'accueil Android.";
+                }
+            });
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "Foire aux questions";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why does the favicon checker say my icon is missing')) {
+                        summary.innerHTML = "<h3>Pourquoi le vérificateur de favicons indique-t-il que mon icône est manquante alors que je la vois ?</h3>";
+                        if (p) p.textContent = "Les navigateurs mettent souvent en cache les favicons de manière intensive. Il est donc possible que vous voyiez une ancienne icône en cache même si le fichier est absent de votre serveur ou si le code HTML contient des erreurs de balisage. Notre outil de vérification récupère le code HTML en temps réel et l'analyse à jour pour contourner le cache local du navigateur.";
+                    } else if (qTxt.includes('How can I fix a missing apple-touch-icon?')) {
+                        summary.innerHTML = "<h3>Comment puis-je corriger une icône tactile Apple manquante ?</h3>";
+                        if (p) p.innerHTML = "Générez une image PNG de 180 × 180 pixels, téléchargez-la à la racine de votre serveur sous le nom <code class='inline-code'>apple-touch-icon.png</code> et ajoutez <code class='inline-code'>&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code> dans l'en-tête de votre code HTML. Vous pouvez utiliser notre convertisseur PNG pour page d'accueil afin de générer ce fichier automatiquement.";
+                    } else if (qTxt.includes('Does a missing favicon affect search engine SEO?')) {
+                        summary.innerHTML = "<h3>Une favicon manquante affecte-t-elle le référencement (SEO) sur les moteurs de recherche ?</h3>";
+                        if (p) p.textContent = "Oui. La recherche Google affiche les favicons des sites web à côté des résultats de recherche sur les appareils mobiles et les ordinateurs. Si le robot de Google ne parvient pas à récupérer votre favicon, il affiche une icône générique par défaut, ce qui peut réduire considérablement votre taux de clics (CTR).";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui font confiance à PNGtoFavicon.com pour générer des favicons précis, rapides et entièrement gratuits.";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "Découvrez d'autres outils pour vos favicons";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicons.";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "Texte vers favicon";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez les polices, des couleurs et des styles pour générer un favicon unique pour votre marque.";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "Emoji vers favicon";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Essayez gratuitement →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "Vérificateur de favicon";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Vérifier maintenant →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
