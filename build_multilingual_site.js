@@ -8268,6 +8268,93 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'blog/png-vs-ico-vs-svg-favicons/index.html') {
+        // Page title & metadata
+        doc.title = "Comparaison des formats PNG, ICO et SVG | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Quel format d'icône d'onglet est le plus adapté à votre site ? Analyse technique détaillée.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Comparaison des formats PNG, ICO et SVG | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Quel format d'icône d'onglet est le plus adapté à votre site ? Analyse technique détaillée.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Comparaison des formats PNG, ICO et SVG");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Quel format d'icône d'onglet est le plus adapté à votre site ? Analyse technique détaillée.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Comparaison des formats <span class='gradient-text'>PNG, ICO et SVG</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Quel format d'icône d'onglet est le plus adapté à votre site ? Analyse technique détaillée.";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 3) {
+                h2s[0].textContent = "1. ICO (L'ancien format)";
+                h2s[1].textContent = "2. PNG (Le standard moderne)";
+                h2s[2].textContent = "3. SVG (L'avenir vectoriel)";
+            }
+            if (ps.length >= 4) {
+                ps[0].textContent = "Choisir les fichiers favicon à inclure dans les répertoires de votre serveur peut s'avérer complexe. Examinons les trois principaux formats : ICO, PNG et SVG.";
+                ps[1].textContent = "Le format .ico de Microsoft est un conteneur qui regroupe plusieurs tailles (généralement 16x16, 32x32 et 48x48 pixels) dans un seul fichier. Si les anciens navigateurs comme Internet Explorer exigeaient exclusivement ce format, il est aujourd'hui maintenu comme solution de repli universelle pour les systèmes existants.";
+                ps[2].textContent = "Les fichiers PNG prennent en charge la transparence, offrent une riche palette de couleurs 24 bits et présentent d'excellents taux de compression. Les navigateurs modernes privilégient les fichiers PNG haute résolution aux fichiers ICO, car ils s'affichent parfaitement sur les écrans Retina. On définit généralement des fichiers PNG de 16x16 et 32x32 pixels pour les onglets des navigateurs de bureau.";
+                ps[3].textContent = "Les SVG sont des formats vectoriels, ce qui signifie qu'ils s'adaptent à l'infini sans pixellisation. Leur taille de fichier est incroyablement réduite. De plus, les SVG prennent en charge les requêtes média CSS directement dans le code, permettant ainsi à l'icône de changer de couleur dynamiquement lorsque l'utilisateur active le mode sombre de son système d'exploitation.";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui font confiance à PNGtoFavicon.com pour générer des favicons précis, rapides et entièrement gratuits.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Découvrez d'autres outils pour favicons";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicons.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Texte vers favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez les polices, les couleurs et les styles pour générer un favicon unique pour votre marque.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Essayez gratuitement →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji vers favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Essayez-le gratuitement →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Vérificateur de favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Vérifiez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Vérifier maintenant →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/favicon-best-practices/index.html') {
         // Page title & metadata
         doc.title = "Conception de favicon et bonnes pratiques SEO | PNGtoFavicon";
