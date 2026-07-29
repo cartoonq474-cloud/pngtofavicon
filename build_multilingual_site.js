@@ -8073,6 +8073,107 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'tutorials/favicon-sizes/index.html') {
+        // Page title & metadata
+        doc.title = "Guide des tailles de favicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Découvrez les dimensions attendues par chaque navigateur, appareil et plateforme d'installation d'applications web progressives (PWA) en 2026.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Guide des tailles de favicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Découvrez les dimensions attendues par chaque navigateur, appareil et plateforme d'installation d'applications web progressives (PWA) en 2026.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Guide des tailles de favicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Découvrez les dimensions attendues par chaque navigateur, appareil et plateforme d'installation d'applications web progressives (PWA) en 2026.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Guide complet des <span class='gradient-text'>tailles de favicon</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Découvrez les dimensions attendues par chaque navigateur, appareil et plateforme d'installation d'applications web progressives (PWA) en 2026.";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = "Tableau des dimensions standard des favicons";
+            const p = card.querySelector('p');
+            if (p) p.textContent = "Ce tableau vous permettra de comprendre la fonction de chaque fichier image inclus dans nos packs de conversion :";
+
+            const ths = card.querySelectorAll('table th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "Taille";
+                ths[1].textContent = "Format";
+                ths[2].textContent = "Plateforme/Surface cible";
+            }
+
+            const rows = card.querySelectorAll('table tbody tr');
+            const rowTexts = [
+                "Onglets de navigateur standard (rétrogradation)",
+                "Onglets de navigateur haute résolution (HiDPI/Retina)",
+                "Barre des tâches Windows / Raccourcis de bureau (rétrogradation)",
+                "Icône tactile Apple iOS (signet de l'écran d'accueil iPhone et iPad)",
+                "Icône de l'écran d'accueil Android Chrome / Badge de lancement PWA",
+                "Écrans de démarrage PWA / Lanceur d'application haute densité"
+            ];
+            for (let i = 0; i < rows.length; i++) {
+                const cols = rows[i].querySelectorAll('td');
+                if (cols.length >= 3 && rowTexts[i]) {
+                    cols[2].textContent = rowTexts[i];
+                }
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui nous font confiance. PNGtoFavicon.com : créez des favicons précis, rapides et entièrement gratuits.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion dès maintenant ! C'est gratuit !";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Découvrez d'autres outils pour vos favicons";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicons.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Texte vers favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez les polices, les couleurs et les styles pour générer un favicon unique pour votre marque.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Essayez gratuitement →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji vers favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Essayez gratuitement →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Vérificateur de favicons";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Vérifier maintenant →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
