@@ -7484,6 +7484,60 @@ async function localizePage(relativePath, targetLang) {
             if (h3_4) h3_4.textContent = "💡 Bonnes pratiques pour les favicons";
             if (p_4) p_4.textContent = "Conseils pour adapter les designs, optimiser le poids des fichiers et bonnes pratiques SEO pour améliorer votre taux de clics sur Google.";
         }
+    } else if (targetLang === 'fr' && normPath === 'blog/index.html') {
+        // Page title & metadata
+        doc.title = "Blog sur l'image de marque et les favicons | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Restez informé(e) des dernières normes web, des checklists SEO et des conseils de conception pour les extraits de recherche et les onglets.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Blog sur l'image de marque et les favicons | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Restez informé(e) des dernières normes web, des checklists SEO et des conseils de conception pour les extraits de recherche et les onglets.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Blog sur l'image de marque et les favicons");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Restez informé(e) des dernières normes web, des checklists SEO et des conseils de conception pour les extraits de recherche et les onglets.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Blog sur l'image de marque et les <span class='gradient-text'>favicons</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Restez informé(e) des dernières normes web, des checklists SEO et des conseils de conception pour les extraits de recherche et les onglets.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1
+            const spans_1 = cards[0].querySelectorAll('span');
+            const links_1 = cards[0].querySelectorAll('a');
+            const p_1 = cards[0].querySelector('p');
+            if (spans_1.length >= 2) {
+                spans_1[0].textContent = "SEO ET IMAGE DE MARQUE";
+                spans_1[1].textContent = "10 juillet 2026 · 6 min de lecture";
+            }
+            if (links_1.length >= 2) {
+                links_1[0].textContent = "Guide SEO des favicons : Améliorer le taux de clics des extraits de recherche";
+                links_1[1].textContent = "Lire l'article →";
+            }
+            if (p_1) p_1.textContent = "Découvrez comment Google analyse les favicons des sites web pour les pages de résultats de recherche sur ordinateur et mobile, et comment la configuration des icônes d'onglets influence votre taux de clics visuel (CTR).";
+
+            // Card 2
+            const spans_2 = cards[1].querySelectorAll('span');
+            const links_2 = cards[1].querySelectorAll('a');
+            const p_2 = cards[1].querySelector('p');
+            if (spans_2.length >= 2) {
+                spans_2[0].textContent = "FORMATS DE FICHIERS";
+                spans_2[1].textContent = "5 juillet 2026 · 8 min de lecture";
+            }
+            if (links_2.length >= 2) {
+                links_2[0].textContent = "PNG vs ICO vs SVG : Choisir le bon format de favicon";
+                links_2[1].textContent = "Lire l'article →";
+            }
+            if (p_2) p_2.textContent = "Analyse approfondie des formats d'icônes pour navigateurs. Comparez le format ICO classique, les icônes d'onglets PNG nettes et les ressources vectorielles SVG modernes et responsives.";
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
