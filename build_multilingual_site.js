@@ -7662,6 +7662,43 @@ async function localizePage(relativePath, targetLang) {
             const btn = form.querySelector('button');
             if (btn) btn.textContent = "Envoyer le message";
         }
+    } else if (targetLang === 'fr' && normPath === 'privacy/index.html') {
+        // Page title & metadata
+        doc.title = "Politique de confidentialité | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Votre confidentialité est notre priorité absolue. Découvrez pourquoi nous traitons vos données localement.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Politique de confidentialité | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Votre confidentialité est notre priorité absolue. Découvrez pourquoi nous traitons vos données localement.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Politique de confidentialité");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Votre confidentialité est notre priorité absolue. Découvrez pourquoi nous traitons vos données localement.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Politique de <span class='gradient-text'>confidentialité</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Votre confidentialité est notre priorité absolue. Découvrez pourquoi nous traitons vos données localement.";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Traitement des données";
+                h2s[1].textContent = "Cookies";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "PNGtoFavicon.com fonctionne entièrement comme une application côté client. Toutes les images que vous téléchargez, les textes que vous saisissez et les émojis que vous personnalisez sont traités localement dans le cache de votre navigateur. Nous ne transmettons, ne copions ni ne stockons vos ressources graphiques sur nos serveurs web.";
+                ps[1].textContent = "Nous utilisons des cookies minimaux pour les statistiques de performance du site et la sauvegarde des paramètres du thème. Aucune donnée d'identification personnelle n'est collectée.";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
