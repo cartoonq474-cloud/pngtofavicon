@@ -8268,6 +8268,104 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'tutorials/favicon-best-practices/index.html') {
+        // Page title & metadata
+        doc.title = "Conception de favicon et bonnes pratiques SEO | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Créez un favicon qui se démarque dans les onglets du navigateur et qui respecte les critères des moteurs de recherche.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Conception de favicon et bonnes pratiques SEO | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Créez un favicon qui se démarque dans les onglets du navigateur et qui respecte les critères des moteurs de recherche.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Conception de favicon et bonnes pratiques SEO");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Créez un favicon qui se démarque dans les onglets du navigateur et qui respecte les critères des moteurs de recherche.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Conception de favicon et <span class='gradient-text'>bonnes pratiques SEO</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Créez un favicon qui se démarque dans les onglets du navigateur et qui respecte les critères des moteurs de recherche.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Card 1: Step 1
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "1. Un design simple et reconnaissable";
+            const p_1 = cards[0].querySelector('p');
+            if (p_1) p_1.textContent = "Les favicons étant réduits à une taille minimale de 16 x 16 pixels, les détails complexes et les lignes de texte fines deviennent illisibles. Privilégiez les formes basiques, les lettres distinctes ou le logo principal de votre marque.";
+
+            // Card 2: Step 2
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "2. Testez le contraste en mode sombre";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "Les onglets du navigateur peuvent être gris clair, blancs, bleu foncé ou noirs. Assurez-vous que votre logo transparent possède un liseré lumineux ou un remplissage opaque pour éviter qu'il ne disparaisse sur les fonds sombres.";
+
+            // Card 3: Step 3
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "3. Exigences SEO de Google";
+            const p_3 = cards[2].querySelector('p');
+            if (p_3) p_3.textContent = "Google a des règles officielles concernant l'affichage des favicons à côté des résultats de recherche :";
+
+            const lis_3 = cards[2].querySelectorAll('ul li');
+            if (lis_3.length >= 3) {
+                lis_3[0].textContent = "Le favicon doit représenter visuellement la marque du site web.";
+                lis_3[1].textContent = "La taille et le format du fichier doivent être des multiples de 48 pixels (par exemple : 48 x 48, 96 x 96, etc.).";
+                lis_3[2].textContent = "L'URL de l'icône doit être accessible aux robots d'exploration (ne bloquez pas l'entrée « Image » de Googlebot dans le fichier robots.txt).";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Convertissez gratuitement vos PNG en favicon dès aujourd'hui !";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Rejoignez plus de 50 000 utilisateurs qui font confiance à PNGtoFavicon.com pour générer des favicons précis, rapides et entièrement gratuits.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Commencez la conversion maintenant ! C'est gratuit !";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Découvrez d'autres outils pour favicons";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon propose une suite complète d'outils pour tous vos besoins en favicons.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Texte vers favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Créez un favicon à partir de lettres, d'initiales ou de tout autre texte. Choisissez les polices, les couleurs et les styles pour générer un favicon unique pour votre marque.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Essayez gratuitement →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji vers favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Choisissez parmi des centaines d'emojis pour créer instantanément un favicon coloré et expressif. Idéal pour les projets personnels, les blogs et les prototypes rapides.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Essayez gratuitement →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Vérificateur de favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Validez la configuration du favicon de votre site web. Saisissez une URL pour vérifier les tailles manquantes, les formats incorrects et les problèmes de compatibilité multiplateforme.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Vérifier maintenant →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
