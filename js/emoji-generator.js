@@ -373,10 +373,34 @@
       var wrapper = document.createElement('div');
       wrapper.className = 'preview-icon-wrapper';
 
+      var descText = item.desc;
+      var currentLang = document.documentElement.lang || 'en';
+      var translations = {
+        es: {
+          'Browser tabs': 'Navegador Pestañas',
+          'HiDPI tabs': 'Pestañas HiDPI',
+          'Windows desktop': 'Escritorio de Windows',
+          'Apple Touch Icon': 'Icono táctil de Apple',
+          'Android home screen': 'Pantalla de inicio de Android',
+          'PWA install icon': 'Icono de instalación de PWA'
+        },
+        fr: {
+          'Browser tabs': 'Onglets de navigateur',
+          'HiDPI tabs': 'Onglets de navigateur haute résolution',
+          'Windows desktop': 'Bureau Windows',
+          'Apple Touch Icon': 'Icône tactile Apple',
+          'Android home screen': 'Écran d\'accueil Android',
+          'PWA install icon': 'Icône de lancement PWA'
+        }
+      };
+      if (translations[currentLang] && translations[currentLang][descText]) {
+        descText = translations[currentLang][descText];
+      }
+
       var img = document.createElement('img');
       img.src = canvas.toDataURL('image/png');
       img.alt = item.label;
-      img.title = item.desc;
+      img.title = descText;
 
       wrapper.appendChild(img);
 
@@ -386,7 +410,7 @@
 
       var desc = document.createElement('span');
       desc.className = 'size-desc';
-      desc.textContent = item.desc;
+      desc.textContent = descText;
 
       previewItem.appendChild(wrapper);
       previewItem.appendChild(label);
