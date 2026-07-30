@@ -6829,6 +6829,156 @@ async function localizePage(relativePath, targetLang) {
             }
         }
 
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) {
+                faqSec = sec;
+            }
+        });
+
+        if (faqSec) {
+            const title = faqSec.querySelector('h2.section-title');
+            if (title) title.textContent = 'Preguntas Frecuentes';
+
+            const subtitle = faqSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'Encuentra respuestas a las preguntas más frecuentes sobre nuestro servicio de conversión de favicons';
+
+            // Tabs
+            const tabBtns = faqSec.querySelectorAll('.faq-tab-btn');
+            if (tabBtns.length >= 4) {
+                tabBtns[0].textContent = 'Primeros pasos';
+                tabBtns[1].textContent = 'Características';
+                tabBtns[2].textContent = 'Tecnología';
+                tabBtns[3].textContent = 'Sobre nosotros';
+            }
+
+            // Getting Started Group
+            const gsGroup = faqSec.querySelector('#faq-getting-started');
+            if (gsGroup) {
+                const items = gsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = '¿Qué es un favicon?';
+                    if (a_1) a_1.textContent = 'Un favicon (abreviatura de \'favorite icon\') es un pequeño icono que representa a tu sitio web en las pestañas del navegador, marcadores, historial de navegación y barras de direcciones. Ayuda a los usuarios a identificar tu marca visualmente.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = '¿Cómo puedo convertir un PNG a favicon online?';
+                    if (a_2) a_2.textContent = 'Simplemente arrastra y suelta tu imagen PNG en el cuadro de carga de arriba, personaliza el color de fondo, el espaciado o las esquinas, y descarga el paquete ZIP compilado al instante.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = '¿Necesito instalar algún software?';
+                    if (a_3) a_3.textContent = 'No, nuestro convertidor de favicons funciona 100% en tu navegador web. No se necesitan complementos, extensiones ni instalaciones de software.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = '¿Necesito crear una cuenta?';
+                    if (a_4) a_4.textContent = 'No, la herramienta es completamente gratuita, abierta y anónima. No se requiere registro de correo electrónico, cuenta ni suscripción.';
+                }
+            }
+
+            // Features Group
+            const ftGroup = faqSec.querySelector('#faq-features');
+            if (ftGroup) {
+                const items = ftGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = '¿Qué formatos de archivo genera la herramienta?';
+                    if (a_1) a_1.textContent = 'Genera un archivo favicon.ico multitamaño (16px, 32px, 48px), iconos PNG de alta resolución para el navegador, iconos táctiles de Apple (180x180), iconos de Android Chrome (192x192, 512x512) y el archivo site.webmanifest.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = '¿La herramienta admite PNG transparentes?';
+                    if (a_2) a_2.textContent = '¡Sí! Conserva la transparencia de forma predeterminada. También puedes desactivar la transparencia y rellenar el fondo con el color que elijas.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = '¿Puedo elegir tamaños de salida específicos?';
+                    if (a_3) a_3.textContent = 'Sí, nuestro panel de opciones te permite seleccionar o desmarcar tamaños específicos para que solo descargues los iconos que necesitas.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = '¿Qué es un archivo site.webmanifest?';
+                    if (a_4) a_4.textContent = 'Es un archivo de configuración JSON que contiene metadatos del nombre de la aplicación y rutas de los iconos que los dispositivos Android modernos y las aplicaciones web progresivas (PWA) requieren para instalar tu sitio en la pantalla de inicio.';
+                }
+            }
+
+            // Technology Group
+            const techGroup = faqSec.querySelector('#faq-technology');
+            if (techGroup) {
+                const items = techGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = '¿Cómo funciona la conversión de favicons del lado del cliente?';
+                    if (a_1) a_1.textContent = 'Utilizamos HTML5 Canvas para escalar y dibujar imágenes, y compilamos el archivo binario favicon.ico utilizando ArrayBuffers a nivel de bytes directamente en la memoria de tu navegador.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = '¿El convertidor admite imágenes grandes?';
+                    if (a_2) a_2.textContent = 'Sí, maneja fácilmente imágenes de alta resolución de hasta 5 MB, redimensionándolas mediante filtrado bilineal para preservar contornos nítidos.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = '¿Por qué es importante el archivo favicon.ico?';
+                    if (a_3) a_3.textContent = 'Aunque los navegadores modernos admiten favicons PNG, el formato heredado favicon.ico sigue siendo necesario como alternativa para versiones anteriores de Internet Explorer y ciertos administradores de accesos directos de escritorio.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = '¿Qué tan rápido es el proceso de conversión?';
+                    if (a_4) a_4.textContent = 'La conversión es casi instantánea (menos de 50 milisegundos) ya que procesa todo localmente en tu ordenador en lugar de subirlo a un servidor remoto.';
+                }
+            }
+
+            // About Us Group
+            const aboutUsGroup = faqSec.querySelector('#faq-about-us');
+            if (aboutUsGroup) {
+                const items = aboutUsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.textContent = '¿Es mi imagen segura y privada?';
+                    if (a_1) a_1.textContent = 'Sí, absolutamente. Tus imágenes nunca salen de tu navegador porque el procesamiento se realiza localmente. No transmitimos, analizamos ni almacenamos ninguno de tus archivos.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.textContent = '¿Por qué debería elegir PNGtoFavicon.com?';
+                    if (a_2) a_2.textContent = 'Ofrecemos una herramienta automatizada, amigable para desarrolladores y que prioriza la privacidad, que genera paquetes de iconos completos y compatibles con los estándares para todos los dispositivos modernos, de forma totalmente gratuita.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.textContent = '¿Puedo usar esta herramienta en dispositivos móviles?';
+                    if (a_3) a_3.textContent = '¡Sí! El sitio web y el motor de conversión son totalmente responsivos, por lo que puedes crear y descargar tus favicons en cualquier teléfono móvil o tableta.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.textContent = '¿Este convertidor es completamente gratuito?';
+                    if (a_4) a_4.textContent = 'Sí, 100% gratuito sin límites, sin marcas de agua superpuestas y sin niveles de suscripción ocultos.';
+                }
+            }
+        }
+
         // Other Tools Section
         const otherTools = doc.getElementById('other-tools');
         if (otherTools) {
