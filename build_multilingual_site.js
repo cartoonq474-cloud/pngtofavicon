@@ -10108,6 +10108,100 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'tutorials/how-to-add-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "Cómo añadir un favicon a tu sitio web | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Aprende a instalar tus paquetes de favicon en servidores de alojamiento estático o en plataformas CMS personalizadas.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Cómo añadir un favicon a tu sitio web | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Aprende a instalar tus paquetes de favicon en servidores de alojamiento estático o en plataformas CMS personalizadas.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Cómo añadir un favicon a tu sitio web");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Aprende a instalar tus paquetes de favicon en servidores de alojamiento estático o en plataformas CMS personalizadas.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Cómo añadir un favicon a tu <span class='gradient-text'>sitio web</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Aprende a instalar tus paquetes de favicon en servidores de alojamiento estático o en plataformas CMS personalizadas.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Card 1: Step 1
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "Paso 1: Generar los archivos";
+            const p_1 = cards[0].querySelector('p');
+            if (p_1) p_1.textContent = "Sube tu diseño a nuestra herramienta en la página principal para generar el archivo ZIP. Descomprime el paquete para acceder a los archivos.";
+
+            // Card 2: Step 2
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Paso 2: Subir los archivos al directorio raíz del servidor";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.innerHTML = "Sube todos los archivos de favicon extraídos (favicon.ico, apple-touch-icon.png, etc.) directamente al directorio raíz público principal de tu sitio web (normalmente <code>public_html</code> o <code>public</code>). Por ejemplo, deberían ser accesibles en tudominio.com/favicon.ico.";
+
+            // Card 3: Step 3
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "Paso 3: Pegar el marcado del encabezado";
+            const p_3 = cards[2].querySelector('p');
+            if (p_3) p_3.textContent = "Pega estos enlaces estándar en el área del encabezado de todos tus archivos de página:";
+
+            const copyBtn = cards[2].querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = "Copiar";
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Empieza a convertir PNG a favicon gratis hoy mismo";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Únete a más de 50 000 usuarios que confían en PNGtoFavicon.com para generar favicons de forma precisa, rápida y totalmente gratuita.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "¡Empieza a convertir ahora! ¡Es gratis!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Descubre más herramientas para favicons";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon ofrece un conjunto completo de herramientas para todas tus necesidades de favicons.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Texto a favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Crea un favicon a partir de letras, iniciales o cualquier texto. Elige fuentes, colores y estilos para generar un favicon único basado en texto para tu marca.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Pruébalo gratis →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji a Favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Elige entre cientos de emojis para crear al instante un favicon colorido y expresivo. Perfecto para proyectos personales, blogs y prototipos rápidos.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Pruébalo gratis →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Verificador de Favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Valida la configuración del favicon de tu sitio web. Introduce cualquier URL para comprobar si faltan tamaños, formatos incorrectos o si hay problemas de compatibilidad entre plataformas.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Comprobar ahora →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/how-to-add-favicon/index.html') {
         // Page title & metadata
         doc.title = "Comment ajouter une favicon à votre site web | PNGtoFavicon";
