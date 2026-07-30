@@ -9266,6 +9266,524 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'text-to-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "Generador de favicons de texto | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Diseña un favicon minimalista y de alta calidad usando texto o las iniciales de tu marca. Elige colores, formas y tipografía. Descarga el paquete completo al instante.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Generador de favicons de texto | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Diseña un favicon minimalista y de alta calidad usando texto o las iniciales de tu marca. Elige colores, formas y tipografía. Descarga el paquete completo al instante.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Generador de favicons de texto");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Diseña un favicon minimalista y de alta calidad usando texto o las iniciales de tu marca. Elige colores, formas y tipografía. Descarga el paquete completo al instante.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Text to Favicon Generator"')) {
+                jsonText = jsonText.replace(/"Text to Favicon Generator"/g, '"Generador de favicons de texto"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Generador de favicons de <span class="gradient-text">texto</span>';
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Diseña un favicon minimalista y de alta calidad usando texto o las iniciales de tu marca. Elige colores, formas y tipografía. Descarga el paquete completo al instante.";
+            
+            const bFree = heroSec.querySelector('#badge-free');
+            if (bFree) bFree.textContent = "💰 100% Gratis";
+            const bFonts = heroSec.querySelector('#badge-fonts');
+            if (bFonts) bFonts.textContent = "🎨 Fuentes de Google";
+            const bCustom = heroSec.querySelector('#badge-custom');
+            if (bCustom) bCustom.textContent = "⚙️ Totalmente personalizable";
+            const bPrivate = heroSec.querySelector('#badge-private');
+            if (bPrivate) bPrivate.textContent = "🔒 100% privado";
+        }
+
+        // Controls section
+        const toolSec = doc.getElementById('tool');
+        if (toolSec) {
+            // Title
+            const cardH2 = toolSec.querySelector('.card h2');
+            if (cardH2) cardH2.textContent = "Configuración del favicon";
+
+            // Form Labels
+            toolSec.querySelectorAll('label').forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Text / Initials') {
+                    label.textContent = "Texto / Iniciales";
+                } else if (txt === 'Font Family') {
+                    label.textContent = "Familia de fuentes";
+                } else if (txt === 'Font Weight') {
+                    label.textContent = "Grosor de la fuente";
+                } else if (txt.startsWith('Font Size:')) {
+                    const span = label.querySelector('#fontSizeVal');
+                    label.innerHTML = 'Tamaño de la fuente: <span id="fontSizeVal">' + (span ? span.textContent : '55') + '</span>%';
+                } else if (txt === 'Text Color') {
+                    label.textContent = "Color del texto";
+                } else if (txt === 'Background') {
+                    label.textContent = "Fondo";
+                } else if (txt.includes('Transparent Background')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' Fondo transparente'));
+                } else if (txt.includes('Include site.webmanifest')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' Incluir site.webmanifest (PWA)'));
+                } else if (txt === 'Background Shape') {
+                    label.textContent = "Forma del fondo";
+                }
+            });
+
+            // Select option values
+            toolSec.querySelectorAll('select option').forEach(opt => {
+                const txt = opt.textContent.trim();
+                if (txt === 'Regular') opt.textContent = 'Normal';
+                else if (txt === 'Medium') opt.textContent = 'Medio';
+                else if (txt === 'Semi-Bold') opt.textContent = 'Seminegrita';
+                else if (txt === 'Bold') opt.textContent = 'Negrita';
+                else if (txt === 'Extra Bold') opt.textContent = 'Negrita extra';
+                else if (txt === 'Black') opt.textContent = 'Negrita negra';
+                else if (opt.value === 'square') opt.textContent = 'Cuadrado';
+                else if (opt.value === 'rounded') opt.textContent = 'Cuadrado redondeado';
+                else if (opt.value === 'circle') opt.textContent = 'Círculo';
+            });
+
+            // Previews & actions labels
+            const previewH3 = toolSec.querySelector('h3'); // Live Preview
+            if (previewH3) previewH3.textContent = "Vista previa en vivo";
+
+            const downloadBtn = toolSec.querySelector('#downloadAllBtn');
+            if (downloadBtn) {
+                const svg = downloadBtn.querySelector('svg');
+                downloadBtn.innerHTML = '';
+                if (svg) downloadBtn.appendChild(svg);
+                downloadBtn.appendChild(doc.createTextNode(' Descargar paquete de favicons (ZIP)'));
+            }
+
+            toolSec.querySelectorAll('h3').forEach(h3 => {
+                const txt = h3.textContent.trim();
+                if (txt === 'HTML Code') h3.textContent = "Código HTML";
+                else if (txt === 'Included Formats') h3.textContent = "Formatos incluidos";
+            });
+
+            const copyBtn = toolSec.querySelector('button[onclick*="htmlCode"]');
+            if (copyBtn) copyBtn.textContent = "Copiar";
+        }
+
+        // How it works section
+        const howToSec = doc.getElementById('how-to-generate');
+        if (howToSec) {
+            const title = howToSec.querySelector('.section-title');
+            if (title) title.textContent = "Cómo funciona esta herramienta de favicons de texto";
+            const sub = howToSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "100% del lado del cliente. Privado, rápido y seguro.";
+
+            const badge = howToSec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Recursos para desarrolladores 100% gratuitos y seguros'));
+            }
+
+            // Steps
+            const step1 = howToSec.querySelector('#step-1');
+            if (step1) {
+                const h3 = step1.querySelector('h3');
+                if (h3) h3.textContent = "Renderizado de Canvas en Tiempo Real";
+                const p = step1.querySelector('p');
+                if (p) p.textContent = "La herramienta utiliza HTML5 Canvas para dibujar fondos y tipografía matemática al instante y en tiempo real, directamente en tu navegador.";
+            }
+            const step2 = howToSec.querySelector('#step-2');
+            if (step2) {
+                const h3 = step2.querySelector('h3');
+                if (h3) h3.textContent = "Construcción de ICO Binario";
+                const p = step2.querySelector('p');
+                if (p) p.textContent = "En lugar de herramientas de servidor, el script une manualmente matrices de bytes PNG sin procesar para crear estructuras binarias ICO perfectamente compatibles.";
+            }
+            const step3 = howToSec.querySelector('#step-3');
+            if (step3) {
+                const h3 = step3.querySelector('h3');
+                if (h3) h3.textContent = "Empaquetado ZIP";
+                const p = step3.querySelector('p');
+                if (p) p.textContent = "Los archivos de manifiesto web dinámicos y de múltiples tamaños se empaquetan directamente en memoria mediante JSZip del lado del cliente.";
+            }
+            const step4 = howToSec.querySelector('#step-4');
+            if (step4) {
+                const h3 = step4.querySelector('h3');
+                if (h3) h3.textContent = "Descarga del lado del cliente";
+                const p = step4.querySelector('p');
+                if (p) p.textContent = "El paquete se convierte en una URL Blob para descargas instantáneas y seguras, sin interacción con el servidor ni riesgos para la privacidad.";
+            }
+        }
+
+        // Why generate text favicons here
+        const whySec = doc.getElementById('why-choose-features');
+        if (whySec) {
+            const title = whySec.querySelector('.section-title');
+            if (title) title.textContent = "¿Por qué generar favicons de texto aquí?";
+            const sub = whySec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "El creador de favicons online gratuito más potente que convierte imágenes en recursos para navegadores compatibles con estándares, con precisión profesional y velocidad ultrarrápida.";
+
+            const badge = whySec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Potentes funciones a tu alcance'));
+            }
+
+            // Features Cards
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                // Card 1
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Motor instantáneo del lado del cliente";
+                if (p_1) p_1.textContent = "Convierte PNG a paquetes de favicons en milisegundos utilizando la potencia de procesamiento local de tu navegador.";
+
+                // Card 2
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Reescalado perfecto de píxeles";
+                if (p_2) p_2.textContent = "Reducción de resolución de alta fidelidad que mantiene los bordes nítidos y los detalles legibles en tamaños de 16 × 16 píxeles.";
+
+                // Card 3
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Compatible con todos los formatos de imagen";
+                if (p_3) p_3.textContent = "Funciona fácilmente con PNG, JPG, SVG, WEBP, GIF y otros formatos de imagen populares.";
+
+                // Card 4
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Compatibilidad universal con dispositivos";
+                if (p_4) p_4.textContent = "Genera ICO antiguos, iconos táctiles de Apple, tamaños para Android Chrome y PWA en un solo paquete ZIP.";
+
+                // Card 5
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = "100 % seguro y privado";
+                if (p_5) p_5.textContent = "Se ejecuta completamente en tu navegador utilizando HTML5 Canvas. Tu imagen nunca se sube a ningún servidor.";
+
+                // Card 6
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = "Completamente gratuito y de código abierto";
+                if (p_6) p_6.textContent = "Sin registros de correo electrónico, sin suscripciones, sin muros de pago. Herramientas para desarrolladores totalmente gratuitas.";
+            }
+        }
+
+        // Use cases
+        const useCasesSec = doc.getElementById('use-cases');
+        if (useCasesSec) {
+            const title = useCasesSec.querySelector('.section-title');
+            if (title) title.textContent = "Perfecto para cualquier caso de uso";
+            const sub = useCasesSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Descubre cómo nuestra herramienta de texto a favicon funciona en diferentes escenarios";
+
+            const badge = useCasesSec.querySelector('.trusted-badge');
+            if (badge) {
+                const dots = badge.querySelector('.dots-group');
+                badge.innerHTML = '';
+                if (dots) badge.appendChild(dots);
+                badge.appendChild(doc.createTextNode(' Con la confianza de profesionales de todo el mundo'));
+            }
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                // Card 1
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Desarrolladores web";
+                if (p_1) p_1.textContent = "Genera al instante favicons de todos los tamaños necesarios para tus proyectos web a partir de texto simple.";
+
+                // Card 2
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Diseñadores UI/UX";
+                if (p_2) p_2.textContent = "Asegúrate de que la identidad de tu marca se vea nítida y perfecta en todas las pestañas del navegador y pantallas de inicio de los dispositivos.";
+
+                // Card 3
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Blogueros y creadores";
+                if (p_3) p_3.textContent = "Personaliza fácilmente tu blog o portafolio con un icono profesional en segundos.";
+
+                // Card 4
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Empresarios";
+                if (p_4) p_4.textContent = "Mejora tu imagen profesional con un favicon de alta calidad que genere confianza.";
+            }
+        }
+
+        // Comparison Section
+        const whyPngSec = doc.getElementById('why-pngtofavicon');
+        if (whyPngSec) {
+            const title = whyPngSec.querySelector('.section-title');
+            if (title) title.textContent = "Generador de favicons de texto vs. otras herramientas";
+            const sub = whyPngSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Compara nuestra oferta con otros generadores de favicons del mercado";
+
+            const ths = whyPngSec.querySelectorAll('th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "Características";
+                ths[1].textContent = "PNGtoFavicon";
+                ths[2].textContent = "Otras herramientas";
+            }
+
+            const tds = whyPngSec.querySelectorAll('td');
+            tds.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'Precio';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> Gratis para siempre';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'Freemium / Planes de pago';
+                else if (txt === 'Privacy') td.textContent = 'Privacidad';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100% del lado del cliente';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'Archivos subidos a servidores';
+                else if (txt === 'Speed') td.textContent = 'Velocidad';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> Procesamiento instantáneo';
+                else if (txt === 'Depends on server load') td.textContent = 'Depende de la carga del servidor';
+                else if (txt === 'File Formats') td.textContent = 'Formatos de archivo';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + Manifiesto';
+                else if (txt === 'Often ICO only') td.textContent = 'A menudo solo ICO';
+                else if (txt === 'No Registration') td.textContent = 'Sin registro';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> No es necesario registrarse';
+                else if (txt === 'Sometimes required') td.textContent = 'A veces es necesario';
+                else if (txt === 'Multi-platform') td.textContent = 'Multiplataforma';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> Todos los dispositivos y navegadores';
+                else if (txt === 'Limited platform support') td.textContent = 'Compatibilidad limitada con plataformas';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'Fragmento de código HTML';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> Generación automática';
+                else if (txt === 'Manual integration') td.textContent = 'Integración manual';
+                else if (txt === 'Open Source') td.textContent = 'Código abierto';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> Proceso transparente';
+                else if (txt === 'Proprietary black-box') td.textContent = 'Software propietario de caja negra';
+            });
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "Preguntas frecuentes";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why use a text favicon instead of an image?')) {
+                        summary.innerHTML = "<h3>¿Por qué usar un favicon de texto en lugar de una imagen?</h3>";
+                        if (p) p.textContent = "Los favicons de texto son perfectos para marcas en sus inicios, portafolios personales, blogs y sitios web minimalistas y limpios. Las iniciales son fáciles de identificar en una pestaña del navegador con mucho contenido, lo que mejora el reconocimiento de marca sin necesidad de un diseño gráfico complejo.";
+                    } else if (qTxt.includes('What font looks best for a favicon?')) {
+                        summary.innerHTML = "<h3>¿Qué tipografía queda mejor para un favicon?</h3>";
+                        if (p) p.textContent = "Se recomiendan fuentes sans-serif gruesas y llamativas como Space Grotesk, Montserrat y Outfit. Los estilos monoespaciados también quedan muy bien. Evite las fuentes extremadamente finas, ya que se vuelven ilegibles al reducirlas a 16x16 píxeles.";
+                    } else if (qTxt.includes('Is my data private on this website?')) {
+                        summary.innerHTML = "<h3>¿Mis datos están privados en este sitio web?</h3>";
+                        if (p) p.textContent = "Sí, al 100%. El generador funciona completamente en su navegador web mediante HTML5 Canvas. Su texto, diseños personalizados y archivos generados nunca se suben a nuestros servidores, lo que garantiza la privacidad de su marca.";
+                    } else if (qTxt.includes('What file formats does this tool output?')) {
+                        summary.innerHTML = "<h3>¿Qué formatos de archivos genera esta herramienta?</h3>";
+                        if (p) p.textContent = "Nuestro generador de favicons de texto produce un archivo favicon.ico estándar de varios tamaños (que incluye tamaños de 16px, 32px y 48px), múltiples imágenes PNG de alta resolución para pestañas del navegador, iconos táctiles de Apple (180x180), iconos de Android Chrome (192x192, 512x512) y un archivo de configuración site.webmanifest.";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Empieza a convertir PNG a favicon gratis hoy mismo";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Únete a los más de 50 000 usuarios que confían en PNGtoFavicon.com para generar favicons de forma precisa, rápida y totalmente gratuita.";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "¡Empieza a convertir ahora! ¡Es gratis!";
+        }
+
+        // Testimonials Section
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'Testimonios';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'Lo que dicen nuestros usuarios';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'Más de 50.000 desarrolladores, designers y creadores confían en PNGtoFavicon para sus proyectos.';
+
+            // Rating blocks
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Reseñas verificadas en Trustpilot';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Reseñas verificadas en Capterra';
+            }
+
+            // Trustpilot Reviews
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Alex M.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Desarrollador Frontend';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Octubre de 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"La forma más rápida de generar favicons de todos los tamaños. Literalmente tarda 2 segundos y maneja perfectamente los nuevos formatos manifest.json."';
+
+                    // Card 2: Sarah J.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Diseñadora UI/UX';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Septiembre de 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"Antes usaba 3 herramientas diferentes para convertir mis PNG a ICO e iconos táctiles de Apple. Esta lo hace todo con un solo clic."';
+
+                    // Card 3: David K.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Desarrollador independiente';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Agosto de 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"Interfaz limpia, sin anuncios y respeta la privacidad. Muy recomendable para diseñadores UI y desarrolladores."';
+
+                    // Card 4: Elena R.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Dueña de la agencia';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Julio de 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"Ahora lo usamos para todos los proyectos de nuestros clientes. Los resultados siempre son nítidos y los fragmentos de código HTML nos ahorran muchísimo tiempo."';
+
+                    // Card 5: Michael T.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'Desarrollador Full Stack';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Junio de 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"¡Por fin un generador de favicons que entiende las necesidades web modernas! ¡El tema oscuro del sitio también es precioso!"';
+
+                    // Card 6: Jessica L.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Gerente de Producto';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Mayo de 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"Una herramienta súper confiable. Me encanta que te dé exactamente lo que necesitas sin complicaciones ni registros."';
+                }
+            }
+
+            // Capterra Reviews
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Ryan P.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Ingeniero de Software';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Noviembre de 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"Ejecución impecable. El archivo zip generado está perfectamente organizado y los iconos se ven genial en todos los dispositivos."';
+
+                    // Card 2: Amanda B.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Directora de Marketing';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Octubre de 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"Me tomó menos de un minuto actualizar los favicons del sitio web de nuestra empresa. El proceso es increíblemente intuitivo."';
+
+                    // Card 3: Chris W.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Fundador de Startup';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Septiembre de 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"Una preocupación menos al lanzar un nuevo producto. Solo arrastrar y soltar, y tendrás favicons perfectos."';
+
+                    // Card 4: Nina S.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Diseñadora Web Freelance';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Agosto de 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"Recomiendo esta herramienta a todos mi colegas. Maneja la transparencia a la perfección y los archivos ICO siempre son válidos."';
+
+                    // Card 5: Tom H.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'CTO';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Julio de 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"Sencillo, eficaz y cumple exactamente lo que promete. Sin funciones innecesarias, solo una utilidad sólida."';
+
+                    // Card 6: Laura C.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Bloguera';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Junio de 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"No soy muy experta en tecnología, pero esta herramienta me facilitó muchísimo la tarea de conseguir un icono profesional para mi blog. ¡Gracias!"';
+                }
+            }
+        }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "¿Qué incluye tu descarga?";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Todos los archivos necesarios para una compatibilidad total con favicons en diferentes navegadores y dispositivos.";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "El clásico formato ICO multitamaño, que incluye iconos de 16×16, 32×32 y 48×48 píxeles. Necesario para la compatibilidad con navegadores antiguos, incluidas las versiones anteriores de Internet Explorer.";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "Icono de pestaña estándar del navegador de 16×16 píxeles. Utilizado por la mayoría de los navegadores modernos como favicon principal de las pestañas en pantallas de densidad estándar.";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "Icono de pestaña de alta resolución (32×32 píxeles). Se muestra en pantallas Retina y HiDPI para una visualización nítida del favicon en las pestañas del navegador.";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "Icono táctil de Apple de 180 × 180 píxeles para iPhone, iPad y iPod Touch. Se muestra cuando los usuarios añaden tu sitio web a la pantalla de inicio de iOS.";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "Icono para la pantalla de inicio de Android de 192 × 192 píxeles. Se utiliza cuando los usuarios de Android añaden tu sitio a la pantalla de inicio mediante Chrome u otros navegadores.";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "Icono PWA de alta resolución de 512 × 512 píxeles. Necesario para las indicaciones de instalación y las pantallas de inicio de las PWA en dispositivos Android.";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "Archivo de manifiesto de la aplicación web que contiene referencias a iconos, color del tema y color de fondo. Esencial para la compatibilidad con PWA y la integración en la pantalla de inicio de Android.";
+                }
+            });
+        }
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
