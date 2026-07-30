@@ -6360,6 +6360,71 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+    if (targetLang === 'es') {
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter') link.textContent = 'Convertidor';
+            else if (text === 'Text to Favicon') link.textContent = 'Texto a favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji a favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Verificador de favicon';
+            else if (text === 'Tutorials') link.textContent = 'Tutoriales';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            // Brand description
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc && brandDesc.textContent.trim().includes('Convert PNG to Favicon')) {
+                brandDesc.textContent = 'Convertidor gratuito de PNG a favicon: una herramienta online gratuita.';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Chatear en WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Herramientas';
+                else if (text === 'Resources') h4.textContent = 'Recursos';
+                else if (text === 'Company') h4.textContent = 'Compañía';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter') link.textContent = 'Convertidor de PNG a favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'Texto a favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji a favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Verificador de favicon';
+                else if (text === 'Tutorials') link.textContent = 'Tutoriales';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Guía de tamaños de favicon';
+                else if (text === 'What is a Favicon?') link.textContent = '¿Qué es un favicon?';
+                else if (text === 'About') link.textContent = 'Acerca de';
+                else if (text === 'Contact') link.textContent = 'Contacto';
+                else if (text === 'Privacy Policy') link.textContent = 'Política de privacidad';
+                else if (text === 'Terms of Service') link.textContent = 'Condiciones de uso';
+                else if (text === 'Cookie Policy') link.textContent = 'Política de cookies';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Todos los derechos reservados.';
+            }
+        }
+    }
+
     // Custom logic for Spanish index.html page translation
     if (targetLang === 'es' && normPath === 'index.html') {
         // Title & Description
