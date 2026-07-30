@@ -8959,6 +8959,71 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+    } else if (targetLang === 'es' && normPath === 'contact/index.html') {
+        // Page title & metadata
+        doc.title = "Contáctanos | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "¿Tienes preguntas, comentarios o sugerencias de funciones? Envíanos un mensaje.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Contáctanos | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "¿Tienes preguntas, comentarios o sugerencias de funciones? Envíanos un mensaje.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Contáctanos");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "¿Tienes preguntas, comentarios o sugerencias de funciones? Envíanos un mensaje.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Contácta<span class='gradient-text'>nos</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "¿Tienes preguntas, comentarios o sugerencias de funciones? Envíanos un mensaje.";
+        }
+
+        // Contact Info Block
+        const infoBlock = doc.querySelector('.contact-info-block');
+        if (infoBlock) {
+            const h2s = infoBlock.querySelectorAll('h2');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Contacto directo";
+                h2s[1].textContent = "Canales de soporte";
+            }
+            const links = infoBlock.querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "Chatea por WhatsApp";
+                    }
+                }
+            });
+        }
+
+        // Form Fields
+        const form = doc.querySelector('form');
+        if (form) {
+            const labels = form.querySelectorAll('label');
+            labels.forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Your Name') label.textContent = "Tu nombre";
+                else if (txt === 'Your Email') label.textContent = "Tu correo electrónico";
+                else if (txt === 'Message') label.textContent = "Mensaje";
+            });
+
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(inputs => {
+                const placeholder = inputs.getAttribute('placeholder');
+                if (placeholder === 'John Doe') inputs.setAttribute('placeholder', "John Doe");
+                else if (placeholder === 'john@example.com') inputs.setAttribute('placeholder', "john@example.com");
+                else if (placeholder === 'Write your message here...') inputs.setAttribute('placeholder', "Escribe tu mensaje aquí...");
+            });
+
+            const btn = form.querySelector('button');
+            if (btn) btn.textContent = "Enviar mensaje";
+        }
     } else if (targetLang === 'fr' && normPath === 'contact/index.html') {
         // Page title & metadata
         doc.title = "Contactez-nous | PNGtoFavicon";
