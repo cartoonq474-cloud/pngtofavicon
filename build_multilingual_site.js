@@ -9237,6 +9237,37 @@ async function localizePage(relativePath, targetLang) {
                 ps[1].textContent = "Nos fichiers de conversion sont fournis « en l'état », sans garantie. Nous ne sommes pas responsables des erreurs d'affichage sur les sites web ni des problèmes de configuration des serveurs.";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'cookie-policy/index.html') {
+        // Page title & metadata
+        doc.title = "Política de cookies | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Infórmese sobre nuestra política de uso de cookies.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Política de cookies | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Infórmese sobre nuestra política de uso de cookies.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Política de cookies");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Infórmese sobre nuestra política de uso de cookies.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Política de <span class='gradient-text'>cookies</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Infórmese sobre nuestra política de uso de cookies.";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = "Cómo usamos las cookies";
+            const p = card.querySelector('p');
+            if (p) p.textContent = "Utilizamos pequeñas cookies del navegador para guardar sus preferencias de usuario (como paletas de colores y opciones de forma) y para recopilar estadísticas de tráfico anónimas a través de Google Analytics.";
+        }
     } else if (targetLang === 'fr' && normPath === 'cookie-policy/index.html') {
         // Page title & metadata
         doc.title = "Politique relative aux cookies | PNGtoFavicon";
