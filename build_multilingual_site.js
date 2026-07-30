@@ -9089,6 +9089,43 @@ async function localizePage(relativePath, targetLang) {
             const btn = form.querySelector('button');
             if (btn) btn.textContent = "Envoyer le message";
         }
+    } else if (targetLang === 'es' && normPath === 'privacy/index.html') {
+        // Page title & metadata
+        doc.title = "Política de privacidad | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Su privacidad es nuestra máxima prioridad. Descubra por qué procesamos sus archivos localmente.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Política de privacidad | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Su privacidad es nuestra máxima prioridad. Descubra por qué procesamos sus archivos localmente.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Política de privacidad");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Su privacidad es nuestra máxima prioridad. Descubra por qué procesamos sus archivos localmente.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Política de <span class='gradient-text'>privacidad</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Su privacidad es nuestra máxima prioridad. Descubra por qué procesamos sus archivos localmente.";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Procesamiento de datos";
+                h2s[1].textContent = "Cookies";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "PNGtoFavicon.com funciona completamente como una aplicación del lado del cliente. Las imágenes que suba, el texto que introduzca o los emojis que personalice se procesan localmente en la caché de su navegador. No transmitimos, copiamos ni almacenamos sus archivos gráficos en nuestros servidores web.";
+                ps[1].textContent = "Utilizamos un mínimo de cookies para obtener estadísticas de rendimiento del sitio y guardar la configuración del tema. No recopilamos datos de identificación personal.";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'privacy/index.html') {
         // Page title & metadata
         doc.title = "Politique de confidentialité | PNGtoFavicon";
