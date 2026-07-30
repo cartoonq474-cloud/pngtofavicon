@@ -9163,6 +9163,43 @@ async function localizePage(relativePath, targetLang) {
                 ps[1].textContent = "Nous utilisons des cookies minimaux pour les statistiques de performance du site et la sauvegarde des paramètres du thème. Aucune donnée d'identification personnelle n'est collectée.";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'terms/index.html') {
+        // Page title & metadata
+        doc.title = "Condiciones de uso | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Acuerdos de servicio y condiciones de uso para utilidades en línea.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Condiciones de uso | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Acuerdos de servicio y condiciones de uso para utilidades en línea.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Condiciones de uso");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Acuerdos de servicio y condiciones de uso para utilidades en línea.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Condiciones de <span class='gradient-text'>uso</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Acuerdos de servicio y condiciones de uso para utilidades en línea.";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Acuerdo de uso";
+                h2s[1].textContent = "Descargo de responsabilidad";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "Puede usar PNGtoFavicon.com libremente para proyectos personales o comerciales. Los favicons generados son de su propiedad y puede implementarlos sin restricciones.";
+                ps[1].textContent = "Nuestros archivos de conversión se proporcionan \"tal cual\", sin garantía. No nos hacemos responsables de errores de visualización del sitio web ni de configuraciones de implementación del servidor.";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'terms/index.html') {
         // Page title & metadata
         doc.title = "Conditions d'utilisation | PNGtoFavicon";
