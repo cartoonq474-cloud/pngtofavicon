@@ -8841,6 +8841,65 @@ async function localizePage(relativePath, targetLang) {
             }
             if (p_2) p_2.textContent = "Analyse approfondie des formats d'icônes pour navigateurs. Comparez le format ICO classique, les icônes d'onglets PNG nettes et les ressources vectorielles SVG modernes et responsives.";
         }
+    } else if (targetLang === 'es' && normPath === 'about/index.html') {
+        // Page title & metadata
+        doc.title = "Acerca de PNGtoFavicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Creemos que las herramientas de diseño web deben ser rápidas, estar altamente optimizadas y respetar la privacidad del usuario.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Acerca de PNGtoFavicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Creemos que las herramientas de diseño web deben ser rápidas, estar altamente optimizadas y respetar la privacidad del usuario.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Acerca de PNGtoFavicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Creemos que las herramientas de diseño web deben ser rápidas, estar altamente optimizadas y respetar la privacidad del usuario.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Acerca de <span class='gradient-text'>PNGtoFavicon</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Creemos que las herramientas de diseño web deben ser rápidas, estar altamente optimizadas y respetar la privacidad del usuario.";
+        }
+
+        // Content Sections (Glass Cards)
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1: Our Mission
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "Nuestra misión";
+            const ps_1 = cards[0].querySelectorAll('p');
+            if (ps_1.length >= 2) {
+                ps_1[0].textContent = "Creamos PNGtoFavicon para resolver un problema sencillo: la mayoría de los generadores de favicons en línea suben los gráficos de tu marca a sus servidores, los procesan lentamente y llenan sus páginas de anuncios emergentes no deseados.";
+                ps_1[1].textContent = "Nuestra herramienta se ejecuta completamente en tu navegador web mediante HTML5 Canvas. Tus archivos de logotipo nunca salen de tu computadora, la renderización es instantánea y el formato de salida está optimizado para los estándares SEO modernos.";
+            }
+
+            // Card 2: Contact & Support
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Contacto y soporte";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "¿Tienes preguntas, comentarios o necesitas asistencia directa con nuestras herramientas? Contáctanos a través de cualquiera de los siguientes canales:";
+
+            // Contact Columns
+            const h3s = cards[1].querySelectorAll('h3');
+            if (h3s.length >= 2) {
+                h3s[0].textContent = "Contacto directo";
+                h3s[1].textContent = "Canales de soporte";
+            }
+
+            const links = cards[1].querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "Chatea en WhatsApp";
+                    }
+                }
+            });
+        }
     } else if (targetLang === 'fr' && normPath === 'about/index.html') {
         // Page title & metadata
         doc.title = "À propos de PNGtoFavicon | PNGtoFavicon";
