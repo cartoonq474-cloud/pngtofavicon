@@ -8615,6 +8615,65 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'tutorials/index.html') {
+        // Page title & metadata
+        doc.title = "Guías y tutoriales de favicons | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Aprende a generar, instalar y optimizar los favicons de tu sitio web para lograr la máxima compatibilidad con navegadores y una excelente visibilidad SEO.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Guías y tutoriales de favicons | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Aprende a generar, instalar y optimizar los favicons de tu sitio web para lograr la máxima compatibilidad con navegadores y una excelente visibilidad SEO.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Guías y tutoriales de favicons");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Aprende a generar, instalar y optimizar los favicons de tu sitio web para lograr la máxima compatibilidad con navegadores y una excelente visibilidad SEO.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Tutorials Index"')) {
+                jsonText = jsonText.replace(/"Tutorials Index"/g, '"Guías y tutoriales de favicons"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Guías y <span class='gradient-text'>tutoriales</span> de favicons";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Aprende a generar, instalar y optimizar los favicons de tu sitio web para lograr la máxima compatibilidad con navegadores y una excelente visibilidad SEO.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.tools-grid a.tool-card');
+        if (cards.length >= 4) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = "❓ ¿Qué es un favicon?";
+            if (p_1) p_1.textContent = "Descubre la historia y el propósito de los iconos de las pestañas del navegador y por qué son fundamentales para la imagen de marca digital.";
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = "📏 Guía de tamaños de favicons";
+            if (p_2) p_2.textContent = "Aprende qué dimensiones de favicon se requieren para pantallas Retina modernas, aplicaciones Android y marcadores iOS.";
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = "➕ Cómo añadir un favicon";
+            if (p_3) p_3.textContent = "Fragmentos de código HTML genéricos para copiar y pegar, e instrucciones para subir tus archivos de favicon al servidor.";
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = "💡 Mejores prácticas para favicons";
+            if (p_4) p_4.textContent = "Consejos para escalar diseños, optimizar el tamaño de los archivos y pautas SEO para favicons que aumenten el CTR de Google.";
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/index.html') {
         // Page title & metadata
         doc.title = "Guides et tutoriels sur les favicons | PNGtoFavicon";
