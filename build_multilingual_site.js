@@ -8733,6 +8733,60 @@ async function localizePage(relativePath, targetLang) {
             if (h3_4) h3_4.textContent = "💡 Bonnes pratiques pour les favicons";
             if (p_4) p_4.textContent = "Conseils pour adapter les designs, optimiser le poids des fichiers et bonnes pratiques SEO pour améliorer votre taux de clics sur Google.";
         }
+    } else if (targetLang === 'es' && normPath === 'blog/index.html') {
+        // Page title & metadata
+        doc.title = "Blog de Branding y Favicons | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Mantente al día con los estándares web modernos, la lista de verificación SEO y consejos de diseño para fragmentos de búsqueda y pestañas.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Blog de Branding y Favicons | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Mantente al día con los estándares web modernos, la lista de verificación SEO y consejos de diseño para fragmentos de búsqueda y pestañas.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Blog de Branding y Favicons");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Mantente al día con los estándares web modernos, la lista de verificación SEO y consejos de diseño para fragmentos de búsqueda y pestañas.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Blog de Branding y <span class='gradient-text'>Favicons</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Mantente al día con los estándares web modernos, la lista de verificación SEO y consejos de diseño para fragmentos de búsqueda y pestañas.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1
+            const spans_1 = cards[0].querySelectorAll('span');
+            const links_1 = cards[0].querySelectorAll('a');
+            const p_1 = cards[0].querySelector('p');
+            if (spans_1.length >= 2) {
+                spans_1[0].textContent = "SEO Y BRANDING";
+                spans_1[1].textContent = "10 de julio de 2026 · 6 min de lectura";
+            }
+            if (links_1.length >= 2) {
+                links_1[0].textContent = "Guía SEO de Favicons: Aumentando la tasa de clics en fragmentos de búsqueda";
+                links_1[1].textContent = "Leer artículo →";
+            }
+            if (p_1) p_1.textContent = "Aprende cómo Google analiza los favicons de los sitios web para las páginas de resultados de búsqueda en escritorio y móviles, y cómo los iconos de las pestañas configuradas impactan en el CTR de tu SEO visual.";
+
+            // Card 2
+            const spans_2 = cards[1].querySelectorAll('span');
+            const links_2 = cards[1].querySelectorAll('a');
+            const p_2 = cards[1].querySelector('p');
+            if (spans_2.length >= 2) {
+                spans_2[0].textContent = "FORMATOS DE ARCHIVO";
+                spans_2[1].textContent = "5 de julio de 2026 · 8 min de lectura";
+            }
+            if (links_2.length >= 2) {
+                links_2[0].textContent = "PNG vs ICO vs SVG: Elegir el formato de favicon adecuado";
+                links_2[1].textContent = "Leer artículo →";
+            }
+            if (p_2) p_2.textContent = "Un análisis detallado de los formatos de iconos de navegador. Compara el clásico ICO, los nítidos iconos de pestaña PNG y los modernos recursos vectoriales SVG responsivos.";
+        }
     } else if (targetLang === 'fr' && normPath === 'blog/index.html') {
         // Page title & metadata
         doc.title = "Blog sur l'image de marque et les favicons | PNGtoFavicon";
