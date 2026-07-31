@@ -10325,6 +10325,71 @@ async function localizePage(relativePath, targetLang) {
             const btn = form.querySelector('button');
             if (btn) btn.textContent = "Enviar mensaje";
         }
+    } else if (targetLang === 'hi' && normPath === 'contact/index.html') {
+        // Page title & metadata
+        doc.title = "संपर्क करें | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "क्या आपके कोई सवाल, फ़ीडबैक या फ़ीचर सुझाव हैं? हमें मैसेज भेजें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "संपर्क करें | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "क्या आपके कोई सवाल, फ़ीडबैक या फ़ीचर सुझाव हैं? हमें मैसेज भेजें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "संपर्क करें");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "क्या आपके कोई सवाल, फ़ीडबैक या फ़ीचर सुझाव हैं? हमें मैसेज भेजें।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "संपर्क <span class='gradient-text'>करें</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "क्या आपके कोई सवाल, फ़ीडबैक या फ़ीचर सुझाव हैं? हमें मैसेज भेजें।";
+        }
+
+        // Contact Info Block
+        const infoBlock = doc.querySelector('.contact-info-block');
+        if (infoBlock) {
+            const h2s = infoBlock.querySelectorAll('h2');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "डायरेक्ट कॉन्टैक्ट";
+                h2s[1].textContent = "सपोर्ट चैनल";
+            }
+            const links = infoBlock.querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "WhatsApp पर चैट करें";
+                    }
+                }
+            });
+        }
+
+        // Form Fields
+        const form = doc.querySelector('form');
+        if (form) {
+            const labels = form.querySelectorAll('label');
+            labels.forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Your Name') label.textContent = "आपका नाम";
+                else if (txt === 'Your Email') label.textContent = "आपका ईमेल";
+                else if (txt === 'Message') label.textContent = "मैसेज";
+            });
+
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(inputs => {
+                const placeholder = inputs.getAttribute('placeholder');
+                if (placeholder === 'John Doe') inputs.setAttribute('placeholder', "जॉन डो");
+                else if (placeholder === 'john@example.com') inputs.setAttribute('placeholder', "john@example.com");
+                else if (placeholder === 'Write your message here...') inputs.setAttribute('placeholder', "अपना मैसेज यहाँ लिखें...");
+            });
+
+            const btn = form.querySelector('button');
+            if (btn) btn.textContent = "मैसेज भेजें";
+        }
     } else if (targetLang === 'fr' && normPath === 'contact/index.html') {
         // Page title & metadata
         doc.title = "Contactez-nous | PNGtoFavicon";
