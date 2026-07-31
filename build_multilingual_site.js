@@ -10492,6 +10492,43 @@ async function localizePage(relativePath, targetLang) {
                 ps[1].textContent = "Utilizamos un mínimo de cookies para obtener estadísticas de rendimiento del sitio y guardar la configuración del tema. No recopilamos datos de identificación personal.";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'privacy/index.html') {
+        // Page title & metadata
+        doc.title = "प्राइवेसी पॉलिसी | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "आपकी प्राइवेसी हमारी सबसे बड़ी प्राथमिकता है। जानें कि हम आपके एसेट्स को लोकली क्यों प्रोसेस करते हैं।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "प्राइवेसी पॉलिसी | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "आपकी प्राइवेसी हमारी सबसे बड़ी प्राथमिकता है। जानें कि हम आपके एसेट्स को लोकली क्यों प्रोसेस करते हैं।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "प्राइवेसी पॉलिसी");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "आपकी प्राइवेसी हमारी सबसे बड़ी प्राथमिकता है। जानें कि हम आपके एसेट्स को लोकली क्यों प्रोसेस करते हैं।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "प्राइवेसी <span class='gradient-text'>पॉलिसी</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "आपकी प्राइवेसी हमारी सबसे बड़ी प्राथमिकता है। जानें कि हम आपके एसेट्स को लोकली क्यों प्रोसेस करते हैं।";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "डेटा प्रोसेसिंग";
+                h2s[1].textContent = "कुकीज़";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "PNGtoFavicon.com पूरी तरह से क्लाइंट-साइड एप्लिकेशन के तौर पर काम करता है। आप जो भी इमेज अपलोड करते हैं, जो टेक्स्ट डालते हैं, या जो इमोजी स्टाइल करते हैं, उन्हें आपके ब्राउज़र कैश में लोकली प्रोसेस किया जाता है। हम आपके ग्राफिकल एसेट्स को अपने वेब सर्वर पर ट्रांसमिट, कॉपी या स्टोर नहीं करते हैं।";
+                ps[1].textContent = "हम साइट परफॉर्मेंस स्टैटिस्टिक्स और थीम सेटिंग्स सेव करने के लिए कम से कम कुकीज़ का इस्तेमाल करते हैं। कोई पर्सनल आइडेंटिफिकेशन डेटा इकट्ठा नहीं किया जाता है।";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'privacy/index.html') {
         // Page title & metadata
         doc.title = "Politique de confidentialité | PNGtoFavicon";
