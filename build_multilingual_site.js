@@ -8790,6 +8790,492 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "Compruébalo ahora →";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'favicon-checker/index.html') {
+        // Page title & metadata
+        doc.title = "फ़ेविकॉन चेकर और वैलिडेटर | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "किसी भी लाइव वेबसाइट का ऑडिट करके यह वेरिफ़ाई करता है कि ब्राउज़र फ़ेविकॉन, Apple टच आइकन और PWA मैनिफ़ेस्ट फ़ाइलें सही तरीके से कॉन्फ़िगर की गई हैं और वेब ब्राउज़र उन्हें खोज सकते हैं या नहीं।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "फ़ेविकॉन चेकर और वैलिडेटर | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "किसी भी लाइव वेबसाइट का ऑडिट करके यह वेरिफ़ाई करता है कि ब्राउज़र फ़ेविकॉन, Apple टच आइकन और PWA मैनिफ़ेस्ट फ़ाइलें सही तरीके से कॉन्फ़िगर की गई हैं और वेब ब्राउज़र उन्हें खोज सकते हैं या नहीं।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "फ़ेविकॉन चेकर और वैलिडेटर");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "किसी भी लाइव वेबसाइट का ऑडिट करके यह वेरिफ़ाई करता है कि ब्राउज़र फ़ेविकॉन, Apple टच आइकन और PWA मैनिफ़ेस्ट फ़ाइलें सही तरीके से कॉन्फ़िगर की गई हैं और वेब ब्राउज़र उन्हें खोज सकते हैं या नहीं।");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Favicon Checker & Validator"')) {
+                jsonText = jsonText.replace(/"Favicon Checker & Validator"/g, '"फ़ेविकॉन चेकर और वैलिडेटर"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "<span class='gradient-text'>फ़ेविकॉन चेकर</span> और वैलिडेटर";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "किसी भी लाइव वेबसाइट का ऑडिट करके यह वेरिफ़ाई करता है कि ब्राउज़र फ़ेविकॉन, Apple टच आइकन और PWA मैनिफ़ेस्ट फ़ाइलें सही तरीके से कॉन्फ़िगर की गई हैं और वेब ब्राउज़र उन्हें खोज सकते हैं या नहीं।";
+            
+            const bFree = heroSec.querySelector('#badge-free');
+            if (bFree) bFree.textContent = "💰 100% फ़्री";
+            const bInstant = heroSec.querySelector('#badge-instant');
+            if (bInstant) bInstant.textContent = "⚡ रियल-टाइम ऑडिट";
+            const bDetails = heroSec.querySelector('#badge-details');
+            if (bDetails) bDetails.textContent = "📋 डिटेल्ड रिपोर्ट";
+            const bGuide = heroSec.querySelector('#badge-guide');
+            if (bGuide) bGuide.textContent = "💡 एक्शन लेने लायक टिप्स";
+        }
+
+        // Checker input card
+        const checkerSec = doc.getElementById('checker-section');
+        if (checkerSec) {
+            const h3 = checkerSec.querySelector('h3');
+            if (h3) h3.textContent = "🔍 वेबसाइट URL ऑडिट करें";
+            const p = checkerSec.querySelector('p');
+            if (p) p.textContent = "आइकन हेल्थ और इंस्टॉलेशन मार्कअप चेक करने के लिए अपना डोमेन नेम डालें:";
+            const input = checkerSec.querySelector('#checkerUrl');
+            if (input) input.setAttribute('placeholder', "https://example.com");
+            const btn = checkerSec.querySelector('#auditBtn');
+            if (btn) btn.textContent = "फ़ेविकॉन ऑडिट करें";
+        }
+
+        // How it works
+        const howToSec = doc.getElementById('how-to-generate');
+        if (howToSec) {
+            const title = howToSec.querySelector('.section-title');
+            if (title) title.textContent = "फ़ेविकॉन टैक्सोनॉमी कैसे काम करती है"; // default or custom
+            if (title) title.textContent = "फ़ेविकॉन वैलिडेशन कैसे काम करता है";
+            const sub = howToSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "अपनी वेबसाइट के फ़ेविकॉन का ऑडिट करने के लिए इन आसान स्टेप्स को फ़ॉलो करें";
+
+            const badge = howToSec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' 100% फ़्री और सुरक्षित डेवलपर एसेट्स'));
+            }
+
+            // Steps
+            const step1 = howToSec.querySelector('#step-1');
+            if (step1) {
+                const h3 = step1.querySelector('h3');
+                if (h3) h3.textContent = "वेबसाइट URL डालें";
+                const p = step1.querySelector('p');
+                if (p) p.textContent = "जिस वेबसाइट को आप एनालाइज़ करना चाहते हैं, उसका पूरा HTTP या HTTPS एड्रेस पेस्ट करें।";
+            }
+            const step2 = howToSec.querySelector('#step-2');
+            if (step2) {
+                const h3 = step2.querySelector('h3');
+                if (h3) h3.textContent = "सोर्स फ़ेच और पार्स करें";
+                const p = step2.querySelector('p');
+                if (p) p.textContent = "हमारा क्लाइंट-साइड इंजन पेज सोर्स को रिट्रीव करता है और मैचिंग लिंक के लिए हेड हेडर को इंस्पेक्ट करता है।";
+            }
+            const step3 = howToSec.querySelector('#step-3');
+            if (step3) {
+                const h3 = step3.querySelector('h3');
+                if (h3) h3.textContent = "फ़ाइल वैलिडेशन";
+                const p = step3.querySelector('p');
+                if (p) p.textContent = "चेक करता है कि favicon.ico, apple-touch-icon, और मैनिफ़ेस्ट फ़ाइलें सही तरीके से इंस्टॉल हैं और उन तक पहुँचा जा सकता है या नहीं।";
+            }
+            const step4 = howToSec.querySelector('#step-4');
+            if (step4) {
+                const h3 = step4.querySelector('h3');
+                if (h3) h3.textContent = "रिपोर्ट कार्ड पाएँ";
+                const p = step4.querySelector('p');
+                if (p) p.textContent = "फ़ॉलबैक फ़ाइलों, रेटिना-डिस्प्ले कॉन्फ़िगरेशन, और एक्शन लेने लायक सुझावों पर तुरंत स्टेटस चेक पाएँ।";
+            }
+        }
+
+        // Why choose / Why audit
+        const whySec = doc.getElementById('why-choose-features');
+        if (whySec) {
+            const title = whySec.querySelector('.section-title');
+            if (title) title.textContent = "फ़ेविकॉन का ऑडिट यहाँ क्यों करें?";
+            const sub = whySec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "सबसे पावरफ़ुल फ़्री ऑनलाइन फ़ेविकॉन बिल्डर जो इमेज को प्रोफ़ेशनल सटीकता और बिजली की स्पीड के साथ स्टैंडर्ड-कम्प्लायंट ब्राउज़र एसेट्स में बदलता है।";
+
+            const badge = whySec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' आपकी उंगलियों पर पावरफुल फीचर्स'));
+            }
+
+            // Feature cards
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "इंस्टेंट क्लाइंट-साइड इंजन";
+                if (p_1) p_1.textContent = "लाइन में इंतज़ार किए बिना तुरंत ऑडिट रिज़ल्ट पाएँ।";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "पिक्सेल-परफ़ेक्ट रीस्केलिंग";
+                if (p_2) p_2.textContent = "हाई-फ़िडेलिटी डाउनसैंपलिंग जो किनारों को क्रिस्प और डिटेल्स को 16×16px साइज़ पर पढ़ने लायक रखती है।";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "सभी इमेज फ़ॉर्मैट सपोर्टेड";
+                if (p_3) p_3.textContent = "PNG, JPG, SVG, WEBP, GIF, और दूसरे पॉपुलर इमेज फ़ॉर्मैट के साथ आसानी से काम करता है।";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "यूनिवर्सल डिवाइस सपोर्ट";
+                if (p_4) p_4.textContent = "एक ZIP पैकेज के अंदर लेगेसी ICO, Apple Touch आइकॉन, Android Chrome साइज़ और PWA बनाता है।";
+
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = "100% सिक्योर और प्राइवेट";
+                if (p_5) p_5.textContent = "HTML5 Canvas का इस्तेमाल करके पूरी तरह से आपके ब्राउज़र में चलता है। आपकी इमेज कभी भी किसी सर्वर पर अपलोड नहीं होती है।";
+
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = "पूरी तरह से फ्री और ओपन";
+                if (p_6) p_6.textContent = "कोई ईमेल रजिस्ट्रेशन नहीं, कोई सब्सक्रिप्शन नहीं, कोई पेवॉल नहीं। पूरी तरह से फ्री डेवलपर टूल्स।";
+            }
+        }
+
+        // Use cases
+        const useCasesSec = doc.getElementById('use-cases');
+        if (useCasesSec) {
+            const title = useCasesSec.querySelector('.section-title');
+            if (title) title.textContent = "हर यूज़ केस के लिए परफेक्ट";
+            const sub = useCasesSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "पक्का करें कि आपके वेब प्रोजेक्ट्स में परफेक्ट फेविकॉन सेटअप हो।";
+
+            const badge = useCasesSec.querySelector('.trusted-badge');
+            if (badge) {
+                const dots = badge.querySelector('.dots-group');
+                badge.innerHTML = '';
+                if (dots) badge.appendChild(dots);
+                badge.appendChild(doc.createTextNode(" दुनिया भर के प्रोफेशनल्स का भरोसा"));
+            }
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "वेब डेवलपर्स";
+                if (p_1) p_1.textContent = "अपने वेब प्रोजेक्ट्स के लिए सभी ज़रूरी फेविकॉन साइज़ का तुरंत ऑडिट करें।";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "UI/UX डिज़ाइनर";
+                if (p_2) p_2.textContent = "पक्का करें कि आपकी ब्रांड आइडेंटिटी सभी ब्राउज़र टैब और डिवाइस होम स्क्रीन पर क्रिस्प और परफेक्ट दिखे।";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "ब्लॉगर्स और क्रिएटर्स";
+                if (p_3) p_3.textContent = "कुछ ही सेकंड में एक प्रोफेशनल आइकॉन के साथ अपने पर्सनल ब्लॉग या पोर्टफोलियो को आसानी से कस्टमाइज़ करें।";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "बिज़नेस ओनर्स";
+                if (p_4) p_4.textContent = "एक हाई-क्वालिटी फेविकॉन के साथ अपने प्रोफेशनल लुक को बेहतर बनाएं जो भरोसा बनाता है।";
+            }
+        }
+
+        // Testimonials
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = "टेस्टिमोनियल";
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = "हमारे यूज़र्स क्या कहते हैं";
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = "50,000 से ज़्यादा डेवलपर, डिज़ाइनर और क्रिएटर अपने प्रोजेक्ट के लिए PNGtoFavicon पर भरोसा करते हैं।";
+
+            // Rating blocks
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = "Trustpilot पर वेरिफाइड रिव्यू";
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = "Capterra पर वेरिफाइड रिव्यू";
+            }
+
+            // Trustpilot Reviews
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Alex M.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = "Frontend डेवलपर";
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = "Oct 2025";
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"सभी फ़ेविकॉन साइज़ जेनरेट करने का सबसे तेज़ तरीका। इसमें सचमुच 2 सेकंड लगते हैं और यह नए मैनिफ़ेस्ट.json फ़ॉर्मैट को पूरी तरह से हैंडल करता है।"';
+
+                    // Card 2: Sarah J.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = "UI/UX डिज़ाइनर";
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = "Sep 2025";
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"मैं अपने PNG को ICO और Apple Touch Icons in बदलने के लिए 3 अलग-अलग टूल इस्तेमाल करता था। यह सब एक क्लिक in करता है।"'; // Let's keep it 'क्लिक में' or 'क्लिक में करता है'
+                    if (text_2) text_2.textContent = '"मैं अपने PNG को ICO और Apple Touch Icons में बदलने के लिए 3 अलग-अलग टूल इस्तेमाल करता था। यह सब एक क्लिक में करता है।"';
+
+                    // Card 3: David K.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = "Indie Hacker";
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = "Aug 2025";
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"साफ़ इंटरफ़ेस, कोई ऐड नहीं, और यह प्राइवेसी का ध्यान रखता है। UI डिज़ाइनर और डेवलपर के लिए बहुत ज़्यादा रिकमेंडेड है।"';
+
+                    // Card 4: Elena R.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = "एजेंसी ओनर";
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = "जुलाई 2025";
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"हम अब अपने सभी क्लाइंट प्रोजेक्ट्स के लिए इसका इस्तेमाल करते हैं। आउटपुट हमेशा क्रिस्प होते हैं, और HTML कोड स्निपेट हमारा बहुत समय बचाते हैं।"';
+
+                    // Card 5: Michael T.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = "फुल स्टैक डेव";
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = "जून 2025";
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"आखिरकार एक फ़ेविकॉन जनरेटर जो मॉडर्न वेब ज़रूरतों को समझता है। साइट की डार्क मोड थीम भी बहुत खूबसूरत है!"';
+
+                    // Card 6: Jessica L.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = "प्रोडक्ट मैनेजर";
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = "मई 2025";
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"सुपर भरोसेमंद टूल। मुझे यह पसंद है कि यह आपको ठीक वही देता है जिसकी आपको ज़रूरत है, बिना आपको कोई झंझट या साइन अप किए।"';
+                }
+            }
+
+            // Capterra Reviews
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Ryan P.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = "सॉफ्टवेयर इंजीनियर";
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = "नवंबर 2025";
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"एकदम सही एग्जीक्यूशन। जेनरेट की गई ज़िप फ़ाइल पूरी तरह से ऑर्गनाइज़्ड है और आइकन सभी डिवाइस पर बहुत अच्छे लगते हैं।"';
+
+                    // Card 2: Amanda B.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = "मार्केटिंग डायरेक्टर";
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = "Oct 2025";
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"हमारी कंपनी की वेबसाइट के फ़ेविकॉन को अपडेट करने में मुझे एक मिनट से भी कम समय लगा। यह प्रोसेस बहुत आसान है।"';
+
+                    // Card 3: Chris W.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = "स्टार्टअप फाउंडर";
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = "Sep 2025";
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"नया प्रोडक्ट लॉन्च करते समय चिंता करने की एक चीज़ कम हो जाती है। बस ड्रैग, ड्रॉप करें, और आपके पासपरफेक्ट फ़ेविकॉन होंगे।"';
+                    if (text_3) text_3.textContent = '"नया प्रोडक्ट लॉन्च करते समय चिंता करने की एक चीज़ कम हो जाती है। बस ड्रैग, ड्रॉप करें, और आपके पास परफेक्ट फ़ेविकॉन होंगे।"';
+
+                    // Card 4: Nina S.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = "फ्रीलांस वेब डिज़ाइनर";
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = "Aug 2025";
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"मैं अपने सभी साथियों को यह टूल रिकमेंड करता हूँ। यह ट्रांसपेरेंसी को बहुत अच्छे से हैंडल करता है और ICO फाइलें हमेशा वैलिड रहती हैं।"';
+
+                    // Card 5: Tom H.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = "CTO";
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = "Jul 2025";
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"सिंपल, असरदार, और ठीक वैसा ही करता है जैसा नाम से पता चलता है। कोई ज़्यादा फ़ीचर नहीं, बस एक सॉलिड यूटिलिटी।"';
+
+                    // Card 6: Laura C.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = "ब्लॉगर";
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = "Jun 2025";
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"मैं बहुत टेक्निकल नहीं हूँ, लेकिन इस टूल ने मेरे ब्लॉग के लिए एक प्रोफेशनल आइकन पाना बहुत आसान बना दिया। धन्यवाद!"';
+                }
+            }
+        }
+
+        // Comparison Section
+        const whyPngSec = doc.getElementById('why-pngtofavicon');
+        if (whyPngSec) {
+            const title = whyPngSec.querySelector('.section-title');
+            if (title) title.textContent = "Favicon Checker बनाम दूसरे टूल्स";
+            const sub = whyPngSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "देखें कि मार्केट में दूसरे favicon जनरेटर्स के मुकाबले हम कैसे हैं";
+
+            const ths = whyPngSec.querySelectorAll('th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "फ़ीचर";
+                ths[1].textContent = "PNGtoFavicon";
+                ths[2].textContent = "दूसरे टूल्स";
+            }
+
+            const tds = whyPngSec.querySelectorAll('td');
+            tds.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'प्राइस';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> हमेशा के लिए फ्री';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'फ्रीमियम / Paid टियर्स';
+                else if (txt === 'Privacy') td.textContent = 'प्राइवेसी';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100% क्लाइंट-साइड';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'फाइल्स सर्वर पर अपलोड होती हैं';
+                else if (txt === 'Speed') td.textContent = 'स्पीड';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> तुरंत प्रोसेसिंग';
+                else if (txt === 'Depends on server load') td.textContent = 'सर्वर लोड पर निर्भर करता है';
+                else if (txt === 'File Formats') td.textContent = 'फाइल फॉर्मेट';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + मैनिफेस्ट';
+                else if (txt === 'Often ICO only') td.textContent = 'अक्सर सिर्फ ICO';
+                else if (txt === 'No Registration') td.textContent = 'कोई रजिस्ट्रेशन नहीं';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> साइनअप की जरूरत नहीं';
+                else if (txt === 'Sometimes required') td.textContent = 'कभी-कभी जरूरी होता है';
+                else if (txt === 'Multi-platform') td.textContent = 'मल्टी-प्लेटफॉर्म';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> सभी डिवाइस और ब्राउज़र';
+                else if (txt === 'Limited platform support') td.textContent = 'लिमिटेड प्लेटफॉर्म सपोर्ट';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'HTML कोड स्निपेट';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> ऑटो-जनरेटेड';
+                else if (txt === 'Manual integration') td.textContent = 'मैनुअल इंटीग्रेशन';
+                else if (txt === 'Open Source') td.textContent = 'ओपन सोर्स';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> ट्रांसपेरेंट प्रोसेस';
+                else if (txt === 'Proprietary black-box') td.textContent = 'प्रोप्राइटरी ब्लैक-बॉक्स';
+            });
+        }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "आपके डाउनलोड में क्या शामिल है";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "हर फाइल जिसकी आपको फुल क्रॉस-ब्राउज़र और क्रॉस-डिवाइस favicon सपोर्ट के लिए जरूरत है";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "क्लासिक मल्टी-साइज ICO फॉर्मेट, जिसमें 16×16, 32×32, और 48×48 आइकन। पुराने ब्राउज़र सपोर्ट के लिए ज़रूरी, जिसमें Internet Explorer के पुराने वर्शन भी शामिल हैं।";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "16×16 पिक्सल पर स्टैंडर्ड ब्राउज़र टैब आइकन। ज़्यादातर मॉडर्न ब्राउज़र स्टैंडर्ड-डेंसिटी डिस्प्ले के लिए प्राइमरी टैब फ़ेविकॉन के तौर पर इस्तेमाल करते हैं।";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "32×32 पिक्सल पर हाई-DPI ब्राउज़र टैब आइकन। ब्राउज़र टैब में क्रिस्प, शार्प फ़ेविकॉन रेंडरिंग के लिए रेटिना और HiDPI स्क्रीन पर दिखाया जाता है।";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "iPhone, iPad, और iPod Touch के लिए 180×180 पिक्सल पर Apple Touch आइकन। तब दिखाया जाता है जब यूज़र आपकी वेबसाइट को अपनी iOS होम स्क्रीन पर जोड़ते हैं।";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "192×192 पिक्सल पर Android होम स्क्रीन आइकन। इसका इस्तेमाल तब किया जाता है जब Android यूज़र Chrome या दूसरे ब्राउज़र से आपकी साइट को अपनी होम स्क्रीन पर जोड़ते हैं।";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "512×512 पिक्सल पर हाई-रिज़ॉल्यूशन PWA आइकन। Android डिवाइस पर प्रोग्रेसिव वेब ऐप इंस्टॉल प्रॉम्प्ट और स्प्लैश स्क्रीन के लिए ज़रूरी है।";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "वेब ऐप मैनिफ़ेस्ट फ़ाइल जिसमें आइकन रेफरेंस, थीम कलर और बैकग्राउंड कलर होता है। PWA सपोर्ट और Android होम स्क्रीन इंटीग्रेशन के लिए ज़रूरी है।";
+                }
+            });
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "अक्सर पूछे जाने वाले सवाल";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why does the favicon checker say my icon is missing')) {
+                        summary.innerHTML = "<h3>यदि मैं इसे अपने ब्राउज़र में देख सकता हूँ तो फ़ेविकॉन चेकर यह क्यों कहता है कि मेरा आइकन गायब है?</h3>";
+                        if (p) p.textContent = "ब्राउज़र अक्सर फ़ेविकॉन को बहुत ज़्यादा कैश करते हैं, इसलिए अगर आपके सर्वर से फ़ाइल गायब है, या HTML कोड में मार्कअप एरर हैं, तो भी आपको पुराना कैश्ड आइकन दिख सकता है। हमारा चेकर लाइव HTML का अनुरोध करता है और लोकल ब्राउज़र कैश को बायपास करने के लिए इसे नए सिरे से पार्स करता है।";
+                    } else if (qTxt.includes('How can I fix a missing apple-touch-icon?')) {
+                        summary.innerHTML = "<h3>मैं एक गायब apple-touch-icon को कैसे ठीक कर सकता हूँ?</h3>";
+                        if (p) p.innerHTML = "एक 180×180 PNG इमेज जेनरेट करें, इसे अपने सर्वर रूट पर <code class='inline-code'>apple-touch-icon.png</code> के रूप में अपलोड करें, और अपने HTML हेडर के अंदर <code class='inline-code'>&lt;link rel='apple-touch-icon' href='/apple-touch-icon.png'&gt;</code> जोड़ें। आप इस फ़ाइल को ऑटोमैटिकली जेनरेट करने के लिए हमारे होमपेज PNG कनवर्टर का इस्तेमाल कर सकते हैं।";
+                    } else if (qTxt.includes('Does a missing favicon affect search engine SEO?')) {
+                        summary.innerHTML = "<h3>क्या फ़ेविकॉन गायब होने से सर्च इंजन SEO प्रभावित होता है?</h3>";
+                        if (p) p.textContent = "हाँ। Google Search मोबाइल और डेस्कटॉप व्यूपोर्ट में सर्च रिज़ल्ट के बगल में वेबसाइट फ़ेविकॉन दिखाता है। अगर Google का बॉट आपका फ़ेविकॉन नहीं ला पाता है, तो यह एक जेनेरिक फ़ॉलबैक आइकन दिखाता है, जो आपके क्लिक-थ्रू रेट (CTR) को काफ़ी कम कर सकता है।";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "आज ही PNG को फ़ेविकॉन में मुफ़्त में बदलना शुरू करें";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ यूज़र से जुड़ें जो सटीक, तेज़ और पूरी तरह से मुफ़्त फ़ेविकॉन जेनरेशन के लिए PNGtoFavicon.com पर भरोसा करते हैं।";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "अभी कन्वर्ट करना शुरू करें - यह मुफ़्त है!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "और फ़ेविकॉन टूल्स देखें";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon आपकी सभी फ़ेविकॉन ज़रूरतों के लिए टूल्स का पूरा सेट देता है";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "टेक्स्ट से फ़ेविकॉन";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "अक्षरों, इनिशियल्स या किसी भी टेक्स्ट से फ़ेविकॉन बनाएं। अपने ब्रांड के लिए एक यूनिक टेक्स्ट-बेस्ड फ़ेविकॉन बनाने के लिए फ़ॉन्ट, रंग और स्टाइल चुनें।";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "इसे मुफ़्त में आज़माएँ →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "इमोजी से फ़ेविकॉन";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "तुरंत एक रंगीन, एक्सप्रेसिव फ़ेविकॉन बनाने के लिए सैकड़ों इमोजी में से चुनें। पर्सनल प्रोजेक्ट, ब्लॉग और क्विक प्रोटोटाइप के लिए एकदम सही।";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "इसे मुफ़्त में आज़माएँ →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "फ़ेविकॉन चेकर";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "अपनी वेबसाइट के फ़ेविकॉन सेटअप को वैलिडेट करें। मिसिंग साइज़, गलत फ़ॉर्मेट और क्रॉस-प्लेटफ़ॉर्म कम्पैटिबिलिटी समस्याओं की जाँच करने के लिए कोई भी URL डालें।";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "अभी चेक करें →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'favicon-checker/index.html') {
         // Page title & metadata
         doc.title = "Vérificateur et validateur de favicons | PNGtoFavicon";
