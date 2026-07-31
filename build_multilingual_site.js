@@ -10708,6 +10708,37 @@ async function localizePage(relativePath, targetLang) {
             const p = card.querySelector('p');
             if (p) p.textContent = "Utilizamos pequeñas cookies del navegador para guardar sus preferencias de usuario (como paletas de colores y opciones de forma) y para recopilar estadísticas de tráfico anónimas a través de Google Analytics.";
         }
+    } else if (targetLang === 'hi' && normPath === 'cookie-policy/index.html') {
+        // Page title & metadata
+        doc.title = "कुकी पॉलिसी | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "हमारी कुकी इस्तेमाल करने की पॉलिसी के बारे में जानें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "कुकी पॉलिसी | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "हमारी कुकी इस्तेमाल करने की पॉलिसी के बारे में जानें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "कुकी पॉलिसी");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "हमारी कुकी इस्तेमाल करने की पॉलिसी के बारे में जानें।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "कुकी <span class='gradient-text'>पॉलिसी</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "हमारी कुकी इस्तेमाल करने की पॉलिसी के बारे में जानें।";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = "हम कुकीज़ का इस्तेमाल कैसे करते हैं";
+            const p = card.querySelector('p');
+            if (p) p.textContent = "हम आपकी यूज़र पसंद की सेटिंग्स (जैसे कलर पैलेट और शेप ऑप्शन) को सेव करने और Google Analytics के ज़रिए बिना नाम बताए ट्रैफ़िक के आँकड़े इकट्ठा करने के लिए छोटी ब्राउज़र कुकीज़ का इस्तेमाल करते हैं।";
+        }
     } else if (targetLang === 'fr' && normPath === 'cookie-policy/index.html') {
         // Page title & metadata
         doc.title = "Politique relative aux cookies | PNGtoFavicon";
