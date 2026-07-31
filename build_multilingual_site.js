@@ -11552,6 +11552,107 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Compruébalo ahora →";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'tutorials/favicon-sizes/index.html') {
+        // Page title & metadata
+        doc.title = "फ़ेविकॉन साइज़ गाइड | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "फेविकॉन साइज़ की पूरी गाइड। जानें कि 2026 में हर ब्राउज़र, डिवाइस और प्रोग्रेसिव वेब ऐप इंस्टॉल सरफेस के कौन से डाइमेंशन होने चाहिए।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "फ़ेविकॉन साइज़ गाइड | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "फेविकॉन साइज़ की पूरी गाइड। जानें कि 2026 में हर ब्राउज़र, डिवाइस और प्रोग्रेसिव वेब ऐप इंस्टॉल सरफेस के कौन से डाइमेंशन होने चाहिए।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "फ़ेविकॉन साइज़ गाइड");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "फेविकॉन साइज़ की पूरी गाइड। जानें कि 2026 में हर ब्राउज़र, डिवाइस और प्रोग्रेसिव वेब ऐप इंस्टॉल सरफेस के कौन से डाइमेंशन होने चाहिए।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "फेविकॉन साइज़ की <span class='gradient-text'>पूरी गाइड</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "जानें कि 2026 में हर ब्राउज़र, डिवाइस और प्रोग्रेसिव वेब ऐप इंस्टॉल सरफेस के कौन से डाइमेंशन होने चाहिए।";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = "स्टैंडर्ड फेविकॉन डाइमेंशन टेबल";
+            const p = card.querySelector('p');
+            if (p) p.textContent = "हमारे कनवर्टर पैकेज में शामिल हर इमेज फ़ाइल का मकसद समझने के लिए इस टेबल का इस्तेमाल करें:";
+
+            const ths = card.querySelectorAll('table th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "साइज़";
+                ths[1].textContent = "फ़ॉर्मैट";
+                ths[2].textContent = "टार्गेट प्लेटफ़ॉर्म / सरफेस";
+            }
+
+            const rows = card.querySelectorAll('table tbody tr');
+            const rowTexts = [
+                "स्टैंडर्ड डेस्कटॉप ब्राउज़र टैब फ़ॉलबैक",
+                "HiDPI / रेटिना डेस्कटॉप ब्राउज़र टैब",
+                "विंडोज टास्कबार / डेस्कटॉप शॉर्टकट फ़ॉलबैक",
+                "Apple iOS टच आइकन (iPhone और iPad होम स्क्रीन बुकमार्क)",
+                "Android Chrome होम स्क्रीन आइकन / PWA लॉन्च बैज",
+                "PWA स्प्लैश स्क्रीन / हाई-डेंसिटी ऐप लॉन्चर"
+            ];
+            for (let i = 0; i < rows.length; i++) {
+                const cols = rows[i].querySelectorAll('td');
+                if (cols.length >= 3 && rowTexts[i]) {
+                    cols[2].textContent = rowTexts[i];
+                }
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "आज ही PNG को फ़ेविकॉन में मुफ़्त में बदलना शुरू करें";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "जॉइन करें 50,000+ यूज़र जो सही, तेज़ और पूरी तरह से फ़्री फ़ेविकॉन बनाने के लिए PNGtoFavicon.com पर भरोसा करते हैं।";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "अभी कनवर्ट करना शुरू करें - यह फ़्री है!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "और फ़ेविकॉन टूल्स देखें";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon आपकी सभी फ़ेविकॉन ज़रूरतों के लिए टूल्स का एक पूरा सेट देता है";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "टेक्स्ट से फ़ेविकॉन";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "अक्षरों, इनिशियल्स या किसी भी टेक्स्ट से फ़ेविकॉन बनाएँ। अपने ब्रांड के लिए एक यूनिक टेक्स्ट-बेस्ड फ़ेविकॉन बनाने के लिए फ़ॉन्ट, रंग और स्टाइल चुनें।";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "इमोजी से फ़ेविकॉन";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "तुरंत एक रंगीन, एक्सप्रेसिव फ़ेविकॉन बनाने के लिए सैकड़ों इमोजी में से चुनें। पर्सनल प्रोजेक्ट, ब्लॉग और क्विक प्रोटोटाइप के लिए एकदम सही।";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "फ़ेविकॉन चेकर";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "अपनी वेबसाइट के फ़ेविकॉन सेटअप को वैलिडेट करें। कोई भी URL डालकर मिसिंग साइज़, गलत फ़ॉर्मेट और क्रॉस-प्लेटफ़ॉर्म कम्पैटिबिलिटी की दिक्कतों को चेक करें।";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "अभी चेक करें →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/favicon-sizes/index.html') {
         // Page title & metadata
         doc.title = "Guide des tailles de favicon | PNGtoFavicon";
