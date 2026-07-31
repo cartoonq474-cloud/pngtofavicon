@@ -7838,7 +7838,7 @@ async function localizePage(relativePath, targetLang) {
                 const h3_1 = steps[0].querySelector('h3');
                 const p_1 = steps[0].querySelector('p');
                 if (h3_1) h3_1.textContent = 'Pembacaan File Lokal';
-                if (p_1) p_1.textContent = 'Setelah Anda menyeret & meletakkan atau menelusuri gambar PNG Anda, browser menggunakan API HTML5 FileReader untuk membaca file Anda secara lokal, mengubahnya menjadi aliran data dalam memori yang aman tanpa mengunggah satu byte pun to server eksternal.';
+                if (p_1) p_1.textContent = 'Setelah Anda menyeret & meletakkan atau menelusuri gambar PNG Anda, browser menggunakan API HTML5 FileReader untuk membaca file Anda secara lokal, mengubahnya menjadi aliran data dalam memori yang aman tanpa mengunggah satu byte pun ke server eksternal.';
 
                 // Step 2
                 const h3_2 = steps[1].querySelector('h3');
@@ -8193,6 +8193,156 @@ async function localizePage(relativePath, targetLang) {
             }
         }
 
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) {
+                faqSec = sec;
+            }
+        });
+
+        if (faqSec) {
+            const title = faqSec.querySelector('h2.section-title');
+            if (title) title.textContent = 'Pertanyaan Sering Diajukan';
+
+            const subtitle = faqSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'Temukan jawaban untuk pertanyaan umum tentang layanan konversi favicon kami';
+
+            // Tabs
+            const tabBtns = faqSec.querySelectorAll('.faq-tab-btn');
+            if (tabBtns.length >= 4) {
+                tabBtns[0].textContent = 'Memulai';
+                tabBtns[1].textContent = 'Fitur';
+                tabBtns[2].textContent = 'Teknologi';
+                tabBtns[3].textContent = 'Tentang Kami';
+            }
+
+            // Getting Started Group
+            const gsGroup = faqSec.querySelector('#faq-getting-started');
+            if (gsGroup) {
+                const items = gsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>Apa itu favicon?</h3>';
+                    if (a_1) a_1.textContent = 'Favicon (singkatan dari \'favorite icon\') adalah ikon kecil yang mewakili situs web Anda di tab browser, penanda (bookmark), riwayat penelusuran, dan bilah alamat. Ini membantu pengguna mengidentifikasi merek Anda secara visual.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>Bagaimana cara mengonversi PNG ke favicon secara online?</h3>';
+                    if (a_2) a_2.textContent = 'Cukup seret & lepas gambar PNG Anda ke dalam kotak unggahan di atas, sesuaikan warna latar belakang, padding, atau sudut, dan unduh paket ZIP yang dikompilasi secara instan.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>Apakah saya perlu menginstal perangkat lunak apa pun?</h3>';
+                    if (a_3) a_3.textContent = 'Tidak, konverter favicon kami berjalan 100% di browser web Anda. Tidak diperlukan plugin, ekstensi, atau penginstalan perangkat lunak.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>Apakah saya perlu membuat akun?</h3>';
+                    if (a_4) a_4.textContent = 'Tidak, alat ini sepenuhnya gratis, terbuka, dan anonim. Tidak diperlukan pendaftaran email, akun, atau langganan.';
+                }
+            }
+
+            // Features Group
+            const ftGroup = faqSec.querySelector('#faq-features');
+            if (ftGroup) {
+                const items = ftGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>Format file apa saja yang dihasilkan oleh alat ini?</h3>';
+                    if (a_1) a_1.textContent = 'Ini menghasilkan favicon.ico multi-ukuran (16px, 32px, 48px), ikon browser PNG resolusi tinggi, Apple Touch Icons (180x180), ikon Android Chrome (192x192, 512x512), dan file site.webmanifest.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>Apakah alat ini mendukung PNG transparan?</h3>';
+                    if (a_2) a_2.textContent = 'Ya! Secara default, ini mempertahankan transparansi. Anda juga dapat mematikan transparansi dan mengisi latar belakang dengan warna pilihan Anda.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>Apakah saya bisa memilih ukuran output tertentu?</h3>';
+                    if (a_3) a_3.textContent = 'Ya, panel opsi kami memungkinkan Anda memilih atau tidak memilih ukuran tertentu sehingga Anda hanya mengunduh ikon yang Anda butuhkan.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>Apa itu file site.webmanifest?</h3>';
+                    if (a_4) a_4.textContent = 'Ini adalah file konfigurasi JSON berisi metadata nama aplikasi dan jalur ikon yang diperlukan perangkat Android modern dan Progressive Web Apps (PWA) untuk menginstal situs Anda ke layar beranda.';
+                }
+            }
+
+            // Technology Group
+            const techGroup = faqSec.querySelector('#faq-technology');
+            if (techGroup) {
+                const items = techGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>Bagaimana cara kerja konversi favicon di sisi klien?</h3>';
+                    if (a_1) a_1.textContent = 'Kami menggunakan HTML5 Canvas untuk menskalakan dan menggambar gambar, dan mengompilasi file biner favicon.ico menggunakan ArrayBuffers tingkat byte langsung di memori browser Anda.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>Apakah konverter mendukung gambar berukuran besar?</h3>';
+                    if (a_2) a_2.textContent = 'Ya, ini dengan mudah menangani gambar resolusi tinggi hingga 5MB, mengubah ukurannya menggunakan pemfilteran bilinear untuk mempertahankan kontur yang tajam.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>Mengapa file favicon.ico itu penting?</h3>';
+                    if (a_3) a_3.textContent = 'Meskipun browser modern mendukung favicon PNG, format favicon.ico lama tetap diperlukan sebagai cadangan (fallback) untuk versi Internet Explorer lama dan pengelola pintasan desktop tertentu.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>Seberapa cepat proses konversinya?</h3>';
+                    if (a_4) a_4.textContent = 'Konversi berlangsung hampir instan (kurang dari 50 milidetik) karena memproses semuanya secara lokal di komputer Anda alih-alih mengunggahnya ke server jarak jauh.';
+                }
+            }
+
+            // About Us Group
+            const aboutUsGroup = faqSec.querySelector('#faq-about-us');
+            if (aboutUsGroup) {
+                const items = aboutUsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    // Item 1
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>Apakah gambar saya aman dan pribadi?</h3>';
+                    if (a_1) a_1.textContent = 'Ya, tentu saja. Gambar Anda tidak pernah meninggalkan browser Anda karena pemrosesan berjalan secara lokal. Kami tidak mengirimkan, menganalisis, atau menyimpan file Anda apa pun.';
+
+                    // Item 2
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>Mengapa saya harus memilih PNGtoFavicon.com?</h3>';
+                    if (a_2) a_2.textContent = 'Kami menawarkan alat ramah pengembang yang mengutamakan privasi dan sepenuhnya otomatis yang menghasilkan paket ikon lengkap yang sesuai standar untuk semua perangkat modern, secara gratis.';
+
+                    // Item 3
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>Bisakah saya menggunakan alat ini di perangkat seluler?</h3>';
+                    if (a_3) a_3.textContent = 'Ya! Situs web dan mesin konversi sepenuhnya responsif, sehingga Anda dapat membuat dan mengunduh favicon Anda di ponsel atau tablet apa pun.';
+
+                    // Item 4
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>Apakah konverter ini sepenuhnya gratis?</h3>';
+                    if (a_4) a_4.textContent = 'Ya, 100% gratis tanpa batasan, tanpa tanda air (watermark) tambahan, dan tanpa tingkat langganan tersembunyi.';
+                }
+            }
+        }
+
         // Other Tools / Explore section
         const otherTools = doc.getElementById('other-tools');
         if (otherTools) {
@@ -8231,17 +8381,21 @@ async function localizePage(relativePath, targetLang) {
         }
 
         // Common Footers and menus
-        doc.querySelectorAll('.footer-column').forEach(col => {
-            const h3 = col.querySelector('h3');
-            if (h3) {
-                const txt = h3.textContent.trim();
-                if (txt === 'Tools') h3.textContent = "Alat";
-                else if (txt === 'Resources') h3.textContent = "Sumber Daya";
-                else if (txt === 'Company') h3.textContent = "Perusahaan";
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
             }
             col.querySelectorAll('a').forEach(el => {
                 const txt = el.textContent.trim();
-                if (txt === 'PNG to Favicon Converter') el.textContent = "Konverter PNG ke Favicon";
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
                 else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
                 else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
                 else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
@@ -8276,7 +8430,7 @@ async function localizePage(relativePath, targetLang) {
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     }
 
-    // Custom logic for French index.html page translation
+        // Custom logic for French index.html page translation
     if (targetLang === 'fr' && normPath === 'index.html') {
         // Title & Description
         if (doc.title) doc.title = 'Convertisseur gratuit PNG vers favicon | PNGtoFavicon';
