@@ -9803,6 +9803,65 @@ async function localizePage(relativePath, targetLang) {
             if (h3_4) h3_4.textContent = "💡 Mejores prácticas para favicons";
             if (p_4) p_4.textContent = "Consejos para escalar diseños, optimizar el tamaño de los archivos y pautas SEO para favicons que aumenten el CTR de Google.";
         }
+    } else if (targetLang === 'hi' && normPath === 'tutorials/index.html') {
+        // Page title & metadata
+        doc.title = "फ़ेविकॉन गाइड और ट्यूटोरियल | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "जानें कि वेबसाइट फ़ेविकॉन को कैसे जेनरेट, इंस्टॉल और ऑप्टिमाइज़ करें ताकि वे ब्राउज़र के साथ पूरी तरह से कम्पैटिबल हों और SEO में आसानी से दिखें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "फ़ेविकॉन गाइड और ट्यूटोरियल | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "जानें कि वेबसाइट फ़ेविकॉन को कैसे जेनरेट, इंस्टॉल और ऑप्टिमाइज़ करें ताकि वे ब्राउज़र के साथ पूरी तरह से कम्पैटिबल हों और SEO में आसानी से दिखें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "फ़ेविकॉन गाइड और ट्यूटोरियल");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "जानें कि वेबसाइट फ़ेविकॉन को कैसे जेनरेट, इंस्टॉल और ऑप्टिमाइज़ करें ताकि वे ब्राउज़र के साथ पूरी तरह से कम्पैटिबल हों और SEO में आसानी से दिखें।");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Tutorials Index"')) {
+                jsonText = jsonText.replace(/"Tutorials Index"/g, '"फ़ेविकॉन गाइड और ट्यूटोरियल"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "फ़ेविकॉन गाइड और <span class='gradient-text'>ट्यूटोरियल</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "जानें कि वेबसाइट फ़ेविकॉन को कैसे जेनरेट, इंस्टॉल और ऑप्टिमाइज़ करें ताकि वे ब्राउज़र के साथ पूरी तरह से कम्पैटिबल हों और SEO में आसानी से दिखें।";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.tools-grid a.tool-card');
+        if (cards.length >= 4) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = "❓ फ़ेविकॉन क्या है?";
+            if (p_1) p_1.textContent = "ब्राउज़र टैब आइकन का इतिहास और मकसद जानें और जानें कि वे डिजिटल ब्रांडिंग के लिए क्यों ज़रूरी हैं।";
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = "📏 फ़ेविकॉन साइज़ गाइड";
+            if (p_2) p_2.textContent = "जानें कि मॉडर्न रेटिना स्क्रीन, Android ऐप और iOS बुकमार्क के लिए कौन से फ़ेविकॉन डाइमेंशन ज़रूरी हैं।";
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = "➕ फ़ेविकॉन कैसे जोड़ें";
+            if (p_3) p_3.textContent = "अपनी फ़ेविकॉन फ़ाइलें इंस्टॉल करने के लिए जेनेरिक HTML कॉपी-पेस्ट स्निपेट और सर्वर अपलोड निर्देश।";
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = "💡 फ़ेविकॉन बेस्ट प्रैक्टिस";
+            if (p_4) p_4.textContent = "Google CTR बढ़ाने के लिए डिज़ाइन को स्केल करने, फ़ाइल वेट को ऑप्टिमाइज़ करने और फ़ेविकॉन SEO गाइडलाइन पर टिप्स।";
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/index.html') {
         // Page title & metadata
         doc.title = "Guides et tutoriels sur les favicons | PNGtoFavicon";
