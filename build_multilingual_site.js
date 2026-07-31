@@ -9975,6 +9975,60 @@ async function localizePage(relativePath, targetLang) {
             }
             if (p_2) p_2.textContent = "Un análisis detallado de los formatos de iconos de navegador. Compara el clásico ICO, los nítidos iconos de pestaña PNG y los modernos recursos vectoriales SVG responsivos.";
         }
+    } else if (targetLang === 'hi' && normPath === 'blog/index.html') {
+        // Page title & metadata
+        doc.title = "ब्रांडिंग और फ़ेविकॉन ब्लॉग | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "मॉडर्न वेब स्टैंडर्ड, SEO चेकलिस्ट और सर्च स्निपेट और टैब के लिए डिज़ाइन टिप्स के साथ अप-टू-डेट रहें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "ब्रांडिंग और फ़ेविकॉन ब्लॉग | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "मॉडर्न वेब स्टैंडर्ड, SEO चेकलिस्ट और सर्च स्निपेट और टैब के लिए डिज़ाइन टिप्स के साथ अप-टू-डेट रहें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "ब्रांडिंग और फ़ेविकॉन ब्लॉग");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "मॉडर्न वेब स्टैंडर्ड, SEO चेकलिस्ट और सर्च स्निपेट और टैब के लिए डिज़ाइन टिप्स के साथ अप-टू-डेट रहें।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "ब्रांडिंग और <span class='gradient-text'>फ़ेविकॉन ब्लॉग</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "मॉडर्न वेब स्टैंडर्ड, SEO चेकलिस्ट और सर्च स्निपेट और टैब के लिए डिज़ाइन टिप्स के साथ अप-टू-डेट रहें।";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1
+            const spans_1 = cards[0].querySelectorAll('span');
+            const links_1 = cards[0].querySelectorAll('a');
+            const p_1 = cards[0].querySelector('p');
+            if (spans_1.length >= 2) {
+                spans_1[0].textContent = "SEO और ब्रांडिंग";
+                spans_1[1].textContent = "10 जुलाई, 2026 · 6 मिनट पढ़ें";
+            }
+            if (links_1.length >= 2) {
+                links_1[0].textContent = "फ़ेविकॉन SEO गाइड: सर्च स्निपेट क्लिक-थ्रू रेट बढ़ाना";
+                links_1[1].textContent = "आर्टिकल पढ़ें →";
+            }
+            if (p_1) p_1.textContent = "जानें कि Google डेस्कटॉप और मोबाइल सर्च रिज़ल्ट पेज के लिए वेबसाइट फ़ेविकॉन को कैसे पार्स करता है और कॉन्फ़िगर किए गए टैब आइकन आपके विज़ुअल SEO CTR पर कैसे असर डालते हैं।";
+
+            // Card 2
+            const spans_2 = cards[1].querySelectorAll('span');
+            const links_2 = cards[1].querySelectorAll('a');
+            const p_2 = cards[1].querySelector('p');
+            if (spans_2.length >= 2) {
+                spans_2[0].textContent = "फ़ाइल फ़ॉर्मैट";
+                spans_2[1].textContent = "05 जुलाई, 2026 · 8 मिनट पढ़ें";
+            }
+            if (links_2.length >= 2) {
+                links_2[0].textContent = "PNG बनाम ICO बनाम SVG: सही फ़ेविकॉन फ़ॉर्मैट चुनना";
+                links_2[1].textContent = "आर्टिकल पढ़ें →";
+            }
+            if (p_2) p_2.textContent = "ब्राउज़र आइकन फ़ॉर्मैट में गहराई से जानकारी। क्लासिक ICO फ़ॉलबैक, क्रिस्प PNG टैब आइकन और मॉडर्न रिस्पॉन्सिव वेक्टर SVG एसेट्स की तुलना करें।";
+        }
     } else if (targetLang === 'fr' && normPath === 'blog/index.html') {
         // Page title & metadata
         doc.title = "Blog sur l'image de marque et les favicons | PNGtoFavicon";
