@@ -12124,6 +12124,93 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Comprobar ahora →";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'blog/png-vs-ico-vs-svg-favicons/index.html') {
+        // Page title & metadata
+        doc.title = "PNG, ICO, और SVG की तुलना | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "आपकी साइट के लिए कौन सा ब्राउज़र टैब आइकन फ़ॉर्मेट सही है? एक डिटेल्ड टेक्निकल एनालिसिस।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "PNG, ICO, और SVG की तुलना | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "आपकी साइट के लिए कौन सा ब्राउज़र टैब आइकन फ़ॉर्मेट सही है? एक डिटेल्ड टेक्निकल एनालिसिस।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "PNG, ICO, और SVG की तुलना");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "आपकी साइट के लिए कौन सा ब्राउज़र टैब आइकन फ़ॉर्मेट सही है? एक डिटेल्ड टेक्निकल एनालिसिस।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "PNG, ICO, और <span class='gradient-text'>SVG की तुलना</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "आपकी साइट के लिए कौन सा ब्राउज़र टैब आइकन फ़ॉर्मेट सही है? एक डिटेल्ड टेक्निकल एनालिसिस।";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 3) {
+                h2s[0].textContent = "1. ICO (द लेगेसी फ़ॉलबैक)";
+                h2s[1].textContent = "2. PNG (द मॉडर्न स्टैंडर्ड)";
+                h2s[2].textContent = "3. SVG (द वेक्टर फ्यूचर)";
+            }
+            if (ps.length >= 4) {
+                ps[0].textContent = "यह तय करना कि आपकी सर्वर डायरेक्टरी में कौन सी फ़ेविकॉन फ़ाइलें शामिल करनी हैं, कन्फ्यूज़िंग हो सकता है। आइए तीन मुख्य फ़ॉर्मेट देखें: ICO, PNG, और SVG।";
+                ps[1].textContent = "Microsoft .ico फ़ॉर्मेट एक कंटेनर है जो एक ही फ़ाइल के अंदर कई साइज़ (आमतौर पर 16x16, 32x32, और 48x48 पिक्सेल) रखता है। जबकि इंटरनेट एक्सप्लोरर जैसे पुराने ब्राउज़र को खास तौर पर इसी फ़ॉर्मेट की ज़रूरत होती थी, आज इसे लेगेसी सिस्टम के लिए एक यूनिवर्सल फ़ॉलबैक के तौर पर बनाए रखा जाता है।";
+                ps[2].textContent = "PNG फ़ाइलें ट्रांसपेरेंसी, रिच 24-बिट कलर पैलेट को सपोर्ट करती हैं, और उनमें बेहतरीन कम्प्रेशन रेशियो होते हैं। मॉडर्न ब्राउज़र ICO फ़ाइलों के बजाय हाई-रिज़ॉल्यूशन PNG को पसंद करते हैं क्योंकि वे रेटिना स्क्रीन पर खूबसूरती से स्केल होती हैं। आप आमतौर पर डेस्कटॉप ब्राउज़र टैब के लिए 16x16 और 32x32 PNG डिफाइन करते हैं।";
+                ps[3].textContent = "SVG वेक्टर-बेस्ड होते हैं, जिसका मतलब है कि वे बिना पिक्सेलेशन के बहुत ज़्यादा स्केल कर सकते हैं। उनके फ़ाइल साइज़ बहुत छोटे होते हैं। इसके अलावा, SVG मार्कअप के अंदर CSS मीडिया क्वेरी को सपोर्ट करते हैं, जिससे जब कोई यूज़र अपने ऑपरेटिंग सिस्टम में डार्क मोड एक्टिवेट करता है, तो आइकन अपने आप कलर स्कीम बदल सकता है।";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "आज ही PNG को फ़ेविकॉन में फ़्री में बदलना शुरू करें";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ यूज़र्स से जुड़ें जो सटीक, तेज़ और पूरी तरह से फ़्री फ़ेविकॉन जेनरेशन के लिए PNGtoFavicon.com पर भरोसा करते हैं।";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "अभी बदलना शुरू करें - यह फ़्री है!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "और फ़ेविकॉन टूल्स देखें";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon आपकी सभी फ़ेविकॉन ज़रूरतों के लिए टूल्स का एक पूरा सूट देता है";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "टेक्स्ट से फ़ेविकॉन";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "अक्षरों, इनिशियल्स या किसी भी टेक्स्ट से फ़ेविकॉन बनाएं। अपने ब्रांड के लिए एक यूनिक टेक्स्ट-बेस्ड फ़ेविकॉन बनाने के लिए फ़ॉन्ट, रंग और स्टाइल चुनें।";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "इमोजी से फ़ेविकॉन";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "तुरंत एक रंगीन, एक्सप्रेसिव फ़ेविकॉन बनाने के लिए सैकड़ों इमोजी में से चुनें। पर्सनल प्रोजेक्ट, ब्लॉग और क्विक प्रोटोटाइप के लिए एकदम सही।";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "फ़ेविकॉन चेकर";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "अपनी वेबसाइट के फ़ेविकॉन सेटअप को वैलिडेट करें। मिसिंग साइज़, गलत फ़ॉर्मेट और क्रॉस-प्लेटफ़ॉर्म कम्पैटिबिलिटी समस्याओं को चेक करने के लिए कोई भी URL डालें।";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "अभी चेक करें →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'blog/png-vs-ico-vs-svg-favicons/index.html') {
         // Page title & metadata
         doc.title = "Comparaison des formats PNG, ICO et SVG | PNGtoFavicon";
