@@ -12309,6 +12309,105 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Comprobar ahora →";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'tutorials/favicon-best-practices/index.html') {
+        // Page title & metadata
+        doc.title = "फ़ेविकॉन डिज़ाइन & SEO के सबसे अच्छे तरीके | PNGtoFavicon";
+        doc.title = "फ़ेविकॉन डिज़ाइन और SEO के सबसे अच्छे तरीके | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "ऐसा फ़ेविकॉन बनाएं जो ब्राउज़र टैब में सबसे अलग दिखे और सर्च इंजन के क्राइटेरिया से मैच करे।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "फ़ेविकॉन डिज़ाइन और SEO के सबसे अच्छे तरीके | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "ऐसा फ़ेविकॉन बनाएं जो ब्राउज़र टैब में सबसे अलग दिखे और सर्च इंजन के क्राइटेरिया से मैच करे।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "फ़ेविकॉन डिज़ाइन और SEO के सबसे अच्छे तरीके");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "ऐसा फ़ेविकॉन बनाएं जो ब्राउज़र टैब में सबसे अलग दिखे और सर्च इंजन के क्राइटेरिया से मैच करे।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "फ़ेविकॉन डिज़ाइन और <span class='gradient-text'>SEO के सबसे अच्छे तरीके</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "ऐसा फ़ेविकॉन बनाएं जो ब्राउज़र टैब में सबसे अलग दिखे और सर्च इंजन के क्राइटेरिया से मैच करे।";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Card 1: Step 1
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "1. डिज़ाइन को सिंपल और पहचानने लायक रखें";
+            const p_1 = cards[0].querySelector('p');
+            if (p_1) p_1.textContent = "क्योंकि फ़ेविकॉन 16×16 पिक्सल जितने छोटे हो जाते हैं, इसलिए मुश्किल डिटेल्स और पतली टेक्स्ट लाइनें पढ़ने में मुश्किल हो जाती हैं। बेसिक शेप, अलग-अलग अक्षर या प्राइमरी ब्रांड लोगो एम्बलम पर फोकस करें।";
+
+            // Card 2: Step 2
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "2. डार्क मोड कंट्रास्ट टेस्ट करें";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "ब्राउज़र टैब हल्के ग्रे, एकदम सफेद, गहरे नीले या काले रंग के हो सकते हैं। वेरिफ़ाई करें कि आपके ट्रांसपेरेंट लोगो में बॉर्डर ग्लो या सॉलिड फिल हो ताकि वह डार्क बैकग्राउंड पर गायब न हो जाए।";
+
+            // Card 3: Step 3
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "3. Google SEO की ज़रूरतें";
+            const p_3 = cards[2].querySelector('p');
+            if (p_3) p_3.textContent = "सर्च रिज़ल्ट के आगे फ़ेविकॉन दिखाने के लिए Google के ऑफिशियल नियम हैं:";
+
+            const lis_3 = cards[2].querySelectorAll('ul li');
+            if (lis_3.length >= 3) {
+                lis_3[0].textContent = "फ़ेविकॉन को वेबसाइट के ब्रांड को विज़ुअली दिखाना चाहिए।";
+                lis_3[1].textContent = "फ़ाइल साइज़ और आस्पेक्ट रेशियो 48px स्क्वायर का मल्टीपल होना चाहिए (जैसे 48x48, 96x96, वगैरह)।";
+                lis_3[2].textContent = "आइकन URL क्रॉल करने लायक होना चाहिए (robots.txt में Googlebot-Image को ब्लॉक न करें)।";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "आज ही PNG को फ़ेविकॉन में फ़्री में बदलना शुरू करें";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ यूज़र्स से जुड़ें जो सही, तेज़ और पूरी तरह से फ़्री फ़ेविकॉन बनाने के लिए PNGtoFavicon.com पर भरोसा करते हैं।";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "अभी बदलना शुरू करें - यह फ़्री है!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "और फ़ेविकॉन टूल्स देखें";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon आपकी सभी फ़ेविकॉन ज़रूरतों के लिए टूल्स का पूरा सेट देता है";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "टेक्स्ट से फ़ेविकॉन";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "अक्षरों, इनिशियल्स या किसी भी टेक्स्ट से फ़ेविकॉन बनाएं। अपने ब्रांड के लिए एक यूनिक टेक्स्ट-बेस्ड फ़ेविकॉन बनाने के लिए फ़ॉन्ट, रंग और स्टाइल चुनें।";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "इमोजी से फ़ेविकॉन";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "तुरंत एक रंगीन, एक्सप्रेसिव फ़ेविकॉन बनाने के लिए सैकड़ों इमोजी में से चुनें। पर्सनल प्रोजेक्ट्स, ब्लॉग्स और क्विक प्रोटोटाइप के लिए परफेक्ट।";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "इसे फ़्री में आज़माएँ →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "फ़ेविकॉन चेकर";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "अपनी वेबसाइट का फ़ेविकॉन सेटअप वैलिडेट करें। कोई भी URL डालकर मिसिंग साइज़, गलत फ़ॉर्मेट और क्रॉस-प्लेटफ़ॉर्म कम्पैटिबिलिटी की दिक्कतें चेक करें।";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "अभी चेक करें →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'tutorials/favicon-best-practices/index.html') {
         // Page title & metadata
         doc.title = "Conception de favicon et bonnes pratiques SEO | PNGtoFavicon";
