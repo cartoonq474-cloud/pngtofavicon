@@ -10603,6 +10603,43 @@ async function localizePage(relativePath, targetLang) {
                 ps[1].textContent = "Nuestros archivos de conversión se proporcionan \"tal cual\", sin garantía. No nos hacemos responsables de errores de visualización del sitio web ni de configuraciones de implementación del servidor.";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'terms/index.html') {
+        // Page title & metadata
+        doc.title = "इस्तेमाल की शर्तें | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "ऑनलाइन यूटिलिटीज़ के लिए सर्विस एग्रीमेंट और इस्तेमाल की शर्तें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "इस्तेमाल की शर्तें | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "ऑनलाइन यूटिलिटीज़ के लिए सर्विस एग्रीमेंट और इस्तेमाल की शर्तें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "इस्तेमाल की शर्तें");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "ऑनलाइन यूटिलिटीज़ के लिए सर्विस एग्रीमेंट और इस्तेमाल की शर्तें।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "इस्तेमाल की <span class='gradient-text'>शर्तें</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "ऑनलाइन यूटिलिटीज़ के लिए सर्विस एग्रीमेंट और इस्तेमाल की शर्तें।";
+        }
+
+        // Content Section
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "इस्तेमाल का एग्रीमेंट";
+                h2s[1].textContent = "डिस्क्लेमर";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "आप पर्सनल या कमर्शियल प्रोजेक्ट्स के लिए PNGtoFavicon.com इस्तेमाल कर सकते हैं। जेनरेट किए गए फ़ेविकॉन एसेट बिना किसी रोक-टोक के आपके डिप्लॉय करने के लिए हैं।";
+                ps[1].textContent = 'हमारी कन्वर्ज़न फ़ाइलें बिना किसी वारंटी के "जैसी हैं वैसी" दी जाती हैं। हम वेबसाइट डिस्प्ले की गलतियों या सर्वर डिप्लॉयमेंट कॉन्फ़िगरेशन के लिए ज़िम्मेदार नहीं हैं।';
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'terms/index.html') {
         // Page title & metadata
         doc.title = "Conditions d'utilisation | PNGtoFavicon";
