@@ -10142,6 +10142,65 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+    } else if (targetLang === 'hi' && normPath === 'about/index.html') {
+        // Page title & metadata
+        doc.title = "PNGtoFavicon के बारे में | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "हमारा मानना है कि वेब डिज़ाइन टूल्स तेज़, बहुत ऑप्टिमाइज़्ड होने चाहिए और यूज़र प्राइवेसी का सम्मान करना चाहिए।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "PNGtoFavicon के बारे में | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "हमारा मानना है कि वेब डिज़ाइन टूल्स तेज़, बहुत ऑप्टिमाइज़्ड होने चाहिए और यूज़र प्राइवेसी का सम्मान करना चाहिए।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "PNGtoFavicon के बारे में");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "हमारा मानना है कि वेब डिज़ाइन टूल्स तेज़, बहुत ऑप्टिमाइज़्ड होने चाहिए और यूज़र प्राइवेसी का सम्मान करना चाहिए।");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "<span class='gradient-text'>PNGtoFavicon</span> के बारे में";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "हमारा मानना है कि वेब डिज़ाइन टूल्स तेज़, बहुत ऑप्टिमाइज़्ड होने चाहिए और यूज़र प्राइवेसी का सम्मान करना चाहिए।";
+        }
+
+        // Content Sections (Glass Cards)
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1: Our Mission
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "हमारा मिशन";
+            const ps_1 = cards[0].querySelectorAll('p');
+            if (ps_1.length >= 2) {
+                ps_1[0].textContent = "हमने PNGtoFavicon को एक आसान सी प्रॉब्लम को सॉल्व करने के लिए बनाया है: ज़्यादातर ऑनलाइन फ़ेविकॉन जेनरेटर आपके प्राइवेट ब्रांड ग्राफ़िक्स को अपने सर्वर पर अपलोड करते हैं, उन्हें धीरे-धीरे प्रोसेस करते हैं, और अपने पेज को स्पैमी पॉप-अप ऐड से भर देते हैं।";
+                ps_1[1].textContent = "हमारा टूल HTML5 Canvas का इस्तेमाल करके आपके वेब ब्राउज़र के अंदर 100% लोकल चलता है। आपकी लोगो फ़ाइलें आपके कंप्यूटर से कभी बाहर नहीं जातीं, रेंडरिंग तुरंत होती है, और आउटपुट फ़ॉर्मैट मॉडर्न SEO स्टैंडर्ड के हिसाब से ऑप्टिमाइज़ किया जाता है।";
+            }
+
+            // Card 2: Contact & Support
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "कॉन्टैक्ट और सपोर्ट";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "क्या आपके कोई सवाल, फ़ीडबैक हैं, या हमारे टूल्स के बारे में सीधे मदद चाहिए? नीचे दिए गए किसी भी चैनल से हमसे संपर्क करें:";
+
+            // Contact Columns
+            const h3s = cards[1].querySelectorAll('h3');
+            if (h3s.length >= 2) {
+                h3s[0].textContent = "डायरेक्ट कॉन्टैक्ट";
+                h3s[1].textContent = "सपोर्ट चैनल";
+            }
+
+            const links = cards[1].querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "WhatsApp पर चैट करें";
+                    }
+                }
+            });
+        }
     } else if (targetLang === 'fr' && normPath === 'about/index.html') {
         // Page title & metadata
         doc.title = "À propos de PNGtoFavicon | PNGtoFavicon";
