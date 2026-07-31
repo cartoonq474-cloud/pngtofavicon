@@ -13637,6 +13637,552 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "Verificar ahora →";
             }
         }
+    } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "अपने पसंदीदा इमोजी को एक पूरे फ़ेविकॉन पैकेज में बदलें। एक सिंबल चुनें, बैकग्राउंड फ़्रेम को स्टाइल करें, और एक ही क्लिक में सभी साइज़ डाउनलोड करें।");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "अपने पसंदीदा इमोजी को एक पूरे फ़ेविकॉन पैकेज में बदलें। एक सिंबल चुनें, बैकग्राउंड फ़्रेम को स्टाइल करें, और एक ही क्लिक में सभी साइज़ डाउनलोड करें।");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "इमोजी से फ़ेविकॉन जेनरेटर");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "अपने पसंदीदा इमोजी को एक पूरे फ़ेविकॉन पैकेज में बदलें। एक सिंबल चुनें, बैकग्राउंड फ़्रेम को स्टाइल करें, और एक ही क्लिक में सभी साइज़ डाउनलोड करें।");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Emoji to Favicon Generator"')) {
+                jsonText = jsonText.replace(/"Emoji to Favicon Generator"/g, '"इमोजी से फ़ेविकॉन जेनरेटर"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "इमोजी से <span class='gradient-text'>फ़ेविकॉन जेनरेटर</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "अपने पसंदीदा इमोजी को एक पूरे फ़ेविकॉन पैकेज में बदलें। एक सिंबल चुनें, बैकग्राउंड फ़्रेम को स्टाइल करें, और एक ही क्लिक में सभी साइज़ डाउनलोड करें।";
+            
+            const bFree = heroSec.querySelector('#badge-free');
+            if (bFree) bFree.textContent = "💰 100% फ़्री";
+            const bEmojis = heroSec.querySelector('#badge-emojis');
+            if (bEmojis) bEmojis.textContent = "🚀 1000+ इमोजी";
+            const bCustom = heroSec.querySelector('#badge-custom');
+            if (bCustom) bCustom.textContent = "⚙️  इंटरैक्टिव स्टाइलिंग";
+            const bPrivate = heroSec.querySelector('#badge-private');
+            if (bPrivate) bPrivate.textContent = "🔒 100% प्राइवेट";
+        }
+
+        // Generator Card / Controls
+        const genSec = doc.getElementById('generator-section');
+        if (genSec) {
+            // Main control title
+            const inputH3 = genSec.querySelector('.tool-input h3');
+            if (inputH3) inputH3.innerHTML = "🚀 इमोजी चुनें और स्टाइल करें";
+
+            // Form labels
+            genSec.querySelectorAll('.option-group label').forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Selected Emoji') {
+                    label.textContent = "चुने हुए इमोजी";
+                } else if (txt === 'Background Color') {
+                    label.textContent = "बैकग्राउंड कलर";
+                } else if (txt.includes('Keep transparent')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' ट्रांसपेरेंट रखें (सिर्फ़ आइकन)'));
+                } else if (txt === 'Background Shape') {
+                    label.textContent = "बैकग्राउंड शेप";
+                } else if (txt === 'Emoji Scale') {
+                    label.textContent = "इमोजी स्केल";
+                } else if (txt.includes('Include site.webmanifest')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' site.webmanifest शामिल करें'));
+                }
+            });
+
+            // Search placeholder
+            const emojiSearch = genSec.querySelector('#emojiSearch');
+            if (emojiSearch) {
+                emojiSearch.setAttribute('placeholder', "इमोजी खोजें... (जैसे आग, टेक)");
+            }
+
+            // Select option values
+            const bgShape = genSec.querySelector('#bgShape');
+            if (bgShape) {
+                bgShape.querySelectorAll('option').forEach(opt => {
+                    const txt = opt.textContent.trim();
+                    if (txt === 'Circle') opt.textContent = 'सर्किल';
+                    else if (txt === 'Rounded Square') opt.textContent = 'राउंडेड स्क्वायर';
+                    else if (txt === 'Square') opt.textContent = 'स्क्वायर';
+                });
+            }
+
+            // Preview Section
+            const outputH3 = genSec.querySelector('.tool-output h3');
+            if (outputH3) outputH3.textContent = "📦 लाइव फ़ेविकॉन प्रीव्यू";
+
+            // Live Preview Card labels
+            const previewLabels = genSec.querySelectorAll('.preview-label');
+            previewLabels.forEach(lbl => {
+                const text = lbl.textContent.trim();
+                if (text.includes('Browser Tabs')) lbl.textContent = 'ब्राउज़र टैब्स';
+                else if (text.includes('HiDPI Tabs')) lbl.textContent = 'HiDPI टैब्स';
+                else if (text.includes('Windows Desktop')) lbl.textContent = 'Windows डेस्कटॉप';
+                else if (text.includes('Apple Touch Icon')) lbl.textContent = 'Apple Touch आइकॉन';
+                else if (text.includes('Android Home Screen')) lbl.textContent = 'Android होम स्क्रीन';
+                else if (text.includes('PWA Install Icon')) lbl.textContent = 'PWA इंस्टॉल आइकॉन';
+            });
+
+            // Download Button
+            const downloadBtn = genSec.querySelector('#downloadAllBtn');
+            if (downloadBtn) {
+                const svg = downloadBtn.querySelector('svg');
+                downloadBtn.innerHTML = '';
+                if (svg) downloadBtn.appendChild(svg);
+                downloadBtn.appendChild(doc.createTextNode(' Favicon Pack (ZIP) डाउनलोड करें'));
+            }
+
+            // HTML Copy Block
+            genSec.querySelectorAll('h3').forEach(h3 => {
+                const txt = h3.textContent.trim();
+                if (txt.includes('Copy & Paste HTML')) h3.textContent = "🔗 HTML कॉपी और पेस्ट करें";
+            });
+
+            genSec.querySelectorAll('p').forEach(p => {
+                const txt = p.textContent.trim();
+                if (txt.includes('Add this to your HTML')) p.innerHTML = "इसे अपने HTML <code class='inline-code'>&lt;head&gt;</code> सेक्शन में जोड़ें:";
+            });
+
+            const copyBtn = genSec.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = "कॉपी करें";
+        }
+
+        // How it works
+        const howToSec = doc.getElementById('how-to-generate');
+        if (howToSec) {
+            const title = howToSec.querySelector('.section-title');
+            if (title) title.textContent = "यह इमोजी टू फ़ेविकॉन टूल कैसे काम करता है";
+            const sub = howToSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "100% क्लाइंट-साइड। प्राइवेट, तेज़ और सुरक्षित।";
+
+            const badge = howToSec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' 100% फ़्री और सुरक्षित डेवलपर एसेट्स'));
+            }
+
+            // Steps
+            const step1 = howToSec.querySelector('#step-1');
+            if (step1) {
+                const h3 = step1.querySelector('h3');
+                if (h3) h3.textContent = "रियल-टाइम कैनवस रेंडरिंग";
+                const p = step1.querySelector('p');
+                if (p) p.textContent = "यह टूल HTML5 कैनवस का इस्तेमाल करके रियल-टाइम में, सीधे आपके ब्राउज़र में बैकग्राउंड और नेटिव सिस्टम इमोजी तुरंत बनाता है।";
+            }
+            const step2 = howToSec.querySelector('#step-2');
+            if (step2) {
+                const h3 = step2.querySelector('h3');
+                if (h3) h3.textContent = "बाइनरी ICO कंस्ट्रक्शन";
+                const p = step2.querySelector('p');
+                if (p) p.textContent = "सर्वर टूल्स के बजाय, स्क्रिप्ट मैन्युअल रूप से रॉ PNG बाइट एरे को पूरी तरह से कम्प्लायंट ICO बाइनरी स्ट्रक्चर में जोड़ती है।";
+            }
+            const step3 = howToSec.querySelector('#step-3');
+            if (step3) {
+                const h3 = step3.querySelector('h3');
+                if (h3) h3.textContent = "ZIP पैकेजिंग";
+                const p = step3.querySelector('p');
+                if (p) p.textContent = "कई साइज़ और डायनामिक वेबमैनिफ़ेस्ट फ़ाइलें क्लाइंट-साइड JSZip का इस्तेमाल करके सीधे मेमोरी में पैकेज की जाती हैं।";
+            }
+            const step4 = howToSec.querySelector('#step-4');
+            if (step4) {
+                const h3 = step4.querySelector('h3');
+                if (h3) h3.textContent = "क्लाइंट-साइड डाउनलोड";
+                const p = step4.querySelector('p');
+                if (p) p.textContent = "बंडल को बिना किसी सर्वर इंटरैक्शन या प्राइवेसी रिस्क के तुरंत, सुरक्षित डाउनलोड के लिए Blob URL में बदल दिया जाता है।";
+            }
+        }
+
+        // Why choose features
+        const whySec = doc.getElementById('why-choose-features');
+        if (whySec) {
+            const title = whySec.querySelector('.section-title');
+            if (title) title.textContent = "इमोजी फ़ेविकॉन यहाँ क्यों जेनरेट करें?";
+            const sub = whySec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "सबसे पावरफ़ुल फ़्री ऑनलाइन फ़ेविकॉन बिल्डर जो इमेज को प्रोफ़ेशनल सटीकता और बिजली की स्पीड के साथ स्टैंडर्ड-कम्प्लायंट ब्राउज़र एसेट्स में कन्वर्ट करता है।";
+
+            const badge = whySec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' पावरफुल फीचर्स आपकी उंगलियों पर'));
+            }
+
+            // Feature Cards
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "इंस्टेंट क्लाइंट-साइड इंजन";
+                if (p_1) p_1.textContent = "अपने ब्राउज़र की लोकल प्रोसेसिंग पावर का इस्तेमाल करके मिलीसेकंड में PNG को फ़ेविकॉन पैकेज में कन्वर्ट करें।";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "पिक्सेल-परफ़ेक्ट रीस्केलिंग";
+                if (p_2) p_2.textContent = "हाई-फ़िडेलिटी डाउनसैंपलिंग जो किनारों को क्रिस्प और 16×16px साइज़ पर डिटेल्स को पढ़ने लायक बनाए रखती है।";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "सभी इमेज फ़ॉर्मैट सपोर्टेड";
+                if (p_3) p_3.textContent = "PNG, JPG, SVG, WEBP, GIF, और दूसरे पॉपुलर इमेज फ़ॉर्मैट के साथ आसानी से काम करता है।";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "यूनिवर्सल डिवाइस सपोर्ट";
+                if (p_4) p_4.textContent = "एक ZIP पैकेज के अंदर लेगेसी ICO, Apple Touch आइकन, Android Chrome साइज़ और PWA जेनरेट करता है।";
+
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = "100% सिक्योर और प्राइवेट";
+                if (p_5) p_5.textContent = "HTML5 Canvas का इस्तेमाल करके पूरी तरह से आपके ब्राउज़र में चलता है। आपकी इमेज कभी भी किसी सर्वर पर अपलोड नहीं होती है।";
+
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = "पूरी तरह से फ्री और ओपन";
+                if (p_6) p_6.textContent = "कोई ईमेल रजिस्ट्रेशन नहीं, कोई सब्सक्रिप्शन नहीं, कोई पेवॉल नहीं। पूरी तरह से फ्री डेवलपर टूल्स।";
+            }
+        }
+
+        // Use cases
+        const useCasesSec = doc.getElementById('use-cases');
+        if (useCasesSec) {
+            const title = useCasesSec.querySelector('.section-title');
+            if (title) title.textContent = "हर इस्तेमाल के लिए एकदम सही";
+            const sub = useCasesSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "जानें कि हमारा इमोजी से फ़ेविकॉन टूल अलग-अलग सिनेरियो में कैसे काम करता है";
+
+            const badge = useCasesSec.querySelector('.trusted-badge');
+            if (badge) {
+                const dots = badge.querySelector('.dots-group');
+                badge.innerHTML = '';
+                if (dots) badge.appendChild(dots);
+                badge.appendChild(doc.createTextNode(' दुनिया भर के प्रोफेशनल्स का भरोसा'));
+            }
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "वेब डेवलपर्स";
+                if (p_1) p_1.textContent = "एक सिंपल इमोजी से अपने वेब प्रोजेक्ट्स के लिए सभी ज़रूरी फ़ेविकॉन साइज़ तुरंत जेनरेट करें।";
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "UI/UX डिज़ाइनर";
+                if (p_2) p_2.textContent = "पक्का करें कि आपकी ब्रांड आइडेंटिटी सभी ब्राउज़र टैब और डिवाइस होम स्क्रीन पर क्रिस्प और परफेक्ट दिखे।";
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "ब्लॉगर और क्रिएटर";
+                if (p_3) p_3.textContent = "कुछ ही सेकंड में एक प्रोफ़ेशनल आइकन के साथ अपने पर्सनल ब्लॉग या पोर्टफ़ोलियो को आसानी से कस्टमाइज़ करें।";
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "बिज़नेस ओनर्स";
+                if (p_4) p_4.textContent = "एक हाई-क्वालिटी फ़ेविकॉन के साथ अपने प्रोफ़ेशनल लुक को बेहतर बनाएं जो भरोसा बनाता है।";
+            }
+        }
+
+        // Testimonials
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'टेस्टिमोनियल';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'हमारे यूज़र क्या कहते हैं';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = '50,000 से ज़्यादा डेवलपर, डिज़ाइनर और क्रिएटर अपने प्रोजेक्ट के लिए PNGtoFavicon पर भरोसा करते हैं।';
+
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Trustpilot पर वेरिफाइड रिव्यू';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Capterra पर वेरिफाइड रिव्यू';
+            }
+
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'फ़्रंटेंड डेवलपर';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Oct 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"सभी फ़ेविकॉन साइज़ जेनरेट करने का सबसे तेज़ तरीका। इसमें सचमुच 2 सेकंड लगते हैं और यह नए manifest.json फ़ॉर्मैट को पूरी तरह से हैंडल करता है।"';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'UI/UX डिज़ाइनर';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Sep 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"मैं अपने PNG को ICO और Apple Touch Icons में बदलने के लिए 3 अलग-अलग टूल इस्तेमाल करता था। यह सब एक क्लिक में करता है।"';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'इंडी हैकर';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Aug 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"साफ़ इंटरफ़ेस, कोई ऐड नहीं, और यह प्राइवेसी का ध्यान रखता है। UI डिज़ाइनर और डेवलपर के लिए बहुत ज़्यादा रिकमेंडेड है।"';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'एजेंसी ओनर';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Jul 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"अब हम अपने सभी क्लाइंट प्रोजेक्ट के लिए इसका इस्तेमाल करते हैं। आउटपुट हमेशा क्रिस्प होते हैं, और HTML कोड स्निपेट हमारा बहुत समय बचाते हैं।"';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'फुल स्टैक डेव';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Jun 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"आखिरकार एक फ़ेविकॉन जनरेटर जो मॉडर्न वेब ज़रूरतों को समझता है। साइट की डार्क मोड थीम भी बहुत खूबसूरत है!"';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'प्रोडक्ट मैनेजर';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'मई 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"सुपर भरोसेमंद टूल। मुझे यह पसंद है कि यह आपको वही देता है जिसकी आपको ज़रूरत है, बिना किसी झंझट या साइन अप के।"';
+                }
+            }
+
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'सॉफ्टवेयर इंजीनियर';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'नवंबर 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"एकदम सही काम। बनाई गई ज़िप फ़ाइल पूरी तरह से ऑर्गनाइज़्ड है और आइकन सभी डिवाइस पर बहुत अच्छे लगते हैं।"';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'मार्केटिंग डायरेक्टर';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'अक्टूबर 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"हमारी कंपनी की वेबसाइट के फ़ेविकॉन अपडेट करने में मुझे एक मिनट से भी कम समय लगा। यह प्रोसेस बहुत आसान है।"';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'स्टार्टअप फाउंडर';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'सितंबर 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"नया प्रोडक्ट लॉन्च करते समय चिंता करने की एक चीज़ कम हो जाती है। बस ड्रैग, ड्रॉप करें, और आपके पास परफेक्ट फ़ेविकॉन होंगे।"';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'फ्रीलांस वेब डिज़ाइनर';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'अगस्त 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"मैं अपने सभी साथियों को यह टूल रिकमेंड करता हूँ। यह ट्रांसपेरेंसी को पूरी तरह से हैंडल करता है और ICO फ़ाइलें हमेशा वैलिड रहती हैं।"';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'CTO';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'जुलाई 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"सिंपल, असरदार, और ठीक वही करता है जो नाम से पता चलता है। कोई फालतू फीचर्स नहीं, बस एक सॉलिड यूटिलिटी।"';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'ब्लॉगर';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'जून 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"मैं बहुत टेक्निकल नहीं हूँ, लेकिन इस टूल ने मेरे ब्लॉग के लिए एक प्रोफेशनल आइकन पाना बहुत आसान बना दिया। धन्यवाद!"';
+                }
+            }
+        }
+
+        // Comparison Section
+        const whyPngSec = doc.getElementById('why-pngtofavicon');
+        if (whyPngSec) {
+            const title = whyPngSec.querySelector('.section-title');
+            if (title) title.textContent = "इमोजी फ़ेविकॉन जेनरेटर बनाम दूसरे टूल्स";
+            const sub = whyPngSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "देखें कि मार्केट में दूसरे फ़ेविकॉन जेनरेटर के मुकाबले हम कैसे हैं";
+
+            const ths = whyPngSec.querySelectorAll('th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "फ़ीचर";
+                ths[1].textContent = "PNGtoFavicon";
+                ths[2].textContent = "दूसरे टूल्स";
+            }
+
+            const tds = whyPngSec.querySelectorAll('td');
+            tds.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'प्राइस';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> हमेशा के लिए फ्री';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'फ्रीमियम / पेड टियर';
+                else if (txt === 'Privacy') td.textContent = 'प्राइवेसी';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100% क्लाइंट-साइड';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'फाइल्स सर्वर पर अपलोड होती हैं';
+                else if (txt === 'Speed') td.textContent = 'स्पीड';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> तुरंत प्रोसेसिंग';
+                else if (txt === 'Depends on server load') td.textContent = 'सर्वर लोड पर निर्भर करता है';
+                else if (txt === 'File Formats') td.textContent = 'फाइल फॉर्मेट';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + मैनिफेस्ट';
+                else if (txt === 'Often ICO only') td.textContent = 'अक्सर सिर्फ ICO';
+                else if (txt === 'No Registration') td.textContent = 'कोई रजिस्ट्रेशन नहीं';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> साइनअप की जरूरत नहीं';
+                else if (txt === 'Sometimes required') td.textContent = 'कभी-कभी जरूरी';
+                else if (txt === 'Multi-platform') td.textContent = 'मल्टी-प्लेटफॉर्म';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> सभी डिवाइस और ब्राउज़र';
+                else if (txt === 'Limited platform support') td.textContent = 'लिमिटेड प्लेटफॉर्म सपोर्ट';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'HTML कोड स्निपेट';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> ऑटो-जनरेटेड';
+                else if (txt === 'Manual integration') td.textContent = 'मैनुअल इंटीग्रेशन';
+                else if (txt === 'Open Source') td.textContent = 'ओपन सोर्स';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> ट्रांसपेरेंट प्रोसेस';
+                else if (txt === 'Proprietary black-box') td.textContent = 'प्रोप्राइटरी ब्लैक-बॉक्स';
+            });
+        }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "आपके डाउनलोड में क्या शामिल है";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "हर फाइल जिसकी आपको पूरे क्रॉस-ब्राउज़र और क्रॉस-डिवाइस फ़ेविकॉन सपोर्ट के लिए जरूरत है";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "क्लासिक मल्टी-साइज ICO फॉर्मेट, जिसमें 16×16, 32×32, और 48×48 आइकन। पुराने ब्राउज़र सपोर्ट के लिए ज़रूरी, जिसमें Internet Explorer के पुराने वर्शन भी शामिल हैं।";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "16×16 पिक्सल पर स्टैंडर्ड ब्राउज़र टैब आइकन। ज़्यादातर मॉडर्न ब्राउज़र स्टैंडर्ड-डेंसिटी डिस्प्ले के लिए प्राइमरी टैब फ़ेविकॉन के तौर पर इस्तेमाल करते हैं।";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "32×32 पिक्सल पर हाई-DPI ब्राउज़र टैब आइकन। ब्राउज़र टैब में क्रिस्प, शार्प फ़ेविकॉन रेंडरिंग के लिए रेटिना और HiDPI स्क्रीन पर दिखाया जाता है।";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "iPhone, iPad, और iPod Touch के लिए 180×180 पिक्सल पर Apple Touch आइकन। तब दिखाया जाता है जब यूज़र आपकी वेबसाइट को अपनी iOS होम स्क्रीन पर जोड़ते हैं।";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "192×192 पिक्सल पर Android होम स्क्रीन आइकन। इसका इस्तेमाल तब किया जाता है जब Android यूज़र Chrome या दूसरे ब्राउज़र से आपकी साइट को अपनी होम स्क्रीन पर जोड़ते हैं।";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "512×512 पिक्सल पर हाई-रिज़ॉल्यूशन PWA आइकन। Android डिवाइस पर प्रोग्रेसिव वेब ऐप इंस्टॉल प्रॉम्प्ट और स्प्लैश स्क्रीन के लिए ज़रूरी है।";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "वेब ऐप मैनिफ़ेस्ट फ़ाइल जिसमें आइकन रेफ़रेंस, थीम कलर और बैकग्राउंड कलर होता है। PWA सपोर्ट और Android होम स्क्रीन इंटीग्रेशन के लिए ज़रूरी है।";
+                }
+            });
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "अक्सर पूछे जाने वाले सवाल";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why use an emoji favicon?')) {
+                        summary.innerHTML = "<h3>इमोजी फ़ेविकॉन क्यों इस्तेमाल करें?</h3>";
+                        if (p) p.textContent = "इमोजी फ़ेविकॉन मज़ेदार, जानकारी देने वाले और तुरंत पहचाने जा सकने वाले होते हैं। वे डेवलपर टूल, पर्सनल ब्लॉग, SaaS प्रोजेक्ट और हल्के वेब ऐप के लिए बहुत अच्छे हैं। क्योंकि इमोजी बहुत ज़्यादा स्टैंडर्ड होते हैं, इसलिए वे कई डिस्प्ले स्क्रीन पर एक जैसे दिखते हैं।";
+                    } else if (qTxt.includes('Does this tool work with custom system emojis?')) {
+                        summary.innerHTML = "<h3>क्या यह टूल कस्टम सिस्टम इमोजी के साथ काम करता है?</h3>";
+                        if (p) p.textContent = "हाँ! आप कोई भी इमोजी सीधे 'चुने हुए इमोजी' फ़ील्ड में टाइप या पेस्ट कर सकते हैं, और हमारा रेंडरिंग कैनवस उसे तुरंत बना देगा।";
+                    } else if (qTxt.includes('Can I make the background transparent?')) {
+                        summary.innerHTML = "<h3>क्या मैं बैकग्राउंड ट्रांसपेरेंट कर सकता हूँ?</h3>";
+                        if (p) p.textContent = "हाँ। 'ट्रांसपेरेंट रखें (सिर्फ़ आइकन)' बॉक्स को चेक करें, और टूल इमोजी को सीधे ट्रांसपेरेंट कैनवस पर रेंडर करेगा, और उसे ट्रांसपेरेंट PNG फ़ाइलों के तौर पर सेव करेगा।";
+                    } else if (qTxt.includes('Are these icons free for commercial use?')) {
+                        summary.innerHTML = "<h3>क्या ये आइकन व्यावसायिक उपयोग के लिए मुफ़्त हैं?</h3>";
+                        if (p) p.textContent = "कैनवस पर रेंडर किए गए नेटिव सिस्टम इमोजी स्टैंडर्ड सिस्टम फ़ॉन्ट होते हैं, जो पर्सनल और कमर्शियल वेब डिप्लॉयमेंट के लिए सुरक्षित होते हैं।";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "आज ही PNG को फ़ेविकॉन में मुफ़्त में बदलना शुरू करें";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ यूज़र से जुड़ें जो सही, तेज़ और पूरी तरह से मुफ़्त फ़ेविकॉन बनाने के लिए PNGtoFavicon.com पर भरोसा करते हैं।";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "अभी बदलना शुरू करें - यह मुफ़्त है!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "और फ़ेविकॉन टूल्स देखें";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon आपकी सभी फ़ेविकॉन ज़रूरतों के लिए टूल्स का एक पूरा सेट देता है";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "टेक्स्ट से फ़ेविकॉन";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "अक्षरों, इनिशियल्स या किसी भी टेक्स्ट से फ़ेविकॉन बनाएं। अपने ब्रांड के लिए एक यूनिक टेक्स्ट-बेस्ड फ़ेविकॉन बनाने के लिए फ़ॉन्ट, रंग और स्टाइल चुनें।";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "इसे मुफ़्त में आज़माएँ →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "इमोजी से फ़ेविकॉन";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "तुरंत एक रंगीन, एक्सप्रेसिव फ़ेविकॉन बनाने के लिए सैकड़ों इमोजी में से चुनें। पर्सनल प्रोजेक्ट, ब्लॉग और क्विक प्रोटोटाइप के लिए एकदम सही।";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "इसे मुफ़्त में आज़माएँ →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "फ़ेविकॉन चेकर";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "अपनी वेबसाइट के फ़ेविकॉन सेटअप को वैलिडेट करें। मिसिंग साइज़, गलत फ़ॉर्मेट और क्रॉस-प्लेटफ़ॉर्म कम्पैटिबिलिटी समस्याओं की जाँच करने के लिए कोई भी URL डालें।";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "अभी चेक करें →";
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur d'emojis en favicon | PNGtoFavicon";
