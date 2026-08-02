@@ -12618,6 +12618,362 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'id' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "Apa Itu Favicon? | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Setiap situs web memiliki identitas, dan favicon adalah salah satu elemen branding terkecil namun paling mudah dikenali. Pelajari mengapa hal ini penting di tahun 2026.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Apa Itu Favicon? | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Setiap situs web memiliki identitas, dan favicon adalah salah satu elemen branding terkecil namun paling mudah dikenali. Pelajari mengapa hal ini penting di tahun 2026.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Apa Itu Favicon?");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Setiap situs web memiliki identitas, dan favicon adalah salah satu elemen branding terkecil namun paling mudah dikenali. Pelajari mengapa hal ini penting di tahun 2026.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Apa Itu <span class='gradient-text'>Favicon</span>?";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Setiap situs web memiliki identitas, dan favicon adalah salah satu elemen branding terkecil namun paling mudah dikenali. Pelajari mengapa hal ini penting di tahun 2026.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 6) {
+            // Card 0: Introduction
+            const ps_0 = cards[0].querySelectorAll('p');
+            if (ps_0.length >= 4) {
+                ps_0[0].textContent = "Setiap situs web memiliki identitas, dan favicon adalah salah satu elemen branding terkecil namun paling mudah dikenali. Favicon adalah ikon kecil yang ditampilkan di sebelah judul halaman web di tab browser, bookmark, riwayat browser, dan hasil pencarian pada perangkat yang didukung. Meskipun hanya menempati beberapa piksel, favicon memainkan peran penting dalam membantu pengguna mengidentifikasi situs web Anda dengan cepat dan memperkuat merek Anda di berbagai pengalaman penjelajahan.";
+                ps_0[1].textContent = "Banyak pemilik situs web fokus pada logo, tipografi, dan skema warna tetapi mengabaikan favicon selama pengembangan situs web. Favicon yang hilang atau dirancang dengan buruk dapat membuat situs web tampak belum selesai atau kurang dapat dipercaya. Sebaliknya, favicon yang jelas dan mudah dikenali membantu pengunjung membedakan situs Anda dari puluhan tab yang terbuka, meningkatkan visibilitas bookmark, dan menciptakan tampilan yang lebih profesional.";
+                ps_0[2].textContent = "Browser modern, mesin pencari, dan perangkat seluler menggunakan favicon di lebih banyak tempat daripada sebelumnya. Google mungkin menampilkannya di hasil pencarian seluler, browser menampilkannya di tab and bookmark, dan Progressive Web Apps (PWA) mengandalkannya sebagai bagian dari pengalaman ikon aplikasi. Karena penggunaan yang meluas ini, membuat favicon yang dioptimalkan dengan benar telah menjadi bagian standar dari desain situs web dan SEO teknis.";
+                ps_0[3].textContent = "Panduan ini menjelaskan apa itu favicon, mengapa penting, di mana ia muncul, ukuran dan format file terbaik, cara membuat dan memasangnya, kesalahan umum yang harus dihindari, dan apakah favicon memengaruhi SEO.";
+            }
+
+            // Card 1: What Is a Favicon
+            const h2_1 = cards[1].querySelector('h2');
+            if (h2_1) h2_1.textContent = "Apa Itu Favicon?";
+            const ps_1 = cards[1].querySelectorAll('p');
+            if (ps_1.length >= 7) {
+                ps_1[0].textContent = "Favicon (singkatan dari favorite icon) adalah grafik kecil yang mewakili situs web atau aplikasi web. Ini berfungsi sebagai pengenal visual, memudahkan pengguna untuk mengenali situs Anda di antara beberapa tab browser, bookmark, entri riwayat browser, dan lokasi lain tempat situs web tercantum.";
+                ps_1[1].textContent = "Tidak seperti logo berukuran penuh, favicon dirancang agar tetap mudah dikenali bahkan pada dimensi yang sangat kecil, seringkali hanya 16 × 16 piksel. Karena ruang yang terbatas ini, favicon yang efektif menggunakan bentuk sederhana, kontras yang kuat, dan detail minimal.";
+                ps_1[2].textContent = "Ketika seseorang mengunjungi situs web Anda, browser mereka meminta file favicon bersama dengan sumber daya situs web lainnya seperti HTML, CSS, JavaScript, dan gambar. Setelah dimuat, browser menampilkan ikon di tempat yang sesuai, membantu pengguna dengan cepat mengaitkan halaman tersebut dengan merek Anda.";
+                ps_1[3].innerHTML = "Kata favicon berasal dari <em>favorite icon</em> (ikon favorit).";
+                ps_1[4].textContent = "Istilah ini berasal dari akhir tahun 1990-an ketika Microsoft memperkenalkan dukungan untuk ikon kecil yang terkait dengan situs web. Awalnya, ikon ini hanya muncul ketika pengguna menambahkan situs web ke daftar Favorit browser mereka di Internet Explorer. Seiring waktu, browser lain mengadopsi konsep tersebut dan memperluas penggunaannya ke tab, bookmark, halaman riwayat, pintasan seluler, dan aplikasi web yang terinstal.";
+                ps_1[5].textContent = "Tujuan utama favicon adalah untuk memberikan identitas visual bagi sebuah situs web.";
+                ps_1[6].textContent = "Alih-alih hanya mengandalkan judul halaman, pengguna dapat dengan cepat mengenali situs web melalui ikonnya. Ini menjadi sangat berguna ketika banyak tab terbuka, jendela browser penuh sesak, atau bookmark berisi ratusan situs web yang tersimpan.";
+            }
+
+            const h3s_1 = cards[1].querySelectorAll('h3');
+            if (h3s_1.length >= 2) {
+                h3s_1[0].textContent = "Asal Usul Istilah \"Favicon\"";
+                h3s_1[1].textContent = "Apa Tujuan Utama Favicon?";
+            }
+
+            // Paragraph above list & list
+            const ps_sub_1 = cards[1].querySelectorAll('p');
+            if (ps_sub_1.length >= 9) {
+                ps_sub_1[7].textContent = "Favicon membantu:";
+                ps_sub_1[8].textContent = "Meskipun favicon tidak secara langsung meningkatkan peringkat mesin pencari, ia berkontribusi pada kegunaan situs web secara keseluruhan dan konsistensi merek, yang keduanya mendukung pengalaman pengguna yang positif.";
+            }
+
+            const lis_1 = cards[1].querySelectorAll('ul li');
+            if (lis_1.length >= 5) {
+                lis_1[0].textContent = "Meningkatkan pengenalan merek";
+                lis_1[1].textContent = "Memudahkan identifikasi tab browser";
+                lis_1[2].textContent = "Membedakan situs web Anda dari pesaing";
+                lis_1[3].textContent = "Meningkatkan pengalaman pengguna";
+                lis_1[4].textContent = "Menampilkan tampilan yang rapi dan profesional";
+            }
+
+            // Card 2: Where Favicons Appear
+            const h2_2 = cards[2].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Di Mana Favicon Muncul";
+            const ps_2 = Array.from(cards[2].querySelectorAll('p')).filter(p => p.parentNode === cards[2]);
+            if (ps_2.length >= 2) {
+                ps_2[0].textContent = "Banyak orang berasumsi bahwa favicon hanya muncul di tab browser, tetapi browser modern, sistem operasi, dan mesin pencari menampilkan favicon di beberapa lokasi.";
+                ps_2[1].textContent = "Memahami di mana favicon Anda muncul menyoroti mengapa memilih desain dan format file yang tepat itu penting.";
+            }
+
+            const subheadings_2 = cards[2].querySelectorAll('h4');
+            const h4_texts = [
+                "Tab Browser",
+                "Bookmark Browser",
+                "Riwayat Browser",
+                "Bilah Alamat dan Antarmuka Browser",
+                "Hasil Pencarian Google",
+                "Pintasan Layar Beranda Seluler",
+                "Aplikasi Web Progresif (PWA)",
+                "Halaman Beranda Browser",
+                "Pengelola Kata Sandi dan Pengisian Otomatis Browser"
+            ];
+            const p_texts = [
+                "Lokasi paling umum untuk favicon adalah tab browser. Saat membuka beberapa tab sekaligus, pengguna sering kali mengandalkan favicon daripada judul halaman untuk menemukan situs web yang mereka inginkan. Ikon yang khas membuat navigasi lebih cepat dan mengurangi kebingungan.",
+                "Favicon juga muncul di samping halaman yang di-bookmark. Sebagian besar browser menampilkan ikon situs web di sebelah setiap bookmark, memungkinkan pengguna untuk memindai folder bookmark dengan cepat tanpa harus membaca setiap judul.",
+                "Banyak browser desktop dan seluler menampilkan favicon di dalam riwayat penelusuran. Alih-alih menampilkan ikon dokumen generik, browser menggunakan favicon untuk membedakan situs web secara visual, sehingga riwayat penelusuran lebih mudah dipindai.",
+                "Beberapa browser menampilkan favicon di dalam bilah alamat, area informasi halaman, atau antarmuka manajemen tab. Meskipun implementasinya bervariasi antar browser, mendukung lingkungan ini membantu menjaga konsistensi branding di berbagai platform.",
+                "Google dapat menampilkan favicon situs web di hasil pencarian seluler dan beberapa pengalaman pencarian desktop. Saat ditampilkan bersama judul halaman dan nama domain Anda, favicon memberikan sinyal branding tambahan yang membantu pengguna mengenali situs web Anda.",
+                "Saat pengguna menyimpan situs web ke layar beranda ponsel cerdas mereka, browser biasanya menggunakan ikon yang ditentukan berdasarkan favicon Anda atau Apple Touch Icon. Jika situs web Anda menyertakan ikon yang dikonfigurasi dengan benar, pintasan tersebut akan terlihat mirip dengan aplikasi seluler asli.",
+                "Aplikasi Web Progresif menggunakan beberapa ukuran ikon yang berasal dari kumpulan ikon situs web. Saat pengguna instalkan PWA, ikon-ikon ini menjadi ikon peluncur aplikasi, ikon layar pembuka, ikon pengalih tugas, dan ikon notifikasi.",
+                "Banyak browser menampilkan situs web yang sering dikunjungi di halaman tab baru atau dasbor beranda. Favicon umumnya digunakan asalkan pengenal visual untuk setiap situs web, sehingga lebih mudah dikenali sekilas.",
+                "Beberapa pengelola kata sandi dan pengelola kredensial browser menampilkan favicon di samping login situs web yang tersimpan. Ini membantu pengguna dengan cepat mengidentifikasi situs web yang benar sebelum mengisi otomatis nama pengguna dan kata sandi."
+            ];
+
+            for (let i = 0; i < subheadings_2.length; i++) {
+                if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
+            }
+            const gridContainer = cards[2].querySelector('div[style*="grid"]');
+            const gridPs = gridContainer ? gridContainer.querySelectorAll('div > p') : [];
+            for (let i = 0; i < gridPs.length; i++) {
+                if (p_texts[i]) gridPs[i].textContent = p_texts[i];
+            }
+
+            // Card 3: Why Is a Favicon Important
+            const h2_3 = cards[3].querySelector('h2');
+            if (h2_3) h2_3.textContent = "Mengapa Favicon Penting?";
+            const ps_3 = cards[3].querySelectorAll('p');
+            if (ps_3.length >= 2) {
+                ps_3[0].textContent = "Sekilas, favicon mungkin tampak seperti elemen desain kecil. Lagipula, ukurannya seringkali hanya 16 × 16 atau 32 × 32 piksel. Namun, dampaknya jauh melampaui ukurannya. Favicon bertindak asalkan pengenal visual untuk situs web Anda di berbagai browser, bookmark, hasil pencarian, dan perangkat seluler, membantu pengguna mengenali dan mempercayai merek Anda.";
+                ps_3[1].textContent = "Bagi bisnis, blogger, toko eCommerce, perusahaan SaaS, dan situs web pribadi, favicon adalah bagian standar dari desain web profesional. Tanpa favicon, browser sering menampilkan ikon placeholder generik, yang dapat membuat situs web tampak tidak lengkap atau kurang kredibel.";
+            }
+
+            const h3s_3 = cards[3].querySelectorAll('h3');
+            const h3_texts_3 = [
+                "Meningkatkan Pengenalan Merek",
+                "Memudahkan Identifikasi Tab Browser",
+                "Meningkatkan Pengalaman Pengguna (UX)",
+                "Membangun Kepercayaan dan Profesionalisme",
+                "Meningkatkan Visibilitas Bookmark",
+                "Mendukung Pengalaman Pengguna Seluler",
+                "Mendukung Branding yang Konsisten di Seluruh Platform",
+                "Dapat Meningkatkan Rasio Klik-Tayang Secara Tidak Langsung"
+            ];
+            for (let i = 0; i < h3s_3.length; i++) {
+                if (h3_texts_3[i]) h3s_3[i].textContent = h3_texts_3[i];
+            }
+
+            // Brand Recognition subps
+            const brand_p = h3s_3[0].nextElementSibling;
+            if (brand_p && brand_p.tagName === 'P') {
+                brand_p.textContent = "Salah satu keuntungan terbesar dari favicon adalah memperkuat pengenalan merek. Orang secara alami mengaitkan simbol visual dengan merek lebih cepat daripada teks. Favicon yang dirancang dengan baik memperkuat identitas situs web Anda setiap kali seseorang membuka tab browser, memeriksa bookmark mereka, atau melihat situs Anda di hasil pencarian yang didukung.";
+            }
+            const brand_lis = cards[3].querySelectorAll('ul')[0]?.querySelectorAll('li');
+            if (brand_lis && brand_lis.length >= 4) {
+                brand_lis[0].innerHTML = "<strong>Memperkuat identitas visual:</strong> Menciptakan koneksi yang mudah diingat dengan pengunjung.";
+                brand_lis[1].innerHTML = "<strong>Meningkatkan daya ingat merek:</strong> Membantu pengguna mengingat nama merek dan gaya logo Anda.";
+                brand_lis[2].innerHTML = "<strong>Menciptakan konsistensi:</strong> Mempertahankan gaya yang seragam di seluruh browser dan perangkat.";
+                brand_lis[3].innerHTML = "<strong>Membuat situs web mudah diingat:</strong> Membedakan merek Anda secara visual.";
+            }
+
+            // Tab identification subps
+            const tab_p = h3s_3[1].nextElementSibling;
+            if (tab_p && tab_p.tagName === 'P') {
+                tab_p.textContent = "Pengguna internet modern jarang hanya membuka satu tab browser. Banyak orang bekerja dengan puluhan tab secara bersamaan, beralih antar situs web sepanjang hari. Ketika judul halaman dipersingkat karena ruang tab yang terbatas, favicon sering menjadi isyarat visual utama yang membantu pengguna mengidentifikasi tab yang benar.";
+            }
+
+            // Without / With Favicon comparison
+            const comp_red_h5 = cards[3].querySelector('h5[style*="#ef4444"]');
+            if (comp_red_h5) comp_red_h5.textContent = "Tanpa Favicon";
+            const comp_red_p = comp_red_h5?.nextElementSibling;
+            if (comp_red_p) comp_red_p.textContent = "Beberapa tab menampilkan ikon generik yang identik. Pengguna harus membaca judul yang dipersingkat, sehingga menemukan situs web yang benar menjadi lebih lambat dan membingungkan.";
+
+            const comp_green_h5 = cards[3].querySelector('h5[style*="#06d6a0"]');
+            if (comp_green_h5) comp_green_h5.textContent = "Dengan Favicon";
+            const comp_green_p = comp_green_h5?.nextElementSibling;
+            if (comp_green_p) comp_green_p.textContent = "Setiap situs web memiliki pengenal visual yang unik. Pengguna dapat menemukan tab yang tepat hampir secara instan, membuat navigasi lebih cepat dan lebih intuitif.";
+
+            // UX subp & list
+            const ux_p = h3s_3[2].nextElementSibling;
+            if (ux_p && ux_p.tagName === 'P') {
+                ux_p.textContent = "Pengalaman pengguna dipengaruhi oleh banyak detail kecil, dan favicon adalah salah satunya. Meskipun tidak mengubah cara kerja situs web Anda, favicon meningkatkan cara pengguna berinteraksi dengannya dengan memberikan konteks visual yang jelas.";
+            }
+            const ux_lis = cards[3].querySelectorAll('ul')[1]?.querySelectorAll('li');
+            if (ux_lis && ux_lis.length >= 5) {
+                ux_lis[0].textContent = "Menyederhanakan navigasi di antara beberapa tab yang terbuka";
+                ux_lis[1].textContent = "Meningkatkan pengorganisasian bookmark";
+                ux_lis[2].textContent = "Memudahkan pemindaian riwayat browser";
+                ux_lis[3].textContent = "Membantu pengguna menemukan situs web yang tersimpan dengan cepat";
+                ux_lis[4].textContent = "Memberikan kontinuitas visual di berbagai perangkat";
+            }
+
+            // Trust subp
+            const trust_p = h3s_3[3].nextElementSibling;
+            if (trust_p && trust_p.tagName === 'P') {
+                trust_p.textContent = "Favicon yang hilang mungkin tidak mencegah pengunjung menggunakan situs web Anda, tetapi dapat secara halus memengaruhi kesan pertama. Ketika browser menampilkan ikon placeholder generik alih-alih favicon bermerek, pengguna mungkin menganggap situs web tersebut belum selesai, ketinggalan zaman, atau kurang dapat diandalkan. Favicon khusus menandakan perhatian terhadap detail dan profesionalisme.";
+            }
+
+            // Bookmark subp
+            const bookmark_p = h3s_3[4].nextElementSibling;
+            if (bookmark_p && bookmark_p.tagName === 'P') {
+                bookmark_p.textContent = "Banyak pengguna menandai situs web yang mereka rencanakan untuk dikunjungi kembali. Browser menampilkan favicon di samping judul bookmark. Saat bookmark diatur ke dalam folder yang berisi puluhan situs, favicon yang khas membantu situs web Anda menonjol, meningkatkan kemungkinan kunjungan berulang.";
+            }
+
+            // Mobile subp
+            const mobile_p = h3s_3[5].nextElementSibling;
+            if (mobile_p && mobile_p.tagName === 'P') {
+                mobile_p.textContent = "Favicon tidak lagi terbatas pada browser desktop. Pada ponsel pintar dan tablet, browser menggunakan ikon situs web saat pengguna menambahkan halaman ke layar beranda mereka. Progressive Web Apps (PWA) juga mengandalkan ikon ini untuk peluncur aplikasi, layar pembuka, notifikasi, dan pengalih tugas.";
+            }
+
+            // Consistency subp
+            const consistency_p = h3s_3[6].nextElementSibling;
+            if (consistency_p && consistency_p.tagName === 'P') {
+                consistency_p.textContent = "Favicon yang konsisten memastikan merek Anda tetap mudah dikenali di mana pun pengguna menemukan situs web Anda: browser desktop, layar beranda seluler, riwayat browser, pengelola kata sandi, atau hasil pencarian.";
+            }
+
+            // CTR subp
+            const ctr_p = h3s_3[7].nextElementSibling;
+            if (ctr_p && ctr_p.tagName === 'P') {
+                ctr_p.textContent = "Dalam pengalaman pencarian yang didukung, favicon yang mudah dikenali yang ditampilkan di sebelah judul dan URL situs web Anda membantu pengguna mengidentifikasi merek Anda dengan cepat. Branding yang familiar dapat meningkatkan kepercayaan dan mendorong klik dalam hasil pencarian.";
+            }
+
+            // Card 4: Does a Favicon Directly Improve SEO?
+            const h2_4 = cards[4].querySelector('h2');
+            if (h2_4) h2_4.textContent = "Apakah Favicon Secara Langsung Meningkatkan SEO?";
+            const ps_4 = cards[4].querySelectorAll('p');
+            if (ps_4.length >= 3) {
+                ps_4[0].innerHTML = "Favicon bukanlah faktor peringkat Google secara langsung. Memiliki favicon saja tidak akan meningkatkan posisi Anda dalam hasil mesin pencari.";
+                ps_4[1].textContent = "Namun, favicon dapat mendukung SEO secara tidak langsung dengan meningkatkan pengalaman pengguna secara keseluruhan dan memperkuat merek Anda:";
+                ps_4[2].textContent = "Mesin pencari semakin menghargai situs web yang memberikan pengalaman pengguna yang positif. Meskipun favicon hanyalah satu komponen kecil, ia melengkapi peningkatan teknis dan desain lainnya yang berkontribusi pada situs web kualitas tinggi.";
+            }
+            const seo_lis = cards[4].querySelectorAll('ul li');
+            if (seo_lis.length >= 6) {
+                seo_lis[0].textContent = "Pengenalan merek dan kepercayaan pengguna yang lebih baik";
+                seo_lis[1].textContent = "Peningkatan kepercayaan pengguna dan kredibilitas profesional";
+                seo_lis[2].textContent = "Peningkatan visibilitas di tab browser dan bookmark";
+                seo_lis[3].textContent = "Konsistensi merek yang lebih kuat di berbagai platform";
+                seo_lis[4].textContent = "Potensi rasio klik-tayang yang lebih tinggi dalam hasil pencarian yang didukung";
+                seo_lis[5].textContent = "Navigasi yang lebih mudah bagi pengunjung yang kembali";
+            }
+
+            // Card 5: Key Takeaways
+            const h2_5 = cards[5].querySelector('h2');
+            if (h2_5) h2_5.textContent = "Poin Penting";
+            const ps_5 = cards[5].querySelectorAll('p');
+            if (ps_5.length >= 3) {
+                ps_5[0].textContent = "Favicon jauh lebih dari sekadar ikon dekoratif. Favicon adalah aset branding penting yang meningkatkan pengenalan, kegunaan, dan profesionalisme di berbagai browser, bookmark, perangkat seluler, dan antarmuka pencarian.";
+                ps_5[1].textContent = "Dengan menerapkan favicon yang dirancang dengan baik, Anda dapat:";
+                ps_5[2].textContent = "Meskipun hanya menempati beberapa piksel, favicon memiliki dampak yang berkelanjutan pada bagaimana pengguna memandang dan berinteraksi dengan situs web Anda.";
+            }
+            const takeaways_lis = cards[5].querySelectorAll('ul li');
+            if (takeaways_lis.length >= 6) {
+                takeaways_lis[0].textContent = "Memperkuat identitas merek Anda";
+                takeaways_lis[1].textContent = "Membantu pengguna mengidentifikasi situs web Anda secara instan";
+                takeaways_lis[2].textContent = "Meningkatkan navigasi di seluruh tab browser dan bookmark";
+                takeaways_lis[3].textContent = "Menciptakan tampilan yang lebih rapi dan tepercaya";
+                takeaways_lis[4].textContent = "Mendukung pengalaman pengguna secara keseluruhan yang lebih baik";
+                takeaways_lis[5].textContent = "Berkontribusi secara tidak langsung pada keterlibatan pengguna dan kinerja SEO";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Mulai Konversi PNG ke Favicon Gratis Hari Ini";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Bergabunglah dengan 50.000+ pengguna yang mempercayai PNGtoFavicon.com untuk pembuatan favicon yang akurat, cepat, dan sepenuhnya gratis.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Mulai Konversi Sekarang - Gratis!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Jelajahi Lebih Banyak Alat Favicon";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon menawarkan serangkaian alat lengkap untuk semua kebutuhan favicon Anda";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Teks ke Favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Buat favicon dari huruf, inisial, atau teks apa pun. Pilih font, warna, dan gaya untuk menghasilkan favicon berbasis teks yang unik untuk merek Anda.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Coba gratis →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji ke Favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Pilih dari ratusan emoji untuk langsung membuat favicon yang berwarna-warni dan ekspresif. Sempurna untuk proyek pribadi, blog, dan prototipe cepat.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Coba gratis →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Pemeriksa Favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Validasi pengaturan favicon situs web Anda. Masukkan URL apa pun untuk memeriksa ukuran yang hilang, format yang salah, dan masalah kompatibilitas lintas platform.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Cek sekarang →";
+            }
+        }
+
+        // Header and Footer
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Panduan Ukuran Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "Apa itu Favicon?";
+                else if (txt === 'About') el.textContent = "Tentang Kami";
+                else if (txt === 'Contact') el.textContent = "Kontak";
+                else if (txt === 'Privacy Policy') el.textContent = "Kebijakan Privasi";
+                else if (txt === 'Terms of Service') el.textContent = "Ketentuan Layanan";
+                else if (txt === 'Cookie Policy') el.textContent = "Kebijakan Cookie";
+            });
+        });
+
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Kontak Dukungan: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Obrolan di WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     } else if (targetLang === 'es' && normPath === 'tutorials/favicon-sizes/index.html') {
         // Page title & metadata
         doc.title = "Guía de tamaños de favicon | PNGtoFavicon";
