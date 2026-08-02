@@ -14136,6 +14136,164 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'id' && normPath === 'tutorials/favicon-best-practices/index.html') {
+        // Page title & metadata
+        doc.title = "Desain Favicon & Praktik Terbaik SEO | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Buat favicon yang menonjol di tab browser dan sesuai dengan kriteria mesin pencari.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Desain Favicon & Praktik Terbaik SEO | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Buat favicon yang menonjol di tab browser dan sesuai dengan kriteria mesin pencari.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Desain Favicon & Praktik Terbaik SEO");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Buat favicon yang menonjol di tab browser dan sesuai dengan kriteria mesin pencari.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Desain Favicon & <span class='gradient-text'>Praktik Terbaik SEO</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Buat favicon yang menonjol di tab browser dan sesuai dengan kriteria mesin pencari.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Card 1: Step 1
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "1. Jaga Desain Tetap Sederhana & Mudah Dikenali";
+            const p_1 = cards[0].querySelector('p');
+            if (p_1) p_1.textContent = "Karena favicon dapat diperkecil hingga sekecil 16x16 piksel, detail yang kompleks dan garis teks yang tipis menjadi tidak terbaca. Fokuslah pada bentuk dasar, huruf yang berbeda, atau lambang logo merek utama.";
+
+            // Card 2: Step 2
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "2. Uji Kontras Mode Gelap";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "Tab browser dapat berwarna abu-abu muda, putih murni, biru tua, atau hitam. Pastikan logo transparan Anda memiliki efek cahaya di tepi atau isian padat untuk mencegahnya menghilang pada latar belakang gelap.";
+
+            // Card 3: Step 3
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "3. Persyaratan SEO Google";
+            const p_3 = cards[2].querySelector('p');
+            if (p_3) p_3.textContent = "Google memiliki aturan resmi untuk menampilkan favicon di samping hasil pencarian:";
+
+            const lis_3 = cards[2].querySelectorAll('ul li');
+            if (lis_3.length >= 3) {
+                lis_3[0].textContent = "Favicon harus mewakili merek situs web secara visual.";
+                lis_3[1].textContent = "Ukuran file dan rasio aspek harus merupakan kelipatan dari 48px persegi (misalnya 48x48, 96x96, dll.).";
+                lis_3[2].textContent = "URL ikon harus dapat diindeks (jangan blokir Googlebot-Image di robots.txt).";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Mulai Konversi PNG ke Favicon Gratis Hari Ini";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Bergabunglah dengan 50.000+ pengguna yang mempercayai PNGtoFavicon.com untuk pembuatan favicon yang akurat, cepat, dan sepenuhnya gratis.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Mulai Konversi Sekarang - Gratis!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Jelajahi Lebih Banyak Alat Favicon";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon menawarkan serangkaian alat lengkap untuk semua kebutuhan favicon Anda";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Teks ke Favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Buat favicon dari huruf, inisial, atau teks apa pun. Pilih font, warna, dan gaya untuk menghasilkan favicon berbasis teks yang unik untuk merek Anda.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Coba gratis →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji ke Favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Pilih dari ratusan emoji untuk langsung membuat favicon yang berwarna-warni dan ekspresif. Sempurna untuk proyek pribadi, blog, dan prototipe cepat.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Coba gratis →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Pemeriksa Favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Validasi pengaturan favicon situs web Anda. Masukkan URL apa pun untuk memeriksa ukuran yang hilang, format yang salah, dan masalah kompatibilitas lintas platform.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Periksa sekarang →";
+            }
+        }
+
+        // Header and Footer
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Panduan Ukuran Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "Apa itu Favicon?";
+                else if (txt === 'About') el.textContent = "Tentang Kami";
+                else if (txt === 'Contact') el.textContent = "Kontak";
+                else if (txt === 'Privacy Policy') el.textContent = "Kebijakan Privasi";
+                else if (txt === 'Terms of Service') el.textContent = "Ketentuan Layanan";
+                else if (txt === 'Cookie Policy') el.textContent = "Kebijakan Cookie";
+            });
+        });
+
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Kontak Dukungan: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Obrolan di WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     } else if (targetLang === 'es' && normPath === 'tutorials/favicon-best-practices/index.html') {
         // Page title & metadata
         doc.title = "Diseño de favicon y mejores prácticas de SEO | PNGtoFavicon";
