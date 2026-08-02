@@ -17562,17 +17562,17 @@ async function localizePage(relativePath, targetLang) {
                 const p = item.querySelector('.faq-answer') || item.querySelector('p');
                 if (summary) {
                     const qTxt = summary.textContent.trim();
-                    if (qTxt.includes('Why use an emoji favicon instead of a traditional text/image logo?')) {
-                        summary.innerHTML = "<h3>Mengapa menggunakan favikon emoji daripada logo teks/gambar tradisional?</h3>";
+                    if (qTxt.includes('Why use an emoji favicon?')) {
+                        summary.innerHTML = "<h3>Mengapa menggunakan favikon emoji?</h3>";
                         if (p) p.textContent = "Favikon emoji menyenangkan, deskriptif, dan langsung dikenali. Emoji sangat bagus untuk alat pengembang, blog pribadi, proyek SaaS, dan aplikasi web ringan. Karena emoji sangat terstandarisasi, tampilannya konsisten di berbagai layar.";
-                    } else if (qTxt.includes('Can I use any custom emoji?')) {
-                        summary.innerHTML = "<h3>Bisakah saya menggunakan emoji khusus apa saja?</h3>";
+                    } else if (qTxt.includes('Does this tool work with custom system emojis?')) {
+                        summary.innerHTML = "<h3>Apakah alat ini berfungsi dengan emoji sistem khusus?</h3>";
                         if (p) p.textContent = "Ya! Anda dapat mengetik atau menempelkan emoji tunggal langsung ke kolom \"Emoji yang Dipilih\", dan kanvas rendering kami akan langsung menggambarnya.";
-                    } else if (qTxt.includes('Does this tool support transparency for emojis?')) {
-                        summary.innerHTML = "<h3>Apakah alat ini mendukung transparansi untuk emoji?</h3>";
+                    } else if (qTxt.includes('Can I make the background transparent?')) {
+                        summary.innerHTML = "<h3>Bisakah saya membuat latar belakang menjadi transparan?</h3>";
                         if (p) p.textContent = "Ya. Centang kotak \"Tetap transparan (Hanya ikon)\", dan alat ini akan merender emoji langsung pada kanvas transparan, menyimpannya sebagai file PNG transparan.";
-                    } else if (qTxt.includes('Are there any licensing or copyright issues with emoji favicons?')) {
-                        summary.innerHTML = "<h3>Apakah ada masalah lisensi atau hak cipta dengan favikon emoji?</h3>";
+                    } else if (qTxt.includes('Are these icons free for commercial use?')) {
+                        summary.innerHTML = "<h3>Apakah ikon-ikon ini gratis untuk penggunaan komersial?</h3>";
                         if (p) p.textContent = "Emoji sistem asli yang dirender pada kanvas adalah font sistem standar, yang aman untuk penggunaan web pribadi dan komersial.";
                     }
                 }
