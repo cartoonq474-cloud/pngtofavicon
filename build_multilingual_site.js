@@ -17059,6 +17059,626 @@ async function localizePage(relativePath, targetLang) {
                 if (linkText) linkText.textContent = "अभी चेक करें →";
             }
         }
+    } else if (targetLang === 'id' && normPath === 'emoji-to-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "Generator Emoji ke Favicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Ubah emoji favorit Anda menjadi paket favicon lengkap. Pilih simbol, atur bingkai latar belakang, dan unduh semua ukuran hanya dengan satu klik.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Generator Emoji ke Favicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Ubah emoji favorit Anda menjadi paket favicon lengkap. Pilih simbol, atur bingkai latar belakang, dan unduh semua ukuran hanya dengan satu klik.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Generator Emoji ke Favicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Ubah emoji favorit Anda menjadi paket favicon lengkap. Pilih simbol, atur bingkai latar belakang, dan unduh semua ukuran hanya dengan satu klik.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Emoji to Favicon Generator"')) {
+                jsonText = jsonText.replace(/"Emoji to Favicon Generator"/g, '"Generator Emoji ke Favicon"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Generator Emoji <span class='gradient-text'>ke Favicon</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Ubah emoji favorit Anda menjadi paket favicon lengkap. Pilih simbol, atur bingkai latar belakang, dan unduh semua ukuran hanya dengan satu klik.";
+            
+            const bFree = heroSec.querySelector('#badge-free');
+            if (bFree) bFree.textContent = "💰 100% Gratis";
+            const bEmojis = heroSec.querySelector('#badge-emojis');
+            if (bEmojis) bEmojis.textContent = "🚀 1000+ Emoji";
+            const bCustom = heroSec.querySelector('#badge-custom');
+            if (bCustom) bCustom.textContent = "⚙️ Penataan Interaktif";
+            const bPrivate = heroSec.querySelector('#badge-private');
+            if (bPrivate) bPrivate.textContent = "🔒 100% Privasi";
+        }
+
+        // Generator Card / Controls
+        const genSec = doc.getElementById('generator-section');
+        if (genSec) {
+            // Main control title
+            const inputH3 = genSec.querySelector('.tool-input h3');
+            if (inputH3) inputH3.innerHTML = "🚀 Pilih & Tata Emoji";
+
+            // Form labels
+            genSec.querySelectorAll('.option-group label').forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Selected Emoji') {
+                    label.textContent = "Emoji yang Dipilih";
+                } else if (txt === 'Background Color') {
+                    label.textContent = "Warna Latar Belakang";
+                } else if (txt.includes('Keep transparent')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' Tetap transparan (Hanya ikon)'));
+                } else if (txt === 'Background Shape') {
+                    label.textContent = "Bentuk Latar Belakang";
+                } else if (txt === 'Emoji Scale') {
+                    label.textContent = "Skala Emoji";
+                } else if (txt.includes('Include site.webmanifest')) {
+                    const cb = label.querySelector('input');
+                    label.innerHTML = '';
+                    if (cb) label.appendChild(cb);
+                    label.appendChild(doc.createTextNode(' Sertakan site.webmanifest'));
+                }
+            });
+
+            // Search placeholder
+            const emojiSearch = genSec.querySelector('#emojiSearch');
+            if (emojiSearch) {
+                emojiSearch.setAttribute('placeholder', "Cari emoji... (misalnya api, teknologi)");
+            }
+
+            // Select option values
+            const bgShape = genSec.querySelector('#bgShape');
+            if (bgShape) {
+                bgShape.querySelectorAll('option').forEach(opt => {
+                    const txt = opt.textContent.trim();
+                    if (txt === 'Circle') opt.textContent = 'Lingkaran';
+                    else if (txt === 'Rounded Square') opt.textContent = 'Kotak Bulat';
+                    else if (txt === 'Square') opt.textContent = 'Kotak';
+                });
+            }
+
+            // Preview Section
+            const outputH3 = genSec.querySelector('.tool-output h3');
+            if (outputH3) outputH3.textContent = "📦 Pratinjau Favicon Langsung";
+
+            // Live Preview Card labels
+            const previewLabels = genSec.querySelectorAll('.preview-label');
+            previewLabels.forEach(lbl => {
+                const text = lbl.textContent.trim();
+                if (text.includes('Browser Tabs')) lbl.textContent = 'Browser Tab';
+                else if (text.includes('HiDPI Tabs')) lbl.textContent = 'Tab HiDPI';
+                else if (text.includes('Windows Desktop')) lbl.textContent = 'Desktop Windows';
+                else if (text.includes('Apple Touch Icon')) lbl.textContent = 'Ikon Sentuh Apple';
+                else if (text.includes('Android Home Screen')) lbl.textContent = 'Layar beranda Android';
+                else if (text.includes('PWA Install Icon')) lbl.textContent = 'Ikon instal PWA';
+            });
+
+            // Download Button
+            const downloadBtn = genSec.querySelector('#downloadAllBtn');
+            if (downloadBtn) {
+                const svg = downloadBtn.querySelector('svg');
+                downloadBtn.innerHTML = '';
+                if (svg) downloadBtn.appendChild(svg);
+                downloadBtn.appendChild(doc.createTextNode(' Unduh Paket Favicon (ZIP)'));
+            }
+
+            // HTML Copy Block
+            genSec.querySelectorAll('h3').forEach(h3 => {
+                const txt = h3.textContent.trim();
+                if (txt.includes('Copy & Paste HTML')) h3.textContent = "🔗 Salin & Tempel HTML";
+            });
+
+            genSec.querySelectorAll('p').forEach(p => {
+                const txt = p.textContent.trim();
+                if (txt.includes('Add this to your HTML')) p.innerHTML = "Tambahkan ini ke bagian <code class='inline-code'>&lt;head&gt;</code> HTML Anda:";
+            });
+
+            const copyBtn = genSec.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = "Salin";
+        }
+
+        // How it works
+        const howToSec = doc.getElementById('how-to-generate');
+        if (howToSec) {
+            const title = howToSec.querySelector('.section-title');
+            if (title) title.textContent = "Cara kerja alat Emoji ke Favicon ini";
+            const sub = howToSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "100% Sisi Klien. Pribadi, Cepat, dan Aman.";
+
+            const badge = howToSec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Aset pengembang 100% Gratis & Aman'));
+            }
+
+            // Steps
+            const step1 = howToSec.querySelector('#step-1');
+            if (step1) {
+                const h3 = step1.querySelector('h3');
+                if (h3) h3.textContent = "Rendering Canvas Real-Time";
+                const p = step1.querySelector('p');
+                if (p) p.textContent = "Alat ini menggunakan HTML5 Canvas untuk langsung menggambar latar belakang dan emoji sistem asli secara real-time, langsung di browser Anda.";
+            }
+            const step2 = howToSec.querySelector('#step-2');
+            if (step2) {
+                const h3 = step2.querySelector('h3');
+                if (h3) h3.textContent = "Konstruksi ICO Biner";
+                const p = step2.querySelector('p');
+                if (p) p.textContent = "Alih-alih alat server, skrip secara manual menggabungkan array byte PNG mentah menjadi struktur biner ICO yang sepenuhnya sesuai.";
+            }
+            const step3 = howToSec.querySelector('#step-3');
+            if (step3) {
+                const h3 = step3.querySelector('h3');
+                if (h3) h3.textContent = "Pengemasan ZIP";
+                const p = step3.querySelector('p');
+                if (p) p.textContent = "Berbagai ukuran dan file webmanifest dinamis dikemas langsung dalam memori menggunakan JSZip sisi klien.";
+            }
+            const step4 = howToSec.querySelector('#step-4');
+            if (step4) {
+                const h3 = step4.querySelector('h3');
+                if (h3) h3.textContent = "Unduhan Sisi Klien";
+                const p = step4.querySelector('p');
+                if (p) p.textContent = "Bundel dikonversi to URL Blob untuk unduhan instan dan aman tanpa interaksi server atau risiko privasi apa pun.";
+            }
+        }
+
+        // Why choose
+        const whySec = doc.getElementById('why-choose-features');
+        if (whySec) {
+            const title = whySec.querySelector('.section-title');
+            if (title) title.textContent = "Mengapa Membuat Favicon Emoji di Sini?";
+            const sub = whySec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Pembuat favicon online gratis paling ampuh yang mengubah gambar menjadi aset browser yang sesuai standar dengan akurasi profesional dan kecepatan kilat.";
+
+            const badge = whySec.querySelector('.steps-badge');
+            if (badge) {
+                const dot = badge.querySelector('.badge-dot');
+                badge.innerHTML = '';
+                if (dot) badge.appendChild(dot);
+                badge.appendChild(doc.createTextNode(' Fitur-fitur canggih di ujung jari Anda'));
+            }
+
+            // Features Cards
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                // Card 1
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Mesin Sisi Klien Instan";
+                if (p_1) p_1.textContent = "Konversi PNG ke paket favicon dalam hitungan milidetik menggunakan daya pemrosesan lokal browser Anda.";
+
+                // Card 2
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Penskalaan Sempurna Piksel";
+                if (p_2) p_2.textContent = "Pengurangan resolusi tinggi yang menjaga tepi tetap tajam dan detail tetap terbaca pada ukuran 16x16px.";
+
+                // Card 3
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Semua Format Gambar Didukung";
+                if (p_3) p_3.textContent = "Bekerja dengan PNG, JPG, SVG, WEBP, GIF, dan format gambar populer lainnya dengan mudah.";
+
+                // Card 4
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Dukungan Perangkat Universal";
+                if (p_4) p_4.textContent = "Menghasilkan ICO lama, Ikon Sentuh Apple, ukuran Chrome Android, dan PWA dalam satu paket ZIP.";
+
+                // Card 5
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = "100% Aman & Pribadi";
+                if (p_5) p_5.textContent = "Berjalan sepenuhnya di browser Anda menggunakan HTML5 Canvas. Gambar Anda tidak pernah diunggah ke server mana pun.";
+
+                // Card 6
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = "Sepenuhnya Gratis & Terbuka";
+                if (p_6) p_6.textContent = "Tidak ada pendaftaran email, tidak ada langganan, tidak ada paywall. Alat pengembang yang sepenuhnya gratis.";
+            }
+        }
+
+        // Use cases
+        const useCasesSec = doc.getElementById('use-cases');
+        if (useCasesSec) {
+            const title = useCasesSec.querySelector('.section-title');
+            if (title) title.textContent = "Sempurna untuk Setiap Kasus Penggunaan";
+            const sub = useCasesSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Temukan bagaimana alat emoji ke favicon kami bekerja di berbagai skenario";
+
+            const badge = useCasesSec.querySelector('.trusted-badge');
+            if (badge) {
+                const dots = badge.querySelector('.dots-group');
+                badge.innerHTML = '';
+                if (dots) badge.appendChild(dots);
+                badge.appendChild(doc.createTextNode(' Dipercaya oleh para profesional di seluruh dunia'));
+            }
+
+            const cards = useCasesSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                // Card 1
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = "Pengembang Web";
+                if (p_1) p_1.textContent = "Hasilkan semua ukuran favicon yang dibutuhkan untuk proyek web Anda secara instan hanya dari sebuah emoji.";
+
+                // Card 2
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = "Desainer UI/UX";
+                if (p_2) p_2.textContent = "Pastikan identitas merek Anda terlihat tajam dan sempurna di semua tab browser dan layar beranda perangkat.";
+
+                // Card 3
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = "Blogger & Kreator";
+                if (p_3) p_3.textContent = "Sesuaikan blog atau portofolio pribadi Anda dengan ikon profesional dalam hitungan detik.";
+
+                // Card 4
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = "Pemilik Bisnis";
+                if (p_4) p_4.textContent = "Tingkatkan penampilan profesional Anda dengan favicon berkualitas tinggi yang membangun kepercayaan.";
+            }
+        }
+
+        // Comparison Section
+        const whyPngSec = doc.getElementById('why-pngtofavicon');
+        if (whyPngSec) {
+            const title = whyPngSec.querySelector('.section-title');
+            if (title) title.textContent = "Generator Favicon Emoji vs Alat Lainnya";
+            const sub = whyPngSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Lihat perbandingan kami dengan generator favicon lain di pasaran";
+
+            const ths = whyPngSec.querySelectorAll('th');
+            if (ths.length >= 3) {
+                ths[0].textContent = "Fitur";
+                ths[1].textContent = "PNGtoFavicon";
+                ths[2].textContent = "Alat Lainnya";
+            }
+
+            const tds = whyPngSec.querySelectorAll('td');
+            tds.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'Harga';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> Gratis selamanya';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'Freemium / Berbayar';
+                else if (txt === 'Privacy') td.textContent = 'Privasi';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100% Sisi klien';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'File diunggah ke server';
+                else if (txt === 'Speed') td.textContent = 'Kecepatan';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> Pemrosesan instan';
+                else if (txt === 'Depends on server load') td.textContent = 'Tergantung pada beban server';
+                else if (txt === 'File Formats') td.textContent = 'Format File';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + Manifest';
+                else if (txt === 'Often ICO only') td.textContent = 'Seringkali hanya ICO';
+                else if (txt === 'No Registration') td.textContent = 'Tanpa Registrasi';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> Tidak perlu mendaftar';
+                else if (txt === 'Sometimes required') td.textContent = 'Terkadang diperlukan';
+                else if (txt === 'Multi-platform') td.textContent = 'Multi-platform';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> Semua perangkat & browser';
+                else if (txt === 'Limited platform support') td.textContent = 'Dukungan platform terbatas';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'Cuplikan Kode HTML';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> Dihasilkan secara otomatis';
+                else if (txt === 'Manual integration') td.textContent = 'Integrasi manual';
+                else if (txt === 'Open Source') td.textContent = 'Sumber Terbuka';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> Proses transparan';
+                else if (txt === 'Proprietary black-box') td.textContent = 'Kotak hitam eksklusif';
+            });
+        }
+
+        // What's Included Section
+        const whatsIncluded = doc.getElementById('whats-included');
+        if (whatsIncluded) {
+            const title = whatsIncluded.querySelector('.section-title');
+            if (title) title.textContent = "Apa yang Termasuk dalam Unduhan Anda";
+
+            const sub = whatsIncluded.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "Semua file yang Anda butuhkan untuk dukungan favicon lintas browser dan lintas perangkat sepenuhnya";
+
+            const cards = whatsIncluded.querySelectorAll('.file-card');
+            cards.forEach(card => {
+                const id = card.id;
+                const p = card.querySelector('p');
+                if (id === 'file-favicon-ico') {
+                    if (p) p.textContent = "Format ICO multi-ukuran klasik, berisi ikon 16×16, 32×32, dan 48×48. Diperlukan untuk dukungan browser lama termasuk versi Internet Explorer yang lebih lama.";
+                } else if (id === 'file-favicon-16') {
+                    if (p) p.textContent = "Ikon tab browser standar dengan ukuran 16×16 piksel. Digunakan oleh sebagian besar browser modern sebagai favicon tab utama untuk tampilan dengan kepadatan standar.";
+                } else if (id === 'file-favicon-32') {
+                    if (p) p.textContent = "Ikon tab browser beresolusi tinggi (High-DPI) dengan ukuran 32×32 piksel. Ditampilkan pada layar Retina dan HiDPI untuk rendering favicon yang jernih dan tajam di tab browser.";
+                } else if (id === 'file-apple-touch') {
+                    if (p) p.textContent = "Ikon Apple Touch berukuran 180x180 piksel untuk iPhone, iPad, dan iPod Touch. Ditampilkan saat pengguna menambahkan situs web Anda ke layar beranda iOS mereka.";
+                } else if (id === 'file-android-192') {
+                    if (p) p.textContent = "Ikon layar beranda Android berukuran 192x192 piksel. Digunakan saat pengguna Android menambahkan situs Anda ke layar beranda mereka melalui Chrome atau browser lain.";
+                } else if (id === 'file-android-512') {
+                    if (p) p.textContent = "Ikon PWA beresolusi tinggi berukuran 512x512 piksel. Diperlukan untuk prompt instalasi Progressive Web App dan layar pembuka pada perangkat Android.";
+                } else if (id === 'file-manifest') {
+                    if (p) p.textContent = "File Manifest Aplikasi Web yang berisi referensi ikon, warna tema, dan warna latar belakang. Penting untuk dukungan PWA dan integrasi layar beranda Android.";
+                }
+            });
+        }
+
+        // Testimonials Section
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'Testimoni';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'Apa Kata Pengguna Kami';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = 'Lebih dari 50.000 pengembang, desainer, dan kreator mempercayai PNGtoFavicon untuk proyek mereka.';
+
+            // Rating blocks
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Ulasan terverifikasi di Trustpilot';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Ulasan terverifikasi di Capterra';
+            }
+
+            // Trustpilot Reviews
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Alex M.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Pengembang Frontend';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'Okt 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"Cara tercepat untuk menghasilkan semua ukuran favicon. Hanya butuh 2 detik dan menangani format manifest.json baru dengan sempurna."';
+
+                    // Card 2: Sarah J.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Desainer UI/UX';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Sep 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"Dulu saya menggunakan 3 alat berbeda untuk mengkonversi PNG saya menjadi ICO dan Apple Touch Icons. Ini melakukannya hanya dengan satu klik."';
+
+                    // Card 3: David K.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Indie Hacker';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Agu 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"Antarmuka bersih, tanpa iklan, dan menghormati privasi. Sangat direkomendasikan untuk desainer UI dan pengembang."';
+
+                    // Card 4: Elena R.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Pemilik Agensi';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Juli 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"Kami menggunakan ini untuk semua proyek klien kami sekarang. Hasilnya selalu jernih, dan cuplikan kode HTML menghemat banyak waktu kami."';
+
+                    // Card 5: Michael T.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'Pengembang Full Stack';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Juni 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"Akhirnya, generator favicon yang memahami kebutuhan web modern. Tema mode gelap situs itu sendiri juga sangat indah!"';
+
+                    // Card 6: Jessica L.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Manajer Produk';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Mei 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"Alat yang sangat andal. Saya suka karena alat ini memberi Anda apa yang Anda butuhkan tanpa membuat Anda harus melalui banyak hal atau mendaftar."';
+                }
+            }
+
+            // Capterra Reviews
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    // Card 1: Ryan P.
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'Teknisi Perangkat Lunak';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'November 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"Eksekusi yang benar-benar sempurna. File zip yang dihasilkan terorganisir dengan sempurna dan ikonnya terlihat bagus di semua perangkat."';
+
+                    // Card 2: Amanda B.
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'Direktur Pemasaran';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'Oktober 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"Hanya butuh kurang dari satu menit untuk memperbarui favicon situs web perusahaan kami. Prosesnya sangat intuitif."';
+
+                    // Card 3: Chris W.
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'Pendiri Startup';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'Sep 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"Satu hal yang tidak perlu dikhawatirkan lagi saat meluncurkan produk baru. Cukup seret, lepas, dan Anda mendapatkan favicon yang sempurna."';
+
+                    // Card 4: Nina S.
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'Desainer Web Freelance';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'Aug 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"Saya merekomendasikan alat ini kepada semua rekan saya. Alat ini menangani transparansi dengan sempurna dan file ICO selalu valid."';
+
+                    // Card 5: Tom H.
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'CTO';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'Jul 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"Sederhana, efektif, dan melakukan persis seperti yang dijanjikan. Tidak ada fitur yang berlebihan, hanya utilitas yang solid."';
+
+                    // Card 6: Laura C.
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'Blogger';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'Jun 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"Saya tidak terlalu paham teknologi, tetapi alat ini memudahkan saya untuk mendapatkan ikon profesional untuk blog saya. Terima kasih!"';
+                }
+            }
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "Pertanyaan yang Sering Diajukan";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why use an emoji favicon instead of a traditional text/image logo?')) {
+                        summary.innerHTML = "<h3>Mengapa menggunakan favikon emoji daripada logo teks/gambar tradisional?</h3>";
+                        if (p) p.textContent = "Favikon emoji menyenangkan, deskriptif, dan langsung dikenali. Emoji sangat bagus untuk alat pengembang, blog pribadi, proyek SaaS, dan aplikasi web ringan. Karena emoji sangat terstandarisasi, tampilannya konsisten di berbagai layar.";
+                    } else if (qTxt.includes('Can I use any custom emoji?')) {
+                        summary.innerHTML = "<h3>Bisakah saya menggunakan emoji khusus apa saja?</h3>";
+                        if (p) p.textContent = "Ya! Anda dapat mengetik atau menempelkan emoji tunggal langsung ke kolom \"Emoji yang Dipilih\", dan kanvas rendering kami akan langsung menggambarnya.";
+                    } else if (qTxt.includes('Does this tool support transparency for emojis?')) {
+                        summary.innerHTML = "<h3>Apakah alat ini mendukung transparansi untuk emoji?</h3>";
+                        if (p) p.textContent = "Ya. Centang kotak \"Tetap transparan (Hanya ikon)\", dan alat ini akan merender emoji langsung pada kanvas transparan, menyimpannya sebagai file PNG transparan.";
+                    } else if (qTxt.includes('Are there any licensing or copyright issues with emoji favicons?')) {
+                        summary.innerHTML = "<h3>Apakah ada masalah lisensi atau hak cipta dengan favikon emoji?</h3>";
+                        if (p) p.textContent = "Emoji sistem asli yang dirender pada kanvas adalah font sistem standar, yang aman untuk penggunaan web pribadi dan komersial.";
+                    }
+                }
+            });
+        }
+
+        // Explore More Tools / Other tools
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "Jelajahi Lebih Banyak Alat Favicon";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon menawarkan serangkaian alat lengkap untuk semua kebutuhan favicon Anda";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "Teks ke Favicon";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "Buat favicon dari huruf, inisial, atau teks apa pun. Pilih font, warna, dan gaya untuk menghasilkan favicon berbasis teks yang unik untuk merek Anda.";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Coba gratis →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "Emoji ke Favicon";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "Pilih dari ratusan emoji untuk langsung membuat favicon yang berwarna-warni dan ekspresif. Sempurna untuk proyek pribadi, blog, dan prototipe cepat.";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Coba gratis →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "Pemeriksa Favicon";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "Validasi pengaturan favicon situs web Anda. Masukkan URL apa pun untuk memeriksa ukuran yang hilang, format yang salah, dan masalah kompatibilitas lintas platform.";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "Cek sekarang →";
+            }
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Mulai Konversi PNG ke Favicon Gratis Hari Ini";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Bergabunglah dengan 50.000+ pengguna yang mempercayai PNGtoFavicon.com untuk pembuatan favicon yang akurat, cepat, dan sepenuhnya gratis.";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Mulai Konversi Sekarang - Gratis!";
+        }
+
+        // Common Footers and menus
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Panduan Ukuran Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "Apa itu Favicon?";
+                else if (txt === 'About') el.textContent = "Tentang Kami";
+                else if (txt === 'Contact') el.textContent = "Kontak";
+                else if (txt === 'Privacy Policy') el.textContent = "Kebijakan Privasi";
+                else if (txt === 'Terms of Service') el.textContent = "Ketentuan Layanan";
+                else if (txt === 'Cookie Policy') el.textContent = "Kebijakan Cookie";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Kontak Dukungan: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Obrolan di WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     } else if (targetLang === 'fr' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur d'emojis en favicon | PNGtoFavicon";
