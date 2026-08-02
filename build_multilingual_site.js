@@ -10626,6 +10626,125 @@ async function localizePage(relativePath, targetLang) {
             if (h3_4) h3_4.textContent = "💡 Bonnes pratiques pour les favicons";
             if (p_4) p_4.textContent = "Conseils pour adapter les designs, optimiser le poids des fichiers et bonnes pratiques SEO pour améliorer votre taux de clics sur Google.";
         }
+    } else if (targetLang === 'id' && normPath === 'tutorials/index.html') {
+        // Page title & metadata
+        doc.title = "Panduan & Tutorial Favicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Pelajari cara membuat, memasang, dan mengoptimalkan favicon situs web untuk kompatibilitas browser dan visibilitas SEO yang optimal.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Panduan & Tutorial Favicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Pelajari cara membuat, memasang, dan mengoptimalkan favicon situs web untuk kompatibilitas browser dan visibilitas SEO yang optimal.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Panduan & Tutorial Favicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Pelajari cara membuat, memasang, dan mengoptimalkan favicon situs web untuk kompatibilitas browser dan visibilitas SEO yang optimal.");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"Tutorials Index"')) {
+                jsonText = jsonText.replace(/"Tutorials Index"/g, '"Panduan & Tutorial Favicon"');
+                script.textContent = jsonText;
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Panduan & <span class='gradient-text'>Tutorial</span> Favicon";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Pelajari cara membuat, memasang, dan mengoptimalkan favicon situs web untuk kompatibilitas browser dan visibilitas SEO yang optimal.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.tools-grid a.tool-card');
+        if (cards.length >= 4) {
+            // Card 1
+            const h3_1 = cards[0].querySelector('h3');
+            const p_1 = cards[0].querySelector('p');
+            if (h3_1) h3_1.textContent = "❓ Apa itu Favicon?";
+            if (p_1) p_1.textContent = "Pelajari sejarah dan tujuan ikon tab browser dan mengapa ikon tersebut penting untuk branding digital.";
+
+            // Card 2
+            const h3_2 = cards[1].querySelector('h3');
+            const p_2 = cards[1].querySelector('p');
+            if (h3_2) h3_2.textContent = "📏 Panduan Ukuran Favicon";
+            if (p_2) p_2.textContent = "Pelajari dimensi favicon mana yang dibutuhkan untuk layar retina modern, aplikasi Android, dan bookmark iOS.";
+
+            // Card 3
+            const h3_3 = cards[2].querySelector('h3');
+            const p_3 = cards[2].querySelector('p');
+            if (h3_3) h3_3.textContent = "➕ Cara Menambahkan Favicon";
+            if (p_3) p_3.textContent = "Cuplikan HTML generik yang dapat disalin dan ditempel serta petunjuk unggah ke server untuk memasang file favicon Anda.";
+
+            // Card 4
+            const h3_4 = cards[3].querySelector('h3');
+            const p_4 = cards[3].querySelector('p');
+            if (h3_4) h3_4.textContent = "💡 Praktik Terbaik Favicon";
+            if (p_4) p_4.textContent = "Tips tentang penskalaan desain, pengoptimalan ukuran file, dan panduan SEO favicon untuk meningkatkan CTR Google.";
+        }
+
+        // Header and Footer
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Panduan Ukuran Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "Apa itu Favicon?";
+                else if (txt === 'About') el.textContent = "Tentang Kami";
+                else if (txt === 'Contact') el.textContent = "Kontak";
+                else if (txt === 'Privacy Policy') el.textContent = "Kebijakan Privasi";
+                else if (txt === 'Terms of Service') el.textContent = "Ketentuan Layanan";
+                else if (txt === 'Cookie Policy') el.textContent = "Kebijakan Cookie";
+            });
+        });
+
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Kontak Dukungan: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Obrolan di WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     } else if (targetLang === 'es' && normPath === 'blog/index.html') {
         // Page title & metadata
         doc.title = "Blog de Branding y Favicons | PNGtoFavicon";
