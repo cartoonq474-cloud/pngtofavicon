@@ -15397,6 +15397,55 @@ async function localizePage(relativePath, targetLang) {
             const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
             if (btn) btn.textContent = "Mulai Konversi Sekarang - Gratis!";
         }
+
+        // Common Footers and menus
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Konversi PNG ke Favicon secara instan — alat online gratis";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Alat";
+                else if (txt === 'Resources') h4.textContent = "Sumber Daya";
+                else if (txt === 'Company') h4.textContent = "Perusahaan";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Konverter PNG ke Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Teks ke Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji ke Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Pemeriksa Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutorial";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Panduan Ukuran Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "Apa itu Favicon?";
+                else if (txt === 'About') el.textContent = "Tentang Kami";
+                else if (txt === 'Contact') el.textContent = "Kontak";
+                else if (txt === 'Privacy Policy') el.textContent = "Kebijakan Privasi";
+                else if (txt === 'Terms of Service') el.textContent = "Ketentuan Layanan";
+                else if (txt === 'Cookie Policy') el.textContent = "Kebijakan Cookie";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Kontak Dukungan: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Obrolan di WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
     } else if (targetLang === 'fr' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur de favicon avec texte | PNGtoFavicon";
