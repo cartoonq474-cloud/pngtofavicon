@@ -12165,6 +12165,160 @@ async function localizePage(relativePath, targetLang) {
                 }
             }
         });
+    } else if (targetLang === 'pt' && normPath === 'blog/index.html') {
+        // Page title & metadata
+        doc.title = "Blog de Branding e Favicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Mantenha-se atualizado com os padrões modernos da web, checklist de SEO e dicas de design para snippets e abas de pesquisa.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Blog de Branding e Favicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Mantenha-se atualizado com os padrões modernos da web, checklist de SEO e dicas de design para snippets e abas de pesquisa.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Blog de Branding e Favicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Mantenha-se atualizado com os padrões modernos da web, checklist de SEO e dicas de design para snippets e abas de pesquisa.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Blog de Branding e <span class='gradient-text'>Favicon</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Mantenha-se atualizado com os padrões modernos da web, checklist de SEO e dicas de design para snippets e abas de pesquisa.";
+        }
+
+        // Cards Section
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1
+            const spans_1 = cards[0].querySelectorAll('span');
+            const links_1 = cards[0].querySelectorAll('a');
+            const p_1 = cards[0].querySelector('p');
+            if (spans_1.length >= 2) {
+                spans_1[0].textContent = "SEO E BRANDING";
+                spans_1[1].textContent = "10 de julho de 2026 · 6 min de leitura";
+            }
+            if (links_1.length >= 2) {
+                links_1[0].textContent = "Guia de SEO para Favicon: Aumentando as Taxas de Cliques em Snippets de Pesquisa";
+                links_1[1].textContent = "Ler o artigo →";
+            }
+            if (p_1) p_1.textContent = "Saiba como o Google analisa os favicons de sites para páginas de resultados de pesquisa em desktops e celulares, e como os ícones de abas configurados impactam a sua taxa de cliques (CTR) de SEO visual.";
+
+            // Card 2
+            const spans_2 = cards[1].querySelectorAll('span');
+            const links_2 = cards[1].querySelectorAll('a');
+            const p_2 = cards[1].querySelector('p');
+            if (spans_2.length >= 2) {
+                spans_2[0].textContent = "FORMATOS DE ARQUIVO";
+                spans_2[1].textContent = "05 de julho de 2026 · 8 min de leitura";
+            }
+            if (links_2.length >= 2) {
+                links_2[0].textContent = "PNG vs ICO vs SVG: Escolhendo o Formato de Favicon Certo";
+                links_2[1].textContent = "Ler o artigo →";
+            }
+            if (p_2) p_2.textContent = "Uma análise detalhada dos formatos dos ícones dos navegadores. Compare o clássico fallback em ICO, ícones de abas PNG nítidos e características vetoriais SVG responsivas modernas.";
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Converta PNG em Favicon instantaneamente — ferramenta online gratuita";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Ferramentas";
+                else if (txt === 'Resources') h4.textContent = "Recursos";
+                else if (txt === 'Company') h4.textContent = "Empresa";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor de PNG para Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Guia de Tamanhos Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "O que é um Favicon?";
+                else if (txt === 'About') el.textContent = "Sobre";
+                else if (txt === 'Contact') el.textContent = "Contato";
+                else if (txt === 'Privacy Policy') el.textContent = "Política de Privacidade";
+                else if (txt === 'Terms of Service') el.textContent = "Termos de Serviço";
+                else if (txt === 'Cookie Policy') el.textContent = "Política de Cookies";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Suporte: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Conversar no WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
+
+        // FAQPage Structured Data (Brazilian Portuguese)
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "O que é um favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Um favicon (abreviação de \"ícone favorito\") é um pequeno ícone associado a um site. Ele aparece nas abas do navegador, listas de favoritos, histórico do navegador e resultados de pesquisa. Os favicons ajudam os usuários a identificar rapidamente o seu site entre várias abas e favoritos abertos. A maioria dos navegadores modernos suporta vários tamanhos de favicon para diferentes contextos — desde pequenos ícones de aba de 16×16 pixels até grandes ícones de 512×512 pixels usados por Progressive Web Apps (PWAs) para atalhos na tela inicial e telas de inicialização (splash screens).";
+
+                        schema.mainEntity[1].name = "De quais tamanhos eu preciso para um favicon?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para um suporte completo em diversos navegadores e dispositivos, você precisa de: 16×16 (ícone de aba padrão), 32×32 (ícone de aba HiDPI), 48×48 (ícone de site do Windows), 180×180 (Apple Touch Icon), 192×192 (ícone do Android Chrome) e 512×512 (ícone de instalação do PWA). O PNGtoFavicon gera todos esses formatos automaticamente a partir de um único envio de PNG, além de um arquivo favicon.ico de vários tamanhos.";
+
+                        schema.mainEntity[2].name = "Como adiciono um favicon ao meu site?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Depois de baixar seu pacote de favicon do PNGtoFavicon, extraia o arquivo ZIP no diretório raiz do seu site e adicione as tags de link HTML fornecidas dentro da seção <head>. O PNGtoFavicon gera o trecho de código HTML exato de que você precisa, pronto para copiar e colar.";
+
+                        schema.mainEntity[3].name = "Minha imagem é enviada para um servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Não — sua imagem nunca sai do seu navegador. O PNGtoFavicon processa tudo 100% no lado do cliente usando JavaScript e a API HTML5 Canvas. Nenhum dado é enviado para qualquer servidor, tornando este o gerador de favicon mais privado disponível.";
+
+                        schema.mainEntity[4].name = "Quais formatos de arquivo são suportados para entrada?";
+                        schema.mainEntity[4].acceptedAnswer.text = "O PNGtoFavicon aceita PNG (recomendado, suporta transparência), JPG/JPEG, SVG (formatos vetoriais), WEBP (formato moderno) e GIF. Para obter melhores resultados, use uma imagem PNG quadrada de pelo menos 512×512 pixels com fundo transparente.";
+
+                        schema.mainEntity[5].name = "Posso usar esta ferramenta no celular?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Sim! O PNGtoFavicon é totalmente responsivo e funciona em qualquer dispositivo com um navegador web moderno — incluindo smartphones e tablets. Você pode carregar imagens, configurar opções e baixar seu pacote completo de favicon diretamente do seu dispositivo móvel.";
+
+                        schema.mainEntity[6].name = "Qual é a diferença entre favicons .ico e .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "O formato .ico é um contêiner legado que pode conter vários tamanhos de ícone em um único arquivo, necessário para compatibilidade com navegadores mais antigos. Os navegadores modernos preferem arquivos .png individuais especificados com tags de link, oferecendo melhor qualidade e tamanhos de arquivo menores. O PNGtoFavicon gera ambos os formatos.";
+
+                        schema.mainEntity[7].name = "O que é site.webmanifest e eu preciso dele?";
+                        schema.mainEntity[7].acceptedAnswer.text = "O site.webmanifest é um arquivo JSON que informa aos navegadores sobre o seu aplicativo web — incluindo seu nome, cor do tema e referências de ícones. Ele é essencial para a funcionalidade do Progressive Web App (PWA) e melhora a compatibilidade com o Android Chrome e outros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blog index FAQ schema: ", e);
+                }
+            }
+        });
     } else if (targetLang === 'es' && normPath === 'blog/index.html') {
         // Page title & metadata
         doc.title = "Blog de Branding y Favicons | PNGtoFavicon";
