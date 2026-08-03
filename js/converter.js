@@ -538,6 +538,14 @@
           'Apple Touch Icon': 'Icône tactile Apple',
           'Android home screen': 'Écran d\'accueil Android',
           'PWA install icon': 'Icône de lancement PWA'
+        },
+        pt: {
+          'Browser tabs': 'Abas do navegador',
+          'HiDPI tabs': 'Abas HiDPI',
+          'Windows desktop': 'Área de trabalho do Windows',
+          'Apple Touch Icon': 'Ícone Apple Touch',
+          'Android home screen': 'Tela inicial do Android',
+          'PWA install icon': 'Ícone de instalação PWA'
         }
       };
       if (translations[currentLang] && translations[currentLang][descText]) {
@@ -564,6 +572,7 @@
       var dlText = '↓ Download';
       if (currentLang === 'es') dlText = '↓ Descargar';
       else if (currentLang === 'fr') dlText = '↓ Télécharger';
+      else if (currentLang === 'pt') dlText = '↓ Baixar';
       dlBtn.textContent = dlText;
       dlBtn.setAttribute('aria-label', 'Download ' + sizeEntry.name);
       dlBtn.addEventListener('click', (function (entry, cvs) {
@@ -702,6 +711,27 @@
 
     // Expose globally
     window.showToastNotification = showToast;
+
+    // Localize message if language is not English
+    var currentLang = document.documentElement.lang || 'en';
+    if (currentLang === 'pt') {
+      var ptMsgs = {
+        'Please upload a valid image (PNG, JPG, SVG, WebP, or GIF).': 'Por favor, envie uma imagem válida (PNG, JPG, SVG, WebP ou GIF).',
+        'File is too large. Maximum size is 5 MB.': 'O arquivo é muito grande. O tamanho máximo é 5 MB.',
+        'Failed to read the file. Please try again.': 'Falha ao ler o arquivo. Por favor, tente novamente.',
+        'Could not decode image. The file may be corrupted.': 'Não foi possível decodificar a imagem. O arquivo pode estar corrompido.',
+        'JSZip library failed to load. Please refresh and try again.': 'Falha ao carregar a biblioteca JSZip. Por favor, atualize a página e tente novamente.',
+        'Please upload an image first.': 'Por favor, envie uma imagem primeiro.',
+        'Favicon package downloaded!': 'Pacote de favicon baixado!',
+        'Download failed.': 'O download falhou.',
+        'Something went wrong during generation.': 'Algo deu errado durante a geração.',
+        'favicon.ico downloaded!': 'favicon.ico baixado!',
+        'Failed to generate ICO file.': 'Falha ao gerar o arquivo ICO.',
+        'Code copied!': 'Código copiado!'
+      };
+      if (ptMsgs[message]) message = ptMsgs[message];
+      else if (message.indexOf('Failed to generate ZIP:') === 0) message = 'Falha ao gerar o ZIP: ' + message.substring('Failed to generate ZIP:'.length);
+    }
 
     // Remove any existing toast
     var existing = document.querySelector('.toast-notification');

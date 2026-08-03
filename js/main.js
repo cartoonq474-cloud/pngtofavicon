@@ -70,22 +70,88 @@
       // Skip if user already responded
       if (localStorage.getItem('cookieConsent')) return;
 
+      const currentLang = document.documentElement.lang || 'en';
+      var ariaLabel = 'Cookie consent';
+      var text = '🍪 We use cookies to improve your experience and analyze site traffic. ' +
+                 'By continuing, you agree to our ' +
+                 '<a href="/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Privacy Policy</a>.';
+      var decline = 'Decline';
+      var accept = 'Accept';
+
+      if (currentLang === 'pt') {
+        ariaLabel = 'Consentimento de cookies';
+        text = '🍪 Utilizamos cookies para melhorar a sua experiência e analisar o tráfego do site. ' +
+               'Ao continuar, você concorda com a nossa ' +
+               '<a href="/pt/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Política de Privacidade</a>.';
+        decline = 'Recusar';
+        accept = 'Aceitar';
+      } else if (currentLang === 'es') {
+        ariaLabel = 'Consentimiento de cookies';
+        text = '🍪 Utilizamos cookies para mejorar su experiencia y analizar el tráfico del sitio. ' +
+               'Al continuar, acepta nuestra ' +
+               '<a href="/es/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Política de Privacidad</a>.';
+        decline = 'Rechazar';
+        accept = 'Aceptar';
+      } else if (currentLang === 'fr') {
+        ariaLabel = 'Consentement aux cookies';
+        text = '🍪 Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic du site. ' +
+               'En continuant, vous acceptez notre ' +
+               '<a href="/fr/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Politique de Confidentialité</a>.';
+        decline = 'Refuser';
+        accept = 'Accepter';
+      } else if (currentLang === 'de') {
+        ariaLabel = 'Cookie-Einwilligung';
+        text = '🍪 Wir verwenden Cookies, um Ihre Erfahrung zu verbessern und den Website-Traffic zu analysieren. ' +
+               'Durch die Fortsetzung stimmen Sie unserer ' +
+               '<a href="/de/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Datenschutzerklärung</a> zu.';
+        decline = 'Ablehnen';
+        accept = 'Akzeptieren';
+      } else if (currentLang === 'id') {
+        ariaLabel = 'Persetujuan cookie';
+        text = '🍪 Kami menggunakan cookie untuk meningkatkan pengalaman Anda dan menganalisis lalu lintas situs. ' +
+               'Dengan melanjutkan, Anda menyetujui <a href="/id/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Kebijakan Privasi</a> kami.';
+        decline = 'Tolak';
+        accept = 'Setuju';
+      } else if (currentLang === 'hi') {
+        ariaLabel = 'कुकी सहमति';
+        text = '🍪 हम आपके अनुभव को बेहतर बनाने और साइट ट्रैफ़िक का विश्लेषण करने के लिए कुकीज़ का उपयोग करते हैं। ' +
+               'जारी रखकर, आप हमारी <a href="/hi/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">गोpनीयता नीति</a> से सहमत होते हैं।';
+        decline = 'अस्वीकार करें';
+        accept = 'स्वीकार करें';
+      } else if (currentLang === 'tr') {
+        ariaLabel = 'Çerez onayı';
+        text = '🍪 Deneyiminizi geliştirmek ve site trafiğini analiz etmek için çerezler kullanıyoruz. ' +
+               'Devam ederek, <a href="/tr/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Gizlilik Politikamızı</a> kabul etmiş olursunuz.';
+        decline = 'Reddet';
+        accept = 'Kabul Et';
+      } else if (currentLang === 'ur') {
+        ariaLabel = 'کوکی کی رضامندی';
+        text = '🍪 ہم آپ کے تجربے کو بہتر بنانے اور سائٹ ٹریفک کا تجزیہ کرنے کے لیے کوکیز کا استعمال کرتے ہیں۔ ' +
+               'جاری رکھ کر، آپ ہماری <a href="/ur/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">رازداری کی پالیسی</a> سے اتفاق کرتے ہیں۔';
+        decline = 'مسترد کریں';
+        accept = 'قبول کریں';
+      } else if (currentLang === 'ar') {
+        ariaLabel = 'موافقة الكوكيز';
+        text = '🍪 نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتحليل حركة مرور الموقع. ' +
+               'من خلال الاستمرار، فإنك توافق على <a href="/ar/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">سياسة الخصوصية</a> الخاصة بنا.';
+        decline = 'رفض';
+        accept = 'قبول';
+      }
+
       // Inject banner HTML
       const banner = document.createElement('div');
       banner.id = 'cookie-consent';
       banner.className = 'glass-card cookie-banner';
       banner.setAttribute('role', 'dialog');
-      banner.setAttribute('aria-label', 'Cookie consent');
+      banner.setAttribute('aria-label', ariaLabel);
       banner.innerHTML =
         '<div class="cookie-banner__inner" style="display:flex; justify-content:space-between; align-items:center; width:100%; gap:1.5rem; flex-wrap:wrap;">' +
           '<p class="cookie-banner__text" style="color:var(--text-primary); margin:0; font-size:0.95rem; line-height:1.5;">' +
-            '🍪 We use cookies to improve your experience and analyze site traffic. ' +
-            'By continuing, you agree to our ' +
-            '<a href="/privacy/" style="color:var(--accent-secondary); text-decoration:underline; font-weight:500;">Privacy Policy</a>.' +
+            text +
           '</p>' +
           '<div class="cookie-banner__actions" style="display:flex; gap:0.75rem;">' +
-            '<button class="btn btn-outline" id="cookie-decline" style="padding:0.5rem 1.25rem; font-size:0.875rem;">Decline</button>' +
-            '<button class="btn btn-primary" id="cookie-accept" style="padding:0.5rem 1.25rem; font-size:0.875rem;">Accept</button>' +
+            '<button class="btn btn-outline" id="cookie-decline" style="padding:0.5rem 1.25rem; font-size:0.875rem;">' + decline + '</button>' +
+            '<button class="btn btn-primary" id="cookie-accept" style="padding:0.5rem 1.25rem; font-size:0.875rem;">' + accept + '</button>' +
           '</div>' +
         '</div>';
 
@@ -168,10 +234,22 @@
         var text = codeEl.textContent;
         var originalText = btn.textContent;
 
+        var copiedText = '✓ Copied!';
+        var currentLang = document.documentElement.lang || 'en';
+        if (currentLang === 'pt') copiedText = '✓ Copiado!';
+        else if (currentLang === 'es') copiedText = '✓ ¡Copiado!';
+        else if (currentLang === 'fr') copiedText = '✓ Copié !';
+        else if (currentLang === 'de') copiedText = '✓ Kopiert!';
+        else if (currentLang === 'id') copiedText = '✓ Disalin!';
+        else if (currentLang === 'hi') copiedText = '✓ कॉपी किया गया!';
+        else if (currentLang === 'tr') copiedText = '✓ Kopyalandı!';
+        else if (currentLang === 'ur') copiedText = '✓ کاپی ہو گیا!';
+        else if (currentLang === 'ar') copiedText = '✓ تم النسخ!';
+
         navigator.clipboard
           .writeText(text)
           .then(function () {
-            btn.textContent = '✓ Copied!';
+            btn.textContent = copiedText;
             btn.classList.add('copied');
             setTimeout(function () {
               btn.textContent = originalText;
@@ -181,7 +259,7 @@
           .catch(function () {
             // Fallback for older browsers
             fallbackCopy(text);
-            btn.textContent = '✓ Copied!';
+            btn.textContent = copiedText;
             btn.classList.add('copied');
             setTimeout(function () {
               btn.textContent = originalText;
