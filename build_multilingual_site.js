@@ -3523,7 +3523,7 @@ async function localizePage(relativePath, targetLang) {
                 pList_3[1].textContent = 'Zu verstehen, wo Ihr Favicon angezeigt wird, verdeutlicht, warum die Wahl des richtigen Designs und Dateiformats wichtig ist.';
             }
             const h4List_3 = cards[2].querySelectorAll('h4');
-            const pDescList_3 = cards[2].querySelectorAll('div > div > p');
+            const pDescList_3 = cards[2].querySelectorAll('div[style*="display: grid"] p');
             if (h4List_3.length >= 9 && pDescList_3.length >= 9) {
                 h4List_3[0].textContent = 'Browser-Tabs';
                 pDescList_3[0].textContent = 'Der häufigste Ort für ein Favicon ist der Browser-Tab. Wenn mehrere Tabs geöffnet sind, verlassen sich Nutzer oft eher auf Favicons als auf Seitentitel, um die gewünschte Website zu finden. Ein markantes Symbol macht die Navigation schneller und verringert Verwirrung.';
@@ -13902,6 +13902,407 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
+    } else if (targetLang === 'pt' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "O que é um Favicon? | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Cada site tem uma identidade, e o favicon é um dos seus elementos de marca menores, mas mais reconhecíveis. Descubra por que ele é importante em 2026.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "O que é um Favicon? | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Cada site tem uma identidade, e o favicon é um dos seus elementos de marca menores, mas mais reconhecíveis. Descubra por que ele é importante em 2026.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "O que é um Favicon?");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Cada site tem uma identidade, e o favicon é um dos seus elementos de marca menores, mas mais reconhecíveis. Descubra por que ele é importante em 2026.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "O que é um <span class='gradient-text'>Favicon</span>?";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Cada site tem uma identidade, e o favicon é um dos seus elementos de marca menores, mas mais reconhecíveis. Descubra por que ele é importante em 2026.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 5) {
+            // Card 0: Introduction
+            const ps_0 = cards[0].querySelectorAll('p');
+            if (ps_0.length >= 4) {
+                ps_0[0].textContent = "Cada site tem uma identidade, e o favicon é um dos seus elementos de marca menores, mas mais reconhecíveis. Um favicon é o pequeno ícone exibido ao lado do título de uma página web nas abas do navegador, nos favoritos, no histórico de navegação e nos resultados de pesquisa em dispositivos compatíveis. Embora ocupe apenas alguns pixels, desempenha um papel importante ao ajudar os usuários a identificar o seu site rapidamente e a reforçar a sua marca em diferentes experiências de navegação.";
+                ps_0[1].textContent = "Muitos proprietários de sites se concentram em logotipos, tipografia e esquemas de cores, mas negligenciam o favicon durante o desenvolvimento do site. Favicons ausentes ou mal desenhados podem fazer com que um site pareça inacabado ou menos confiável. Em contrapartida, um favicon claro e reconhecível ajuda os visitantes a distinguir o seu site de dezenas de abas abertas, melhora a visibilidade nos favoritos e cria um aspecto mais profissional.";
+                ps_0[2].textContent = "Os navegadores modernos, os motores de busca e os dispositivos móveis utilizam favicons em mais lugares do que nunca. O Google pode exibi-los nos resultados de pesquisa em dispositivos móveis, os navegadores mostram-nos em abas e favoritos, e os Progressive Web Apps (PWAs) dependem deles como parte da experiência do ícone do aplicativo. Devido a esse uso ampliado, a criação de um favicon otimizado corretamente tornou-se um padrão no design de sites e no SEO técnico.";
+                ps_0[3].textContent = "Este guia explica o que é um favicon, por que ele é importante, onde aparece, os melhores tamanhos e formatos de arquivo, como criar e instalar um, erros comuns a evitar e se um favicon afeta o SEO.";
+            }
+
+            // Card 1: What Is a Favicon
+            const h2_1 = cards[1].querySelector('h2');
+            if (h2_1) h2_1.textContent = "O que é um Favicon?";
+            const ps_1 = cards[1].querySelectorAll('p');
+            if (ps_1.length >= 7) {
+                ps_1[0].textContent = "Um favicon (abreviação de ícone favorito) é uma pequena imagem que representa um site ou aplicativo web. Serve como identificador visual, facilitando o reconhecimento do seu site pelos usuários no meio de várias abas do navegador, favoritos, histórico de navegação e outros locais onde os sites são listados.";
+                ps_1[1].textContent = "Ao contrário de um logotipo de tamanho real, um favicon foi desenhado para permanecer reconhecível mesmo em dimensões muito pequenas, geralmente de apenas 16 × 16 pixels. Devido a esse espaço limitado, os favicons eficazes utilizam formas simples, forte contraste e detalhes mínimos.";
+                ps_1[2].textContent = "Quando alguém visita o seu site, o navegador solicita o arquivo de favicon junto com outros recursos do site, como HTML, CSS, JavaScript e imagens. Uma vez carregado, o navegador exibe o ícone onde for apropriado, ajudando os usuários a associar rapidamente a página à sua marca.";
+                
+                // h3: Origin of Term
+                ps_1[3].innerHTML = "A palavra favicon vem de \"ícone favorito\".";
+                ps_1[4].textContent = "O termo surgiu no final da década de 1990, quando a Microsoft introduziu o suporte para um pequeno ícone associado a sites. Inicialmente, esses ícones apareciam apenas quando os usuários adicionavam sites à lista de Favoritos do navegador no Internet Explorer. Com o tempo, outros navegadores adotaram o conceito e expandiram o seu uso para abas, favoritos, páginas de histórico, atalhos móveis e aplicativos web instalados.";
+
+                // h3: Primary Purpose
+                ps_1[5].textContent = "O principal objetivo de um favicon é fornecer uma identidade visual para um site.";
+                ps_1[6].textContent = "Em vez de depender apenas dos títulos das páginas, os usuários podem reconhecer rapidamente um site por meio do seu ícone. Isso se torna especialmente útil quando várias abas estão abertas, as janelas do navegador estão cheias ou os favoritos contêm centenas de sites salvos.";
+            }
+
+            const h3s_1 = cards[1].querySelectorAll('h3');
+            if (h3s_1.length >= 2) {
+                h3s_1[0].textContent = "A Origem do Termo \"Favicon\"";
+                h3s_1[1].textContent = "Qual é o principal objetivo de um favicon?";
+            }
+
+            // Paragraph above list & list
+            const ps_sub_1 = cards[1].querySelectorAll('p');
+            if (ps_sub_1.length >= 9) {
+                ps_sub_1[7].textContent = "Um favicon ajuda a:";
+                ps_sub_1[8].textContent = "Embora um favicon não aumente diretamente o posicionamento nos motores de busca, contribui para a usabilidade geral do site e para a consistência da marca, ambos fatores que contribuem para uma experiência positiva do usuário.";
+            }
+
+            const lis_1 = cards[1].querySelectorAll('ul li');
+            if (lis_1.length >= 5) {
+                lis_1[0].textContent = "Melhorar o reconhecimento da marca";
+                lis_1[1].textContent = "Facilitar a identificação das abas do navegador";
+                lis_1[2].textContent = "Diferenciar o seu site dos concorrentes";
+                lis_1[3].textContent = "Melhorar a experiência do usuário (UX)";
+                lis_1[4].textContent = "Apresentar uma aparência refinada e profissional";
+            }
+
+            // Card 2: Where Favicons Appear
+            const h2_2 = cards[2].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Onde Aparecem os Favicons";
+            const ps_2 = cards[2].querySelectorAll('p');
+            if (ps_2.length >= 2) {
+                ps_2[0].textContent = "Muitas pessoas presumem que um favicon só aparece nas abas do navegador, mas os navegadores, sistemas operacionais e motores de busca modernos exibem favicons em vários locais.";
+                ps_2[1].textContent = "Comprender onde o seu favicon aparece destaca a importância de escolher o design e o formato de arquivo corretos.";
+            }
+
+            const subheadings_2 = cards[2].querySelectorAll('h4');
+            const h4_texts = [
+                "Abas do Navegador",
+                "Favoritos do Navegador",
+                "Histórico de Navegação",
+                "Barra de Endereço e Interface do Navegador",
+                "Resultados de Pesquisa do Google",
+                "Atalhos da Tela Inicial de Dispositivos Móveis",
+                "Progressive Web Apps (PWAs)",
+                "Páginas Iniciais do Navegador",
+                "Gerenciadores de Senhas e Preenchimento Automático do Navegador"
+            ];
+            const p_texts = [
+                "O local mais comum para um favicon é a aba do navegador. Quando várias abas estão abertas, os usuários geralmente dependem dos favicons em vez dos títulos das páginas para localizar o site desejado. Um ícone distinto torna a navegação mais rápida e reduz a confusão.",
+                "Os favicons também aparecem ao lado das páginas favoritas. A maioria dos navegadores exibe o ícone do site ao lado de cada favorito, permitindo aos usuários examinar as pastas de favoritos rapidamente sem ter de ler todos os títulos.",
+                "Muitos navegadores para desktop e dispositivos móveis exibem favicons no histórico de navegação. Em vez de mostrar um ícone genérico de um documento, os navegadores utilizam o favicon para distinguir visualmente os sites, facilitando a visualização do histórico de navegação.",
+                "Alguns navegadores apresentam favicons na barra de endereço, na área de informação da página ou na interface de gerenciamento de abas. Embora a implementação varie entre navegadores, o suporte desses ambientes ajuda a manter uma identidade visual consistente em todas as plataformas.",
+                "O Google pode exibir o favicon de um site nos resultados de pesquisa em dispositivos móveis e em algumas experiências de pesquisa em computadores. Quando apresentado junto ao título da página e ao nome de domínio, o favicon fornece um sinal de marca adicional que ajuda os usuários a reconhecer o seu site.",
+                "Quando os usuários salvam um site na tela inicial do smartphone, os navegadores utilizam frequentemente um ícone específico baseado no favicon ou no Apple Touch Icon. Se o seu site incluir ícones configurados corretamente, o atalho terá um aspecto semelhante ao de um aplicativo nativo para dispositivos móveis.",
+                "Os Progressive Web Apps utilizam vários tamanhos de ícones derivados do conjunto de ícones do site. Quando os usuários instalam um PWA, esses ícones se tornam o ícone de inicialização, o ícone da tela inicial, o ícone do alternador de tarefas e o ícone de notificação do aplicativo.",
+                "Muitos navegadores exibem os sites visitados com frequência nas páginas de nova aba ou nos painéis da página inicial. Os favicons são comumente utilizados como identificador visual para cada site, facilitando o reconhecimento à primeira vista.",
+                "Alguns gerenciadores de senhas e de credenciais de navegador exibem favicons ao lado dos logins de sites salvos. Isso ajuda os usuários a identificar rapidamente o site correto antes de preencher automaticamente os nomes de usuário e as senhas."
+            ];
+
+            for (let i = 0; i < subheadings_2.length; i++) {
+                if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
+            }
+            const gridPs = cards[2].querySelectorAll('div[style*="display: grid"] p');
+            for (let i = 0; i < gridPs.length; i++) {
+                if (p_texts[i]) gridPs[i].textContent = p_texts[i];
+            }
+
+            // Card 3: Why Is a Favicon Important
+            const h2_3 = cards[3].querySelector('h2');
+            if (h2_3) h2_3.textContent = "Por que um Favicon é Importante?";
+            const ps_3 = cards[3].querySelectorAll('p');
+            if (ps_3.length >= 2) {
+                ps_3[0].textContent = "À primeira vista, um favicon pode parecer um elemento de design menor. Afinal, geralmente mede apenas 16 × 16 ou 32 × 32 pixels. No entanto, o seu impacto vai muito além do seu tamanho. Um favicon atua como um identificador visual para o seu site nos navegadores, favoritos, resultados de pesquisa e dispositivos móveis, ajudando os usuários a reconhecer e confiar na sua marca.";
+                ps_3[1].textContent = "Para empresas, blogueiros, lojas de comércio eletrônico, empresas de SaaS e sites pessoais, um favicon é um elemento padrão do design profissional da web. Sem ele, os navegadores exibem frequentemente um ícone genérico, o que pode fazer com que um site pareça incompleto ou menos confiável.";
+            }
+
+            const h3s_3 = cards[3].querySelectorAll('h3');
+            const h3_texts_3 = [
+                "Melhora o Reconhecimento da Marca",
+                "Facilita a Identificação das Abas do Navegador",
+                "Melhora a Experiência do Usuário (UX)",
+                "Transmite Confiança e Profissionalismo",
+                "Melhora a Visibilidade dos Favoritos",
+                "Melhora a Experiência do Usuário em Dispositivos Móveis",
+                "Garante Consistência da Marca em Todas as Plataformas",
+                "Pode Melhorar Indiretamente as Taxas de Cliques"
+            ];
+            for (let i = 0; i < h3s_3.length; i++) {
+                if (h3_texts_3[i]) h3s_3[i].textContent = h3_texts_3[i];
+            }
+
+            // Brand Recognition subps
+            const brand_p = h3s_3[0].nextElementSibling;
+            if (brand_p && brand_p.tagName === 'P') {
+                brand_p.textContent = "Uma das maiores vantagens de um favicon é que ele fortalece o reconhecimento da marca. As pessoas associam os símbolos visuais às marcas mais rapidamente do que o texto. Um favicon bem desenhado reforça a identidade do seu site sempre que alguém abre uma aba do navegador, verifica os seus favoritos ou vê o seu site nos resultados de pesquisa.";
+            }
+            const brand_lis = cards[3].querySelectorAll('ul')[0]?.querySelectorAll('li');
+            if (brand_lis && brand_lis.length >= 4) {
+                brand_lis[0].innerHTML = "<strong>Reforça a identidade visual:</strong> Cria uma ligação memorável com os visitantes.";
+                brand_lis[1].innerHTML = "<strong>Aumenta a lembrança da marca:</strong> Ajuda os usuários a se lembrarem do nome e do estilo do seu logotipo.";
+                brand_lis[2].innerHTML = "<strong>Cria consistência:</strong> Mantém um estilo uniforme em diferentes navegadores e dispositivos.";
+                brand_lis[3].innerHTML = "<strong>Torna o site memorável:</strong> Distingue sua marca visualmente.";
+            }
+
+            // Tab identification subps
+            const tab_p = h3s_3[1].nextElementSibling;
+            if (tab_p && tab_p.tagName === 'P') {
+                tab_p.textContent = "Os usuários modernos da internet raramente mantêm apenas uma aba do navegador aberta. Muitas pessoas trabalham com dezenas de abas simultaneamente, alternando entre sites ao longo do dia. Quando os títulos das páginas ficam encurtados devido ao espaço limitado nos abas, o favicon torna-se geralmente a principal pista visual que ajuda os usuários a identificar a aba correta.";
+            }
+
+            // Without / With Favicon comparison
+            const comp_red_h5 = cards[3].querySelector('h5[style*="#ef4444"]');
+            if (comp_red_h5) comp_red_h5.textContent = "Sem um favicon";
+            const comp_red_p = comp_red_h5?.nextElementSibling;
+            if (comp_red_p) comp_red_p.textContent = "Várias abas exibem ícones genéricos idênticos. Os usuários têm de ler títulos truncados, tornando a localização do site correto mais lenta e confusa.";
+
+            const comp_green_h5 = cards[3].querySelector('h5[style*="#06d6a0"]');
+            if (comp_green_h5) comp_green_h5.textContent = "Com um favicon";
+            const comp_green_p = comp_green_h5?.nextElementSibling;
+            if (comp_green_p) comp_green_p.textContent = "Cada site tem um identificador visual único. Os usuários podem localizar a aba correta quase instantaneamente, tornando a navegação mais rápida e intuitiva.";
+
+            // UX subp & list
+            const ux_p = h3s_3[2].nextElementSibling;
+            if (ux_p && ux_p.tagName === 'P') {
+                ux_p.textContent = "A experiência do usuário é influenciada por muitos pequenos detalhes, e um favicon é um deles. Embora não altere o funcionamento do seu site, melhora a interação dos usuários com o mesmo, fornecendo um contexto visual claro.";
+            }
+            const ux_lis = cards[3].querySelectorAll('ul')[1]?.querySelectorAll('li');
+            if (ux_lis && ux_lis.length >= 5) {
+                ux_lis[0].textContent = "Simplifica a navegação entre várias abas abertas";
+                ux_lis[1].textContent = "Melhora a organização dos favoritos";
+                ux_lis[2].textContent = "Facilita a visualização do histórico do navegador";
+                ux_lis[3].textContent = "Ajuda os usuários a localizar rapidamente os sites salvos";
+                ux_lis[4].textContent = "Proporciona continuidade visual em diferentes dispositivos";
+            }
+
+            // Trust subp
+            const trust_p = h3s_3[3].nextElementSibling;
+            if (trust_p && trust_p.tagName === 'P') {
+                trust_p.textContent = "A ausência de um favicon pode não impedir os visitantes de utilizar o seu site, mas pode afetar subtilmente a primeira impressão. Quando os navegadores exibem um ícone genérico em vez de um favicon personalizado, os usuários podem perceber o site como incompleto, desatualizado ou menos confiável. Um favicon personalizado demonstra atenção ao detalhe e profissionalismo.";
+            }
+
+            // Bookmark subp
+            const bookmark_p = h3s_3[4].nextElementSibling;
+            if (bookmark_p && bookmark_p.tagName === 'P') {
+                bookmark_p.textContent = "Muitos usuários salvam nos favoritos os sites que planejam revisitar. Os navegadores exibem os favicons junto com os títulos dos favoritos. Quando os favoritos são organizados em pastas contendo dezenas de sites, um favicon diferenciado ajuda o seu site a se destacar, aumentando a probabilidade de visitas repetidas.";
+            }
+
+            // Mobile subp
+            const mobile_p = h3s_3[5].nextElementSibling;
+            if (mobile_p && mobile_p.tagName === 'P') {
+                mobile_p.textContent = "Os favicons já não se limitam aos navegadores de desktop. Nos smartphones e tablets, os navegadores utilizam ícones de sites quando os usuários adicionam páginas à tela inicial. Os Progressive Web Apps (PWAs) também dependem desses ícones para a inicialização do aplicativo, telas de inicialização (splash screens), notificações e alternadores de tarefas.";
+            }
+
+            // Consistency subp
+            const consistency_p = h3s_3[6].nextElementSibling;
+            if (consistency_p && consistency_p.tagName === 'P') {
+                consistency_p.textContent = "Um favicon consistente garante que a sua marca permanece reconhecível, independentemente de onde os usuários encontram o seu site: navegadores de desktop, telas iniciais de dispositivos móveis, histórico do navegador, gerenciadores de senhas ou resultados de pesquisa.";
+            }
+
+            // CTR subp
+            const ctr_p = h3s_3[7].nextElementSibling;
+            if (ctr_p && ctr_p.tagName === 'P') {
+                ctr_p.textContent = "Em experiências de pesquisa compatíveis, um favicon reconhecível exibido ao lado do título e do URL do seu site ajuda os usuários a identificar a sua marca rapidamente. Uma marca familiar pode aumentar a confiança e incentivar os cliques nos resultados de pesquisa.";
+            }
+
+            // Card 4: Does a Favicon Directly Improve SEO?
+            const h2_4 = cards[4].querySelector('h2');
+            if (h2_4) h2_4.textContent = "Um favicon melhora diretamente o SEO?";
+            const ps_4 = cards[4].querySelectorAll('p');
+            if (ps_4.length >= 3) {
+                ps_4[0].innerHTML = "Um favicon <strong>não</strong> é um fator direto de ranqueamento do Google. Ter um favicon por si só não melhorará a sua posição nos resultados de pesquisa.";
+                ps_4[1].textContent = "No entanto, ele pode contribuir indiretamente para o SEO, melhorando a experiência geral do usuário e fortalecendo a sua marca:";
+                ps_4[2].textContent = "Os motores de busca recompensam cada vez mais os sites que oferecem uma experiência positiva ao usuário. Embora um favicon seja apenas um pequeno componente, complementa outras melhorias técnicas e de design que contribuem para um site de alta qualidade.";
+            }
+            const seo_lis = cards[4].querySelectorAll('ul li');
+            if (seo_lis.length >= 6) {
+                seo_lis[0].textContent = "Melhor reconhecimento da marca e confiança do usuário";
+                seo_lis[1].textContent = "Maior confiança do usuário e credibilidade profissional";
+                seo_lis[2].textContent = "Maior visibilidade nas abas e favoritos do navegador";
+                seo_lis[3].textContent = "Maior consistência da marca em todas as plataformas";
+                seo_lis[4].textContent = "Taxas de cliques potencialmente mais elevadas em resultados de pesquisa compatíveis";
+                seo_lis[5].textContent = "Navegação mais fácil para visitantes recorrentes";
+            }
+
+            // Card 5: Key Takeaways
+            if (cards.length >= 6) {
+                const h2_5 = cards[5].querySelector('h2');
+                if (h2_5) h2_5.textContent = "Principais Conclusões";
+                const ps_5 = cards[5].querySelectorAll('p');
+                if (ps_5.length >= 3) {
+                    ps_5[0].textContent = "Um favicon é muito mais do que um ícone decorativo. É um elemento essencial da sua marca que melhora o reconhecimento, a usabilidade e o profissionalismo nos navegadores, favoritos, dispositivos móveis e interfaces de pesquisa.";
+                    ps_5[1].textContent = "Ao implementar um favicon bem desenhado, você pode:";
+                    ps_5[2].textContent = "Embora ocupe apenas alguns pixels, um favicon tem um impacto duradouro na forma como os usuários percebem e interagem com o seu site.";
+                }
+                const takeaways_lis = cards[5].querySelectorAll('ul li');
+                if (takeaways_lis.length >= 6) {
+                    takeaways_lis[0].textContent = "Fortalecer a identidade de sua marca";
+                    takeaways_lis[1].textContent = "Ajudar os usuários a identificar o seu site instantaneamente";
+                    takeaways_lis[2].textContent = "Melhorar a navegação entre abas e favoritos do navegador";
+                    takeaways_lis[3].textContent = "Criar uma aparência mais profissional e confiável";
+                    takeaways_lis[4].textContent = "Proporcionar uma melhor experiência global ao usuário";
+                    takeaways_lis[5].textContent = "Contribuir indiretamente para o engajamento do usuário e desempenho de SEO";
+                }
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "Comece hoje mesmo a converter PNG em favicon gratuitamente!";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Junte-se a mais de 50.000 usuários que confiam no PNGtoFavicon.com para gerar favicons de forma precisa, rápida e totalmente gratuita.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Comece já a converter - É grátis!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Explore Mais Ferramentas para Favicon";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "O PNGtoFavicon oferece um conjunto completo de ferramentas para todas as suas necessidades de favicon.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Texto para Favicon";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Crie um favicon a partir de letras, iniciais ou qualquer texto. Escolha fontes, cores e estilos para gerar um favicon único baseado em texto para a sua marca.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Experimente grátis →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji para Favicon";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Escolha entre centenas de emojis para criar instantaneamente um favicon colorido e expressivo. Perfeito para projetos pessoais, blogs e protótipos rápidos.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Experimente grátis →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Verificador de Favicon";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Valide a configuração do favicon do seu site. Insira qualquer URL para verificar tamanhos ausentes, formatos incorretos e problemas de compatibilidade entre plataformas.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Confira já →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Converta PNG em Favicon instantaneamente — ferramenta online gratuita";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Ferramentas";
+                else if (txt === 'Resources') h4.textContent = "Recursos";
+                else if (txt === 'Company') h4.textContent = "Empresa";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor de PNG para Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Guia de Tamanhos Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "O que é um Favicon?";
+                else if (txt === 'About') el.textContent = "Sobre";
+                else if (txt === 'Contact') el.textContent = "Contato";
+                else if (txt === 'Privacy Policy') el.textContent = "Política de Privacidade";
+                else if (txt === 'Terms of Service') el.textContent = "Termos de Serviço";
+                else if (txt === 'Cookie Policy') el.textContent = "Política de Cookies";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Suporte: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Conversar no WhatsApp";
+                }
+            }
+        });
+
+        // FAQPage Structured Data (Brazilian Portuguese)
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "O que é um favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Um favicon (abreviação de \"ícone favorito\") é um pequeno ícone associado a um site. Ele aparece nas abas do navegador, listas de favoritos, histórico do navegador e resultados de pesquisa. Os favicons ajudam os usuários a identificar rapidamente o seu site entre várias abas e favoritos abertos. A maioria dos navegadores modernos suporta vários tamanhos de favicon para diferentes contextos — desde pequenos ícones de aba de 16×16 pixels até grandes ícones de 512×512 pixels usados por Progressive Web Apps (PWAs) para atalhos na tela inicial e telas de inicialização (splash screens).";
+
+                        schema.mainEntity[1].name = "De quais tamanhos eu preciso para um favicon?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para um suporte completo em diversos navegadores e dispositivos, você precisa de: 16×16 (ícone de aba padrão), 32×32 (ícone de aba HiDPI), 48×48 (ícone de site do Windows), 180×180 (Apple Touch Icon), 192×192 (ícone do Android Chrome) e 512×512 (ícone de instalação do PWA). O PNGtoFavicon gera todos esses formatos automaticamente a partir de um único envio de PNG, além de um arquivo favicon.ico de vários tamanhos.";
+
+                        schema.mainEntity[2].name = "Como adiciono um favicon ao meu site?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Depois de baixar seu pacote de favicon do PNGtoFavicon, extraia o arquivo ZIP no diretório raiz do seu site e adicione as tags de link HTML fornecidas dentro da seção <head>. O PNGtoFavicon gera o trecho de código HTML exato de que você precisa, pronto para copiar e colar.";
+
+                        schema.mainEntity[3].name = "Minha imagem é enviada para um servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Não — sua imagem nunca sai do seu navegador. O PNGtoFavicon processa tudo 100% no lado do cliente usando JavaScript e a API HTML5 Canvas. Nenhum dado é enviado para qualquer servidor, tornando este o gerador de favicon mais privado disponível.";
+
+                        schema.mainEntity[4].name = "Quais formatos de arquivo são suportados para entrada?";
+                        schema.mainEntity[4].acceptedAnswer.text = "O PNGtoFavicon aceita PNG (recomendado, suporta transparência), JPG/JPEG, SVG (formatos vetoriais), WEBP (formato moderno) e GIF. Para obter melhores resultados, use uma imagem PNG quadrada de pelo menos 512×512 pixels com fundo transparente.";
+
+                        schema.mainEntity[5].name = "Posso usar esta ferramenta no celular?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Sim! O PNGtoFavicon é totalmente responsivo e funciona em qualquer dispositivo com um navegador web moderno — incluindo smartphones e tablets. Você pode carregar imagens, configurar opções e baixar seu pacote completo de favicon diretamente do seu dispositivo móvel.";
+
+                        schema.mainEntity[6].name = "Qual é a diferença entre favicons .ico e .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "O formato .ico é um contêiner legado que pode conter vários tamanhos de ícone em um único arquivo, necessário para compatibilidade com navegadores mais antigos. Os navegadores modernos preferem arquivos .png individuais especificados com tags de link, oferecendo melhor qualidade e tamanhos de arquivo menores. O PNGtoFavicon gera ambos os formatos.";
+
+                        schema.mainEntity[7].name = "O que é site.webmanifest e eu preciso dele?";
+                        schema.mainEntity[7].acceptedAnswer.text = "O site.webmanifest é um arquivo JSON que informa aos navegadores sobre o seu aplicativo web — incluindo seu nome, cor do tema e referências de ícones. Ele é essencial para a funcionalidade do Progressive Web App (PWA) e melhora a compatibilidade com o Android Chrome e outros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing what-is-a-favicon FAQ schema: ", e);
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
     } else if (targetLang === 'es' && normPath === 'tutorials/what-is-a-favicon/index.html') {
         // Page title & metadata
         doc.title = "¿Qué es un favicon? | PNGtoFavicon";
@@ -14013,7 +14414,7 @@ async function localizePage(relativePath, targetLang) {
             for (let i = 0; i < subheadings_2.length; i++) {
                 if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
             }
-            const gridPs = cards[2].querySelectorAll('div > div > p');
+            const gridPs = cards[2].querySelectorAll('div[style*="display: grid"] p');
             for (let i = 0; i < gridPs.length; i++) {
                 if (p_texts[i]) gridPs[i].textContent = p_texts[i];
             }
@@ -14314,7 +14715,7 @@ async function localizePage(relativePath, targetLang) {
             for (let i = 0; i < subheadings_2.length; i++) {
                 if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
             }
-            const gridPs = cards[2].querySelectorAll('div > div > p');
+            const gridPs = cards[2].querySelectorAll('div[style*="display: grid"] p');
             for (let i = 0; i < gridPs.length; i++) {
                 if (refined_p_texts[i]) gridPs[i].textContent = refined_p_texts[i];
             }
@@ -14621,7 +15022,7 @@ async function localizePage(relativePath, targetLang) {
                 if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
             }
             // Wait, we need to match the p's inside the grid.
-            const gridPs = cards[2].querySelectorAll('div > div > p');
+            const gridPs = cards[2].querySelectorAll('div[style*="display: grid"] p');
             for (let i = 0; i < gridPs.length; i++) {
                 if (p_texts[i]) gridPs[i].textContent = p_texts[i];
             }
