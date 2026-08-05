@@ -185,6 +185,14 @@
       var descText = item.desc;
       var currentLang = document.documentElement.lang || 'en';
       var translations = {
+        pt: {
+          'Browser tabs': 'Abas do navegador',
+          'HiDPI tabs': 'Abas de alta resolução (Retina)',
+          'Windows desktop': 'Área de trabalho do Windows',
+          'Apple Touch Icon': 'Ícone Apple Touch',
+          'Android home screen': 'Tela inicial do Android',
+          'PWA install icon': 'Ícone de instalação PWA'
+        },
         es: {
           'Browser tabs': 'Navegador Pestañas',
           'HiDPI tabs': 'Pestañas HiDPI',
@@ -395,9 +403,24 @@
   // UI status utilities
   function setLoading(isLoading) {
     if (!DOM.downloadAllBtn) return;
+    var currentLang = document.documentElement.lang || 'en';
+    var genText = '⚙️ Generating ZIP...';
+    var dlText = 'Download Favicon Pack (ZIP)';
+    
+    if (currentLang === 'pt') {
+      genText = '⚙️ Gerando ZIP...';
+      dlText = 'Baixar Pacote de Favicon (ZIP)';
+    } else if (currentLang === 'es') {
+      genText = '⚙️ Generando ZIP...';
+      dlText = 'Descargar paquete de favicon (ZIP)';
+    } else if (currentLang === 'fr') {
+      genText = '⚙️ Génération du ZIP...';
+      dlText = 'Télécharger le pack de favicons (ZIP)';
+    }
+
     if (isLoading) {
       DOM.downloadAllBtn.setAttribute('disabled', 'disabled');
-      DOM.downloadAllBtn.innerHTML = '⚙️ Generating ZIP...';
+      DOM.downloadAllBtn.innerHTML = genText;
       if (DOM.progressBar) DOM.progressBar.classList.remove('hidden');
     } else {
       DOM.downloadAllBtn.removeAttribute('disabled');
@@ -407,7 +430,7 @@
           <polyline points="7 10 12 15 17 10"/>
           <line x1="12" y1="15" x2="12" y2="3"/>
         </svg>
-        Download Favicon Pack (ZIP)
+        ` + dlText + `
       `;
       if (DOM.progressBar) {
         DOM.progressBar.classList.add('hidden');

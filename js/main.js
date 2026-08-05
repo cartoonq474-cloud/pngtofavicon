@@ -562,6 +562,142 @@
   }
 
   // =========================================================================
+  // =========================================================================
+  // 11. Toast Notifications Utility
+  // =========================================================================
+
+  function showToastNotification(message, type) {
+    type = type || 'info';
+
+    // Localize message if language is not English
+    var currentLang = document.documentElement.lang || 'en';
+    if (currentLang === 'pt') {
+      var ptMsgs = {
+        'Please upload a valid image (PNG, JPG, SVG, WebP, or GIF).': 'Por favor, envie uma imagem válida (PNG, JPG, SVG, WebP ou GIF).',
+        'File is too large. Maximum size is 5 MB.': 'O arquivo é muito grande. O tamanho máximo é 5 MB.',
+        'Failed to read the file. Please try again.': 'Falha ao ler o arquivo. Por favor, tente novamente.',
+        'Could not decode image. The file may be corrupted.': 'Não foi possível decodificar a imagem. O arquivo pode estar corrompido.',
+        'JSZip library failed to load. Please refresh and try again.': 'Falha ao carregar a biblioteca JSZip. Por favor, atualize a página e tente novamente.',
+        'Please upload an image first.': 'Por favor, envie uma imagem primeiro.',
+        'Favicon package downloaded!': 'Pacote de favicon baixado!',
+        'Download failed.': 'O download falhou.',
+        'Something went wrong during generation.': 'Algo deu errado durante a geração.',
+        'favicon.ico downloaded!': 'favicon.ico baixado!',
+        'Failed to generate ICO file.': 'Falha ao gerar o arquivo ICO.',
+        'Code copied!': 'Código copiado!',
+        'Downloading components... JSZip is missing. Please reload the page.': 'Baixando componentes... O JSZip não foi encontrado. Por favor, recarregue a página.',
+        'Favicon pack downloaded successfully!': 'Pacote de favicon baixado com sucesso!',
+        'Error generating files. Please try again.': 'Erro ao gerar os arquivos. Por favor, tente novamente.'
+      };
+      if (ptMsgs[message]) message = ptMsgs[message];
+      else if (message.indexOf('Failed to generate ZIP:') === 0) message = 'Falha ao gerar o ZIP: ' + message.substring('Failed to generate ZIP:'.length);
+    } else if (currentLang === 'es') {
+      var esMsgs = {
+        'Please upload a valid image (PNG, JPG, SVG, WebP, or GIF).': 'Por favor, suba una imagen válida (PNG, JPG, SVG, WebP o GIF).',
+        'File is too large. Maximum size is 5 MB.': 'El archivo es demasiado grande. El tamaño máximo es 5 MB.',
+        'Failed to read the file. Please try again.': 'No se pudo leer el archivo. Por favor, inténtelo de nuevo.',
+        'Could not decode image. The file may be corrupted.': 'No se pudo decodificar la imagen. El archivo puede estar dañado.',
+        'JSZip library failed to load. Please refresh and try again.': 'La biblioteca JSZip no se pudo cargar. Por favor, recargue e inténtelo de nuevo.',
+        'Please upload an image first.': 'Por favor, suba una imagen primero.',
+        'Favicon package downloaded!': '¡Paquete de favicon descargado!',
+        'Download failed.': 'La descarga falló.',
+        'Something went wrong during generation.': 'Algo salió mal durante la generación.',
+        'favicon.ico downloaded!': '¡favicon.ico descargado!',
+        'Failed to generate ICO file.': 'No se pudo generar el archivo ICO.',
+        'Code copied!': '¡Código copiado!',
+        'Downloading components... JSZip is missing. Please reload the page.': 'Descargando componentes... JSZip no se encuentra. Por favor, recargue la página.',
+        'Favicon pack downloaded successfully!': '¡Paquete de favicon descargado con éxito!',
+        'Error generating files. Please try again.': 'Error al generar los archivos. Por favor, inténtelo de nuevo.'
+      };
+      if (esMsgs[message]) message = esMsgs[message];
+      else if (message.indexOf('Failed to generate ZIP:') === 0) message = 'Error al generar ZIP: ' + message.substring('Failed to generate ZIP:'.length);
+    } else if (currentLang === 'fr') {
+      var frMsgs = {
+        'Please upload a valid image (PNG, JPG, SVG, WebP, or GIF).': 'Veuillez télécharger une image valide (PNG, JPG, SVG, WebP ou GIF).',
+        'File is too large. Maximum size is 5 MB.': 'Le fichier est trop volumineux. La taille maximale est de 5 Mo.',
+        'Failed to read the file. Please try again.': 'Impossible de lire le fichier. Veuillez réessayer.',
+        'Could not decode image. The file may be corrupted.': 'Impossible de décoder l\'image. Le fichier est peut-être corrompu.',
+        'JSZip library failed to load. Please refresh and try again.': 'Le chargement de la bibliothèque JSZip a échoué. Veuillez rafraîchir et réessayer.',
+        'Please upload an image first.': 'Veuillez d\'abord télécharger une image.',
+        'Favicon package downloaded!': 'Pack de favicons téléchargé !',
+        'Download failed.': 'Le téléchargement a échoué.',
+        'Something went wrong during generation.': 'Une erreur est survenue lors de la génération.',
+        'favicon.ico downloaded!': 'favicon.ico téléchargé !',
+        'Failed to generate ICO file.': 'Échec de la génération du fichier ICO.',
+        'Code copied!': 'Code copié !',
+        'Downloading components... JSZip is missing. Please reload the page.': 'Téléchargement des composants... JSZip est manquant. Veuillez recharger la page.',
+        'Favicon pack downloaded successfully!': 'Pack de favicons téléchargé avec succès !',
+        'Error generating files. Please try again.': 'Erreur lors de la génération des fichiers. Veuillez réessayer.'
+      };
+      if (frMsgs[message]) message = frMsgs[message];
+      else if (message.indexOf('Failed to generate ZIP:') === 0) message = 'Échec de la génération du ZIP : ' + message.substring('Failed to generate ZIP:'.length);
+    }
+
+    // Remove any existing toast
+    var existing = document.querySelector('.toast-notification');
+    if (existing) existing.remove();
+
+    var toast = document.createElement('div');
+    toast.className = 'toast-notification toast--' + type;
+    toast.setAttribute('role', 'alert');
+
+    var icons = { success: '✓', error: '✗', info: 'ℹ' };
+    toast.innerHTML =
+      '<span class="toast__icon">' + (icons[type] || 'ℹ') + '</span>' +
+      '<span class="toast__message">' + escapeHTML(message) + '</span>';
+
+    // Position styling
+    Object.assign(toast.style, {
+      position: 'fixed',
+      bottom: '2rem',
+      right: '2rem',
+      zIndex: '10000',
+      padding: '0.75rem 1.25rem',
+      borderRadius: '0.5rem',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
+      animation: 'toastIn 0.3s ease-out',
+      maxWidth: '400px',
+    });
+
+    // Type-specific colours
+    var colors = {
+      success: { bg: '#10b981', fg: '#fff' },
+      error: { bg: '#ef4444', fg: '#fff' },
+      info: { bg: '#3b82f6', fg: '#fff' },
+    };
+    var c = colors[type] || colors.info;
+    toast.style.backgroundColor = c.bg;
+    toast.style.color = c.fg;
+
+    document.body.appendChild(toast);
+
+    // Auto-dismiss after 4 seconds
+    setTimeout(function () {
+      toast.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(10px)';
+      setTimeout(function () {
+        toast.remove();
+      }, 350);
+    }, 4000);
+  }
+
+  function escapeHTML(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  window.showToastNotification = showToastNotification;
+
   // Initialise everything on DOMContentLoaded
   // =========================================================================
 
