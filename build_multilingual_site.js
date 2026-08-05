@@ -20552,7 +20552,159 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
-    } else if (targetLang === 'es' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'blog/favicon-seo-guide/index.html') {
+        // Page title & metadata
+        doc.title = "Favicon SEO Rehberi | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Google SERP snippet'lerinde site adlarının yanında favicon'lar görüntülenir. Organik arama tıklamaları kazanmak için favicon'larınızı nasıl optimize edeceğinizi öğrenin.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Favicon SEO Rehberi | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Google SERP snippet'lerinde site adlarının yanında favicon'lar görüntülenir. Organik arama tıklamaları kazanmak için favicon'larınızı nasıl optimize edeceğinizi öğrenin.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Favicon SEO Rehberi");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Google SERP snippet'lerinde site adlarının yanında favicon'lar görüntülenir. Organik arama tıklamaları kazanmak için favicon'larınızı nasıl optimize edeceğinizi öğrenin.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Favicon <span class='gradient-text'>SEO Rehberi</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Google SERP snippet'lerinde site adlarının yanında favicon'lar görüntülenir. Organik arama tıklamaları kazanmak için favicon'larınızı nasıl optimize edeceğinizi öğrenin.";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Favicon'lar SEO İçin Neden Önemli?";
+                h2s[1].textContent = "Google'ın Favicon'lar İçin Yönergeleri";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "Favicon'lar artık sadece estetik sekme yer tutucuları değil. Günümüzün organik arama ortamında, arama motoru sonuç sayfalarında (SERP'lerde) doğrudan öne çıkan marka tanımlayıcıları olarak hizmet veriyorlar.";
+                ps[1].textContent = "Google, sitenizi sadece favicon'unuz olduğu için daha yüksek sıralamaya koymasa da, görsel simge arama kullanıcı davranışını doğrudan etkiler. Sayfa başlığınızın yanında profesyonel, net ve yüksek kontrastlı bir simge, marka güvenilirliğini ve görsel alaka düzeyini artırarak daha yüksek tıklama oranları (CTR) sağlar. Daha yüksek organik CTR, arama algoritmalarına sayfa kalitesini işaret ederek dolaylı olarak arama sıralamasındaki yerleşimi artırır.";
+            }
+
+            const lis = card.querySelectorAll('ul li');
+            if (lis.length >= 3) {
+                lis[0].innerHTML = "<strong>Temsil Edici Olun:</strong> Simge, marka logonuz veya işaretiniz gibi görünmelidir. Genel veya yanıltıcı simgeler, varsayılan bir küre simgesiyle değiştirilebilir.";
+                lis[1].innerHTML = "<strong>Taranabilir URL:</strong> Özellikle Googlebot-Image tarayıcısı için, simgenizin yolunun robots.txt dosyanız tarafından engellenmediğinden emin olun.";
+                lis[2].innerHTML = "<strong>Kare Oranı:</strong> Örneğin, 48x48 piksel, 96x96 piksel veya 192x192 piksel. Google, arama sonuçları için simgeyi otomatik olarak 16x16 piksele küçültür.";
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "PNG'yi Favicon'a Ücretsiz Dönüştürmeye Bugün Başlayın";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Doğru, hızlı ve tamamen ücretsiz favicon oluşturma için PNGtoFavicon.com'a güvenen 50.000'den fazla kullanıcıya katılın.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Şimdi Dönüştürmeye Başlayın - Ücretsiz!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Daha Fazla Favicon Aracını Keşfedin";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon, tüm favicon ihtiyaçlarınız için eksiksiz bir araç seti sunar.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Metni Favicon'a Dönüştürme";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Harflerden, baş harflerden veya herhangi bir metinden favicon oluşturun. Markanız için benzersiz bir metin tabanlı favicon oluşturmak için yazı tiplerini, renkleri ve stilleri seçin.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Ücretsiz deneyin →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emoji'den Favicon'a";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Yüzlerce emoji arasından seçim yaparak anında renkli ve etkileyici bir favicon oluşturun. Kişisel projeler, bloglar ve hızlı prototipler için mükemmel.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Ücretsiz deneyin →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Favicon Denetleyicisi";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Web sitenizin favicon kurulumunu doğrulayın. Eksik boyutları, yanlış biçimleri ve platformlar arası uyumluluk sorunlarını kontrol etmek için herhangi bir URL girin.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Şimdi kontrol edin →";
+            }
+        }
+
+        // Header and Footer Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "PNG'den Favicon'a Dönüştürücü";
+                else if (txt === 'Text to Favicon') el.textContent = "Metni Favicon'a Dönüştürme";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji'yi Favicon'a Dönüştürme";
+                else if (txt === 'Favicon Checker') el.textContent = "Favicon Denetleyicisi";
+                else if (txt === 'Tutorials') el.textContent = "Eğitimler";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG'yi anında Favicon'a dönüştürün — ücretsiz çevrimiçi araç";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Araçlar";
+                else if (txt === 'Resources') h4.textContent = "Kaynaklar";
+                else if (txt === 'Company') h4.textContent = "Şirket";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "PNG'den Favicon'a Dönüştürücü";
+                else if (txt === 'Text to Favicon') el.textContent = "Metni Favicon'a Dönüştürme";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji'den Favicon'a Dönüştürme";
+                else if (txt === 'Favicon Checker') el.textContent = "Favicon Denetleyicisi";
+                else if (txt === 'Tutorials') el.textContent = "Eğitimler";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Favicon Boyutları Kılavuzu";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon Nedir?";
+                else if (txt === 'About') el.textContent = "Hakkımızda";
+                else if (txt === 'Contact') el.textContent = "İletişim";
+                else if (txt === 'Privacy Policy') el.textContent = "Gizlilik Politikası";
+                else if (txt === 'Terms of Service') el.textContent = "Hizmet Şartları";
+                else if (txt === 'Cookie Policy') el.textContent = "Çerez Politikası";
+            });
+        });
+
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Destek: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "WhatsApp'tan sohbet edin";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    }
+     else if (targetLang === 'es' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Guía SEO de Favicons | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
