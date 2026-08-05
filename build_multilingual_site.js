@@ -16030,7 +16030,412 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
-    } else if (targetLang === 'es' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "Favicon Nedir? | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Her web sitesinin bir kimliği vardır ve favicon, bu kimliğin en küçük ama en tanınabilir marka öğelerinden biridir. 2026'da neden önemli olduğunu öğrenin.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Favicon Nedir? | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Her web sitesinin bir kimliği vardır ve favicon, bu kimliğin en küçük ama en tanınabilir marka öğelerinden biridir. 2026'da neden önemli olduğunu öğrenin.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Favicon Nedir?");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Her web sitesinin bir kimliği vardır ve favicon, bu kimliğin en küçük ama en tanınabilir marka öğelerinden biridir. 2026'da neden önemli olduğunu öğrenin.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Favicon <span class='gradient-text'>Nedir</span>?";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Her web sitesinin bir kimliği vardır ve favicon, bu kimliğin en küçük ama en tanınabilir marka öğelerinden biridir. 2026'da neden önemli olduğunu öğrenin.";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 5) {
+            // Card 0: Introduction
+            const ps_0 = cards[0].querySelectorAll('p');
+            if (ps_0.length >= 4) {
+                ps_0[0].textContent = "Her web sitesinin bir kimliği vardır ve favicon, bu kimliğin en küçük ama en tanınabilir marka öğelerinden biridir. Favicon, desteklenen cihazlarda tarayıcı sekmelerinde, yer imlerinde, tarayıcı geçmişinde ve arama sonuçlarında bir web sayfasının başlığının yanında görüntülenen küçük simgedir. Sadece birkaç piksel kaplasa da, kullanıcıların web sitenizi hızlı bir şekilde tanımlamasına ve farklı tarama deneyimlerinde markanızı güçlendirmesine yardımcı olmada önemli bir rol oynar.";
+                ps_0[1].textContent = "Birçok web sitesi sahibi logolara, tipografiye ve renk şemalarına odaklanır ancak web sitesi geliştirme sırasında favicon'u göz ardı eder. Eksik veya kötü tasarlanmış favicon'lar, bir web sitesinin bitmemiş veya daha az güvenilir görünmesine neden olabilir. Buna karşılık, net ve tanınabilir bir favicon, ziyaretçilerin sitenizi onlarca açık sekmeden ayırt etmesine yardımcı olur, yer imi görünürlüğünü artırır ve daha profesyonel bir görünüm yaratır.";
+                ps_0[2].textContent = "Modern tarayıcılar, arama motorları ve mobil cihazlar, favicon'ları her zamankinden daha fazla yerde kullanıyor. Google, mobil arama sonuçlarında favicon gösterebilir, tarayıcılar sekmelerde ve yer imlerinde favicon'ları gösterir ve İlerleyici Web Uygulamaları (PWA'lar) uygulama simgesi deneyiminin bir parçası olarak favicon'lara güvenir. Bu genişleyen kullanım nedeniyle, düzgün bir şekilde optimize edilmiş bir favicon oluşturmak, web sitesi tasarımının ve teknik SEO'nun standart bir parçası haline gelmiştir.";
+                ps_0[3].textContent = "Bu kılavuz, favicon'un ne olduğunu, neden önemli olduğunu, nerede göründüğünü, en iyi boyutları ve dosya biçimlerini, nasıl oluşturulup kurulacağını, kaçınılması gereken yaygın hataları ve favicon'un SEO'yu etkileyip etkilemediğini açıklamaktadır.";
+            }
+
+            // Card 1: What Is a Favicon
+            const h2_1 = cards[1].querySelector('h2');
+            if (h2_1) h2_1.textContent = "Favicon Nedir?";
+            const ps_1 = cards[1].querySelectorAll('p');
+            if (ps_1.length >= 7) {
+                ps_1[0].textContent = "Favicon (favori simge kısaltması), bir web sitesini veya web uygulamasını temsil eden küçük bir grafiktir. Kullanıcıların sitenizi birden fazla tarayıcı sekmesinde, yer imlerinde, tarayıcı geçmişi girişlerinde ve web sitelerinin listelendiği diğer yerlerde daha kolay tanımasını sağlayan görsel bir tanımlayıcı görevi görür.";
+                ps_1[1].textContent = "Tam boyutlu bir logodan farklı olarak, favicon çok küçük boyutlarda bile, genellikle 16 × 16 piksel kadar küçük boyutlarda bile tanınabilir kalacak şekilde tasarlanmıştır. Bu sınırlı alan nedeniyle, etkili faviconlar basit şekiller, güçlü kontrast ve minimum ayrıntı kullanır.";
+                ps_1[2].textContent = "Birisi web sitenizi ziyaret ettiğinde, tarayıcısı HTML, CSS, JavaScript ve resimler gibi diğer web sitesi kaynaklarıyla birlikte favicon dosyasını da ister. Yüklendikten sonra, tarayıcı simgeyi uygun yerlerde görüntüler ve kullanıcıların sayfayı markanızla hızlı bir şekilde ilişkilendirmesine yardımcı olur.";
+                
+                // h3: Origin of Term
+                ps_1[3].innerHTML = "Favicon kelimesi, favori simge anlamına gelir.";
+                ps_1[4].textContent = "Bu terim, Microsoft'un web siteleriyle ilişkili küçük bir simge desteğini tanıttığı 1990'ların sonlarında ortaya çıktı. Başlangıçta, bu simgeler yalnızca kullanıcılar web sitelerini Internet Explorer'daki tarayıcılarının Favoriler listesine eklediklerinde görünüyordu. Zamanla, diğer tarayıcılar bu kavramı benimsedi ve kullanımını sekmelere, yer işaretlerine, geçmiş sayfalarına, mobil kısayollara ve yüklü web uygulamalarına genişletti.";
+
+                // h3: Primary Purpose
+                ps_1[5].textContent = "Favicon'un temel amacı, bir web sitesine görsel bir kimlik kazandırmaktır.";
+                ps_1[6].textContent = "En fazla sayfa başlıklarına güvenmek yerine, kullanıcılar web sitesini simgesi aracılığıyla hızlıca tanıyabilirler. Bu, özellikle birden fazla sekme açık olduğunda, tarayıcı pencereleri kalabalık olduğunda veya yer imlerinde yüzlerce kaydedilmiş web sitesi bulunduğunda çok kullanışlı hale gelir.";
+            }
+
+            const h3s_1 = cards[1].querySelectorAll('h3');
+            if (h3s_1.length >= 2) {
+                h3s_1[0].textContent = "Aşkın ve Teknolojinin Kesişimi: \"Favicon\" Teriminin Kökeni"; // Wait, "Aşkın ve Teknolojinin" is not in user's translation. The user wrote: "\"Favicon\" Teriminin Kökeni"
+                // Let's set it to user's exact translation:
+                h3s_1[0].textContent = "\"Favicon\" Teriminin Kökeni";
+                h3s_1[1].textContent = "Favicon'un Birincil Amacı Nedir?";
+            }
+
+            // Paragraph above list & list
+            const ps_sub_1 = cards[1].querySelectorAll('p');
+            if (ps_sub_1.length >= 9) {
+                ps_sub_1[7].textContent = "Favicon şunlara yardımcı olur:";
+                ps_sub_1[8].textContent = "Favicon doğrudan arama motoru sıralamalarını artırmasa da, genel web sitesi kullanılabilirliğine ve marka tutarlılığına katkıda bulunur; bunların her ikisi de olumlu bir kullanıcı deneyimini destekler.";
+            }
+
+            const lis_1 = cards[1].querySelectorAll('ul li');
+            if (lis_1.length >= 5) {
+                lis_1[0].textContent = "Marka tanınırlığını artırmak";
+                lis_1[1].textContent = "Tarayıcı sekmelerinin daha kolay tanımlanmasını sağlamak";
+                lis_1[2].textContent = "Web sitenizi rakiplerinizden ayırt etmek";
+                lis_1[3].textContent = "Kullanıcı deneyimini geliştirmek";
+                lis_1[4].textContent = "Şık ve profesyonel bir görünüm sunmak";
+            }
+
+            // Card 2: Where Favicons Appear
+            const h2_2 = cards[2].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Favicon'ların Göründüğü Yerler";
+            const ps_2 = cards[2].querySelectorAll('p');
+            if (ps_2.length >= 2) {
+                ps_2[0].textContent = "Birçok kişi favicon'un yalnızca tarayıcı sekmelerinde göründüğünü varsayar, ancak modern tarayıcılar, işletim sistemleri ve arama motorları favicon'ları çeşitli yerlerde görüntüler.";
+                ps_2[1].textContent = "Favicon'unuzun nerede göründüğünü anlamak, doğru tasarım ve dosya biçimini seçmenin neden önemli olduğunu vurgular.";
+            }
+
+            const subheadings_2 = cards[2].querySelectorAll('h4');
+            const h4_texts = [
+                "Tarayıcı Sekmeleri",
+                "Tarayıcı Yer İşaretleri",
+                "Tarayıcı Geçmişi",
+                "Adres Çubuğu ve Tarayıcı Arayüzü",
+                "Google Arama Sonuçları",
+                "Mobil Ana Ekran Kısayolları",
+                "Aşamalı Web Uygulamaları (PWA'lar)",
+                "Tarayıcı Başlangıç Sayfaları",
+                "Şifre Yöneticileri ve Tarayıcı Otomatik Doldurma"
+            ];
+            const p_texts = [
+                "Favicon için en yaygın konum tarayıcı sekmesidir. Birden fazla sekme açık olduğunda, kullanıcılar genellikle istedikleri web sitesini bulmak için sayfa başlıkları yerine favicon'lara güvenirler. Ayırt edici bir simge, gezinmeyi hızlandırır ve karışıklığı azaltır.",
+                "Favicon'lar ayrıca yer işaretli sayfaların yanında da görünür. Çoğu tarayıcı, her yer işaretinin yanında web sitesi simgesini göstererek, kullanıcıların her başlığı okumadan yer işareti klasörlerini hızlı bir şekilde taramalarına olanak tanır.",
+                "Birçok masaüstü ve mobil tarayıcı, tarama geçmişinde favicon'ları görüntüler. Genel bir belge simgesi göstermek yerine, tarayıcılar web sitelerini görsel olarak ayırt etmek için favicon'u kullanır ve tarama geçmişini taramayı kolaylaştırır.",
+                "Bazı tarayıcılar, adres çubuğunda, sayfa bilgi alanında veya sekme yönetim arayüzünde favicon'ları görüntüler. Uygulama tarayıcılar arasında farklılık gösterse de, bu ortamları desteklemek, platformlar arasında tutarlı marka imajını korumaya yardımcı olur.",
+                "Google, mobil arama sonuçlarında ve belirli masaüstü arama deneyimlerinde bir web sitesinin favicon'unu gösterebilir. Sayfa başlığınız ve alan adınızla birlikte gösterildiğinde, favicon, kullanıcıların web sitenizi tanımasına yardımcı olan ek bir marka sinyali sağlar.",
+                "Kullanıcılar bir web sitesini akıllı telefonlarının ana ekranına kaydettiğinde, tarayıcılar genellikle favicon'unuza veya Apple Touch Icon'a dayalı olarak belirlenmiş bir simge kullanır. Web siteniz düzgün yapılandırılmış simgeler içeriyorsa, kısayol yerel bir mobil uygulamaya benzer görünür.",
+                "Aşamalı Web Uygulamaları, web sitesinin simge kümesinden türetilen birden fazla simge boyutu kullanır. Kullanıcılar bir PWA yüklediğinde, bu simgeler uygulamanın başlatıcı simgesi, açılış ekranı simgesi, görev değiştirici simgesi ve bildirim simgesi haline gelir.",
+                "Birçok tarayıcı, sık ziyaret edilen web sitelerini yeni sekme sayfalarında veya ana sayfa panolarında görüntüler. Favicon'lar, her web sitesi için görsel tanımlayıcı olarak yaygın olarak kullanılır ve bu da onları bir bakışta tanımayı kolaylaştırır.",
+                "Bazı şifre yöneticileri ve tarayıcı kimlik bilgisi yöneticileri, kaydedilmiş web sitesi girişlerinin yanında favicon'lar görüntüler. Bu opera kullanıcıların kullanıcı adlarını ve şifrelerini otomatik doldurmadan önce doğru web sitesini hızlı bir şekilde belirlemelerine yardımcı olur."
+            ];
+
+            for (let i = 0; i < subheadings_2.length; i++) {
+                if (h4_texts[i]) subheadings_2[i].textContent = h4_texts[i];
+            }
+            const gridPs = cards[2].querySelectorAll('div[style*="display: grid"] p');
+            for (let i = 0; i < gridPs.length; i++) {
+                if (p_texts[i]) gridPs[i].textContent = p_texts[i];
+            }
+
+            // Card 3: Why Is a Favicon Important
+            const h2_3 = cards[3].querySelector('h2');
+            if (h2_3) h2_3.textContent = "Favicon Neden Önemlidir?";
+            const ps_3 = cards[3].querySelectorAll('p');
+            if (ps_3.length >= 2) {
+                ps_3[0].textContent = "İlk bakışta, bir favicon küçük bir tasarım öğesi gibi görünebilir. Sonuçta, genellikle sadece 16 × 16 veya 32 × 32 piksel boyutundadır. Ancak, etkisi boyutunun çok ötesine uzanır. Bir favicon, tarayıcılar, yer imleri, arama sonuçları ve mobil cihazlar genelinde web siteniz için görsel bir tanımlayıcı görevi görür ve kullanıcıların markanızı tanımasına ve güvenmesine yardımcı olur.";
+                ps_3[1].textContent = "İşletmeler, blog yazarları, e-ticaret mağazaları, SaaS şirketleri ve kişisel web siteleri için favicon, profesyonel web tasarımının standart bir parçasıdır. Sembolsüz veya genel bir yer tutucu simge gösterildiğinde, kullanıcılar web sitesini tamamlanmamış veya daha az güvenilir olarak algılayabilir.";
+            }
+
+            const h3s_3 = cards[3].querySelectorAll('h3');
+            const h3_texts_3 = [
+                "Marka Tanınabilirliğini Artırır",
+                "Tarayıcı Sekmelerini Tanımlamayı Kolaylaştırır",
+                "Kullanıcı Deneyimini (UX) Geliştirir",
+                "Güven ve Profesyonellik Oluşturur",
+                "Yer İşareti Görünürlüğünü İyileştirir",
+                "Mobil Kullanıcı Deneyimini Destekler",
+                "Platformlar Arasında Tutarlı Markalaşmayı Destekler",
+                "Dolaylı Olarak Tıklama Oranlarını İyileştirebilir"
+            ];
+            for (let i = 0; i < h3s_3.length; i++) {
+                if (h3_texts_3[i]) h3s_3[i].textContent = h3_texts_3[i];
+            }
+
+            // Brand Recognition subps
+            const brand_p = h3s_3[0].nextElementSibling;
+            if (brand_p && brand_p.tagName === 'P') {
+                brand_p.textContent = "Favicon'un en büyük avantajlarından biri, marka tanınırlığını güçlendirmesidir. İnsanlar görsel sembolleri markalarla metinden daha hızlı ilişkilendirir. İyi tasarlanmış bir favicon, birisi tarayıcı sekmesini açtığında, yer işaretlerini kontrol ettiğinde veya desteklenen arama sonuçlarında sitenizi gördüğünde web sitenizin kimliğini her seferinde güçlendirir.";
+            }
+            const brand_lis = cards[3].querySelectorAll('ul')[0]?.querySelectorAll('li');
+            if (brand_lis && brand_lis.length >= 4) {
+                brand_lis[0].innerHTML = "<strong>Marka kimliğini güçlendirir:</strong> Ziyaretçilerle akılda kalıcı bir bağlantı kurar.";
+                brand_lis[1].innerHTML = "<strong>Marka hatırlanabilirliğini artırır:</strong> Kullanıcıların marka adınızı ve logo stilinizi hatırlamasına yardımcı olur.";
+                brand_lis[2].innerHTML = "<strong>Tutarlılık sağlar:</strong> Tarayıcılar ve cihazlar arasında tek tip stil sağlar.";
+                brand_lis[3].innerHTML = "<strong>Web sitesini akılda kalıcı hale getirir:</strong> Markanızı görsel olarak ayırt eder.";
+            }
+
+            // Tab identification subps
+            const tab_p = h3s_3[1].nextElementSibling;
+            if (tab_p && tab_p.tagName === 'P') {
+                tab_p.textContent = "Modern internet kullanıcıları nadiren yalnızca bir tarayıcı sekmesi açık tutar. Birçok kişi gün boyunca web siteleri arasında geçiş yaparak aynı anda düzinelerce sekmeyle çalışır. Sınırlı sekme alanı nedeniyle sayfa başlıkları kısaltıldığında, favicon genellikle kullanıcıların doğru sekmeyi tanımlamasına yardımcı olan birincil görsel ipucu haline gelir.";
+            }
+
+            // Without / With Favicon comparison
+            const comp_red_h5 = cards[3].querySelector('h5[style*="#ef4444"]');
+            if (comp_red_h5) comp_red_h5.textContent = "Favicon Olmadan";
+            const comp_red_p = comp_red_h5?.nextElementSibling;
+            if (comp_red_p) comp_red_p.textContent = "Birden fazla sekme aynı genel simgeleri görüntüler. Kullanıcılar kısaltılmış başlıkları okumak zorunda kalır, bu da doğru web sitesini bulmayı daha yavaş ve daha kafa karıştırıcı hale getirir.";
+
+            const comp_green_h5 = cards[3].querySelector('h5[style*="#06d6a0"]');
+            if (comp_green_h5) comp_green_h5.textContent = "Favicon ile";
+            const comp_green_p = comp_green_h5?.nextElementSibling;
+            if (comp_green_p) comp_green_p.textContent = "Her web sitesinin benzersiz bir görsel tanımlayıcısı vardır. Kullanıcılar doğru sekmeyi neredeyse anında bulabilir, bu da navigasyonu daha hızlı ve sezgisel hale getirir.";
+
+            // UX subp & list
+            const ux_p = h3s_3[2].nextElementSibling;
+            if (ux_p && ux_p.tagName === 'P') {
+                ux_p.textContent = "Kullanıcı deneyimi birçok küçük ayrıntıdan etkilenir ve favicon da bunlardan biridir. Web sitenizin işleyişini değiştirmese de, net bir görsel bağlam sağlayarak kullanıcıların onunla etkileşimini iyileştirir.";
+            }
+            const ux_lis = cards[3].querySelectorAll('ul')[1]?.querySelectorAll('li');
+            if (ux_lis && ux_lis.length >= 5) {
+                ux_lis[0].textContent = "Birden fazla açık sekme arasında gezinmeyi kolaylaştırır";
+                ux_lis[1].textContent = "Yer imi organizasyonunu iyileştirir";
+                ux_lis[2].textContent = "Tarayıcı geçmişini taramayı kolaylaştırır";
+                ux_lis[3].textContent = "Kullanıcıların kaydedilmiş web sitelerini hızlı bir şekilde bulmasına yardımcı olur";
+                ux_lis[4].textContent = "Cihazlar arasında görsel süreklilik sağlar";
+            }
+
+            // Trust subp
+            const trust_p = h3s_3[3].nextElementSibling;
+            if (trust_p && trust_p.tagName === 'P') {
+                trust_p.textContent = "Eksik bir favicon, ziyaretçilerin web sitenizi kullanmasını engellemeyebilir, ancak ilk izlenimleri incelikle etkileyebilir. Tarayıcılar markalı bir favicon yerine genel bir yer tutucu simge gösterdiğinde, kullanıcılar web sitesini tamamlanmamış, eski veya daha az güvenilir olarak algılayabilir. Özel bir favicon, ayrıntılara ve profesyonelliğe verilen önemi gösterir.";
+            }
+
+            // Bookmark subp
+            const bookmark_p = h3s_3[4].nextElementSibling;
+            if (bookmark_p && bookmark_p.tagName === 'P') {
+                bookmark_p.textContent = "Birçok kullanıcı, tekrar ziyaret etmeyi planladıkları web sitelerini yer imlerine ekler. Tarayıcılar, yer imi başlıklarının yanında favicon'ları görüntüler. Yer imleri düzinelerce site içeren klasörler halinde düzenlendiğinde, ayırt edici bir favicon web sitenizin öne çıkmasına yardımcı olur ve tekrar ziyaret olasılığını artırır.";
+            }
+
+            // Mobile subp
+            const mobile_p = h3s_3[5].nextElementSibling;
+            if (mobile_p && mobile_p.tagName === 'P') {
+                mobile_p.textContent = "Favicon'lar artık masaüstü tarayıcılarla sınırlı değil. Akıllı telefonlarda ve tabletlerde, kullanıcılar sayfaları ana ekranlarına eklediklerinde tarayıcılar web sitesi simgelerini kullanır. Aşamalı Web Uygulamaları (PWA'lar) da uygulama başlatıcıları, açılış ekranları, bildirimler ve görev değiştiriciler için bu simgelere güvenir.";
+            }
+
+            // Consistency subp
+            const consistency_p = h3s_3[6].nextElementSibling;
+            if (consistency_p && consistency_p.tagName === 'P') {
+                consistency_p.textContent = "Tutarlı bir favicon, kullanıcıların web sitenizle nerede karşılaştıklarına bakılmaksızın markanızın tanınabilir kalmasını sağlar: masaüstü tarayıcılar, mobil ana ekranlar, tarayıcı geçmişi, parola yöneticileri veya arama sonuçları.";
+            }
+
+            // CTR subp
+            const ctr_p = h3s_3[7].nextElementSibling;
+            if (ctr_p && ctr_p.tagName === 'P') {
+                ctr_p.textContent = "Desteklenen arama deneyimlerinde, web sitenizin başlığı ve URL'sinin yanında görüntülenen tanınabilir bir favicon, kullanıcıların markanızı hızlı bir şekilde tanımasına yardımcı olur. Tanıdık marka, güveni artırabilir ve arama sonuçlarında tıklamaları teşvik edebilir.";
+            }
+
+            // Card 4: Does a Favicon Directly Improve SEO?
+            const h2_4 = cards[4].querySelector('h2');
+            if (h2_4) h2_4.textContent = "Favicon Doğrudan SEO'yu İyileştirir mi?";
+            const ps_4 = cards[4].querySelectorAll('p');
+            if (ps_4.length >= 3) {
+                ps_4[0].innerHTML = "Favicon doğrudan bir Google sıralama faktörü <strong>değildir</strong>. Yalnızca bir favicon'a sahip olmak, arama motoru sonuçlarındaki konumunuzu iyileştirmez.";
+                ps_4[1].textContent = "Ancak, genel kullanıcı deneyimini geliştirerek ve markanızı güçlendirerek SEO'yu dolaylı olarak destekleyebilir:";
+                ps_4[2].textContent = "Arama motorları, olumlu bir kullanıcı deneyimi sağlayan web sitelerini giderek daha fazla ödüllendiriyor. Favicon yalnızca küçük bir bileşen olsa da, yüksek kaliteli bir web sitesine katkıda bulunan diğer teknik ve tasarım iyileştirmelerini tamamlar.";
+            }
+            const seo_lis = cards[4].querySelectorAll('ul li');
+            if (seo_lis.length >= 6) {
+                seo_lis[0].textContent = "Daha iyi marka tanınırlığı ve kullanıcı güveni";
+                seo_lis[1].textContent = "Geliştirilmiş kullanıcı güveni ve profesyonel güvenilirlik";
+                seo_lis[2].textContent = "Tarayıcı sekmelerinde ve yer imlerinde artan görünürlük";
+                seo_lis[3].textContent = "Platformlar arası daha güçlü marka tutarlılığı";
+                seo_lis[4].textContent = "Desteklenen arama sonuçlarında potansiyel olarak daha yüksek tıklama oranları";
+                seo_lis[5].textContent = "Geri dönen ziyaretçiler için daha kolay gezinme";
+            }
+
+            // Card 5: Key Takeaways
+            if (cards.length >= 6) {
+                const h2_5 = cards[5].querySelector('h2');
+                if (h2_5) h2_5.textContent = "Önemli Noktalar";
+                const ps_5 = cards[5].querySelectorAll('p');
+                if (ps_5.length >= 3) {
+                    ps_5[0].textContent = "Favicon, dekoratif bir simgeden çok daha fazlasıdır. Tarayıcılar, yer imleri, mobil cihazlar ve arama arayüzleri genelinde tanınabilirliği, kullanılabilirliği ve profesyonelliği artıran önemli bir marka varlığıdır.";
+                    ps_5[1].textContent = "İyi tasarlanmış bir favicon uygulayarak şunları yapabilirsiniz:";
+                    ps_5[2].textContent = "Sadece birkaç piksel kaplasa da, bir favicon, kullanıcıların web sitenizi nasıl algıladığı ve etkileşimde bulunduğu üzerinde kalıcı bir etkiye sahiptir.";
+                }
+                const takeaways_lis = cards[5].querySelectorAll('ul li');
+                if (takeaways_lis.length >= 6) {
+                    takeaways_lis[0].textContent = "Marka kimliğinizi güçlendirin";
+                    takeaways_lis[1].textContent = "Kullanıcıların web sitenizi anında tanımasına yardımcı olun";
+                    takeaways_lis[2].textContent = "Tarayıcı sekmeleri ve yer imleri arasında gezinmeyi iyileştirin";
+                    takeaways_lis[3].textContent = "Daha şık ve güvenilir bir görünüm oluşturun";
+                    takeaways_lis[4].textContent = "Genel olarak daha iyi bir kullanıcı deneyimini destekleyin";
+                    takeaways_lis[5].textContent = "Kullanıcı etkileşimine ve SEO performansına dolaylı olarak katkıda bulunun";
+                }
+            }
+        }
+
+        // Bottom CTA
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "PNG'yi Favicon'a Ücretsiz Dönüştürmeye Bugün Başlayın";
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "Doğru, hızlı ve tamamen ücretsiz favicon oluşturma için PNGtoFavicon.com'a güvenen 50.000'den fazla kullanıcıya katılın.";
+            const btn = bottomCta.querySelector('a');
+            if (btn) btn.textContent = "Şimdi Dönüştürmeye Başlayın - Ücretsiz!";
+        }
+
+        // Other Tools Section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = "Daha Fazla Favicon Aracını Keşfedin";
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = "PNGtoFavicon, tüm favicon ihtiyaçlarınız için eksiksiz bir araç seti sunar.";
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Metni Favicon'a Dönüştürün";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "Harflerden, baş harflerden veya herhangi bir metinden favicon oluşturun. Markanız için benzersiz bir metin tabanlı favicon oluşturmak için yazı tiplerini, renkleri ve stilleri seçin.";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "Ücretsiz deneyin →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "Emojiyi Favicon'a Dönüştürün";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "Yüzlerce emoji arasından seçim yaparak anında renkli ve etkileyici bir favicon oluşturun. Kişisel projeler, bloglar ve hızlı prototipler için mükemmeldir.";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "Ücretsiz deneyin →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "Favicon Denetleyicisi";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "Web sitenizin favicon kurulumunu doğrulayın. Eksik boyutları, yanlış biçimleri ve platformlar arası uyumluluk sorunlarını kontrol etmek için herhangi bir URL girin.";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "Şimdi kontrol edin →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "PNG'den Favicon'a Dönüştürücü";
+                else if (txt === 'Text to Favicon') el.textContent = "Metni Favicon'a Dönüştürme";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji'yi Favicon'a Dönüştürme";
+                else if (txt === 'Favicon Checker') el.textContent = "Favicon Denetleyicisi";
+                else if (txt === 'Tutorials') el.textContent = "Eğitimler";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG'yi anında Favicon'a dönüştürün — ücretsiz çevrimiçi araç";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Araçlar";
+                else if (txt === 'Resources') h4.textContent = "Kaynaklar";
+                else if (txt === 'Company') h4.textContent = "Şirket";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "PNG'den Favicon'a Dönüştürücü";
+                else if (txt === 'Text to Favicon') el.textContent = "Metni Favicon'a Dönüştürme";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji'yi Favicon'a Dönüştürme";
+                else if (txt === 'Favicon Checker') el.textContent = "Favicon Denetleyicisi";
+                else if (txt === 'Tutorials') el.textContent = "Eğitimler";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Favicon Boyutları Kılavuzu";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon Nedir?";
+                else if (txt === 'About') el.textContent = "Hakkımızda";
+                else if (txt === 'Contact') el.textContent = "İletişim";
+                else if (txt === 'Privacy Policy') el.textContent = "Gizlilik Politikası";
+                else if (txt === 'Terms of Service') el.textContent = "Hizmet Şartları";
+                else if (txt === 'Cookie Policy') el.textContent = "Çerez Politikası";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Destek: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "WhatsApp üzerinden sohbet edin";
+                }
+            }
+        });
+
+        // FAQPage Structured Data (Turkish)
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Favicon nedir?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Favicon (\"favori simge\" kelimesinin kısaltması), web sitenizi tarayıcı sekmelerinde, yer imlerinde, geçmişte ve adres çubuklarında temsil eden küçük bir simgedir. Kullanıcıların markanızı görsel olarak tanımlamasına yardımcı olur.";
+
+                        schema.mainEntity[1].name = "Favicon için hangi boyutlara ihtiyacım var?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Kapsamlı tarayıcı ve cihaz desteği için ihtiyacınız olan boyutlar: 16x16 (standart sekme simgesi), 32x32 (HiDPI sekme simgesi), 48x48 (Windows site simgesi), 180x180 (Apple Touch simgesi), 192x192 (Android Chrome simgesi) ve 512x512 (PWA yükleme simgesi). PNGtoFavicon, tek bir PNG yüklemesinden bunların tümünü ve çok boyutlu bir favicon.ico dosyasını otomatik olarak oluşturur.";
+
+                        schema.mainEntity[2].name = "Web siteme nasıl favicon eklerim?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Oluşturulan favicon dosyalarını web sitenizin kök dizinine ekleyin, ardından sağlanan HTML <link> etiketlerini kopyalayıp HTML belgenizin <head> bölümüne yapıştırın. Kod; favicon.ico, PNG simgeleri ve site.webmanifest dosyasına referans verir.";
+
+                        schema.mainEntity[3].name = "Resmim bir sunucuya yükleniyor mu?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Hayır — resminiz asla tarayıcınızdan ayrılmaz. PNGtoFavicon, JavaScript ve HTML5 Canvas API kullanarak her şeyi %100 istemci tarafında işler. Herhangi bir sunucuya veri gönderilmez, bu da onu mevcut en güvenli ve gizli favicon oluşturucu yapar.";
+
+                        schema.mainEntity[4].name = "Giriş için hangi dosya biçimleri destekleniyor?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon; PNG (önerilir, şeffaflığı destekler), JPG/JPEG, SVG (vektör biçimi), WEBP (modern biçim) ve GIF formatlarını kabul eder. En iyi sonuçlar için şeffaf arka plana sahip en az 512x512 piksel boyutunda kare bir PNG resmi kullanın.";
+
+                        schema.mainEntity[5].name = "Bu aracı mobilde kullanabilir miyim?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Evet! PNGtoFavicon tamamen duyarlıdır ve modern bir web tarayıcısına sahip her cihazda (akıllı telefonlar ve tabletler dahil) çalışır. Mobil cihazınızdan resim yükleyebilir, seçenekleri yapılandırabilir ve eksiksiz favicon paketinizi indirebilirsiniz.";
+
+                        schema.mainEntity[6].name = "Qual é a diferença entre favicons .ico e .png?"; // Wait, name in English was "What is the difference between .ico and .png favicons?"
+                        schema.mainEntity[6].name = ".ico ve .png favicon'ları arasındaki fark nedir?";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico biçimi, eski tarayıcılarla uyumluluk için gerekli olan, tek bir dosyada birden fazla simge boyutu barındırabilen eski bir kapsayıcıdır. Modern tarayıcılar ise daha iyi kalite ve daha küçük dosya boyutları sunan, link etiketleriyle belirtilen ayrı .png dosyalarını tercih eder. PNGtoFavicon her iki biçimi de oluşturur.";
+
+                        schema.mainEntity[7].name = "site.webmanifest nedir ve buna ihtiyacım var mı?";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest, tarayıcıya web uygulamanız hakkında bilgi veren (adı, tema rengi ve simge referansları dahil) bir JSON dosyasıdır. Progressive Web App (PWA) işlevselliği için gereklidir ve Android Chrome ve diğer modern tarayıcılarla uyumluluğu artırır.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing what-is-a-favicon FAQ schema: ", e);
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    }
+     else if (targetLang === 'es' && normPath === 'tutorials/what-is-a-favicon/index.html') {
         // Page title & metadata
         doc.title = "¿Qué es un favicon? | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
