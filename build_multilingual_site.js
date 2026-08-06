@@ -15115,6 +15115,133 @@ async function localizePage(relativePath, targetLang) {
                 }
             });
         }
+    } else if (targetLang === 'pt' && normPath === 'contact/index.html') {
+        // Page title & metadata
+        doc.title = "Entre em contacto | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Tem questões, comentários ou sugestões de recursos? Envie-nos uma mensagem.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Entre em contacto | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Tem questões, comentários ou sugestões de recursos? Envie-nos uma mensagem.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Entre em contacto");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Tem questões, comentários ou sugestões de recursos? Envie-nos uma mensagem.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Entre em <span class='gradient-text'>contacto</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Tem questões, comentários ou sugestões de recursos? Envie-nos uma mensagem.";
+        }
+
+        // Contact Info Block
+        const infoBlock = doc.querySelector('.contact-info-block');
+        if (infoBlock) {
+            const h2s = infoBlock.querySelectorAll('h2');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "Contato direto";
+                h2s[1].textContent = "Canais de suporte";
+            }
+            const links = infoBlock.querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "Chat no WhatsApp";
+                    }
+                }
+            });
+        }
+
+        // Form Fields
+        const form = doc.querySelector('form');
+        if (form) {
+            const labels = form.querySelectorAll('label');
+            labels.forEach(label => {
+                const txt = label.textContent.trim();
+                if (txt === 'Your Name') label.textContent = "O seu nome";
+                else if (txt === 'Your Email') label.textContent = "O seu e-mail";
+                else if (txt === 'Message') label.textContent = "Mensagem";
+            });
+
+            const inputs = form.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                const placeholder = input.getAttribute('placeholder');
+                if (placeholder === 'John Doe') input.setAttribute('placeholder', "João Doe");
+                else if (placeholder === 'john@example.com') input.setAttribute('placeholder', "john@exemplo.com");
+                else if (placeholder === 'Write your message here...') input.setAttribute('placeholder', "Escreva aqui a sua mensagem...");
+            });
+
+            const btn = form.querySelector('button');
+            if (btn) btn.textContent = "Enviar mensagem";
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Converta PNG em Favicon instantaneamente — ferramenta online gratuita";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Ferramentas";
+                else if (txt === 'Resources') h4.textContent = "Recursos";
+                else if (txt === 'Company') h4.textContent = "Empresa";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor de PNG para Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Guia de tamanhos de Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "O que é um Favicon?";
+                else if (txt === 'About') el.textContent = "Sobre";
+                else if (txt === 'Contact') el.textContent = "Contato";
+                else if (txt === 'Privacy Policy') el.textContent = "Política de Privacidade";
+                else if (txt === 'Terms of Service') el.textContent = "Termos de Serviço";
+                else if (txt === 'Cookie Policy') el.textContent = "Política de Cookies";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Suporte: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Chat no WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
     } else if (targetLang === 'es' && normPath === 'contact/index.html') {
         // Page title & metadata
         doc.title = "Contáctanos | PNGtoFavicon";
