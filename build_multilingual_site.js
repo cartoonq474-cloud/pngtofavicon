@@ -10569,6 +10569,817 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'ur' && normPath === 'index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'مفت پی این جی سے فیوی کون کنورٹر | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'کسی بھی PNG تصویر کو فوری طور پر مکمل فیوی کون پیکج میں تبدیل کریں۔ مفت، تیز، اور 100% کلائنٹ سائیڈ — آپ کی فائلیں آپ کے براؤزر کو کبھی نہیں چھوڑتی ہیں۔');
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'مفت پی این جی سے فیوی کون کنورٹر | PNGtoFavicon');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'کسی بھی PNG تصویر کو فوری طور پر مکمل فیوی کون پیکج میں تبدیل کریں۔ مفت، تیز، اور 100% کلائنٹ سائیڈ — آپ کی فائلیں آپ کے براؤزر کو کبھی نہیں چھوڑتی ہیں۔');
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', 'مفت پی این جی سے فیوی کون کنورٹر | PNGtoFavicon');
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', 'کسی بھی PNG تصویر کو فوری طور پر مکمل فیوی کون پیکج میں تبدیل کریں۔ مفت، تیز، اور 100% کلائنٹ سائیڈ — آپ کی فائلیں آپ کے براؤزر کو کبھی نہیں چھوڑتی ہیں۔');
+
+        // Structured Data: WebApplication, BreadcrumbList, and FAQPage
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            try {
+                let data = JSON.parse(script.textContent);
+                if (data['@type'] === 'WebApplication') {
+                    data.name = "PNGtoFavicon - پی این جی سے فیوی کون کنورٹر";
+                    data.description = "PNG امیجز کو favicon.ico، apple-touch-icon، android آئیکنز اور site.webmanifest فائلوں میں تبدیل کرنے کے لیے مفت آن لائن ٹول۔";
+                    data.featureList = [
+                        "PNG کو favicon.ico میں تبدیل کریں",
+                        "Apple Touch آئیکن بنائیں",
+                        "Android Chrome آئیکنز بنائیں",
+                        "site.webmanifest بنائیں",
+                        "تمام فائلوں کو ZIP کے طور پر ڈاؤن لوڈ کریں",
+                        "100% کلائنٹ سائیڈ پروسیسنگ"
+                    ];
+                    script.textContent = JSON.stringify(data, null, 2);
+                } else if (data['@type'] === 'BreadcrumbList') {
+                    if (data.itemListElement && data.itemListElement.length >= 2) {
+                        data.itemListElement[0].name = "ہوم پیج";
+                        data.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        data.itemListElement[1].name = "پی این جی سے فیوی کون کنورٹر";
+                        data.itemListElement[1].item = "https://pngtofavicon.com/ur/";
+                    }
+                    script.textContent = JSON.stringify(data, null, 2);
+                } else if (data['@type'] === 'FAQPage') {
+                    const faqTranslations = {
+                        "What is a favicon?": {
+                            q: "فیوی کون کیا ہے؟",
+                            a: "فیوی کون (\"پسندیدہ آئیکن\" کا مخفف) ایک چھوٹا آئیکن ہے جو آپ کی ویب سائٹ کو براؤزر ٹیبز، بک مارکس، ہسٹری اور ایڈریس بارز میں پیش کرتا ہے۔ یہ صارفین کو آپ کے برانڈ کی بصری طور پر شناخت کرنے میں مدد کرتا ہے۔"
+                        },
+                        "What sizes do I need for a favicon?": {
+                            q: "فیوی کون کے لیے مجھے کن سائزز کی ضرورت ہے؟",
+                            a: "براؤزر اور ڈیوائس کی مکمل سپورٹ کے لیے، آپ کو درج ذیل سائزز کی ضرورت ہے: 16x16 (معیاری ٹیب آئیکن)، 32x32 (HiDPI ٹیب آئیکن)، 48x48 (Windows سائٹ آئیکن)، 180x180 (Apple Touch آئیکن)، 192x192 (Android Chrome آئیکن) اور 512x512 (PWA انسٹال آئیکن)۔ PNGtoFavicon ایک سنگل PNG اپ لوڈ سے یہ تمام اور ملٹی سائز favicon.ico فائل خود بخود تیار کرتا ہے۔"
+                        },
+                        "How do I add a favicon to my website?": {
+                            q: "میں اپنی ویب سائٹ پر فیوی کون کیسے شامل کروں؟",
+                            a: "تیار کردہ فیوی کون فائلوں کو اپنی ویب سائٹ کی روٹ ڈائریکٹری میں شامل کریں، پھر فراہم کردہ HTML <link> ٹیگز کو کاپی کریں اور انہیں اپنی HTML دستاویز کے <head> سیکشن میں پیسٹ کریں۔ کوڈ؛ favicon.ico، PNG آئیکنز اور site.webmanifest فائل کا حوالہ دیتا ہے۔"
+                        },
+                        "Is my image uploaded to a server?": {
+                            q: "کیا میری تصویر کسی سرور پر اپ لوڈ ہوتی ہے؟",
+                            a: "نہیں — آپ کی تصویر کبھی بھی آپ کے براؤزر سے باہر نہیں جاتی۔ PNGtoFavicon جاوا اسکرپٹ اور HTML5 Canvas API کا استعمال کرتے ہوئے سب کچھ 100% کلائنٹ سائیڈ پر پروسیس کرتا ہے۔ کسی بھی سرور پر کوئی ڈیٹا نہیں بھیجا جاتا، جو اسے دستیاب سب سے محفوظ اور نجی فیوی کون جنریٹر بناتا ہے۔"
+                        },
+                        "What file formats are supported for input?": {
+                            q: "ان پٹ کے لیے کون سے فائل فارمیٹس سپورٹڈ ہیں؟",
+                            a: "PNGtoFavicon؛ PNG (تجویز کردہ، شفافیت کو سپورٹ کرتا ہے)، JPG/JPEG، SVG (ویکٹر فارمیٹ)، WEBP (جدید فارمیٹ) اور GIF فارمیٹس قبول کرتا ہے۔ بہترین نتائج کے لیے، شفاف پس منظر والی کم از کم 512x512 پکسل سائز کی چوکور PNG تصویر استعمال کریں۔"
+                        },
+                        "Can I use this tool on mobile?": {
+                            q: "کیا میں اس ٹول کو موبائل پر استعمال کر سکتا ہوں؟",
+                            a: "جی ہاں! PNGtoFavicon مکمل طور پر ریسپانسیو ہے اور جدید ویب براؤزر والے ہر ڈیوائس (بشمول اسمارٹ فونز اور ٹیبلیٹس) پر کام کرتا ہے۔ آپ اپنے موبائل ڈیوائس سے امیج اپ لوڈ کر سکتے ہیں، اختیارات کو ترتیب دے سکتے ہیں اور اپنا مکمل فیوی کون پیکیج ڈاؤن لوڈ کر سکتے ہیں۔"
+                        },
+                        "What is the difference between .ico and .png favicons?": {
+                            q: ".ico اور .png فیوی کونز میں کیا فرق ہے؟",
+                            a: ".ico فارمیٹ ایک پرانا کنٹینر ہے جو ایک ہی فائل میں متعدد آئیکن سائزز کو ہوسٹ کر سکتا ہے، جو پرانے براؤزرز کے ساتھ مطابقت کے لیے ضروری ہے۔ جدید براؤزر علیحدہ .png فائلوں کو ترجیح دیتے ہیں جو بہتر معیار اور چھوٹی فائل سائزز پیش کرتی ہیں۔ PNGtoFavicon دونوں فارمیٹس تیار کرتا ہے۔"
+                        },
+                        "What is site.webmanifest and do I need it?": {
+                            q: "site.webmanifest کیا ہے اور کیا مجھے اس کی ضرورت ہے؟",
+                            a: "site.webmanifest ایک JSON فائل ہے جو براؤزرز کو آپ کی ویب ایپ کے بارے میں معلومات فراہم کرتی ہے (بشمول نام، تھیم کا رنگ، اور آئیکن کے حوالہ جات)۔ یہ پروگریسو ویب ایپ (PWA) کی خصوصیات کے لیے ضروری ہے اور اینڈرائیڈ کروم اور دیگر جدید براؤزرز کے ساتھ مطابقت کو بہتر بناتا ہے۔"
+                        }
+                    };
+
+                    if (data.mainEntity) {
+                        data.mainEntity.forEach(item => {
+                            const originalQuestion = item.name;
+                            if (faqTranslations[originalQuestion]) {
+                                item.name = faqTranslations[originalQuestion].q;
+                                if (item.acceptedAnswer) {
+                                    item.acceptedAnswer.text = faqTranslations[originalQuestion].a;
+                                }
+                            }
+                        });
+                    }
+                    script.textContent = JSON.stringify(data, null, 2);
+                }
+            } catch (e) {
+                console.error("Error parsing JSON-LD in Urdu homepage", e);
+            }
+        });
+
+        // Hero H1, Subtitle, and dropzone labels
+        const h1 = doc.querySelector('h1');
+        if (h1) h1.innerHTML = 'مفت <span class="gradient-text">پی این جی سے فیوی کون</span> کنورٹر';
+        
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) subtitle.textContent = 'کسی بھی PNG تصویر کو فوری طور پر مکمل فیوی کون پیکج میں تبدیل کریں۔ مفت، تیز، اور 100% کلائنٹ سائیڈ — آپ کی فائلیں آپ کے براؤزر کو کبھی نہیں چھوڑتی ہیں۔';
+
+        // Drop zone contents
+        const dropzone = doc.getElementById('dropZone');
+        if (dropzone) dropzone.setAttribute('aria-label', 'اپ لوڈ ایریا۔ اپنی PNG تصویر کو یہاں گھسیٹیں اور چھوڑیں یا فائلوں کو براؤز کرنے کے لیے کلک کریں۔');
+        const dropzoneContent = doc.getElementById('dropZoneContent');
+        if (dropzoneContent) {
+            const paragraphs = dropzoneContent.querySelectorAll('p.text');
+            if (paragraphs.length >= 3) {
+                paragraphs[0].textContent = 'اپنی PNG تصویر کو یہاں گھسیٹیں اور چھوڑیں';
+                paragraphs[1].innerHTML = 'یا <span class="browse-btn" id="browseBtn">فائلوں کو براؤز کریں</span>';
+                paragraphs[2].textContent = 'سپورٹ کرتا ہے: PNG، JPG، SVG، WEBP، GIF (زیادہ سے زیادہ 5MB)';
+            }
+        }
+
+        // Trust Badges
+        const badgePrivate = doc.getElementById('badge-private');
+        if (badgePrivate) badgePrivate.textContent = '🔒 100% نجی';
+        const badgeInstant = doc.getElementById('badge-instant');
+        if (badgeInstant) badgeInstant.textContent = '⚡ فوری تبدیلی';
+        const badgeSizes = doc.getElementById('badge-sizes');
+        if (badgeSizes) badgeSizes.textContent = '📦 تمام سائز شامل ہیں';
+        const badgeFree = doc.getElementById('badge-free');
+        if (badgeFree) badgeFree.textContent = '💰 مکمل طور پر مفت';
+
+        // Options Panel
+        const optionsPanel = doc.getElementById('optionsPanel');
+        if (optionsPanel) {
+            const h3 = optionsPanel.querySelector('h3');
+            if (h3) h3.textContent = '⚙️ اختیارات';
+            
+            const sizeLabel = optionsPanel.querySelector('#sizeLabel');
+            if (sizeLabel) sizeLabel.textContent = 'آؤٹ پٹ سائزز';
+            
+            const bgLabel = optionsPanel.querySelector('label[for="bgColor"]');
+            if (bgLabel) bgLabel.textContent = 'پس منظر کا رنگ (شفاف PNGs کے لیے)';
+            
+            // Keep transparent checkbox label
+            const transparentBgLabel = optionsPanel.querySelector('input#transparentBg')?.parentElement;
+            if (transparentBgLabel) {
+                const cb = transparentBgLabel.querySelector('input#transparentBg');
+                transparentBgLabel.innerHTML = '';
+                if (cb) transparentBgLabel.appendChild(cb);
+                transparentBgLabel.appendChild(doc.createTextNode(' شفافیت برقرار رکھیں'));
+            }
+            
+            // Round corners checkbox label
+            const roundCornersLabel = optionsPanel.querySelector('input#roundCorners')?.parentElement;
+            if (roundCornersLabel) {
+                const cb = roundCornersLabel.querySelector('input#roundCorners');
+                roundCornersLabel.innerHTML = '';
+                if (cb) roundCornersLabel.appendChild(cb);
+                roundCornersLabel.appendChild(doc.createTextNode(' گول کونے'));
+            }
+            
+            // Include site.webmanifest checkbox label
+            const includeManifestLabel = optionsPanel.querySelector('input#includeManifest')?.parentElement;
+            if (includeManifestLabel) {
+                const cb = includeManifestLabel.querySelector('input#includeManifest');
+                includeManifestLabel.innerHTML = '';
+                if (cb) includeManifestLabel.appendChild(cb);
+                includeManifestLabel.appendChild(doc.createTextNode(' site.webmanifest شامل کریں'));
+            }
+        }
+
+        // Output Section
+        const outputSection = doc.getElementById('outputSection');
+        if (outputSection) {
+            const h3 = outputSection.querySelector('h3');
+            if (h3) h3.textContent = '📦 پیش نظارہ';
+            
+            const downloadBtn = doc.getElementById('downloadAllBtn');
+            if (downloadBtn) {
+                const svg = downloadBtn.querySelector('svg');
+                downloadBtn.innerHTML = '';
+                if (svg) downloadBtn.appendChild(svg);
+                downloadBtn.appendChild(doc.createTextNode(' تمام ڈاؤن لوڈ کریں (ZIP)'));
+            }
+            
+            // HTML code block
+            const htmlCodeSec = outputSection.querySelector('.glass-card:last-of-type') || outputSection.querySelector('.glass-card:nth-of-type(2)');
+            if (htmlCodeSec) {
+                const h3Html = htmlCodeSec.querySelector('h3');
+                if (h3Html) h3Html.textContent = '🔗 HTML کوڈ';
+                
+                const p = htmlCodeSec.querySelector('p');
+                if (p) p.innerHTML = 'اسے اپنی ویب سائٹ کے <code>&lt;head&gt;</code> ٹیگ میں شامل کریں:';
+                
+                const copyBtn = htmlCodeSec.querySelector('#copyHtmlBtn');
+                if (copyBtn) copyBtn.textContent = 'کاپی کریں';
+            }
+        }
+
+        // Why Choose section
+        let whySec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Why Choose')) whySec = sec;
+        });
+
+        if (whySec) {
+            const h2 = whySec.querySelector('h2');
+            if (h2) h2.textContent = 'فیویکن جنریشن کے لیے PNGtoFavicon.com کا انتخاب کیوں کریں؟';
+
+            const p = whySec.querySelector('p.section-subtitle') || whySec.querySelector('p');
+            if (p) p.textContent = 'سب سے طاقتور مفت آن لائن فیویکن بلڈر جو پیشہ ورانہ درستگی اور بجلی کی رفتار کے ساتھ تصاویر کو معیار کے مطابق براؤزر کے اثاثوں میں تبدیل کرتا ہے۔';
+
+            const cards = whySec.querySelectorAll('.feature-card');
+            if (cards.length >= 6) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'فوری کلائنٹ سائیڈ انجن';
+                if (p_1) p_1.textContent = 'اپنے براؤزر کی مقامی پروسیسنگ پاور کا استعمال کرتے ہوئے ملی سیکنڈ میں PNG کو فیوی کون پیکجز میں تبدیل کریں۔';
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'Pixel-Perfect Rescaling';
+                if (p_2) p_2.textContent = 'ہائی فیڈیلیٹی ڈاؤن سیمپلنگ جو کناروں کو کرکرا اور تفصیلات کو 16×16px سائز میں پڑھنے کے قابل رکھتی ہے۔';
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'تمام امیج فارمیٹس سپورٹ ہیں';
+                if (p_3) p_3.textContent = 'PNG، JPG، SVG، WEBP، GIF، اور دیگر مشہور تصویری فارمیٹس کے ساتھ آسانی کے ساتھ کام کرتا ہے۔';
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'یونیورسل ڈیوائس سپورٹ';
+                if (p_4) p_4.textContent = 'ایک زپ پیکیج کے اندر لیگیسی ICO، Apple Touch Icons، Android Chrome سائز، اور PWAs تیار کرتا ہے۔';
+
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = '100% محفوظ اور نجی';
+                if (p_5) p_5.textContent = 'HTML5 کینوس کا استعمال کرتے ہوئے مکمل طور پر آپ کے براؤزر میں چلتا ہے۔ آپ کی تصویر کبھی بھی کسی سرور پر اپ لوڈ نہیں ہوتی ہے۔';
+
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = 'مکمل طور پر مفت اور کھلا';
+                if (p_6) p_6.textContent = 'کوئی ای میل رجسٹریشن نہیں، کوئی سبسکرپشن نہیں، کوئی پے وال نہیں۔ مکمل طور پر مفت ڈویلپر ٹولز۔';
+            }
+
+            const featuresBadge = whySec.querySelector('.steps-badge');
+            if (featuresBadge) {
+                featuresBadge.innerHTML = '<span class="badge-dot"></span>آپ کی انگلی پر طاقتور خصوصیات';
+            }
+        }
+
+        // How it works section
+        let howSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('How Our PNG to Favicon')) howSec = sec;
+        });
+
+        if (howSec) {
+            const h2 = howSec.querySelector('h2');
+            if (h2) h2.textContent = 'ہمارا PNG سے Favicon کنورٹر کیسے کام کرتا ہے';
+
+            const p = howSec.querySelector('p.section-subtitle') || howSec.querySelector('p');
+            if (p) p.textContent = 'جدید ترین براؤزر پر مبنی ٹیکنالوجی دریافت کریں جسے ہم آپ کے فیویکونز کو محفوظ طریقے سے بنانے کے لیے استعمال کرتے۔';
+
+            const steps = howSec.querySelectorAll('.step');
+            if (steps.length >= 5) {
+                const h3_1 = steps[0].querySelector('h3');
+                const p_1 = steps[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'مقامی فائل ریڈنگ';
+                if (p_1) p_1.textContent = 'ایک بار جب آپ اپنی PNG امیج کو ڈریگ اینڈ ڈراپ یا براؤز کرتے ہیں، تو براؤزر آپ کی فائل کو مقامی طور پر پڑھنے کے لیے HTML5 FileReader API کا استعمال کرتا ہے، اسے بیرونی سرورز پر ایک بائٹ اپ لوڈ کیے بغیر ایک محفوظ ان میموری ڈیٹا اسٹریم میں تبدیل کرتا ہے۔';
+
+                const h3_2 = steps[1].querySelector('h3');
+                const p_2 = steps[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'آف اسکرین ڈاؤن اسکیلنگ';
+                if (p_2) p_2.textContent = 'تمام ضروری ریزولوشنز تیار کرنے کے لیے، ٹول پوشیدہ، آف اسکرین HTML5 کینوس عناصر کو گھماتا ہے۔ یہ کرکرا، تیز شکل کو برقرار رکھتے ہوئے آپ کے لوگو کو کم کرنے کے لیے دو لکیری انٹرپولیشن فلٹرز کا اطلاق کرتا ہے۔';
+
+                const h3_3 = steps[2].querySelector('h3');
+                const p_3 = steps[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'اختیارات پروسیسنگ';
+                if (p_3) p_3.textContent = 'اگر آپ ترتیبات کو اپنی مرضی کے مطابق بناتے ہیں تو کینوس رینڈرنگ اسٹیک کو تبدیل کرتا ہے۔ شفافیت کو ٹوگل کرنے سے پس منظر کی ایک ٹھوس تہہ پینٹ ہوتی ہے، اور گول کونے باؤنڈنگ باکس پر سرکلر کلپنگ ماسک لگاتے ہیں۔';
+
+                const h3_4 = steps[3].querySelector('h3');
+                const p_4 = steps[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'ثنائی ICO تالیف';
+                if (p_4) p_4.textContent = 'ایک کثیر سائز کی .ico فائل براہ راست آپ کے براؤزر میں مرتب کی جاتی ہے۔ اسکرپٹ میموری ہیڈر مختص کرتا ہے، ICO ڈائرکٹری کے اندراج کے پیرامیٹرز لکھتا ہے، اور بائٹ لیول رائٹر ٹولز کا استعمال کرتے ہوئے خام PNG ڈیٹا اسٹریمز کو جوڑتا ہے۔';
+
+                const h3_5 = steps[4].querySelector('h3');
+                const p_5 = steps[4].querySelector('p');
+                if (h3_5) h3_5.textContent = 'زپ کمپریسنگ اور ڈاؤن لوڈ کریں';
+                if (p_5) p_5.textContent = 'فائلیں اور site.webmanifest اسکیما JSZip کا استعمال کرتے ہوئے ایک ورچوئل فولڈر میں لوڈ کیے جاتے ہیں۔ براؤزر مقامی طور پر پیکیج بناتا ہے، ایک عارضی URL کا حوالہ رجسٹر کرتا ہے، اور زپ کو محفوظ کرنے کے لیے ایک پرامپٹ کو متحرک کرتا ہے۔';
+            }
+
+            const howBadge = howSec.querySelector('.steps-badge');
+            if (howBadge) {
+                howBadge.innerHTML = '<span class="badge-dot"></span>سیکنڈوں میں تیار، 100% کلائنٹ سائیڈ کنورژن';
+            }
+        }
+
+        // Perfect for Every Use Case Section
+        let useSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Perfect for Every')) useSec = sec;
+        });
+
+        if (useSec) {
+            const h2 = useSec.querySelector('h2');
+            if (h2) h2.textContent = 'ہر استعمال کے کیس کے لیے بہترین';
+
+            const p = useSec.querySelector('p.section-subtitle') || useSec.querySelector('p');
+            if (p) p.textContent = 'دریافت کریں کہ ہمارا PNG ٹو Favicon ٹول مختلف منظرناموں میں کیسے کام کرتا ہے۔';
+
+            const cards = useSec.querySelectorAll('.use-case-card');
+            if (cards.length >= 4) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'ویب ڈویلپرز';
+                if (p_1) p_1.textContent = 'ایک PNG فائل سے اپنے ویب پروجیکٹس کے لیے تمام مطلوبہ فیویکن سائز فوری طور پر تیار کریں۔';
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'UI/UX ڈیزائنرز';
+                if (p_2) p_2.textContent = 'یقینی بنائیں کہ آپ کے برانڈ کی شناخت تمام براؤزر ٹیبز اور آلے کی ہوم اسکرینوں پر کرکرا اور کامل نظر آتی ہے۔';
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'بلاگرز اور تخلیق کار';
+                if (p_3) p_3.textContent = 'اپنے ذاتی بلاگ یا پورٹ فولیو کو سیکنڈوں میں پیشہ ورانہ آئیکن کے ساتھ آسانی سے حسب ضرورت بنائیں۔';
+
+                const h3_4 = cards[4] ? cards[4].querySelector('h3') : cards[3].querySelector('h3');
+                const p_4 = cards[4] ? cards[4].querySelector('p') : cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'کاروباری مالکان';
+                if (p_4) p_4.textContent = 'اپنے پیشہ ورانہ ظہور کو اعلی معیار کے فیویکن کے ساتھ بلند کریں جو اعتماد پیدا کرتا ہے۔';
+            }
+
+            const trustedBadge = useSec.querySelector('.trusted-badge');
+            if (trustedBadge) {
+                const dotsGroup = trustedBadge.querySelector('.dots-group');
+                if (dotsGroup) {
+                    trustedBadge.innerHTML = '';
+                    trustedBadge.appendChild(dotsGroup);
+                    trustedBadge.appendChild(doc.createTextNode(' دنیا بھر کے پیشہ ور افراد کے ذریعہ قابل اعتماد'));
+                } else {
+                    trustedBadge.textContent = 'دنیا بھر کے پیشہ ور افراد کے ذریعہ قابل اعتماد';
+                }
+            }
+        }
+
+        // What's Included in Your Download Section
+        let downloadSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Download')) downloadSec = sec;
+        });
+
+        if (downloadSec) {
+            const h2 = downloadSec.querySelector('h2');
+            if (h2) h2.textContent = 'آپ کے ڈاؤن لوڈ میں کیا شامل ہے';
+
+            const p = downloadSec.querySelector('p.section-subtitle') || downloadSec.querySelector('p');
+            if (p) p.textContent = 'ہر فائل جس کی آپ کو مکمل کراس براؤزر اور کراس ڈیوائس فیویکن سپورٹ کی ضرورت ہے۔';
+
+            const cards = downloadSec.querySelectorAll('.file-card');
+            if (cards.length >= 7) {
+                const h3_1 = cards[0].querySelector('h3');
+                const p_1 = cards[0].querySelector('p');
+                if (h3_1) h3_1.textContent = 'favicon.ico';
+                if (p_1) p_1.textContent = 'کلاسک ملٹی سائز ICO فارمیٹ، جس میں 16×16، 32×32، اور 48×48 شبیہیں ہیں۔ انٹرنیٹ ایکسپلورر کے پرانے ورژن سمیت میراثی براؤزر سپورٹ کے لیے درکار ہے۔';
+
+                const h3_2 = cards[1].querySelector('h3');
+                const p_2 = cards[1].querySelector('p');
+                if (h3_2) h3_2.textContent = 'favicon-16x16.png';
+                if (p_2) p_2.textContent = 'معیاری براؤزر ٹیب کا آئیکن 16×16 پکسلز پر۔ زیادہ تر جدید براؤزرز معیاری کثافت کے ڈسپلے کے لیے بنیادی ٹیب فیویکن کے طور پر استعمال کرتے ہیں۔';
+
+                const h3_3 = cards[2].querySelector('h3');
+                const p_3 = cards[2].querySelector('p');
+                if (h3_3) h3_3.textContent = 'favicon-32x32.png';
+                if (p_3) p_3.textContent = 'ہائی-DPI براؤزر ٹیب کا آئیکن 32×32 پکسلز پر۔ براؤزر ٹیبز میں کرکرا، تیز فیوی کون رینڈرنگ کے لیے ریٹنا اور HiDPI اسکرینوں پر ڈسپلے کیا جاتا ہے۔';
+
+                const h3_4 = cards[3].querySelector('h3');
+                const p_4 = cards[3].querySelector('p');
+                if (h3_4) h3_4.textContent = 'apple-touch-icon.png';
+                if (p_4) p_4.textContent = 'آئی فون، آئی پیڈ، اور آئی پوڈ ٹچ کے لیے 180×180 پکسلز پر ایپل ٹچ آئیکن۔ ظاہر ہوتا ہے جب صارفین آپ کی ویب سائٹ کو اپنی iOS ہوم اسکرین پر شامل کرتے ہیں۔';
+
+                const h3_5 = cards[4].querySelector('h3');
+                const p_5 = cards[4].querySelector('p');
+                if (h3_5) h3_5.textContent = 'android-chrome-192x192.png';
+                if (p_5) p_5.textContent = '192×192 پکسلز پر اینڈرائیڈ ہوم اسکرین کا آئیکن۔ استعمال کیا جاتا ہے جب Android صارفین آپ کی سائٹ کو Chrome یا دیگر براؤزرز کے ذریعے اپنی ہوم اسکرین پر شامل کرتے ہیں۔';
+
+                const h3_6 = cards[5].querySelector('h3');
+                const p_6 = cards[5].querySelector('p');
+                if (h3_6) h3_6.textContent = 'android-chrome-512x512.png';
+                if (p_6) p_6.textContent = '512×512 پکسلز پر ہائی ریزولوشن PWA آئیکن۔ اینڈرائیڈ ڈیوائسز پر پروگریسو ویب ایپ انسٹال پرامپٹس اور اسپلش اسکرینز کے لیے درکار ہے۔';
+
+                const h3_7 = cards[6].querySelector('h3');
+                const p_7 = cards[6].querySelector('p');
+                if (h3_7) h3_7.textContent = 'site.webmanifest';
+                if (p_7) p_7.textContent = 'ویب ایپ مینی فیسٹ فائل جس میں آئیکن کے حوالہ جات، تھیم کا رنگ، اور پس منظر کا رنگ شامل ہے۔ پی ڈبلیو اے سپورٹ اور اینڈرائیڈ ہوم اسکرین انٹیگریشن کے لیے ضروری۔';
+            }
+        }
+
+        // Comparison Table Section
+        let compSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('vs Other')) compSec = sec;
+        });
+
+        if (compSec) {
+            const h2 = compSec.querySelector('h2');
+            if (h2) h2.textContent = 'PNGtoFavicon بمقابلہ مارکیٹ میں دیگر ٹولز';
+
+            const p = compSec.querySelector('p.section-subtitle') || compSec.querySelector('p');
+            if (p) p.textContent = 'دیکھیں کہ ہم مارکیٹ میں دوسرے فیوی کون جنریٹرز سے کس طرح موازنہ کرتے ہیں۔';
+
+            const thList = compSec.querySelectorAll('th');
+            if (thList.length >= 3) {
+                thList[0].textContent = 'خصوصیات';
+                thList[1].textContent = 'PNGtoFavicon';
+                thList[2].textContent = 'دیگر ٹولز';
+            }
+
+            const tdList = compSec.querySelectorAll('td');
+            tdList.forEach(td => {
+                const txt = td.textContent.trim();
+                if (txt === 'Price') td.textContent = 'قیمت';
+                else if (txt.includes('Free forever')) td.innerHTML = '<span class="check-icon">✅</span> ہمیشہ کے لیے مفت';
+                else if (txt === 'Freemium / Paid tiers') td.textContent = 'Freemium / ادا شدہ درجات';
+                else if (txt === 'Privacy') td.textContent = 'رازداری';
+                else if (txt.includes('100% Client-side')) td.innerHTML = '<span class="check-icon">✅</span> 100% کلائنٹ سائیڈ';
+                else if (txt === 'Files uploaded to servers') td.textContent = 'فائلیں سرورز پر اپ لوڈ کی گئیں';
+                else if (txt === 'Speed') td.textContent = 'رفتار';
+                else if (txt.includes('Instant processing')) td.innerHTML = '<span class="check-icon">✅</span> فوری پروسیسنگ';
+                else if (txt === 'Depends on server load') td.textContent = 'سرور کے بوجھ پر منحصر ہے';
+                else if (txt === 'File Formats') td.textContent = 'فائل فارمیٹس';
+                else if (txt.includes('ICO + PNG + Manifest')) td.innerHTML = '<span class="check-icon">✅</span> ICO + PNG + مینی فیسٹ';
+                else if (txt === 'Often ICO only') td.textContent = 'اکثر صرف ICO';
+                else if (txt === 'No Registration') td.textContent = 'کوئی رجسٹریشن نہیں';
+                else if (txt.includes('No signup needed')) td.innerHTML = '<span class="check-icon">✅</span> سائن اپ کی ضرورت نہیں';
+                else if (txt === 'Sometimes required') td.textContent = 'بعض اوقات ضرورت ہوتی ہے';
+                else if (txt === 'Multi-platform') td.textContent = 'ملٹی پلیٹ فارم';
+                else if (txt.includes('All devices & browsers')) td.innerHTML = '<span class="check-icon">✅</span> تمام ڈیوائسز اور براؤزرز';
+                else if (txt === 'Limited platform support') td.textContent = 'محدود پلیٹ فارم سپورٹ';
+                else if (txt === 'HTML Code Snippet') td.textContent = 'HTML کوڈ کا ٹکڑا';
+                else if (txt.includes('Auto-generated')) td.innerHTML = '<span class="check-icon">✅</span> خودکار طور پر تیار کردہ';
+                else if (txt === 'Manual integration') td.textContent = 'دستی انضمام';
+                else if (txt === 'Open Source') td.textContent = 'اوپن سورس';
+                else if (txt.includes('Transparent process')) td.innerHTML = '<span class="check-icon">✅</span> شفاف عمل';
+                else if (txt === 'Proprietary black-box') td.textContent = 'ملکیتی بلیک باکس';
+            });
+        }
+
+        // Bottom CTA Section
+        let bottomCta = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            if (sec.className.includes('bottom-cta')) {
+                bottomCta = sec;
+            }
+        });
+
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = 'آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔';
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = '50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔';
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = 'ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!';
+        }
+
+        // Testimonials Section
+        let testSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('What Our Users Say')) testSec = sec;
+        });
+
+        if (testSec) {
+            const accent = testSec.querySelector('.section-subtitle-accent');
+            if (accent) accent.textContent = 'تعریفیں';
+
+            const h2 = testSec.querySelector('h2');
+            if (h2) h2.textContent = 'ہمارے صارفین کیا کہتے ہیں';
+
+            const p = testSec.querySelector('p.section-subtitle');
+            if (p) p.textContent = '50,000 سے زیادہ ڈویلپرز، ڈیزائنرز، اور تخلیق کار اپنے پروجیکٹس کے لیے PNGtoFavicon پر بھروسہ کرتے ہیں۔';
+
+            const ratingDetails = testSec.querySelectorAll('.rating-details');
+            if (ratingDetails.length >= 2) {
+                const ratingCount1 = ratingDetails[0].querySelector('.rating-count');
+                if (ratingCount1) ratingCount1.textContent = 'Trustpilot پر تصدیق شدہ جائزے';
+
+                const ratingCount2 = ratingDetails[1].querySelector('.rating-count');
+                if (ratingCount2) ratingCount2.textContent = 'Capterra پر تصدیق شدہ جائزے';
+            }
+
+            const tpGrid = testSec.querySelector('#trustpilot-reviews');
+            if (tpGrid) {
+                const cards = tpGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'فرنٹ اینڈ ڈویلپر';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'اکتوبر 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"تمام فیوی کون سائز بنانے کا تیز ترین طریقہ۔ اس میں لفظی طور پر 2 سیکنڈ لگتے ہیں اور نئے manifest.json فارمیٹس کو بالکل ہینڈل کرتا ہے۔"';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'UI/UX ڈیزائنر';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'ستمبر 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"میں اپنے PNG کو ICO اور Apple Touch Icons میں تبدیل کرنے کے لیے 3 مختلف ٹولز استعمال کرتا تھا۔ یہ سب ایک کلک میں ہوتا ہے۔"';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'انڈی ہیکر';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'اگست 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"صاف انٹرفیس، کوئی اشتہار نہیں، اور یہ رازداری کا احترام کرتا ہے۔ UI ڈیزائنرز اور ڈویلپرز کے لیے انتہائی تجویز کردہ۔"';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'ایجنسی کا مالک';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'جولائی 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"ہم اسے اب اپنے تمام کلائنٹ پروجیکٹس کے لیے استعمال کرتے ہیں۔ آؤٹ پٹ ہمیشہ کرکرا ہوتے ہیں، اور HTML کوڈ کے ٹکڑوں سے ہمارا بہت وقت بچ جاتا ہے۔"';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'مکمل اسٹیک دیو';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'جون 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"آخر میں ایک فیوی کون جنریٹر جو جدید ویب کے تقاضوں کو سمجھتا ہے۔ سائٹ کا ڈارک موڈ تھیم بھی بہت خوبصورت ہے!"';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'پروڈکٹ مینیجر';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'مئی 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"انتہائی قابل اعتماد ٹول۔ مجھے پسند ہے کہ یہ آپ کو بالکل وہی چیز فراہم کرتا ہے جس کی آپ کو ضرورت ہے بغیر آپ کو چھلانگ لگانے یا سائن اپ کیے بغیر۔"';
+                }
+            }
+
+            const capGrid = testSec.querySelector('#capterra-reviews');
+            if (capGrid) {
+                const cards = capGrid.querySelectorAll('.review-card');
+                if (cards.length >= 6) {
+                    const role_1 = cards[0].querySelector('.review-meta p');
+                    if (role_1) role_1.textContent = 'سافٹ ویئر انجینئر';
+                    const date_1 = cards[0].querySelector('.review-date');
+                    if (date_1) date_1.textContent = 'نومبر 2025';
+                    const text_1 = cards[0].querySelector('p:not(.review-meta p)');
+                    if (text_1) text_1.textContent = '"بالکل بے عیب عملدرآمد۔ تیار کردہ زپ فائل بالکل منظم ہے اور تمام آلات پر شبیہیں بہت اچھی لگتی ہیں۔"';
+
+                    const role_2 = cards[1].querySelector('.review-meta p');
+                    if (role_2) role_2.textContent = 'مارکیٹنگ ڈائریکٹر';
+                    const date_2 = cards[1].querySelector('.review-date');
+                    if (date_2) date_2.textContent = 'اکتوبر 2025';
+                    const text_2 = cards[1].querySelector('p:not(.review-meta p)');
+                    if (text_2) text_2.textContent = '"مجھے اپنی کمپنی کی ویب سائٹ کے فیویکونز کو اپ ڈیٹ کرنے میں ایک منٹ سے بھی کم وقت لگا۔ یہ عمل ناقابل یقین حد تک بدیہی ہے۔"';
+
+                    const role_3 = cards[2].querySelector('.review-meta p');
+                    if (role_3) role_3.textContent = 'اسٹارٹ اپ بانی';
+                    const date_3 = cards[2].querySelector('.review-date');
+                    if (date_3) date_3.textContent = 'ستمبر 2025';
+                    const text_3 = cards[2].querySelector('p:not(.review-meta p)');
+                    if (text_3) text_3.textContent = '"نئی پروڈکٹ لانچ کرتے وقت فکر کرنے کی ایک کم چیز۔ بس گھسیٹیں، چھوڑیں، اور آپ کے پاس بہترین فیویکونز ہیں۔"';
+
+                    const role_4 = cards[3].querySelector('.review-meta p');
+                    if (role_4) role_4.textContent = 'فری لانس ویب ڈیزائنر';
+                    const date_4 = cards[3].querySelector('.review-date');
+                    if (date_4) date_4.textContent = 'اگست 2025';
+                    const text_4 = cards[3].querySelector('p:not(.review-meta p)');
+                    if (text_4) text_4.textContent = '"میں اپنے تمام ساتھیوں کو اس ٹول کی سفارش کرتا ہوں۔ یہ شفافیت کو بالکل ہینڈل کرتا ہے اور ICO فائلیں ہمیشہ درست رہتی ہیں۔"';
+
+                    const role_5 = cards[4].querySelector('.review-meta p');
+                    if (role_5) role_5.textContent = 'سی ٹی او';
+                    const date_5 = cards[4].querySelector('.review-date');
+                    if (date_5) date_5.textContent = 'جولائی 2025';
+                    const text_5 = cards[4].querySelector('p:not(.review-meta p)');
+                    if (text_5) text_5.textContent = '"سادہ، موثر، اور بالکل وہی کرتا ہے جو ٹن پر کہتا ہے۔ کوئی پھولی ہوئی خصوصیات نہیں، صرف ایک ٹھوس افادیت۔"';
+
+                    const role_6 = cards[5].querySelector('.review-meta p');
+                    if (role_6) role_6.textContent = 'بلاگر';
+                    const date_6 = cards[5].querySelector('.review-date');
+                    if (date_6) date_6.textContent = 'جون 2025';
+                    const text_6 = cards[5].querySelector('p:not(.review-meta p)');
+                    if (text_6) text_6.textContent = '"میں بہت تکنیکی نہیں ہوں، لیکن اس ٹول نے میرے بلاگ کے لیے پروفیشنل آئیکن حاصل کرنا بہت آسان بنا دیا۔ شکریہ!"';
+                }
+            }
+        }
+
+        // FAQ Section
+        let faqSec = null;
+        doc.querySelectorAll('section').forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (h2 && h2.textContent.includes('Frequently Asked Questions')) {
+                faqSec = sec;
+            }
+        });
+
+        if (faqSec) {
+            const title = faqSec.querySelector('h2.section-title');
+            if (title) title.textContent = 'سیکڑوں سوالات';
+
+            const subtitle = faqSec.querySelector('p.section-subtitle');
+            if (subtitle) subtitle.textContent = 'ہمارے فیویکن جنریشن سروس کے بارے میں عام طور پر پوچھے جانے والے سوالات کے جوابات حاصل کریں';
+
+            const tabBtns = faqSec.querySelectorAll('.faq-tab-btn');
+            if (tabBtns.length >= 4) {
+                tabBtns[0].textContent = 'بنیادی گائیڈ';
+                tabBtns[1].textContent = 'خصوصیات';
+                tabBtns[2].textContent = 'ٹیکنالوجی';
+                tabBtns[3].textContent = 'ہمارے بارے میں';
+            }
+
+            const gsGroup = faqSec.querySelector('#faq-getting-started');
+            if (gsGroup) {
+                const items = gsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>فیوی کون کیا ہے؟</h3>';
+                    if (a_1) a_1.textContent = 'فیوی کون (\"پسندیدہ آئیکن\" کا مخفف) ایک چھوٹا آئیکن ہے جو آپ کی ویب سائٹ کو براؤزر ٹیبز، بک مارکس، ہسٹری اور ایڈریس بارز میں پیش کرتا ہے۔ یہ صارفین کو آپ کے برانڈ کی بصری طور پر شناخت کرنے میں مدد کرتا ہے۔';
+
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>میں پی این جی کو آن لائن فیوی کون میں کیسے تبدیل کروں؟</h3>';
+                    if (a_2) a_2.textContent = 'اپنی PNG تصویر کو اوپر والے اپ لوڈ ایریا میں گھسیٹیں اور چھوڑیں یا براؤز کریں، پس منظر کے رنگوں، حاشیے یا کونوں کو اپنی مرضی کے مطابق بنائیں اور کمپائل شدہ ZIP فائل کو فوری طور پر ڈاؤن لوڈ کریں۔';
+
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>کیا مجھے کوئی سافٹ ویئر انسٹال کرنے کی ضرورت ہے؟</h3>';
+                    if (a_3) a_3.textContent = 'نہیں، ہمارا فیوی کون کنورٹر آپ کے براؤزر میں 100% کام کرتا ہے۔ کوئی پلگ ان، ایکسٹینشن یا سافٹ ویئر انسٹال کرنے کی ضرورت نہیں ہے۔';
+
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>کیا مجھے اکاؤنٹ بنانے کی ضرورت ہے؟</h3>';
+                    if (a_4) a_4.textContent = 'نہیں، یہ ٹول مکمل طور پر مفت، اوپن اور گمنام ہے۔ کوئی ای میل رجسٹریشن، اکاؤنٹ یا سبسکرپشن درکار نہیں ہے۔';
+                }
+            }
+
+            const ftGroup = faqSec.querySelector('#faq-features');
+            if (ftGroup) {
+                const items = ftGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>ٹول کون سے فائل فارمیٹس تیار کرتا ہے؟</h3>';
+                    if (a_1) a_1.textContent = 'یہ کثیر سائز favicon.ico فائل (16px، 32px، 48px)، براؤزرز کے لیے ہائی ریزولوشن PNG آئیکنز، Apple Touch آئیکنز (180x180)، Android Chrome آئیکنز (192x192، 512x512) اور site.webmanifest فائل بناتا ہے۔';
+
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>کیا یہ ٹول شفاف پی این جی کو سپورٹ کرتا ہے؟</h3>';
+                    if (a_2) a_2.textContent = 'جی ہاں! ڈیفالٹ کے طور پر یہ شفافیت کو برقرار رکھتا ہے۔ آپ شفافیت کو بند بھی کر سکتے ہیں اور پس منظر کو اپنی پسند کے رنگ سے بھر سکتے ہیں۔';
+
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>کیا میں ڈاؤن لوڈ کے لیے مخصوص سائز کا انتخاب کر سکتا ہوں؟</h3>';
+                    if (a_3) a_3.textContent = 'جی ہاں، ہمارا آپشن پینل آپ کو مخصوص سائز منتخب کرنے یا غیر منتخب کرنے کی اجازت دیتا ہے تاکہ آپ صرف وہی آئیکن ڈاؤن لوڈ کر سکیں جن کی آپ کو ضرورت ہے۔';
+
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>site.webmanifest فائل کیا ہے؟</h3>';
+                    if (a_4) a_4.textContent = 'یہ ایک JSON فائل ہے جس میں آئیکن کے حوالہ جات، تھیم کا رنگ، اور اینڈرائیڈ ڈیوائسز اور پروگریسو ویب ایپ (PWA) ہوم اسکرین انٹیگریشن کے لیے پس منظر کا رنگ شامل ہے۔';
+                }
+            }
+
+            const techGroup = faqSec.querySelector('#faq-technology');
+            if (techGroup) {
+                const items = techGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>کلائنٹ سائیڈ فیوی کون کی تبدیلی کیسے کام کرتی ہے؟</h3>';
+                    if (a_1) a_1.textContent = 'ہم امیجز کو ری سائز اور پروسیس کرنے کے لیے HTML5 Canvas کا استعمال کرتے ہیں، اور براؤزر کی میموری میں بائٹ لیول ArrayBuffer کا استعمال کرتے ہوئے براہ راست favicon.ico فائل کمپائل کرتے ہیں۔';
+
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>کیا کنورٹر بڑے سائز کی تصاویر کو سپورٹ کرتا ہے؟</h3>';
+                    if (a_2) a_2.textContent = 'جی ہاں، یہ 5 MB تک کی ہائی ریزولوشن تصاویر کو بغیر کسی رکاوٹ کے سنبھالتا ہے اور واضح کناروں کو یقینی بنانے کے لیے دو لکیری فلٹرز سے اسکیل کرتا ہے۔';
+
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>favicon.ico فائل کیوں ضروری ہے؟</h3>';
+                    if (a_3) a_3.textContent = 'اگرچہ جدید براؤزر PNG فارمیٹ کے فیوی کونز کو سپورٹ کرتے ہیں، لیکن کلاسک favicon.ico فارمیٹ اب بھی پرانے براؤزرز کے ساتھ بیک ورڈ مطابقت کے لیے ضروری ہے۔';
+
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>پورے تبادلوں کے عمل میں کتنا وقت لگتا ہے؟</h3>';
+                    if (a_4) a_4.textContent = 'چونکہ پروسیسنگ مقامی طور پر آپ کے ڈیوائس پر ہوتی ہے، اس لیے یہ تقریباً فوری طور پر (50 ملی سیکنڈ سے بھی کم وقت میں) مکمل ہو جاتی ہے اور بیرونی سرور پر فائلز اپ لوڈ کرنے کی ضرورت نہیں ہوتی۔';
+                }
+            }
+
+            const aboutUsGroup = faqSec.querySelector('#faq-about-us');
+            if (aboutUsGroup) {
+                const items = aboutUsGroup.querySelectorAll('.faq-item');
+                if (items.length >= 4) {
+                    const q_1 = items[0].querySelector('summary') || items[0].querySelector('h3');
+                    const a_1 = items[0].querySelector('.faq-answer');
+                    if (q_1) q_1.innerHTML = '<h3>کیا میری تصویر محفوظ اور نجی ہے؟</h3>';
+                    if (a_1) a_1.textContent = 'جی ہاں، بالکل۔ چونکہ پروسیسنگ آپ کے ڈیوائس پر مقامی طور پر ہوتی ہے، اس لیے آپ کی تصویر کبھی بھی آپ کے براؤزر کو نہیں چھوڑتی۔ ہم کسی فائل تک رسائی حاصل نہیں کرتے اور نہ ہی اسے محفوظ کرتے ہیں۔';
+
+                    const q_2 = items[1].querySelector('summary') || items[1].querySelector('h3');
+                    const a_2 = items[1].querySelector('.faq-answer');
+                    if (q_2) q_2.innerHTML = '<h3>PNGtoFavicon.com کیوں؟</h3>';
+                    if (a_2) a_2.textContent = 'ہم ڈویلپرز کو ذہن میں رکھ کر ڈیزائن کیا گیا ایک ایسا ٹول فراہم کرتے ہیں جو رازداری کی ضمانت دیتا ہے اور تمام جدید پلیٹ فارمز کے لیے مفت اور معیاری آئیکن پیکیجز بناتا ہے۔';
+
+                    const q_3 = items[2].querySelector('summary') || items[2].querySelector('h3');
+                    const a_3 = items[2].querySelector('.faq-answer');
+                    if (q_3) q_3.innerHTML = '<h3>کیا میں اسے اپنے موبائل پر استعمال کر سکتا ہوں؟</h3>';
+                    if (a_3) a_3.textContent = 'جی ہاں! یہ ویب سائٹ اور کنورٹر انجن موبائل اسکرینز کے ساتھ ہم آہنگ ہیں، جو آپ کو اپنے اسمارٹ فونز یا ٹیبلیٹس سے فیوی کون بنا کر ڈاؤن لوڈ کرنے کی اجازت دیتے ہیں۔';
+
+                    const q_4 = items[3].querySelector('summary') || items[3].querySelector('h3');
+                    const a_4 = items[3].querySelector('.faq-answer');
+                    if (q_4) q_4.innerHTML = '<h3>کیا تبادلوں کا ٹول بالکل مفت ہے؟</h3>';
+                    if (a_4) a_4.textContent = 'جی ہاں، یہ ہمیشہ کے لیے 100% مفت ہے؛ کوئی واٹر مارک نہیں، کوئی لازمی رجسٹریشن نہیں اور استعمال کی کوئی مصنوعی حد نہیں ہے۔';
+                }
+            }
+        }
+
+        // Other Tools / Explore section
+        const otherTools = doc.getElementById('other-tools');
+        if (otherTools) {
+            const h2 = otherTools.querySelector('.section-title');
+            if (h2) h2.textContent = 'مزید فیویکن ٹولز دریافت کریں۔';
+
+            const p = otherTools.querySelector('.section-subtitle');
+            if (p) p.textContent = 'PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔';
+
+            const cards_other = otherTools.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = 'ٹیکسٹ ٹو فیوی کون';
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = 'حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔';
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = 'اسے مفت میں آزمائیں →';
+
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = 'ایموجی ٹو فیویکن';
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = 'فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں، بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔';
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = 'اسے مفت میں آزمائیں →';
+
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = 'فیویکن چیکر';
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = 'اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔';
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = 'ابھی چیک کریں →';
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     } else if (targetLang === 'es' && normPath === 'favicon-checker/index.html') {
         // Page title & metadata
         doc.title = "Verificador y validador de favicons | PNGtoFavicon";
