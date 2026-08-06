@@ -14816,6 +14816,127 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'pt' && normPath === 'about/index.html') {
+        // Page title & metadata
+        doc.title = "Sobre o PNGtoFavicon | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Acreditamos que as ferramentas de web design devem ser rápidas, altamente otimizadas e respeitar a privacidade do utilizador.");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Sobre o PNGtoFavicon | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Acreditamos que as ferramentas de web design devem ser rápidas, altamente otimizadas e respeitar a privacidade do utilizador.");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Sobre o PNGtoFavicon");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Acreditamos que as ferramentas de web design devem ser rápidas, altamente otimizadas e respeitar a privacidade do utilizador.");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Sobre o <span class='gradient-text'>PNGtoFavicon</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "Acreditamos que as ferramentas de web design devem ser rápidas, altamente otimizadas e respeitar a privacidade do utilizador.";
+        }
+
+        // Content Sections (Glass Cards)
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Card 1: Our Mission
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "A Nossa Missão";
+            const ps_1 = cards[0].querySelectorAll('p');
+            if (ps_1.length >= 2) {
+                ps_1[0].textContent = "Criámos o PNGtoFavicon para resolver um problema simples: a maioria dos geradores de favicons online carrega os seus gráficos de marca para os seus servidores, processa-os lentamente e enche as suas páginas com anúncios pop-up indesejados.";
+                ps_1[1].textContent = "A nossa ferramenta funciona 100% localmente dentro do seu browser utilizando o HTML5 Canvas. Os seus ficheiros de logótipo nunca saem do seu computador, a renderização é instantânea e o formato de saída é otimizado para os padrões modernos de SEO.";
+            }
+
+            // Card 2: Contact & Support
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "Contacto e Suporte";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.textContent = "Tem dúvidas, comentários ou precisa de assistência direta com as nossas ferramentas? Contacte-nos através de qualquer um dos seguintes canais:";
+
+            // Contact Columns
+            const h3s = cards[1].querySelectorAll('h3');
+            if (h3s.length >= 2) {
+                h3s[0].textContent = "Contato direto";
+                h3s[1].textContent = "Canais de suporte";
+            }
+
+            const links = cards[1].querySelectorAll('a');
+            links.forEach(link => {
+                const span = link.querySelector('span');
+                if (span) {
+                    const txt = span.textContent.trim();
+                    if (txt === 'Chat on WhatsApp') {
+                        span.textContent = "Chat no WhatsApp";
+                    }
+                }
+            });
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "Converta PNG em Favicon instantaneamente — ferramenta online gratuita";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "Ferramentas";
+                else if (txt === 'Resources') h4.textContent = "Recursos";
+                else if (txt === 'Company') h4.textContent = "Empresa";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "Conversor de PNG para Favicon";
+                else if (txt === 'Text to Favicon') el.textContent = "Texto para Favicon";
+                else if (txt === 'Emoji to Favicon') el.textContent = "Emoji para Favicon";
+                else if (txt === 'Favicon Checker') el.textContent = "Verificador de Favicon";
+                else if (txt === 'Tutorials') el.textContent = "Tutoriais";
+                else if (txt === 'Blog') el.textContent = "Blog";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "Guia de tamanhos de Favicon";
+                else if (txt === 'What is a Favicon?') el.textContent = "O que é um Favicon?";
+                else if (txt === 'About') el.textContent = "Sobre nós";
+                else if (txt === 'Contact') el.textContent = "Contato";
+                else if (txt === 'Privacy Policy') el.textContent = "Política de privacidade";
+                else if (txt === 'Terms of Service') el.textContent = "Termos de serviço";
+                else if (txt === 'Cookie Policy') el.textContent = "Política de cookies";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'Suporte: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "Chat no WhatsApp";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
     }
      else if (targetLang === 'es' && normPath === 'about/index.html') {
         // Page title & metadata
