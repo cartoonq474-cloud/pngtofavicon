@@ -329,7 +329,7 @@ async function localizePage(relativePath, targetLang) {
     injectLanguageDropdown(relativePath, doc, targetLang);
 
     // 8. Translate UI Elements using static translations dictionary
-    const dict = existingTranslations[targetLang] || {};
+    const dict = Object.assign({}, existingTranslations[targetLang] || {});
 
     // Global translation block for Arabic pages
     if (targetLang === 'ar') {
@@ -7168,6 +7168,153 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
                 else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
                 else if (text === 'Tutorials') link.textContent = 'Anleitungen';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden zu Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'Datenschutzbestimmungen';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinien';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
+    if (targetLang === 'de' && normPath === 'blogger-favicon/index.html') {
+        dict['Blogger'] = 'Blogger';
+        if (doc.title) doc.title = 'Favicon auf Blogger ändern (Anleitung 2026) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Ersetzen Sie das Standard-Blogger-Symbol durch Ihr eigenes Branding. Anleitung zum Festlegen von Blogspot-Symbolen.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Startseite";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
+                        schema.itemListElement[1].name = "Blogger-Favicon-Anleitung";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/blogger-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon Breadcrumb schema: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Was ist ein Favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das einer Website zugeordnet ist. Es wird in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und in Suchergebnissen angezeigt. Favicons helfen Benutzern, Ihre Website unter mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Icons bis hin zu großen 512×512-Pixel-Icons, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Ladebildschirme verwendet werden.";
+
+                        schema.mainEntity[1].name = "Welche Favicon-Größen benötigen Sie?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Für eine umfassende Unterstützung aller Browser und Geräte benötigen Sie: 16×16 (Standard-Tab-Icon), 32×32 (HiDPI-Tab-Icon), 48×48 (Windows-Website-Icon), 180×180 (Apple-Touch-Icon), 192×192 (Android-Chrome-Icon) und 512×512 (PWA-Installations-Icon). PNGtoFavicon generiert alle diese Größen automatisch aus einem einzigen PNG-Upload, plus einer Multi-Size-favicon.ico-Datei.";
+
+                        schema.mainEntity[2].name = "Wie füge ich ein Favicon zu meiner Website hinzu?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Nachdem Sie Ihr Favicon-Paket von PNGtoFavicon heruntergeladen haben, entpacken Sie die ZIP-Datei in das Stammverzeichnis Ihrer Website und fügen Sie die bereitgestellten HTML-Link-Tags in Ihren <head>-Bereich ein. PNGtoFavicon generiert das exakte HTML-Code-Snippet, das Sie kopieren und einfügen können.";
+
+                        schema.mainEntity[3].name = "Wird mein Bild auf einen Server hochgeladen?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Nein — Ihr Bild verlässt niemals Ihren Browser. PNGtoFavicon verarbeitet alles zu 100 % clientseitig über JavaScript und die HTML5 Canvas API. Es werden keine Daten an einen Server gesendet, was dies zum sichersten und privatsphäre-freundlichsten Favicon-Generator macht.";
+
+                        schema.mainEntity[4].name = "Welche Dateiformate werden für den Input unterstützt?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon akzeptiert PNG (empfohlen, da es Transparenz unterstützt), JPG/JPEG, SVG (Vektorformat), WEBP (modernes Format) und GIF. Für beste Ergebnisse verwenden Sie ein quadratisches PNG-Bild von mindestens 512×512 Pixeln mit transparentem Hintergrund.";
+
+                        schema.mainEntity[5].name = "Kann ich dieses Tool auf dem Smartphone nutzen?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich smartphones und tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen.";
+
+                        schema.mainEntity[6].name = "Was ist der Unterschied zwischen .ico- und .png-Favicons?";
+                        schema.mainEntity[6].acceptedAnswer.text = "Das .ico-Format ist ein veralteter Container, der mehrere Symbolgrößen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die mit Link-Tags angegeben werden, da sie eine bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate.";
+
+                        schema.mainEntity[7].name = "Was ist site.webmanifest und benötige ich es?";
+                        schema.mainEntity[7].acceptedAnswer.text = "Die Datei site.webmanifest ist eine JSON-Datei, die Browsern Informationen über Ihre Webanwendung gibt – einschließlich Name, Theme-Farbe und Symbolreferenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWA) unerlässlich und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon FAQ schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Favicon auf <span class="gradient-text">Blogger</span> ändern';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Ersetzen Sie das Standard-Blogger-Symbol durch Ihr eigenes Branding. Anleitung zum Festlegen von Blogspot-Symbolen.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Blogger-Einstellungen einrichten';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'Melden Sie sich in Ihrem Blogger-Dashboard (blogger.com) an.';
+                lis1[1].innerHTML = 'Wählen Sie den gewünschten Blog im Dropdown-Menü oben links aus.';
+                lis1[2].innerHTML = 'Klicken Sie in der linken Seitenleiste auf „Einstellungen“.';
+                lis1[3].innerHTML = 'Klicken Sie unter „Grundeinstellungen“ auf „Favicon“.';
+                lis1[4].innerHTML = 'Eine neue Seite öffnet sich. Klicken Sie auf „Datei auswählen“ und laden Sie Ihr quadratisches PNG-Favicon hoch. Die Bildgröße sollte unter 100 KB liegen.';
+                lis1[5].innerHTML = 'Klicken Sie zur Bestätigung auf „Speichern“.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG-zu-Favicon-Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG sofort in Favicon konvertieren – kostenloses Online-Tool';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Chat auf WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter') link.textContent = 'PNG zu Favicon Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
                 else if (text === 'Blog') link.textContent = 'Blog';
                 else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden zu Favicon-Größen';
                 else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
