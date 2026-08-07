@@ -10,8 +10,8 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Setup Favicons in Next.js (App &amp; Pages Router) | PNGtoFavicon</title>
-  <meta name="description" content="Learn how to properly configure static favicon assets and manifest files in modern Next.js applications using both App and Pages routers.">
+  <title>Favicons in Next.js konfigurieren (Anleitung 2026) | PNGtoFavicon</title>
+  <meta name="description" content="Erfahren Sie, wie Sie statische Favicon-Assets und Manifest-Dateien in modernen Next.js-Anwendungen mithilfe des App- und Pages-Routers richtig konfigurieren.">
   <meta name="keywords" content="nextjs favicon, next.js site icon, favicon in nextjs, app router favicon">
   <link rel="canonical" href="https://pngtofavicon.com/de/nextjs-favicon/">
 
@@ -45,14 +45,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://pngtofavicon.com/"
+      "name": "Startseite",
+      "item": "https://pngtofavicon.com/de/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Next.js Favicon Guide",
-      "item": "https://pngtofavicon.com/nextjs-favicon/"
+      "name": "Next.js-Favicon-Anleitung",
+      "item": "https://pngtofavicon.com/de/nextjs-favicon/"
     }
   ]
 }</script>
@@ -87,7 +87,7 @@
       </button>
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a href="../">Konverter</a></li>
+          <li><a href="../">PNG-zu-Favicon-Konverter</a></li>
           <li><a href="../text-to-favicon/">Text zu Favicon</a></li>
           <li><a href="../emoji-to-favicon/">Emoji zu Favicon</a></li>
           <li><a href="../favicon-checker/">Favicon-Prüfer</a></li>
@@ -174,8 +174,8 @@
     <!-- ============================== -->
     <section class="hero" id="hero">
       <div class="container">
-        <h1>Configuring Favicons in <span class="gradient-text">Next.js</span></h1>
-        <p class="subtitle">Modern frameworks require modern meta tag strategies. Configure your browser icons properly in Next.js.</p>
+        <h1>Favicons in <span class="gradient-text">Next.js</span> konfigurieren</h1>
+        <p class="subtitle">Moderne Frameworks erfordern moderne Meta-Tag-Strategien. Konfigurieren Sie Ihre Browser-Icons korrekt in Next.js.</p>
       </div>
     </section>
 
@@ -184,14 +184,14 @@
       <section class="section">
         <div class="container" style="max-width: 800px;">
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Method 1: Next.js App Router (metadata API)</h2>
-            <p>In modern Next.js (version 13+ App Router), you can place your icon files directly inside the root of your <code>app</code> directory:</p>
+            <h2>Methode 1: Next.js App Router (Metadaten-API)</h2>
+            <p>In modernen Next.js-Versionen (ab Version 13 mit App Router) können Sie Ihre Icon-Dateien direkt im Stammverzeichnis Ihrer App ablegen:</p>
             <ul style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li><code>app/favicon.ico</code> (Automatic legacy fallback mapping)</li>
-              <li><code>app/icon.png</code> (Generates favicon links dynamically)</li>
-              <li><code>app/apple-icon.png</code> (Used for Apple home screen icons)</li>
+              <li><code>app/favicon.ico</code> (Automatische Legacy-Fallback-Zuordnung)</li>
+              <li><code>app/icon.png</code> (Generiert dynamisch Favicon-Links)</li>
+              <li><code>app/apple-icon.png</code> (Wird für Apple-Homescreen-Icons verwendet)</li>
             </ul>
-            <p style="margin-top: 1rem;">Alternatively, you can declare icons in your root <code>layout.js</code> file using the metadata API:</p>
+            <p style="margin-top: 1rem;">Alternativ können Sie Icons in Ihrer <code>layout.js</code>-Datei im Stammverzeichnis mithilfe der Metadaten-API deklarieren:</p>
             <div class="code-block" style="margin-top: 1rem; background: #111827;">
               <button class="copy-btn" data-copy="nextjsCode">Kopieren</button>
               <pre><code id="nextjsCode">export const metadata = {
@@ -206,8 +206,8 @@
           </div>
 
           <div class="glass-card animate-fade-in animate-delay-1" style="margin-bottom: 2rem;">
-            <h2>Method 2: Pages Router or HTML links</h2>
-            <p>If you are using the Pages Router, edit your <code>_document.js</code> file inside the <code>pages</code> directory and include standard meta markup:</p>
+            <h2>Methode 2: Pages Router oder HTML-Links</h2>
+            <p>Wenn Sie den Pages Router verwenden, bearbeiten Sie Ihre <code>_document.js</code>-Datei im Verzeichnis „pages“ und fügen Sie Standard-Meta-Markup hinzu:</p>
             <div class="code-block" style="margin-top: 1rem; background: #111827;">
               <button class="copy-btn" data-copy="nextjsPagesCode">Kopieren</button>
               <pre><code id="nextjsPagesCode">import { Html, Head, Main, NextScript } from 'next/document'
@@ -257,7 +257,7 @@ export default function Document() {
             </svg>
             <span>PNG<span style="color: #8b5cf6">to</span>Favicon</span>
           </a>
-          <p class="footer-tagline">PNG in Favicon sofort konvertieren — kostenloses Online-Tool</p>
+          <p class="footer-tagline">PNG-Dateien sofort in Favicons konvertieren – kostenloses Online-Tool</p>
           <div class="social-links">
             <a href="https://facebook.com/pngtofavicon" target="_blank" rel="noopener noreferrer" aria-label="PNGtoFavicon on Facebook" id="social-facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
@@ -284,7 +284,7 @@ export default function Document() {
 
         <!-- Column 2: Tools -->
         <div class="footer-col">
-          <h4>Tools</h4>
+          <h4>Werkzeuge</h4>
           <ul>
             <li><a href="/de/">PNG-in-Favicon-Konverter</a></li>
             <li><a href="/de/text-to-favicon/">Text zu Favicon</a></li>
@@ -322,7 +322,7 @@ export default function Document() {
 
       <!-- Copyright -->
       <div class="footer-bottom">
-        <p>© 2026 PNGtoFavicon.com — Alle Rechte vorbehalten.</p>
+        <p>© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.</p>
       </div>
     </div>
   </footer>
@@ -337,12 +337,12 @@ export default function Document() {
       "name": "Was ist ein Favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das mit einer Website verknüpft ist. Es erscheint in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und Suchergebnissen. Favicons helfen Nutzern, Ihre Website zwischen mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Symbolen bis hin zu großen 512×512-Pixel-Symbolen, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Splash-Screens verwendet werden."
+        "text": "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das einer Website zugeordnet ist. Es wird in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und in Suchergebnissen angezeigt. Favicons helfen Benutzern, Ihre Website unter mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Icons bis hin zu großen 512×512-Pixel-Icons, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Ladebildschirme verwendet werden."
       }
     },
     {
       "@type": "Question",
-      "name": "Welche Favicon-Größen benötige ich?",
+      "name": "Welche Favicon-Größen benötigen Sie?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Für eine umfassende Unterstützung aller Browser und Geräte benötigen Sie: 16×16 (Standard-Tab-Icon), 32×32 (HiDPI-Tab-Icon), 48×48 (Windows-Website-Icon), 180×180 (Apple-Touch-Icon), 192×192 (Android-Chrome-Icon) und 512×512 (PWA-Installations-Icon). PNGtoFavicon generiert alle diese Größen automatisch aus einem einzigen PNG-Upload, plus einer Multi-Size-favicon.ico-Datei."
@@ -377,7 +377,7 @@ export default function Document() {
       "name": "Kann ich dieses Tool auf dem Smartphone nutzen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich Smartphones und Tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen."
+        "text": "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich smartphones und tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen."
       }
     },
     {
@@ -385,15 +385,15 @@ export default function Document() {
       "name": "Was ist der Unterschied zwischen .ico- und .png-Favicons?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Das .ico-Format ist ein veraltetes Container-Format, das mehrere Icon-Größen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die über Link-Tags angegeben werden, da sie bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate."
+        "text": "Das .ico-Format ist ein veralteter Container, der mehrere Symbolgrößen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die mit Link-Tags angegeben werden, da sie eine bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate."
       }
     },
     {
       "@type": "Question",
-      "name": "Was ist die site.webmanifest-Datei und benötige ich sie?",
+      "name": "Was ist site.webmanifest und benötige ich es?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die site.webmanifest ist eine JSON-Datei, die Browsern Details über Ihre Web-App mitteilt — einschließlich ihres Namens, der Theme-Farbe und der Icon-Referenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWAs) unverzichtbar und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern."
+        "text": "Die Datei site.webmanifest ist eine JSON-Datei, die Browsern Informationen über Ihre Webanwendung gibt – einschließlich Name, Theme-Farbe und Symbolreferenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWA) unerlässlich und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern."
       }
     }
   ]
