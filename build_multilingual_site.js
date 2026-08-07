@@ -19032,6 +19032,362 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'ur' && normPath === 'tutorials/what-is-a-favicon/index.html') {
+        // Title & Description
+        if (doc.title) doc.title = 'ایک Favicon کیا ہے؟ ایک ابتدائی گائیڈ | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "ہر ویب سائٹ کی ایک شناخت ہوتی ہے، اور فیویکن اس کے سب سے چھوٹے لیکن سب سے زیادہ پہچانے جانے والے برانڈنگ عناصر میں سے ایک ہے۔ جانیں کہ یہ 2026 میں کیوں اہمیت رکھتا ہے۔");
+
+        // H1 & Subtitle
+        const h1 = doc.querySelector('h1');
+        if (h1) {
+            h1.innerHTML = 'ایک <span class="gradient-text">Favicon</span> کیا ہے؟';
+        }
+        const subtitle = doc.querySelector('p.subtitle');
+        if (subtitle) {
+            subtitle.textContent = "ہر ویب سائٹ کی ایک شناخت ہوتی ہے، اور فیویکن اس کے سب سے چھوٹے لیکن سب سے زیادہ پہچانے جانے والے برانڈنگ عناصر میں سے ایک ہے۔ جانیں کہ یہ 2026 میں کیوں اہمیت رکھتا ہے۔";
+        }
+
+        // Cards
+        const cards = doc.querySelectorAll('.glass-card');
+        if (cards.length >= 6) {
+            // Card 1: Intro
+            const pList_1 = cards[0].querySelectorAll('p');
+            if (pList_1.length >= 4) {
+                pList_1[0].textContent = "ہر ویب سائٹ کی ایک شناخت ہوتی ہے، اور فیویکن اس کے سب سے چھوٹے لیکن سب سے زیادہ پہچانے جانے والے برانڈنگ عناصر میں سے ایک ہے۔ فیویکون ایک چھوٹا سا آئیکن ہے جو براؤزر ٹیبز، بُک مارکس، براؤزر کی سرگزشت اور معاون آلات پر تلاش کے نتائج میں ویب پیج کے ٹائٹل کے ساتھ ظاہر ہوتا ہے۔ اگرچہ یہ صرف چند پکسل پر مشتمل ہے، لیکن یہ صارفین کو آپ کی ویب سائٹ کو تیزی سے شناخت کرنے اور براؤزنگ کے مختلف تجربات میں آپ کے برانڈ کو تقویت دینے میں اہم کردار ادا کرتا ہے۔";
+                pList_1[1].textContent = "بہت سے ویب سائٹ مالکان لوگو، نوع ٹائپ اور رنگ سکیموں پر توجہ مرکوز کرتے ہیں لیکن ویب سائٹ کی ترقی کے دوران فیویکن کو نظر انداز کرتے ہیں۔ غائب یا ناقص ڈیزائن کردہ فیویکونز ویب سائٹ کو نامکمل یا کم قابل اعتماد ظاہر کر سکتے ہیں۔ اس کے برعکس، ایک واضح اور قابل شناخت فیویکون دیکھنے والوں کو آپ کی سائٹ کو درجنوں کھلے ٹیبز سے ممتاز کرنے میں مدد کرتا ہے، بک مارک کی مرئیت کو بہتر بناتا ہے، اور زیادہ پیشہ ورانہ ظاہری شکل پیدا کرتا ہے۔";
+                pList_1[2].textContent = "جدید براؤزرز، سرچ انجن، اور موبائل ڈیوائسز پہلے سے کہیں زیادہ جگہوں پر فیوی کون کا استعمال کرتے ہیں۔ گوگل انہیں موبائل تلاش کے نتائج میں دکھا سکتا ہے، براؤزر انہیں ٹیبز اور بک مارکس میں دکھا سکتے ہیں، اور پروگریسو ویب ایپس (PWAs) ایپ آئیکن کے تجربے کے حصے کے طور پر ان پر انحصار کرتے ہیں۔ اس وسیع استعمال کی وجہ سے، ایک مناسب طریقے سے بہتر بنایا گیا فیویکن بنانا ویب سائٹ ڈیزائن اور تکنیکی SEO کا ایک معیاری حصہ بن گیا ہے۔";
+                pList_1[3].textContent = "یہ گائیڈ بتاتا ہے کہ فیوی کون کیا ہے، یہ کیوں اہمیت رکھتا ہے، یہ کہاں ظاہر ہوتا ہے، بہترین سائز اور فائل فارمیٹس، اسے بنانے اور انسٹال کرنے کا طریقہ، عام غلطیوں سے بچنا ہے، اور کیا فیوی کون SEO کو متاثر کرتا ہے۔";
+            }
+
+            // Card 2: What Is a Favicon?
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "ایک Favicon کیا ہے؟";
+            const pList_2 = cards[1].querySelectorAll('p');
+            if (pList_2.length >= 9) {
+                pList_2[0].textContent = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+                pList_2[1].textContent = "ایک پورے سائز کے لوگو کے برعکس، ایک فیویکن کو بہت چھوٹے طول و عرض میں بھی، اکثر 16 × 16 پکسلز تک پہچانے جانے کے لیے ڈیزائن کیا گیا ہے۔ اس محدود جگہ کی وجہ سے، موثر فیویکونز سادہ شکلیں، مضبوط کنٹراسٹ اور کم سے کم تفصیل کا استعمال کرتے ہیں۔";
+                pList_2[2].textContent = "جب کوئی آپ کی ویب سائٹ پر جاتا ہے، تو اس کا براؤزر ویب سائٹ کے دیگر وسائل جیسے کہ HTML، CSS، JavaScript اور تصاویر کے ساتھ فیویکن فائل کی درخواست کرتا ہے۔ لوڈ ہونے کے بعد، براؤزر جہاں بھی مناسب ہو آئیکن دکھاتا ہے، جس سے صارفین کو صفحہ کو تیزی سے آپ کے برانڈ کے ساتھ منسلک کرنے میں مدد ملتی ہے۔";
+                pList_2[3].innerHTML = "اصطلاح <strong>Favicon</strong> پسندیدہ آئیکن سے آیا ہے۔";
+                pList_2[4].textContent = "اس اصطلاح کی ابتدا 1990 کی دہائی کے آخر میں ہوئی جب مائیکرو سافٹ نے ویب سائٹس سے وابستہ ایک چھوٹے آئیکن کے لیے سپورٹ متعارف کرایا۔ ابتدائی طور پر، یہ شبیہیں صرف اس وقت ظاہر ہوئیں جب صارفین نے انٹرنیٹ ایکسپلورر میں اپنے براؤزر کی پسندیدہ فہرست میں ویب سائٹس کو شامل کیا۔ وقت گزرنے کے ساتھ، دوسرے براؤزرز نے اس تصور کو اپنایا اور اس کے استعمال کو ٹیبز، بک مارکس، تاریخ کے صفحات، موبائل شارٹ کٹس، اور انسٹال کردہ ویب ایپلیکیشنز تک بڑھا دیا۔";
+                pList_2[5].textContent = "فیویکن کا بنیادی مقصد کیا ہے؟";
+                pList_2[6].textContent = "فیویکون کا بنیادی مقصد ویب سائٹ کے لیے بصری شناخت فراہم کرنا ہے۔";
+                pList_2[7].textContent = "صرف صفحہ کے عنوانات پر انحصار کرنے کے بجائے، صارفین کسی ویب سائٹ کو اس کے آئیکن کے ذریعے تیزی سے پہچان سکتے ہیں۔ یہ خاص طور پر مفید ہو جاتا ہے جب متعدد ٹیبز کھلے ہوتے ہیں، براؤزر کی کھڑکیوں پر ہجوم ہوتا ہے، یا بک مارکس میں سیکڑوں محفوظ کردہ ویب سائٹس ہوتی ہیں۔";
+                pList_2[8].textContent = "ایک فیویکن مدد کرتا ہے:";
+                pList_2[9] = cards[1].querySelectorAll('p')[9]; // Safety checks in case length differs
+                const p9 = cards[1].querySelectorAll('p')[9] || cards[1].querySelectorAll('p')[cards[1].querySelectorAll('p').length - 1];
+                if (p9) p9.textContent = "اگرچہ فیوی کون براہ راست سرچ انجن کی درجہ بندی میں اضافہ نہیں کرتا ہے، لیکن یہ ویب سائٹ کے مجموعی استعمال اور برانڈ کی مستقل مزاجی میں حصہ ڈالتا ہے، یہ دونوں ہی صارف کے مثبت تجربے کی حمایت کرتے ہیں۔";
+            }
+            const h3List_2 = cards[1].querySelectorAll('h3');
+            if (h3List_2.length >= 2) {
+                h3List_2[0].textContent = "اصطلاح \"Favicon\" کی اصل";
+                h3List_2[1].textContent = "فیویکن کا بنیادی مقصد کیا ہے؟";
+            }
+            const ulList_2 = cards[1].querySelectorAll('ul li');
+            if (ulList_2.length >= 5) {
+                ulList_2[0].innerHTML = "<strong>برانڈ کی شناخت کو بہتر بنائیں:</strong> زائرین کے ساتھ ایک یادگار کنکشن بناتا ہے۔";
+                ulList_2[1].innerHTML = "<strong>براؤزر ٹیبز کو شناخت کرنا آسان بنائیں:</strong> صارفین کو آپ کے برانڈ کا نام اور لوگو کا انداز یاد رکھنے میں مدد کرتا ہے۔";
+                ulList_2[2].innerHTML = "<strong>اپنی ویب سائٹ کو حریفوں سے ممتاز کریں:</strong> براؤزرز اور آلات پر یکساں انداز کو برقرار رکھتا ہے۔";
+                ulList_2[3].innerHTML = "<strong>صارف کے تجربے کو بہتر بنائیں:</strong> آپ کے برانڈ کو بصری طور پر ممتاز کرتا ہے۔";
+                ulList_2[4].innerHTML = "<strong>ایک پالش اور پیشہ ورانہ ظاہری شکل پیش کریں:</strong> تفصیل اور پیشہ ورانہ مہارت کی طرف توجہ کا اشارہ کرتا ہے۔";
+            }
+
+            // Card 3: Where Favicons Appear
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "جہاں Favicons ظاہر ہوتے ہیں۔";
+            const pList_3 = cards[2].querySelectorAll('p');
+            if (pList_3.length >= 2) {
+                pList_3[0].textContent = "بہت سے لوگ فرض کرتے ہیں کہ فیوی کون صرف براؤزر کے ٹیبز میں ظاہر ہوتا ہے، لیکن جدید براؤزرز، آپریٹنگ سسٹمز، اور سرچ انجن کئی جگہوں پر فیوی کون دکھاتے ہیں۔";
+                pList_3[1].textContent = "یہ سمجھنا کہ آپ کا فیویکن کہاں ظاہر ہوتا ہے اس بات پر روشنی ڈالتا ہے کہ صحیح ڈیزائن اور فائل فارمیٹ کا انتخاب کیوں ضروری ہے۔";
+            }
+            const h4List_3 = cards[2].querySelectorAll('h4');
+            const pDescList_3 = cards[2].querySelectorAll('div[style*="display: grid"] p');
+            if (h4List_3.length >= 9 && pDescList_3.length >= 9) {
+                h4List_3[0].textContent = "براؤزر ٹیبز";
+                pDescList_3[0].textContent = "فیویکون کا سب سے عام مقام براؤزر ٹیب ہے۔ جب متعدد ٹیبز کھلے ہوتے ہیں، تو صارفین اپنی مطلوبہ ویب سائٹ کو تلاش کرنے کے لیے اکثر صفحہ کے عنوانات کے بجائے فیویکونز پر انحصار کرتے ہیں۔ ایک مخصوص آئیکن نیویگیشن کو تیز کرتا ہے اور الجھن کو کم کرتا ہے۔";
+
+                h4List_3[1].textContent = "براؤزر بک مارکس";
+                pDescList_3[1].textContent = "بک مارک شدہ صفحات کے ساتھ فیویکونز بھی ظاہر ہوتے ہیں۔ زیادہ تر براؤزرز ہر بُک مارک کے آگے ویب سائٹ کا آئیکن دکھاتے ہیں، جس سے صارفین ہر ٹائٹل کو پڑھے بغیر بک مارک فولڈرز کو تیزی سے اسکین کر سکتے ہیں۔";
+
+                h4List_3[2].textContent = "براؤزر کی تاریخ";
+                pDescList_3[2].textContent = "بہت سے ڈیسک ٹاپ اور موبائل براؤزرز براؤزنگ ہسٹری میں فیوی کون دکھاتے ہیں۔ عام دستاویز کا آئیکن دکھانے کے بجائے، براؤزر ویب سائٹس کو بصری طور پر الگ کرنے کے لیے فیوی کون کا استعمال کرتے ہیں، جس سے براؤزنگ کی تاریخ کو اسکین کرنا آسان ہو جاتا ہے۔";
+
+                h4List_3[3].textContent = "ایڈریس بار اور براؤزر انٹرفیس";
+                pDescList_3[3].textContent = "ککیردار ایڈریس بار، صفحہ کی معلومات کے علاقے، یا ٹیب مینجمنٹ انٹرفیس کے اندر فیویکونز دکھاتے ہیں۔ اگرچہ عمل درآمد براؤزرز کے درمیان مختلف ہوتا ہے، لیکن ان ماحول کو سپورٹ کرنے سے پلیٹ فارمز پر مسلسل برانڈنگ کو برقرار رکھنے میں مدد ملتی ہے۔";
+
+                h4List_3[4].textContent = "گوگل سرچ کے نتائج";
+                pDescList_3[4].textContent = "گوگل موبائل تلاش کے نتائج اور مخصوص ڈیسک ٹاپ تلاش کے تجربات میں ویب سائٹ کا فیویکن ظاہر کر سکتا ہے۔ آپ کے صفحہ کے عنوان اور ڈومین نام کے ساتھ دکھائے جانے پر، فیویکن ایک اضافی برانڈنگ سگنل فراہم کرتا ہے جو صارفین کو آپ کی ویب سائٹ کو پہچاننے میں مدد کرتا ہے۔";
+
+                h4List_3[5].textContent = "موبائل ہوم اسکرین شارٹ کٹس";
+                pDescList_3[5].textContent = "جب صارفین کسی ویب سائٹ کو اپنے اسمارٹ فون کی ہوم اسکرین پر محفوظ کرتے ہیں، تو براؤزر عام طور پر آپ کے فیویکن یا ایپل ٹچ آئیکن پر مبنی ایک نامزد آئیکن استعمال کرتے ہیں۔ اگر آپ کی ویب سائٹ میں مناسب طریقے سے کنفیگر کردہ آئیکنز شامل ہیں، تو شارٹ کٹ ایک مقامی موبائل ایپلیکیشن کی طرح لگتا ہے۔";
+
+                h4List_3[6].textContent = "پروگریسو ویب ایپس (PWAs)";
+                pDescList_3[6].textContent = "پروگریسو ویب ایپس ویب سائٹ کے آئیکن سیٹ سے اخذ کردہ متعدد آئیکن سائز استعمال کرتی ہیں۔ جب صارفین PWA انسٹال کرتے ہیں، تو یہ آئیکنز ایپلیکیشن کا لانچر آئیکن، سپلیش اسکرین آئیکن، ٹاسک سوئچر آئیکن، اور نوٹیفکیشن آئیکن بن جاتے ہیں۔";
+
+                h4List_3[7].textContent = "براؤزر شروع صفحات";
+                pDescList_3[7].textContent = "بہت سے براؤزر نئے ٹیب پیجز یا ہوم پیج ڈیش بورڈز پر اکثر دیکھی جانے والی ویب سائٹس کو ظاہر کرتے ہیں۔ Favicons کو عام طور پر ہر ویب سائٹ کے لیے بصری شناخت کنندہ کے طور پر استعمال کیا جاتا ہے، جس سے انہیں ایک نظر میں پہچاننا آسان ہو جاتا ہے۔";
+
+                h4List_3[8].textContent = "پاس ورڈ مینیجر اور براؤزر آٹو فل";
+                pDescList_3[8].textContent = "کچھ پاس ورڈ مینیجر اور براؤزر کے اسناد کے مینیجر محفوظ کردہ ویب سائٹ لاگ ان کے آگے فیوی کون دکھاتے ہیں۔ اس سے صارفین کو صارف نام اور پاس ورڈز خود بخود بھرنے سے پہلے درست ویب سائٹ کی فوری شناخت کرنے میں مدد ملتی ہے۔";
+            }
+
+            // Card 4: Why Is a Favicon Important?
+            const h2_4 = cards[3].querySelector('h2');
+            if (h2_4) h2_4.textContent = "ایک Favicon کیوں اہم ہے؟";
+            const pList_4 = cards[3].querySelectorAll('p');
+            if (pList_4.length >= 12) {
+                pList_4[0].textContent = "پہلی نظر میں، ایک فیویکن ایک معمولی ڈیزائن عنصر کی طرح لگ سکتا ہے۔ سب کے بعد، یہ اکثر صرف 16 × 16 یا 32 × 32 پکسلز کی پیمائش کرتا ہے۔ تاہم، اس کا اثر اس کے سائز سے کہیں زیادہ پھیلا ہوا ہے۔ ایک فیویکن براؤزرز، بُک مارکس، تلاش کے نتائج، اور موبائل آلات پر آپ کی ویب سائٹ کے لیے ایک بصری شناخت کار کے طور پر کام کرتا ہے، جس سے صارفین کو آپ کے برانڈ کو پہچاننے اور اس پر بھروسہ کرنے میں مدد ملتی ہے۔";
+                pList_4[1].textContent = "کاروباری اداروں، بلاگرز، ای کامرس اسٹورز، SaaS کمپنیوں اور ذاتی ویب سائٹس کے لیے، ایک فیویکن پیشہ ورانہ ویب ڈیزائن کا ایک معیاری حصہ ہے۔ ایک کے بغیر، براؤزر اکثر ایک عام پلیس ہولڈر آئیکن ظاہر کرتے ہیں، جو ویب سائٹ کو نامکمل یا کم قابل اعتبار بنا سکتا ہے۔";
+                pList_4[2].textContent = "برانڈ کی شناخت کو بہتر بناتا ہے";
+                pList_4[3].textContent = "براؤزر ٹیبز کو شناخت کرنا آسان بناتا ہے";
+                pList_4[4].textContent = "ایک سے زیادہ ٹیبز ایک جیسے عام شبیہیں دکھاتے ہیں۔ صارفین کو تراشے ہوئے عنوانات کو پڑھنا چاہیے، جس سے درست ویب سائٹ تلاش کرنا سست اور زیادہ الجھا ہوا ہے۔";
+                pList_4[5].textContent = "ہر ویب سائٹ کا ایک منفرد بصری شناخت کنندہ ہوتا ہے۔ کاربران درست ٹیب کو فوری طور پر تلاش کر سکتے ہیں، جس سے نیویگیشن تیز اور زیادہ بدیہی ہو جاتی ہے۔";
+                pList_4[6].textContent = "صرف صفحہ کے عنوانات پر انحصار کرنے کے بجائے، صارفین کسی ویب سائٹ کو اس کے آئیکن کے ذریعے تیزی سے پہچان سکتے ہیں۔ یہ خاص طور پر مفید ہو جاتا ہے جب متعدد ٹیبز کھلے ہوتے ہیں، براؤزر کی کھڑکیوں پر ہجوم ہوتا ہے، یا بک مارکس میں سیکڑوں محفوظ کردہ ویب سائٹس ہوتی ہیں۔";
+                pList_4[7].textContent = "مستقل مزاجی پیدا کرتا ہے: براؤزرز اور آلات پر یکساں انداز کو برقرار رکھتا ہے۔";
+                pList_4[8].textContent = "اپنی ویب سائٹ کو حریفوں سے ممتاز کریں۔";
+                pList_4[9].textContent = "براؤزر کی سرگزشت کو اسکین کرنا آسان بنائیں";
+                pList_4[10].textContent = "محفوظ کردہ ویب سائٹس کو تیزی سے تلاش کرنے میں صارفین کی مدد کریں۔";
+                pList_4[11].textContent = "تمام آلات پر بصری تسلسل فراہم کریں۔";
+            }
+            const h3List_4 = cards[3].querySelectorAll('h3');
+            if (h3List_4.length >= 8) {
+                h3List_4[0].textContent = "برانڈ کی شناخت کو بہتر بناتا ہے";
+                h3List_4[1].textContent = "براؤزر ٹیبز کو شناخت کرنا آسان بناتا ہے";
+                h3List_4[2].textContent = "صرف صفحہ کے عنوانات پر انحصار کرنے کے بجائے، صارفین کسی ویب سائٹ کو اس کے آئیکن کے ذریعے تیزی سے پہچان سکتے ہیں۔";
+                h3List_4[3].textContent = "اعتماد اور پیشہ ورانہ مہارت پیدا کرتا ہے";
+                h3List_4[4].textContent = "بک مارک کی مرئیت کو بہتر بناتا ہے";
+                h3List_4[5].textContent = "موبائل صارف کے تجربے کی حمایت کرتا ہے";
+                h3List_4[6].textContent = "پلیٹ فارمز پر مستقل برانڈنگ کی حمایت کرتا ہے";
+                h3List_4[7].textContent = "بالواسطہ طور پر کلک کے ذریعے شرحوں کو بہتر بنا سکتا ہے";
+            }
+            const h5List_4 = cards[3].querySelectorAll('h5');
+            if (h5List_4.length >= 2) {
+                h5List_4[0].textContent = "فیویکن کے بغیر";
+                h5List_4[1].textContent = "فیویکن کے ساتھ";
+            }
+            const ulList_4 = cards[3].querySelectorAll('ul');
+            if (ulList_4.length >= 2) {
+                const liList_4_1 = ulList_4[0].querySelectorAll('li');
+                if (liList_4_1.length >= 4) {
+                    liList_4_1[0].innerHTML = "<strong>بصری شناخت کو تقویت دیتا ہے:</strong> زائرین کے ساتھ ایک یادگار کنکشن بناتا ہے۔";
+                    liList_4_1[1].innerHTML = "<strong>برانڈ کی یاد کو بڑھاتا ہے:</strong> صارفین کو آپ کے برانڈ کا نام اور لوگو کا انداز یاد رکھنے میں مدد کرتا ہے۔";
+                    liList_4_1[2].innerHTML = "<strong>مستقل مزاجی پیدا کرتا ہے:</strong> براؤزرز اور آلات پر یکساں انداز کو برقرار رکھتا ہے۔";
+                    liList_4_1[3].innerHTML = "<strong>ویب سائٹ کو یادگار بناتا ہے:</strong> آپ کے برانڈ کو بصری طور پر ممتاز کرتا ہے۔";
+                }
+                const liList_4_2 = ulList_4[1].querySelectorAll('li');
+                if (liList_4_2.length >= 5) {
+                    liList_4_2[0].textContent = "متعدد کھلے ٹیبز کے درمیان نیویگیشن کو آسان بنائیں";
+                    liList_4_2[1].textContent = "بک مارک تنظیم کو بہتر بنائیں";
+                    liList_4_2[2].textContent = "براؤزر کی سرگزشت کو اسکین کرنا آسان بنائیں";
+                    liList_4_2[3].textContent = "محفوظ کردہ ویب سائٹس کو تیزی سے تلاش کرنے میں صارفین کی مدد کریں۔";
+                    liList_4_2[4].textContent = "تمام آلات پر بصری تسلسل فراہم کریں۔";
+                }
+            }
+
+            // Card 5: Does a Favicon Directly Improve SEO?
+            const h2_5 = cards[4].querySelector('h2');
+            if (h2_5) h2_5.textContent = "کیا Favicon براہ راست SEO کو بہتر بناتا ہے؟";
+            const pList_5 = cards[4].querySelectorAll('p');
+            if (pList_5.length >= 3) {
+                pList_5[0].innerHTML = "ایک فیویکن براہ راست گوگل کی درجہ بندی کا عنصر <strong>نہیں</strong> ہے۔ صرف ایک فیویکن رکھنے سے سرچ انجن کے نتائج میں آپ کی پوزیشن بہتر نہیں ہوگی۔";
+                pList_5[1].textContent = "تاہم، یہ صارف کے مجموعی تجربے کو بڑھا کر اور آپ کے برانڈ کو مضبوط بنا کر بالواسطہ SEO کی حمایت کر سکتا ہے:";
+                pList_5[2].textContent = "تلاش کے انجن تیزی سے ایسی ویب سائٹس کو انعام دیتے ہیں جو صارف کا مثبت تجربہ فراہم کرتی ہیں۔ اگرچہ ایک فیویکن صرف ایک چھوٹا سا جزو ہے، لیکن یہ دیگر تکنیکی اور ڈیزائن میں بہتری کی تکمیل کرتا ہے جو ایک اعلیٰ معیار کی ویب سائٹ میں حصہ ڈالتے ہیں۔";
+            }
+            const liList_5 = cards[4].querySelectorAll('ul li');
+            if (liList_5.length >= 6) {
+                liList_5[0].textContent = "بہتر برانڈ کی پہچان اور صارف کا اعتماد";
+                liList_5[1].textContent = "بہتر صارف کا اعتماد اور پیشہ ورانہ ساکھ";
+                liList_5[2].textContent = "براؤزر ٹیبز اور بک مارکس میں مرئیت میں اضافہ";
+                liList_5[3].textContent = "مستقل برانڈنگ کی مستقل مزاجی";
+                liList_5[4].textContent = "تعاون یافتہ تلاش کے نتائج میں ممکنہ طور پر زیادہ کلک کرنے کی شرح";
+                liList_5[5].textContent = "واپس آنے والے زائرین کے لیے آسان نیویگیشن";
+            }
+
+            // Card 6: Key Takeaways
+            const h2_6 = cards[5].querySelector('h2');
+            if (h2_6) h2_6.textContent = "کلیدی ٹیک ویز";
+            const pList_6 = cards[5].querySelectorAll('p');
+            if (pList_6.length >= 3) {
+                pList_6[0].textContent = "ایک فیویکن آرائشی آئیکن سے کہیں زیادہ ہے۔ یہ ایک ضروری برانڈنگ اثاثہ ہے جو براؤزرز، بُک مارکس، موبائل ڈیوائسز، اور سرچ انٹرفیس میں شناخت، استعمال اور پیشہ ورانہ مہارت کو بہتر بناتا ہے۔";
+                pList_6[1].textContent = "اچھی طرح سے ڈیزائن کردہ فیویکن کو لاگو کرکے، آپ یہ کرسکتے ہیں:";
+                pList_6[2].textContent = "اگرچہ یہ صرف چند پکسلز پر قابض ہے، فیویکون اس بات پر دیرپا اثر ڈالتا ہے کہ صارفین آپ کی ویب سائٹ کو کیسے سمجھتے اور اس کے ساتھ تعامل کرتے ہیں۔";
+            }
+            const liList_6 = cards[5].querySelectorAll('ul li');
+            if (liList_6.length >= 6) {
+                liList_6[0].textContent = "اپنے برانڈ کی شناخت کو مضبوط بنائیں";
+                liList_6[1].textContent = "صارفین کو اپنی ویب سائٹ کی فوری شناخت کرنے میں مدد کریں۔";
+                liList_6[2].textContent = "براؤزر ٹیبز اور بک مارکس میں نیویگیشن کو بہتر بنائیں";
+                liList_6[3].textContent = "ایک زیادہ پالش اور قابل اعتماد ظہور بنائیں";
+                liList_6[4].textContent = "بہتر مجموعی صارف کے تجربے کی حمایت کریں۔";
+                liList_6[5].textContent = "صارف کی مصروفیت اور SEO کی کارکردگی میں بالواسطہ تعاون کریں۔";
+            }
+        }
+
+        // FAQ Section
+        const faqSec = doc.getElementById('faq');
+        if (faqSec) {
+            const h2 = faqSec.querySelector('h2');
+            if (h2) h2.textContent = "اکثر پوچھے گئے سوالات";
+
+            const faqItems = faqSec.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const summary = item.querySelector('summary');
+                const p = item.querySelector('.faq-answer') || item.querySelector('p');
+                if (summary) {
+                    const qTxt = summary.textContent.trim();
+                    if (qTxt.includes('Why does the favicon checker say my icon is missing')) {
+                        summary.innerHTML = "<h3>تصویر کے بجائے ایموجی فیویکن کیوں استعمال کریں؟</h3>";
+                        if (p) p.textContent = "ایموجی فیویکونز تفریحی، وضاحتی، اور فوری طور پر پہچانے جانے کے قابل ہیں۔ وہ ڈویلپر ٹولز، ذاتی بلاگز، SaaS پروجیکٹس، اور ہلکے وزن والے ویب ایپس کے لیے لاجواب ہیں۔ چونکہ ایموجیز انتہائی معیاری ہیں، اس لیے وہ ایک سے زیادہ ڈسپلے اسکرینوں پر یکساں نظر آتے ہیں۔";
+                    } else if (qTxt.includes('How can I fix a missing apple-touch-icon?')) {
+                        summary.innerHTML = "<h3>کیا میں اپنا ایموجی خود ٹائپ کر سکتا ہوں؟</h3>";
+                        if (p) p.textContent = "جی ہاں! آپ کسی ایک ایموجی کو براہ راست \"منتخب ایموجی\" فیلڈ میں ٹائپ یا پیسٹ کر سکتے ہیں، اور ہمارا رینڈرنگ کینوس اسے فوری طور پر کھینچ لے گا۔";
+                    } else if (qTxt.includes('Does a missing favicon affect search engine SEO?')) {
+                        summary.innerHTML = "<h3>کیا میں پس منظر کو شفاف بنا سکتا ہوں؟</h3>";
+                        if (p) p.textContent = "جی ہاں \"شفاف رکھیں (صرف آئیکن)\" باکس کو چیک کریں، اور ٹول ایموجی کو براہ راست شفاف کینوس پر رینڈر کرے گا، اسے شفاف PNG فائلوں کے طور پر محفوظ کرے گا۔";
+                    }
+                }
+            });
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "مزید فیویکن ٹولز دریافت کریں۔";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔";
+
+            const toolText = otherToolsSec.querySelector('#tool-text');
+            if (toolText) {
+                const h3 = toolText.querySelector('h3');
+                if (h3) h3.textContent = "Favicon پر متن بھیجیں۔";
+                const pText = toolText.querySelector('p');
+                if (pText) pText.textContent = "حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔";
+                const linkText = toolText.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "اسے مفت میں آزمائیں →";
+            }
+
+            const toolEmoji = otherToolsSec.querySelector('#tool-emoji');
+            if (toolEmoji) {
+                const h3 = toolEmoji.querySelector('h3');
+                if (h3) h3.textContent = "ایموجی ٹو فیویکن";
+                const pText = toolEmoji.querySelector('p');
+                if (pText) pText.textContent = "فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں, بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔";
+                const linkText = toolEmoji.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "اسے مفت میں آزمائیں →";
+            }
+
+            const toolChecker = otherToolsSec.querySelector('#tool-checker');
+            if (toolChecker) {
+                const h3 = toolChecker.querySelector('h3');
+                if (h3) h3.textContent = "فیویکن چیکر";
+                const pText = toolChecker.querySelector('p');
+                if (pText) pText.textContent = "اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔";
+                const linkText = toolChecker.querySelector('.tool-card-link');
+                if (linkText) linkText.textContent = "ابھی چیک کریں →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        // FAQPage Structured Data (Urdu)
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32، 48x48، 180x180، 192x192، اور 512x512۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "فائلیں ڈاؤن لوڈ کر کے اپنے روٹ سرور پر اپ لوڈ کریں اور HTML لنک کوڈ کو ہیڈ سیکشن میں شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing what-is-a-favicon FAQ schema: ", e);
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     }
      else if (targetLang === 'es' && normPath === 'tutorials/what-is-a-favicon/index.html') {
         // Page title & metadata
