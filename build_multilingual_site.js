@@ -25161,6 +25161,182 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'ur' && normPath === 'blog/favicon-seo-guide/index.html') {
+        // Page title & metadata
+        doc.title = "فیویکن SEO گائیڈ | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "گوگل SERP کے ٹکڑوں میں سائٹ کے ناموں کے آگے فیویکونز دکھائے جاتے ہیں۔ آرگینک سرچ کلکس حاصل کرنے کے لیے اپنے آپ کو بہتر بنانے کا طریقہ جانیں۔");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "فیویکن SEO گائیڈ | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "گوگل SERP کے ٹکڑوں میں سائٹ کے ناموں کے آگے فیویکونز دکھائے جاتے ہیں۔ آرگینک سرچ کلکس حاصل کرنے کے لیے اپنے آپ کو بہتر بنانے کا طریقہ جانیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "فیویکن SEO گائیڈ");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "گوگل SERP کے ٹکڑوں میں سائٹ کے ناموں کے آگے فیویکونز دکھائے جاتے ہیں۔ آرگینک سرچ کلکس حاصل کرنے کے لیے اپنے آپ کو بہتر بنانے کا طریقہ جانیں۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "بلاگ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/blog/";
+                        schema.itemListElement[2].name = "فیویکن SEO گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/blog/favicon-seo-guide/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing favicon-seo-guide Breadcrumb schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "فیویکن <span class='gradient-text'>SEO گائیڈ</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "گوگل SERP کے ٹکڑوں میں سائٹ کے ناموں کے آگے فیویکونز دکھائے جاتے ہیں۔ آرگینک سرچ کلکس حاصل کرنے کے لیے اپنے آپ کو بہتر بنانے کا طریقہ جانیں۔";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "SEO کے لیے فیویکونز کیوں اہم ہیں۔";
+                h2s[1].textContent = "فیویکونز کے لیے گوگل کی گائیڈ لائنز";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "فیویکونز اب صرف جمالیاتی ٹیب پلیس ہولڈرز نہیں ہیں۔ آج کے نامیاتی تلاش کے منظر نامے میں، وہ براہ راست سرچ انجن کے نتائج کے صفحات (SERPs) کے اندر نمایاں برانڈ شناخت کنندگان کے طور پر کام کرتے ہیں۔";
+                ps[1].textContent = "اگرچہ گوگل آپ کی سائٹ کو صرف اس وجہ سے اونچا نہیں دیتا کہ آپ کے پاس فیوی کون ہے، بصری آئیکن براہ راست تلاش کرنے والے صارف کے رویے کو متاثر کرتا ہے۔ آپ کے صفحہ کے عنوان کے ساتھ ایک پیشہ ور، واضح، اور اعلی کنٹراسٹ آئیکن برانڈ کی ساکھ اور بصری مطابقت کو بڑھاتا ہے، جس سے کلک کے ذریعے اعلیٰ شرح (CTR) چلتی ہے۔ اعلی نامیاتی CTR صفحہ کے معیار کو تلاش کرنے کے الگورتھم کی طرف اشارہ کرتا ہے، بالواسطہ طور پر تلاش کی درجہ بندی کی جگہ کو بڑھاتا ہے۔";
+            }
+
+            const lis = card.querySelectorAll('ul li');
+            if (lis.length >= 3) {
+                lis[0].innerHTML = "<strong>نمائندہ بنیں:</strong> آئیکن آپ کے برانڈ کے لوگو یا نشان کی طرح نظر آنا چاہیے۔ عام یا گمراہ کن آئیکنز کو ڈیفالٹ گلوب آئیکن سے تبدیل کیا جا سکتا ہے۔";
+                lis[1].innerHTML = "<strong>کرال کے قابل URL:</strong> یقینی بنائیں کہ آپ کے آئیکن کا راستہ آپ کی robots.txt فائل کے ذریعے مسدود نہیں ہے، خاص طور پر Googlebot-Image کرالر کے لیے۔";
+                lis[2].innerHTML = "<strong>مربع تناسب:</strong> مثال کے طور پر، 48x48px، 96x96px، یا 192x192px۔ تلاش کے نتائج کے لیے گوگل خود بخود آئیکن کو 16x16px تک نیچے کر دیتا ہے۔";
+            }
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "مزید فیویکن ٹولز دریافت کریں۔";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔";
+
+            const cards_other = otherToolsSec.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Favicon پر متن بھیجیں۔";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "ایموجی ٹو فیویکن";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں، بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "فیویکن چیکر";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "ابھی چیک کریں →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     } else if (targetLang === 'es' && normPath === 'text-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Generador de favicons de texto | PNGtoFavicon";
