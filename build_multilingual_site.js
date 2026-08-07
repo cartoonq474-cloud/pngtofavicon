@@ -8027,6 +8027,159 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
+    if (targetLang === 'ar' && normPath === 'blogger-favicon/index.html') {
+        if (doc.title) doc.title = 'تغيير أيقونة الموقع على بلوجر | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'استبدل أيقونة بلوجر الافتراضية بأيقونة علامتك التجارية الشخصية. دليل إعداد أيقونات بلوجر.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "الرئيسية";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
+                        schema.itemListElement[1].name = "دليل أيقونة بلوجر";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/blogger-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon Breadcrumb schema in Arabic: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ما هي أيقونة الموقع؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "أيقونة الموقع (المعروفة بـ Favicon اختصاراً لـ favorite icon) هي أيقونة صغيرة مرتبطة بموقع إلكتروني. تظهر في تبويبات المتصفح، وقوائم العلامات المرجعية، وسجل التصفح، ونتائج البحث. تساعد الأيقونات المستخدمين في التعرف بسرعة على موقعك بين العديد من التبويبات المفتوحة. تدعم معظم المتصفحات الحديثة أحجاماً متعددة للأيقونات لتناسب سياقات مختلفة — من أيقونة تبويب صغيرة بحجم 16×16 بكسل إلى أيقونة كبيرة بحجم 512×512 بكسل تستخدمها تطبيقات الويب التقدمية (PWAs) للاختصارات على الشاشة الرئيسية وشاشات الترحيب.";
+
+                        schema.mainEntity[1].name = "ما هي مقاسات أيقونة الموقع التي أحتاجها؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "لدعم متكامل عبر جميع المتصفحات والأجهزة، تحتاج إلى: 16×16 (أيقونة التبويب القياسية)، 32×32 (أيقونة التبويب لشاشات HiDPI)، 48×48 (أيقونة موقع لنظام Windows)، 180×180 (أيقونة Apple Touch)، 192×192 (أيقونة Chrome لأجهزة Android)، و 512×512 (أيقونة تثبيت تطبيق الويب التقدمي). تقوم أداة PNGtoFavicon بتوليد جميع هذه المقاسات تلقائياً من ملف PNG واحد ترفعه، بالإضافة إلى ملف favicon.ico متعدد المقاسات.";
+
+                        schema.mainEntity[2].name = "كيف يمكنني إضافة أيقونة موقع إلى موقعي الإلكتروني؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "بعد تنزيل حزمة أيقونة الموقع من PNGtoFavicon، قم بفك ضغط ملف ZIP في المجلد الرئيسي لموقعك وأضف وسوم روابط HTML المرفقة داخل قسم <head> في صفحاتك. توفر لك أداة PNGtoFavicon كود HTML الجاهز للنسخ واللصق مباشرة.";
+
+                        schema.mainEntity[3].name = "هل يتم رفع صورتي إلى خادم (Server)؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "لا — لا تغادر صورتك متصفحك أبداً. تعالج أداة PNGtoFavicon كل شيء بنسبة 100% على جانب العميل (client-side) باستخدام JavaScript وواجهة HTML5 Canvas API. لا يتم إرسال أي بيانات إلى أي خادم، مما يجعل هذا المولد هو الأكثر أماناً وحفاظاً على الخصوصية.";
+
+                        schema.mainEntity[4].name = "ما هي صيغ الملفات المدعومة للإدخال؟";
+                        schema.mainEntity[4].acceptedAnswer.text = "تقبل أداة PNGtoFavicon صيغ PNG (موصى بها لأنها تدعم الشفافية)، و JPG/JPEG، و SVG (صيغة متجهة)، و WEBP (صيغة حديثة)، و GIF. للحصول على أفضل النتائج، استخدم صورة PNG مربعة بحجم 512×512 بكسل على الأقل بخلفية شفافة.";
+
+                        schema.mainEntity[5].name = "هل يمكنني استخدام هذه الأداة على الهاتف المحمول؟";
+                        schema.mainEntity[5].acceptedAnswer.text = "نعم! تتميز أداة PNGtoFavicon باستجابة كاملة لجميع الشاشات وتعمل على أي جهاز يحتوي على متصفح ويب حديث — بما في ذلك الهواتف الذكية والأجهزة اللوحية. يمكنك رفع الصور وضبط الخيارات وتنزيل حزمة الأيقونة الكاملة مباشرة من جهازك المحمول.";
+
+                        schema.mainEntity[6].name = "ما الفرق بين أيقونات الموقع بصيغة .ico وصيغة .png؟";
+                        schema.mainEntity[6].acceptedAnswer.text = "صيغة .ico هي صيغة قديمة لحاوية يمكنها احتواء أحجام متعددة من الأيقونات في ملف واحد، وهي مطلوبة للتوافق مع المتصفحات القديمة. تفضل المتصفحات الحديثة ملفات .png الفردية المحددة بواسطة وسوم الروابط، لأنها توفر جودة أفضل وأحجام ملفات أصغر. وتولد أداة PNGtoFavicon الصيغتين معاً.";
+
+                        schema.mainEntity[7].name = "ما هو ملف site.webmanifest وهل أحتاج إليه؟";
+                        schema.mainEntity[7].acceptedAnswer.text = "ملف site.webmanifest هو ملف بتنسيق JSON يزود المتصفحات بمعلومات حول تطبيق الويب الخاص بك — بما في ذلك اسمه، ولون السمة، ومراجع الأيقونات. إنه أساسي لوظائف تطبيقات الويب التقدمية (PWA) ويحسن التوافق مع متصفح Chrome على Android والمتصفحات الحديثة الأخرى.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon FAQ schema in Arabic: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'تغيير أيقونة الموقع على <span class="gradient-text">بلوجر</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'استبدل أيقونة بلوجر الافتراضية بأيقونة علامتك التجارية الشخصية. دليل إعداد أيقونات بلوجر.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'إعدادات بلوجر';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'سجّل الدخول إلى لوحة تحكم بلوجر (blogger.com).';
+                lis1[1].innerHTML = 'اختر المدونة المستهدفة من القائمة المنسدلة أعلى اليسار.';
+                lis1[2].innerHTML = 'انقر على "الإعدادات" في الشريط الجانبي الأيسر.';
+                lis1[3].innerHTML = 'ضمن الإعدادات الأساسية، انقر على "أيقونة الموقع".';
+                lis1[4].innerHTML = 'ستُفتح صفحة جديدة. انقر على "اختيار ملف" وقم بتحميل أيقونة الموقع المربعة بصيغة PNG. تأكد من أن حجم الصورة أقل من 100 كيلوبايت.';
+                lis1[5].innerHTML = 'انقر على "حفظ" للتأكيد.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'المحول';
+            else if (text === 'Text to Favicon') link.textContent = 'نص إلى أيقونة';
+            else if (text === 'Emoji to Favicon') link.textContent = 'رمز تعبيري إلى أيقونة';
+            else if (text === 'Favicon Checker') link.textContent = 'فاحص الأيقونات';
+            else if (text === 'Tutorials') link.textContent = 'دروس تعليمية';
+            else if (text === 'Blog') link.textContent = 'المدونة';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'تحويل صور PNG إلى أيقونات مواقع فورية - أداة مجانية عبر الإنترنت';
+            }
+
+            // Phone link
+            const phoneLink = footer.querySelector('a[href*="tel:"]');
+            if (phoneLink) {
+                const phoneSpan = phoneLink.querySelector('span');
+                if (phoneSpan) phoneSpan.textContent = '+977 9866735560';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'تواصل معنا عبر واتساب';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'الأدوات';
+                else if (text === 'Resources') h4.textContent = 'الموارد';
+                else if (text === 'Company') h4.textContent = 'الشركة';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter' || text === 'PNG to Favicon converter') link.textContent = 'محول صور PNG إلى أيقونات مواقع';
+                else if (text === 'Text to Favicon') link.textContent = 'تحويل النصوص إلى أيقونات مواقع';
+                else if (text === 'Emoji to Favicon') link.textContent = 'تحويل الرموز التعبيرية إلى أيقونات مواقع';
+                else if (text === 'Favicon Checker') link.textContent = 'مدقق أيقونات المواقع';
+                else if (text === 'Tutorials') link.textContent = 'الدروس التعليمية';
+                else if (text === 'Blog') link.textContent = 'المدونة';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'دليل أحجام أيقونات المواقع';
+                else if (text === 'What is a Favicon?') link.textContent = 'ما هي أيقونة الموقع؟';
+                else if (text === 'About') link.textContent = 'نبذة عنا';
+                else if (text === 'Contact') link.textContent = 'اتصل بنا';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'سياسة الخصوصية';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'شروط الخدمة';
+                else if (text === 'Cookie Policy') link.textContent = 'سياسة ملفات تعريف الارتباط';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com - جميع الحقوق محفوظة.';
+            }
+        }
+    }
+
     if (targetLang === 'de' && normPath === 'wix-favicon/index.html') {
         if (doc.title) doc.title = 'So passen Sie Ihr Favicon bei Wix an (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
