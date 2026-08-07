@@ -23370,6 +23370,178 @@ async function localizePage(relativePath, targetLang) {
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
+    } else if (targetLang === 'ur' && normPath === 'blog/png-vs-ico-vs-svg-favicons/index.html') {
+        // Page title & metadata
+        doc.title = "PNG، ICO، اور SVG کا موازنہ | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "آپ کی سائٹ کے لیے کون سا براؤزر ٹیب آئیکن فارمیٹ صحیح ہے؟ ایک تفصیلی تکنیکی تجزیہ۔");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "PNG، ICO، اور SVG کا موازنہ | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "آپ کی سائٹ کے لیے کون سا براؤزر ٹیب آئیکن فارمیٹ صحیح ہے؟ ایک تفصیلی تکنیکی تجزیہ۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "PNG، ICO، اور SVG کا موازنہ");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "آپ کی سائٹ کے لیے کون سا براؤزر ٹیب آئیکن فارمیٹ صحیح ہے؟ ایک تفصیلی تکنیکی تجزیہ۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "بلاگ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/blog/";
+                        schema.itemListElement[2].name = "PNG، ICO، اور SVG کا موازنہ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/blog/png-vs-ico-vs-svg-favicons/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing png-vs-ico-vs-svg Breadcrumb schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "PNG، ICO، اور SVG کا <span class='gradient-text'>موازنہ</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "آپ کی سائٹ کے لیے کون سا براؤزر ٹیب آئیکن فارمیٹ صحیح ہے؟ ایک تفصیلی تکنیکی تجزیہ۔";
+        }
+
+        // Content Section Card
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2s = card.querySelectorAll('h2');
+            const ps = card.querySelectorAll('p');
+            if (h2s.length >= 3) {
+                h2s[0].textContent = "1. ICO (دی لیگیسی فال بیک)";
+                h2s[1].textContent = "2. PNG (جدید معیار)";
+                h2s[2].textContent = "3. SVG (The Vector Future)";
+            }
+            if (ps.length >= 4) {
+                ps[0].textContent = "یہ فیصلہ کرنا کہ کون سی فیویکون فائلوں کو آپ کی سرور ڈائریکٹریز میں شامل کرنا ہے الجھن کا باعث ہو سکتا ہے۔ آئیے تین بنیادی فارمیٹس دیکھیں: ICO، PNG، اور SVG۔";
+                ps[1].textContent = "Microsoft `.ico` فارمیٹ ایک کنٹینر ہے جو ایک فائل کے اندر متعدد سائز (عام طور پر 16x16، 32x32، اور 48x48 پکسلز) رکھتا ہے۔ اگرچہ انٹرنیٹ ایکسپلورر جیسے پرانے براؤزرز کو خصوصی طور پر اس فارمیٹ کی ضرورت تھی، لیکن آج اسے میراثی نظاموں کے لیے ایک عالمگیر فال بیک کے طور پر برقرار رکھا جاتا ہے۔";
+                ps[2].textContent = "PNG فائلیں شفافیت، بھرپور 24 بٹ کلر پیلیٹ، اور بہترین کمپریشن ریشوز کی حمایت کرتی ہیں۔ جدید براؤزرز ICO فائلوں پر ہائی ریزولوشن PNGs کو ترجیح دیتے ہیں کیونکہ وہ ریٹنا اسکرین پر خوبصورتی سے پیمانہ کرتے ہیں۔ آپ عام طور پر ڈیسک ٹاپ براؤزر ٹیبز کے لیے 16x16 اور 32x32 PNG کی وضاحت کرتے ہیں۔";
+                ps[3].textContent = "SVGs ویکٹر پر مبنی ہیں، یعنی وہ بغیر پکسلیشن کے لامحدود پیمانے پر ہیں۔ ان کے پاس ناقابل یقین حد تک چھوٹے فائل سائز ہیں۔ مزید برآں، SVGs مارک اپ کے اندر CSS میڈیا کے سوالات کو سپورٹ کرتے ہیں، جب صارف اپنے آپریٹنگ سسٹم میں ڈارک موڈ کو چالو کرتا ہے تو آئیکن کو رنگ سکیموں کو متحرک طور پر تبدیل کرنے کی اجازت دیتا ہے۔";
+            }
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "مزید فیویکن ٹولز دریافت کریں۔";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔";
+
+            const cards_other = otherToolsSec.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Favicon پر متن بھیجیں۔";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "ایموجی ٹو فیویکن";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں، بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "فیویکن چیکر";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "ابھی چیک کریں →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     } else if (targetLang === 'id' && normPath === 'tutorials/favicon-best-practices/index.html') {
         // Page title & metadata
         doc.title = "Desain Favicon & Praktik Terbaik SEO | PNGtoFavicon";
