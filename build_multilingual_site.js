@@ -22067,6 +22067,164 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'ur' && normPath === 'tutorials/how-to-add-favicon/index.html') {
+        // Page title & metadata
+        doc.title = "اپنی ویب سائٹ پر فیویکن کیسے شامل کریں۔ | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "جامد ہوسٹنگ سرورز یا حسب ضرورت CMS فریم ورکس پر اپنے فیوی کون پیکجز کو انسٹال کرنے کا طریقہ سیکھیں۔");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "اپنی ویب سائٹ پر فیویکن کیسے شامل کریں۔ | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "جامد ہوسٹنگ سرورز یا حسب ضرورت CMS فریم ورکس پر اپنے فیوی کون پیکجز کو انسٹال کرنے کا طریقہ سیکھیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "اپنی ویب سائٹ پر فیویکن کیسے شامل کریں۔");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "جامد ہوسٹنگ سرورز یا حسب ضرورت CMS فریم ورکس پر اپنے فیوی کون پیکجز کو انسٹال کرنے کا طریقہ سیکھیں۔");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "اپنی ویب سائٹ پر <span class='gradient-text'>فیویکن کیسے شامل کریں</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "جامد ہوسٹنگ سرورز یا حسب ضرورت CMS فریم ورکس پر اپنے فیوی کون پیکجز کو انسٹال کرنے کا طریقہ سیکھیں۔";
+        }
+
+        // Content Section Cards
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Card 1: Step 1
+            const h2_1 = cards[0].querySelector('h2');
+            if (h2_1) h2_1.textContent = "مرحلہ 1: فائلیں بنائیں";
+            const p_1 = cards[0].querySelector('p');
+            if (p_1) p_1.textContent = "زپ بنانے کے لیے اپنے آرٹ ورک کو ہمارے ہوم پیج ٹول پر اپ لوڈ کریں۔ فائلوں کو بازیافت کرنے کے لیے پیکج کو ان زپ کریں۔";
+
+            // Card 2: Step 2
+            const h2_2 = cards[1].querySelector('h2');
+            if (h2_2) h2_2.textContent = "مرحلہ 2: سرور روٹ پر فائلیں اپ لوڈ کریں۔";
+            const p_2 = cards[1].querySelector('p');
+            if (p_2) p_2.innerHTML = "اپنی ویب سائٹ کی مرکزی پبلک روٹ ڈائرکٹری (عام طور پر <code>public_html</code> یا <code>public</code>) میں تمام نکالی گئی فیویکون فائلز (favicon.ico، Apple-touch-icon.png، وغیرہ) کو براہ راست اپ لوڈ کریں۔ مثال کے طور پر، وہ yoursite.com/favicon.ico پر قابل رسائی ہونے چاہئیں۔";
+
+            // Card 3: Step 3
+            const h2_3 = cards[2].querySelector('h2');
+            if (h2_3) h2_3.textContent = "مرحلہ 3: ہیڈر مارک اپ پیسٹ کریں۔";
+            const p_3 = cards[2].querySelector('p');
+            if (p_3) p_3.textContent = "ان معیاری لنکس کو اپنی تمام پیج فائلوں کے ہیڈر ایریا میں چسپاں کریں:";
+
+            const copyBtn = cards[2].querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = "کاپی";
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "مزید فیویکن ٹولز دریافت کریں۔";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔";
+
+            const cards_other = otherToolsSec.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Favicon پر متن بھیجیں۔";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "ایموجی ٹو فیویکن";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں، بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "فیویکن چیکر";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "ابھی چیک کریں →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     } else if (targetLang === 'pt' && normPath === 'tutorials/how-to-add-favicon/index.html') {
         // Page title & metadata
         doc.title = "Como adicionar um favicon ao seu site | PNGtoFavicon";
