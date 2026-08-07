@@ -6300,7 +6300,7 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
-if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
+if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.html') {
         if (doc.title) doc.title = 'Fügen Sie ein Favicon zu Squarespace hinzu | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Verbessern Sie das Erscheinungsbild Ihrer Website. Erfahren Sie, wie Sie in den Squarespace-Einstellungen ein klares Tab-Favicon einrichten.');
@@ -6311,11 +6311,13 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "Squarespace-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/squarespace-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "Squarespace-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/squarespace-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -6346,6 +6348,131 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
                 lis[2].innerHTML = 'Scrollen Sie nach unten zum Abschnitt „Browser-Symbol (Favicon)“.';
                 lis[3].innerHTML = 'Klicken Sie auf die Schaltfläche „Hochladen“ oder ziehen Sie Ihre PNG-Favicon-Datei per Drag & Drop hinein.';
                 lis[4].innerHTML = 'Klicken Sie oben links auf „Speichern“. Laden Sie Ihre Seite in einem neuen Browser, um das Ergebnis zu überprüfen.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG-zu-Favicon-Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG-Dateien sofort in Favicons konvertieren – kostenloses Online-Tool';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Chat auf WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter') link.textContent = 'PNG-zu-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden zu Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzbestimmungen';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinien';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
+    if (targetLang === 'de' && normPath === 'html-favicon/index.html') {
+        if (doc.title) doc.title = 'HTML-Favicon-Link-Tags-Referenz | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Gewährleisten Sie die perfekte browserübergreifende Darstellung des Icons durch Einfügen standardkonformer Link-Markup-Elemente.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Startseite";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
+                        schema.itemListElement[1].name = "HTML-Favicon-Anleitung";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/html-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing html-favicon Breadcrumb schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'HTML-Favicon-<span class="gradient-text">Link-Tags</span>-Referenz';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Gewährleisten Sie die perfekte browserübergreifende Darstellung des Icons durch Einfügen standardkonformer Link-Markup-Elemente.';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'Vollständige Favicon-HTML-Head-Vorlage';
+            
+            const p = card.querySelector('p');
+            if (p) p.innerHTML = 'Fügen Sie die folgenden Link-Elemente in den <code>&lt;head&gt;</code>-Block all Ihrer HTML-Seiten ein:';
+
+            const copyBtn = card.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'Kopieren Sie';
+
+            const codeEl = card.querySelector('code#htmlGuideCode');
+            if (codeEl) {
+                codeEl.innerHTML = `&lt;!-- Klassischer Fallback für ältere Browser --&gt;
+&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+
+&lt;!-- Hochauflösende PNGs für moderne Webbrowser --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+
+&lt;!-- Apple iOS-Geräte-Startbildschirme --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- Android-/PWA-Konfiguration --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;`;
             }
         }
 
