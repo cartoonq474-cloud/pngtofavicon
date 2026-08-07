@@ -6539,6 +6539,188 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
+    if (targetLang === 'de' && normPath === 'wordpress-favicon/index.html') {
+        if (doc.title) doc.title = 'So fügen Sie ein Favicon in WordPress hinzu (Anleitung 2026) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie ganz einfach ein Favicon zu Ihrer WordPress-Website hinzufügen. Schritt-für-Schritt-Anleitung zur Verwendung des Customizers, von Plugins oder zum Bearbeiten von Header-Dateien.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Startseite";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
+                        schema.itemListElement[1].name = "WordPress-Favicon-Anleitung";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/wordpress-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon Breadcrumb schema: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Was ist ein Favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das einer Website zugeordnet ist. Es wird in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und in Suchergebnissen angezeigt. Favicons helfen Benutzern, Ihre Website unter mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Icons bis hin zu großen 512×512-Pixel-Icons, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Ladebildschirme verwendet werden.";
+
+                        schema.mainEntity[1].name = "Welche Favicon-Größen benötigen Sie?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Für eine umfassende Unterstützung aller Browser und Geräte benötigen Sie: 16×16 (Standard-Tab-Icon), 32×32 (HiDPI-Tab-Icon), 48×48 (Windows-Website-Icon), 180×180 (Apple-Touch-Icon), 192×192 (Android-Chrome-Icon) und 512×512 (PWA-Installations-Icon). PNGtoFavicon generiert alle diese Größen automatisch aus einem einzigen PNG-Upload, plus einer Multi-Size-favicon.ico-Datei.";
+
+                        schema.mainEntity[2].name = "Wie füge ich ein Favicon zu meiner Website hinzu?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Nachdem Sie Ihr Favicon-Paket von PNGtoFavicon heruntergeladen haben, entpacken Sie die ZIP-Datei in das Stammverzeichnis Ihrer Website und fügen Sie die bereitgestellten HTML-Link-Tags in Ihren <head>-Bereich ein. PNGtoFavicon generiert das exakte HTML-Code-Snippet, das Sie kopieren und einfügen können.";
+
+                        schema.mainEntity[3].name = "Wird mein Bild auf einen Server hochgeladen?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Nein — Ihr Bild verlässt niemals Ihren Browser. PNGtoFavicon verarbeitet alles zu 100 % clientseitig über JavaScript und die HTML5 Canvas API. Es werden keine Daten an einen Server gesendet, was dies zum sichersten und privatsphäre-freundlichsten Favicon-Generator macht.";
+
+                        schema.mainEntity[4].name = "Welche Dateiformate werden für den Input unterstützt?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon akzeptiert PNG (empfohlen, da es Transparenz unterstützt), JPG/JPEG, SVG (Vektorformat), WEBP (modernes Format) und GIF. Für beste Ergebnisse verwenden Sie ein quadratisches PNG-Bild von mindestens 512×512 Pixeln mit transparentem Hintergrund.";
+
+                        schema.mainEntity[5].name = "Kann ich dieses Tool auf dem Smartphone nutzen?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich Smartphones und Tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen.";
+
+                        schema.mainEntity[6].name = "Was ist der Unterschied zwischen .ico- und .png-Favicons?";
+                        schema.mainEntity[6].acceptedAnswer.text = "Das .ico-Format ist ein veralteter Container, der mehrere Symbolgrößen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die mit Link-Tags angegeben werden, da sie eine bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate.";
+
+                        schema.mainEntity[7].name = "Was ist site.webmanifest und benötige ich es?";
+                        schema.mainEntity[7].acceptedAnswer.text = "Die Datei site.webmanifest ist eine JSON-Datei, die Browsern Informationen über Ihre Webanwendung gibt – einschließlich Name, Theme-Farbe und Symbolreferenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWA) Unerlässlich und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon FAQ schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'So fügen Sie ein Favicon in <span class="gradient-text">WordPress</span> hinzu';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'WordPress ist die Basis für über 40 % aller Webseiten. Folgen Sie dieser modernen Anleitung (Stand 2026), um sicherzustellen, dass Ihr WordPress-Favicon in Browser-Tabs und auf mobilen Startbildschirmen korrekt angezeigt wird.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Method 1
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Methode 1: Mit dem WordPress Customizer (empfohlen)';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.textContent = 'WordPress verfügt über eine integrierte Funktion namens „Website-Symbol“, mit der Sie ganz einfach ein Favicon hinzufügen können. Die Größenanpassung für gängige Geräte erfolgt automatisch.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'Melden Sie sich in Ihrem WordPress-Dashboard an (normalerweise unter IhrerWebsite.de/wp-admin).';
+                lis1[1].innerHTML = 'Navigieren Sie in der linken Seitenleiste zu <strong>Design &gt; Anpassen</strong>.';
+                lis1[2].innerHTML = 'Klicken Sie auf <strong>Website-Identität</strong> (bei manchen Themes finden Sie diese Option unter Header-Einstellungen).';
+                lis1[3].innerHTML = 'Scrollen Sie nach unten zum Abschnitt „Website-Symbol“. Klicken Sie auf <strong>Website-Symbol auswählen</strong>.';
+                lis1[4].innerHTML = 'Laden Sie Ihr hochauflösendes PNG-Symbol hoch (wir empfehlen mindestens 512 × 512 Pixel).';
+                lis1[5].innerHTML = 'Klicken Sie auf <strong>Veröffentlichen</strong>, um die Änderungen zu speichern. Ihr Favicon ist jetzt online!';
+            }
+
+            // Method 2
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Methode 2: Direktes Hochladen in den Head-Bereich Ihres Themes';
+            const p2 = card2.querySelector('p');
+            if (p2) p2.textContent = 'Wenn Sie Standard-HTML-Code bevorzugen oder Ihr Theme die Funktion „Website-Icons“ im Customizer nicht unterstützt, können Sie die Icons manuell hochladen:';
+            const lis2 = card2.querySelectorAll('ol li');
+            if (lis2.length >= 4) {
+                lis2[0].innerHTML = 'Konvertieren Sie zunächst Ihre PNG-Datei mit unserem kostenlosen <a href="/de/">PNG-zu-Favicon-Konverter</a> in ein Favicon-Paket.';
+                lis2[1].innerHTML = 'Laden Sie anschließend alle Dateien (favicon.ico, apple-touch-icon.png usw.) per FTP oder über den Dateimanager Ihres Hosting-Control-Panels in das Stammverzeichnis Ihrer WordPress-Installation hoch.';
+                lis2[2].innerHTML = 'Bearbeiten Sie nun die Datei <code>header.php</code> Ihres Themes (verwenden Sie ein Child-Theme, um zu verhindern, dass Änderungen durch Updates überschrieben werden).';
+                lis2[3].innerHTML = 'Fügen Sie die folgenden HTML-Links direkt in die <code>&lt;head&gt;</code>-Tags ein:';
+            }
+            const copyBtn = card2.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'Kopieren';
+
+            // FAQ Section
+            const card3 = cards[2];
+            const h2_3 = card3.querySelector('h2');
+            if (h2_3) h2_3.textContent = 'Häufig gestellte Fragen (FAQ)';
+            const faqItems = card3.querySelectorAll('.faq-item');
+            if (faqItems.length >= 2) {
+                const q1 = faqItems[0].querySelector('summary h3');
+                if (q1) q1.textContent = 'Warum wird mein neues WordPress-Favicon nicht aktualisiert?';
+                const a1 = faqItems[0].querySelector('.faq-answer');
+                if (a1) a1.innerHTML = 'Webbrowser speichern Favicons sehr aggressiv im Cache. Wenn Sie Ihr Symbol kürzlich aktualisiert haben, versuchen Sie, Ihren Browser-Cache zu leeren, Ihre Website in einem Inkognito-Fenster zu besuchen oder eine Abfrage-Zeichenfolge in Ihrem Header-Link anzuhängen (z. B. <code>/favicon.ico?v=2</code>).';
+
+                const q2 = faqItems[1].querySelector('summary h3');
+                if (q2) q2.textContent = 'Was ist die empfohlene Größe für ein WordPress-Website-Symbol?';
+                const a2 = faqItems[1].querySelector('.faq-answer');
+                if (a2) a2.innerHTML = 'WordPress empfiehlt das Hochladen eines quadratischen Bildes mit einer Größe von mindestens 512 × 512 Pixeln. Dies stellt sicher, dass das Symbol für PWA-Installationen und mobile Bildschirme korrekt skaliert wird.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG-zu-Favicon-Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG-Dateien sofort in Favicons konvertieren – kostenloses Online-Tool';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Auf WhatsApp chatten';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Werkzeuge';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter') link.textContent = 'PNG-in-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden für Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzerklärung';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinie';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
     // Custom logic for French translation
     if (targetLang === 'fr') {
         // Header Navbar Links
