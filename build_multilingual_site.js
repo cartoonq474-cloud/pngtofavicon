@@ -17698,6 +17698,105 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'ur' && normPath === 'privacy/index.html') {
+        // Page title & metadata
+        doc.title = "رازداری کی پالیسی | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "آپ کی رازداری ہماری اولین ترجیح ہے۔ جانیں کہ ہم آپ کے اثاثوں پر مقامی طور پر کارروائی کرتے ہیں۔");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "رازداری کی پالیسی | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "آپ کی رازداری ہماری اولین ترجیح ہے۔ جانیں کہ ہم آپ کے اثاثوں پر مقامی طور پر کارروائی کرتے ہیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "رازداری کی پالیسی");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "آپ کی رازداری ہماری اولین ترجیح ہے۔ جانیں کہ ہم آپ کے اثاثوں پر مقامی طور پر کارروائی کرتے ہیں۔");
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "رازداری کی <span class='gradient-text'>پالیسی</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "آپ کی رازداری ہماری اولین ترجیح ہے۔ جانیں کہ ہم آپ کے اثاثوں پر مقامی طور پر کارروائی کرتے ہیں۔";
+        }
+
+        // Privacy Content Block
+        const infoBlock = doc.querySelector('.section .glass-card');
+        if (infoBlock) {
+            const h2s = infoBlock.querySelectorAll('h2');
+            const ps = infoBlock.querySelectorAll('p');
+            if (h2s.length >= 2) {
+                h2s[0].textContent = "ڈیٹا پروسیسنگ";
+                h2s[1].textContent = "کوکیز";
+            }
+            if (ps.length >= 2) {
+                ps[0].textContent = "PNGtoFavicon.com مکمل طور پر کلائنٹ سائڈ ایپلی کیشن کے طور پر کام کرتا ہے۔ آپ جو بھی تصویریں اپ لوڈ کرتے ہیں، جو ٹیکسٹ آپ درج کرتے ہیں، یا آپ کی طرز کے ایموجیز کو آپ کے براؤزر کیش میں مقامی طور پر پروسیس کیا جاتا ہے۔ ہم آپ کے گرافیکل اثاثوں کو اپنے ویب سرورز پر منتقل، کاپی یا ذخیرہ نہیں کرتے ہیں۔";
+                ps[1].textContent = "ہم سائٹ کی کارکردگی کے اعدادوشمار اور تھیم کی ترتیبات کو بچانے کے لیے کم سے کم کوکیز استعمال کرتے ہیں۔ کوئی ذاتی شناختی ڈیٹا اکٹھا نہیں کیا گیا ہے۔";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     } else if (targetLang === 'pt' && normPath === 'terms/index.html') {
         // Page title & metadata
         doc.title = "Termos de Utilização | PNGtoFavicon";
