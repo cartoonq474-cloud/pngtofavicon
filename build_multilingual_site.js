@@ -3129,7 +3129,7 @@ async function localizePage(relativePath, targetLang) {
 
         // Cards
         const cards = doc.querySelectorAll('.tools-grid .tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -3153,6 +3153,12 @@ async function localizePage(relativePath, targetLang) {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = '💡 أفضل الممارسات لأيقونة Favicon';
             if (p_4) p_4.textContent = 'نصائح حول ملاءمة حجم التصاميم، وتقليل حجم الملف، وإرشادات سيو (SEO) للأيقونة لتحسين نسبة النقر إلى الظهور في Google.';
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = '🎨 أيقونة Squarespace Favicon';
+            if (p_5) p_5.textContent = 'تعرف على كيفية تحميل وإعداد أيقونة علامة تبويب متصفح مخصصة في إعدادات موقع Squarespace.';
         }
 
         // Header Navbar Links
@@ -14580,7 +14586,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -14604,6 +14610,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 Mejores prácticas para favicons";
             if (p_4) p_4.textContent = "Consejos para escalar diseños, optimizar el tamaño de los archivos y pautas SEO para favicons que aumenten el CTR de Google.";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Favicon de Squarespace";
+            if (p_5) p_5.textContent = "Aprende a subir y configurar un icono de pestaña de navegador personalizado en los ajustes de tu sitio de Squarespace.";
         }
     } else if (targetLang === 'hi' && normPath === 'tutorials/index.html') {
         // Page title & metadata
@@ -14639,7 +14651,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -14663,6 +14675,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 फ़ेविकॉन बेस्ट प्रैक्टिस";
             if (p_4) p_4.textContent = "Google CTR बढ़ाने के लिए डिज़ाइन को स्केल करने, फ़ाइल वेट को ऑप्टिमाइज़ करने और फ़ेविकॉन SEO गाइडलाइन पर टिप्स।";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Squarespace फ़ेविकॉन";
+            if (p_5) p_5.textContent = "जानें कि अपने Squarespace साइट सेटिंग्स में एक कस्टम ब्राउज़र टैब आइकन कैसे अपलोड और कॉन्फ़िगर करें।";
         }
     } else if (targetLang === 'fr' && normPath === 'tutorials/index.html') {
         // Page title & metadata
@@ -14698,7 +14716,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -14722,6 +14740,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 Bonnes pratiques pour les favicons";
             if (p_4) p_4.textContent = "Conseils pour adapter les designs, optimiser le poids des fichiers et bonnes pratiques SEO pour améliorer votre taux de clics sur Google.";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Favicon Squarespace";
+            if (p_5) p_5.textContent = "Apprenez à charger et à configurer une icône d'onglet de navigateur personnalisée dans les paramètres de votre site Squarespace.";
         }
     } else if (targetLang === 'id' && normPath === 'tutorials/index.html') {
         // Page title & metadata
@@ -14757,7 +14781,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -14781,6 +14805,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 Praktik Terbaik Favicon";
             if (p_4) p_4.textContent = "Tips tentang penskalaan desain, pengoptimalan ukuran file, dan panduan SEO favicon untuk meningkatkan CTR Google.";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Favicon Squarespace";
+            if (p_5) p_5.textContent = "Pelajari cara mengunggah dan mengonfigurasi ikon tab browser khusus di pengaturan situs Squarespace Anda.";
         }
 
         // Header and Footer
@@ -14876,7 +14906,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -14900,6 +14930,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 Melhores Práticas para Favicon";
             if (p_4) p_4.textContent = "Dicas sobre o dimensionamento de designs, otimização do tamanho do arquivo e diretrizes de SEO para favicon para aumentar a taxa de cliques (CTR) do Google.";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Favicon do Squarespace";
+            if (p_5) p_5.textContent = "Aprenda a fazer upload e configurar um ícone de aba de navegador personalizado nas configurações do seu site Squarespace.";
         }
 
         // Header Navigation Links
@@ -15093,7 +15129,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -15117,6 +15153,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 Favicon En İyi Uygulamaları";
             if (p_4) p_4.textContent = "Google Tıklama Oranını (CTR) artırmak için tasarım ölçeklendirme, dosya ağırlığını optimize etme ve favicon SEO yönergeleri hakkında ipuçları.";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 Squarespace Favicon";
+            if (p_5) p_5.textContent = "Squarespace web sitesi ayarlarınızda özel bir tarayıcı sekmesi simgesinin nasıl yükleneceğini ve kurulacağını öğrenin.";
         }
 
         // Header Navigation Links
@@ -15214,7 +15256,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
 
         // Cards Section
         const cards = doc.querySelectorAll('.tools-grid a.tool-card');
-        if (cards.length >= 4) {
+        if (cards.length >= 5) {
             // Card 1
             const h3_1 = cards[0].querySelector('h3');
             const p_1 = cards[0].querySelector('p');
@@ -15225,7 +15267,7 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const h3_2 = cards[1].querySelector('h3');
             const p_2 = cards[1].querySelector('p');
             if (h3_2) h3_2.textContent = "📏 فیویکن سائز گائیڈ";
-            if (p_2) p_2.textContent = "جانیں کہ جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے کون سے فیوی کون کے طول و عرض کی ضرورت ہے۔";
+            if (p_2) p_2.textContent = "کمپیوٹر، اینڈرائیڈ، اور iOS بک مارکس کے لیے فیوی کون کے کون سے سائزوں کی ضرورت ہوتی ہے۔";
 
             // Card 3
             const h3_3 = cards[2].querySelector('h3');
@@ -15238,6 +15280,12 @@ if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
             const p_4 = cards[3].querySelector('p');
             if (h3_4) h3_4.textContent = "💡 فیویکون کے بہترین طریقے";
             if (p_4) p_4.textContent = "Google CTR کو بڑھانے کے لیے ڈیزائنوں کو سکیل کرنے، فائل کے وزن کو بہتر بنانے، اور فیویکن SEO کے رہنما خطوط پر تجاویز۔";
+
+            // Card 5
+            const h3_5 = cards[4].querySelector('h3');
+            const p_5 = cards[4].querySelector('p');
+            if (h3_5) h3_5.textContent = "🎨 اسکوائر اسپیس فیویکون";
+            if (p_5) p_5.textContent = "سیکھیں کہ اسکوائر اسپیس ویب سائٹ کی ترتیبات میں اپنی مرضی کے مطابق براؤزر ٹیب آئیکن کو کیسے اپ لوڈ اور سیٹ اپ کرنا ہے۔";
         }
 
         // Header Navigation Links

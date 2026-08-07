@@ -476,6 +476,8 @@ const translations = {
     "Generic HTML copy-paste snippets and server upload instructions to install your favicon files.": "Allgemeine HTML-Copy-Paste-Snippets und Server-Upload-Anleitungen zur Installation Ihrer Favicon-Dateien.",
     "💡 Favicon Best Practices": "💡 Favicon Best Practices",
     "Tips on scaling designs, optimizing file weight, and favicon SEO guidelines to boost Google CTR.": "Tipps zur Skalierung von Designs, zur Optimierung des Dateigewichts und Favicon-SEO-Richtlinien zur Steigerung der Klickrate (CTR) bei Google.",
+    "🎨 Squarespace Favicon": "🎨 Squarespace-Favicon",
+    "Learn how to upload and set up a custom browser tab icon in your Squarespace site settings.": "Erfahren Sie, wie Sie in den Squarespace-Einstellungen ein benutzerdefiniertes Browser-Tab-Symbol hochladen und einrichten.",
 
     // Head / SEO tags for Tutorials
     "Favicon Guides & Tutorials | PNGtoFavicon": "Favicon-Anleitungen & Tutorials | PNGtoFavicon",
