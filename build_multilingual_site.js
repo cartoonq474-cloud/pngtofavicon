@@ -6294,6 +6294,118 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
+if (targetLang === 'de' && normPath === 'squarespace-favicon/index.html') {
+        if (doc.title) doc.title = 'Fügen Sie ein Favicon zu Squarespace hinzu | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Verbessern Sie das Erscheinungsbild Ihrer Website. Erfahren Sie, wie Sie in den Squarespace-Einstellungen ein klares Tab-Favicon einrichten.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Startseite";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
+                        schema.itemListElement[1].name = "Squarespace-Favicon-Anleitung";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/squarespace-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon Breadcrumb schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Fügen Sie ein Favicon zu <span class="gradient-text">Squarespace</span> hinzu';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Verbessern Sie das Erscheinungsbild Ihrer Website. Erfahren Sie, wie Sie in den Squarespace-Einstellungen ein klares Tab-Favicon einrichten.';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'Anleitung zur Einrichtung eines Squarespace-Favicons';
+
+            const lis = card.querySelectorAll('ol li');
+            if (lis.length >= 5) {
+                lis[0].innerHTML = 'Melden Sie sich in Ihrem <strong>Squarespace-Konto</strong> an und bearbeiten Sie Ihre Website.';
+                lis[1].innerHTML = 'Klicken Sie im Menü „Startseite“ auf „Einstellungen“ und anschließend auf „Logo & Titel“ (oder <strong>Design &gt; Browser-Symbol</strong> in neueren Versionen).';
+                lis[2].innerHTML = 'Scrollen Sie nach unten zum Abschnitt „Browser-Symbol (Favicon)“.';
+                lis[3].innerHTML = 'Klicken Sie auf die Schaltfläche „Hochladen“ oder ziehen Sie Ihre PNG-Favicon-Datei per Drag & Drop hinein.';
+                lis[4].innerHTML = 'Klicken Sie oben links auf „Speichern“. Laden Sie Ihre Seite in einem neuen Browser, um das Ergebnis zu überprüfen.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG-zu-Favicon-Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+            else if (text === 'Tutorials') link.textContent = 'Tutorials';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG-Dateien sofort in Favicons konvertieren – kostenloses Online-Tool';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Chat auf WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Tools';
+                else if (text === 'Resources') h4.textContent = 'Ressourcen';
+                else if (text === 'Company') h4.textContent = 'Unternehmen';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter') link.textContent = 'PNG-zu-Favicon-Konverter';
+                else if (text === 'Text to Favicon') link.textContent = 'Text zu Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji zu Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon-Prüfer';
+                else if (text === 'Tutorials') link.textContent = 'Tutorials';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Leitfaden zu Favicon-Größen';
+                else if (text === 'What is a Favicon?') link.textContent = 'Was ist ein Favicon?';
+                else if (text === 'About') link.textContent = 'Über uns';
+                else if (text === 'Contact') link.textContent = 'Kontakt';
+                else if (text === 'Privacy Policy') link.textContent = 'Datenschutzbestimmungen';
+                else if (text === 'Terms of Service') link.textContent = 'Nutzungsbedingungen';
+                else if (text === 'Cookie Policy') link.textContent = 'Cookie-Richtlinien';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.';
+            }
+        }
+    }
+
     // Custom logic for French translation
     if (targetLang === 'fr') {
         // Header Navbar Links
