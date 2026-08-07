@@ -10,8 +10,8 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Add a Favicon to React App (Vite &amp; CRA) | PNGtoFavicon</title>
-  <meta name="description" content="Guide to adding favicons to React projects. Learn where to place public files and how to configure index.html in Vite or Create React App.">
+  <title>Favicons in React-Apps konfigurieren | PNGtoFavicon</title>
+  <meta name="description" content="Konfigurieren Sie statische Markenelemente in Single-Page-React-Apps. Erfahren Sie, wie Sie öffentliche Ordner zuordnen.">
   <meta name="keywords" content="react favicon, add favicon to react, vite favicon, create react app favicon">
   <link rel="canonical" href="https://pngtofavicon.com/de/react-favicon/">
 
@@ -45,14 +45,14 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
-      "item": "https://pngtofavicon.com/"
+      "name": "Startseite",
+      "item": "https://pngtofavicon.com/de/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "React Favicon Guide",
-      "item": "https://pngtofavicon.com/react-favicon/"
+      "name": "React-Favicon-Anleitung",
+      "item": "https://pngtofavicon.com/de/react-favicon/"
     }
   ]
 }</script>
@@ -87,7 +87,7 @@
       </button>
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a href="../">Konverter</a></li>
+          <li><a href="../">PNG-zu-Favicon-Konverter</a></li>
           <li><a href="../text-to-favicon/">Text zu Favicon</a></li>
           <li><a href="../emoji-to-favicon/">Emoji zu Favicon</a></li>
           <li><a href="../favicon-checker/">Favicon-Prüfer</a></li>
@@ -174,8 +174,8 @@
     <!-- ============================== -->
     <section class="hero" id="hero">
       <div class="container">
-        <h1>Configuring Favicons in <span class="gradient-text">React Apps</span></h1>
-        <p class="subtitle">Configure static brand assets in single-page React apps. Learn how to map public folders.</p>
+        <h1>Favicons in <span class="gradient-text">React-Apps</span> konfigurieren</h1>
+        <p class="subtitle">Konfigurieren Sie statische Markenelemente in Single-Page-React-Apps. Erfahren Sie, wie Sie öffentliche Ordner zuordnen.</p>
       </div>
     </section>
 
@@ -184,13 +184,13 @@
       <section class="section">
         <div class="container" style="max-width: 800px;">
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Where to Put Favicon Files in React</h2>
-            <p>Regardless of whether you are using Vite, Create React App, or Next.js, all static files like favicons belong inside the <strong>public/</strong> directory at the root of your project.</p>
+            <h2>Wo Sie Favicon-Dateien in React ablegen</h2>
+            <p>Unabhängig davon, ob Sie Vite, Create React App oder Next.js verwenden, gehören alle statischen Dateien wie Favicons in das Verzeichnis <strong>public/</strong> im Stammverzeichnis Ihres Projekts.</p>
             <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Convert your PNG using our homepage generator to retrieve the files ZIP.</li>
-              <li>Extract all files directly into the <code>public/</code> folder in your React project root.</li>
-              <li>Open <code>index.html</code> (located in project root for Vite, or inside <code>public/</code> for Create React App).</li>
-              <li>Add or modify the standard HTML head meta tags, pointing relative URLs to the public directory:</li>
+              <li>Konvertieren Sie Ihre PNG-Datei mit unserem Homepage-Generator, um die Dateien als ZIP-Datei zu erhalten.</li>
+              <li>Extrahieren Sie alle Dateien direkt in den Ordner <code>public/</code> im Stammverzeichnis Ihres React-Projekts.</li>
+              <li>Öffnen Sie die Datei <code>index.html</code> (im Stammverzeichnis des Projekts bei Vite oder in <code>public/</code> bei Create React App).</li>
+              <li>Fügen Sie die Standard-HTML-Head-Meta-Tags hinzu oder ändern Sie sie und verweisen Sie relative URLs auf das öffentliche Verzeichnis:</li>
             </ol>
             <div class="code-block" style="margin-top: 1rem; background: #111827;">
               <button class="copy-btn" data-copy="reactCode">Kopieren</button>
@@ -228,7 +228,7 @@
             </svg>
             <span>PNG<span style="color: #8b5cf6">to</span>Favicon</span>
           </a>
-          <p class="footer-tagline">PNG in Favicon sofort konvertieren — kostenloses Online-Tool</p>
+          <p class="footer-tagline">PNG in Favicon sofort konvertieren – kostenloses Online-Tool</p>
           <div class="social-links">
             <a href="https://facebook.com/pngtofavicon" target="_blank" rel="noopener noreferrer" aria-label="PNGtoFavicon on Facebook" id="social-facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
@@ -255,7 +255,7 @@
 
         <!-- Column 2: Tools -->
         <div class="footer-col">
-          <h4>Tools</h4>
+          <h4>Werkzeuge</h4>
           <ul>
             <li><a href="/de/">PNG-in-Favicon-Konverter</a></li>
             <li><a href="/de/text-to-favicon/">Text zu Favicon</a></li>
@@ -293,7 +293,7 @@
 
       <!-- Copyright -->
       <div class="footer-bottom">
-        <p>© 2026 PNGtoFavicon.com — Alle Rechte vorbehalten.</p>
+        <p>© 2026 PNGtoFavicon.com – Alle Rechte vorbehalten.</p>
       </div>
     </div>
   </footer>
@@ -308,12 +308,12 @@
       "name": "Was ist ein Favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das mit einer Website verknüpft ist. Es erscheint in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und Suchergebnissen. Favicons helfen Nutzern, Ihre Website zwischen mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Symbolen bis hin zu großen 512×512-Pixel-Symbolen, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Splash-Screens verwendet werden."
+        "text": "Ein Favicon (kurz für „Favorite Icon“) ist ein kleines Symbol, das einer Website zugeordnet ist. Es wird in Browser-Tabs, Lesezeichenlisten, dem Browserverlauf und in Suchergebnissen angezeigt. Favicons helfen Benutzern, Ihre Website unter mehreren geöffneten Tabs und Lesezeichen schnell zu identifizieren. Die meisten modernen Browser unterstützen mehrere Favicon-Größen für verschiedene Kontexte — von winzigen 16×16-Pixel-Tab-Icons bis hin zu großen 512×512-Pixel-Icons, die von Progressive Web Apps (PWAs) für Startbildschirm-Verknüpfungen und Ladebildschirme verwendet werden."
       }
     },
     {
       "@type": "Question",
-      "name": "Welche Favicon-Größen benötige ich?",
+      "name": "Welche Favicon-Größen benötigen Sie?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Für eine umfassende Unterstützung aller Browser und Geräte benötigen Sie: 16×16 (Standard-Tab-Icon), 32×32 (HiDPI-Tab-Icon), 48×48 (Windows-Website-Icon), 180×180 (Apple-Touch-Icon), 192×192 (Android-Chrome-Icon) und 512×512 (PWA-Installations-Icon). PNGtoFavicon generiert alle diese Größen automatisch aus einem einzigen PNG-Upload, plus einer Multi-Size-favicon.ico-Datei."
@@ -348,7 +348,7 @@
       "name": "Kann ich dieses Tool auf dem Smartphone nutzen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich Smartphones und Tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen."
+        "text": "Ja! PNGtoFavicon ist vollständig responsiv und funktioniert auf jedem Gerät mit einem modernen Webbrowser — einschließlich smartphones und tablets. Sie können Bilder hochladen, Optionen konfigurieren und Ihr komplettes Favicon-Paket direkt von Ihrem Mobilgerät herunterladen."
       }
     },
     {
@@ -356,15 +356,15 @@
       "name": "Was ist der Unterschied zwischen .ico- und .png-Favicons?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Das .ico-Format ist ein veraltetes Container-Format, das mehrere Icon-Größen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die über Link-Tags angegeben werden, da sie bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate."
+        "text": "Das .ico-Format ist ein veralteter Container, der mehrere Symbolgrößen in einer einzigen Datei enthalten kann und für die Kompatibilität mit älteren Browsern erforderlich ist. Moderne Browser bevorzugen einzelne .png-Dateien, die mit Link-Tags angegeben werden, da sie eine bessere Qualität und kleinere Dateigrößen bieten. PNGtoFavicon generiert beide Formate."
       }
     },
     {
       "@type": "Question",
-      "name": "Was ist die site.webmanifest-Datei und benötige ich sie?",
+      "name": "Was ist site.webmanifest und benötige ich es?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Die site.webmanifest ist eine JSON-Datei, die Browsern Details über Ihre Web-App mitteilt — einschließlich ihres Namens, der Theme-Farbe und der Icon-Referenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWAs) unverzichtbar und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern."
+        "text": "Die Datei site.webmanifest ist eine JSON-Datei, die Browsern Informationen über Ihre Webanwendung gibt – einschließlich Name, Theme-Farbe und Symbolreferenzen. Sie ist für die Funktionalität von Progressive Web Apps (PWA) unerlässlich und verbessert die Kompatibilität mit Android Chrome und anderen modernen Browsern."
       }
     }
   ]
