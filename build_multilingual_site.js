@@ -24225,6 +24225,212 @@ async function localizePage(relativePath, targetLang) {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
+    } else if (targetLang === 'ur' && normPath === 'tutorials/favicon-best-practices/index.html') {
+        // Page title & metadata
+        doc.title = "Favicon ڈیزائن اور SEO کے بہترین طریقے | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "ایک ایسا فیویکن بنائیں جو براؤزر ٹیبز میں نمایاں ہو اور سرچ انجن کے معیار سے میل کھاتا ہو۔");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Favicon ڈیزائن اور SEO کے بہترین طریقے | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "ایک ایسا فیویکن بنائیں جو براؤزر ٹیبز میں نمایاں ہو اور سرچ انجن کے معیار سے میل کھاتا ہو۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Favicon ڈیزائن اور SEO کے بہترین طریقے");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "ایک ایسا فیویکن بنائیں جو براؤزر ٹیبز میں نمایاں ہو اور سرچ انجن کے معیار سے میل کھاتا ہو۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "ٹیوٹوریلز";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "Favicon ڈیزائن اور SEO کے بہترین طریقے";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/favicon-best-practices/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing favicon-best-practices Breadcrumb schema: ", e);
+                }
+            } else if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 6) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32، 48x48، 180x180، 192x192، اور 512x512۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "فائلیں ڈاؤن لوڈ کر کے اپنے روٹ سرور پر اپ لوڈ کریں اور HTML لنک کوڈ کو ہیڈ سیکشن میں شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing favicon-best-practices FAQ schema: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = "Favicon ڈیزائن اور <span class='gradient-text'>SEO کے بہترین طریقے</span>";
+            const p = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (p) p.textContent = "ایک ایسا فیویکن بنائیں جو براؤزر ٹیبز میں نمایاں ہو اور سرچ انجن کے معیار سے میل کھاتا ہو۔";
+        }
+
+        // Content Section Cards
+        const sections = doc.querySelectorAll('.section');
+        if (sections.length > 0) {
+            const cards = sections[0].querySelectorAll('.glass-card');
+            if (cards.length >= 3) {
+                // Card 1
+                const h2_0 = cards[0].querySelector('h2');
+                if (h2_0) h2_0.textContent = "1. ڈیزائن کو سادہ اور قابل شناخت رکھیں";
+                const p_0 = cards[0].querySelector('p');
+                if (p_0) p_0.textContent = "چونکہ فیوی کون کا پیمانہ 16×16 پکسلز تک چھوٹا ہوتا ہے، پیچیدہ تفصیلات اور پتلی ٹیکسٹ لائنیں ناقابل قبول ہو جاتی ہیں۔ بنیادی شکلوں، الگ حروف، یا بنیادی برانڈ لوگو کے نشان پر توجہ دیں۔";
+
+                // Card 2
+                const h2_1 = cards[1].querySelector('h2');
+                if (h2_1) h2_1.textContent = "2. ڈارک موڈ کنٹراسٹ کی جانچ کریں۔";
+                const p_1 = cards[1].querySelector('p');
+                if (p_1) p_1.textContent = "براؤزر ٹیبز ہلکے سرمئی، خالص سفید، گہرے نیلے یا سیاہ ہو سکتے ہیں۔ تصدیق کریں کہ آپ کے شفاف لوگو میں بارڈر گلوز یا ٹھوس فلز شامل ہیں تاکہ اسے تاریک پس منظر میں غائب ہونے سے بچایا جا سکے۔";
+
+                // Card 3
+                const h2_2 = cards[2].querySelector('h2');
+                if (h2_2) h2_2.textContent = "3. گوگل SEO کے تقاضے";
+                const p_2 = cards[2].querySelector('p');
+                if (p_2) p_2.textContent = "گوگل کے پاس تلاش کے نتائج کے آگے فیویکونز ڈسپلے کرنے کے سرکاری اصول ہیں:";
+
+                const lis = cards[2].querySelectorAll('ul li');
+                if (lis.length >= 3) {
+                    lis[0].textContent = "فیویکن کو ویب سائٹ کے برانڈ کی بصری طور پر نمائندگی کرنی چاہیے۔";
+                    lis[1].textContent = "فائل کا سائز اور پہلو کا تناسب 48px مربع کا کثیر ہونا چاہیے (جیسے 48x48، 96x96، وغیرہ)۔";
+                    lis[2].textContent = "آئیکن کا یو آر ایل کرال کے قابل ہونا چاہیے (robots.txt میں Googlebot-Image کو مسدود نہ کریں)۔";
+                }
+            }
+        }
+
+        // Bottom CTA Section
+        const bottomCta = doc.querySelector('.bottom-cta');
+        if (bottomCta) {
+            const h2 = bottomCta.querySelector('h2');
+            if (h2) h2.textContent = "آج ہی مفت میں PNG کو Favicon میں تبدیل کرنا شروع کریں۔";
+
+            const p = bottomCta.querySelector('p');
+            if (p) p.textContent = "50,000+ صارفین میں شامل ہوں جو PNGtoFavicon.com پر درست، تیز، اور مکمل طور پر مفت فیویکن جنریشن کے لیے بھروسہ کرتے ہیں۔";
+
+            const btn = bottomCta.querySelector('.btn') || bottomCta.querySelector('a');
+            if (btn) btn.textContent = "ابھی تبدیل کرنا شروع کریں - یہ مفت ہے!";
+        }
+
+        // Other Tools Section
+        const otherToolsSec = doc.getElementById('other-tools');
+        if (otherToolsSec) {
+            const title = otherToolsSec.querySelector('.section-title');
+            if (title) title.textContent = "مزید فیویکن ٹولز دریافت کریں۔";
+            const sub = otherToolsSec.querySelector('.section-subtitle');
+            if (sub) sub.textContent = "PNGtoFavicon آپ کی تمام فیویکون ضروریات کے لیے ٹولز کا ایک مکمل مجموعہ پیش کرتا ہے۔";
+
+            const cards_other = otherToolsSec.querySelectorAll('.tool-card');
+            if (cards_other.length >= 3) {
+                // Card 0: Text to Favicon
+                const h3_0 = cards_other[0].querySelector('h3');
+                if (h3_0) h3_0.textContent = "Favicon پر متن بھیجیں۔";
+                const p_0 = cards_other[0].querySelector('p');
+                if (p_0) p_0.textContent = "حروف، ابتدائیہ، یا کسی بھی متن سے ایک فیویکن بنائیں۔ اپنے برانڈ کے لیے ایک منفرد ٹیکسٹ بیسڈ فیویکن بنانے کے لیے فونٹ، رنگ اور اسٹائل کا انتخاب کریں۔";
+                const link_0 = cards_other[0].querySelector('.tool-card-link');
+                if (link_0) link_0.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 1: Emoji to Favicon
+                const h3_1 = cards_other[1].querySelector('h3');
+                if (h3_1) h3_1.textContent = "ایموجی ٹو فیویکن";
+                const p_1 = cards_other[1].querySelector('p');
+                if (p_1) p_1.textContent = "فوری طور پر رنگین، تاثراتی فیویکن بنانے کے لیے سینکڑوں ایموجیز میں سے انتخاب کریں۔ ذاتی منصوبوں، بلاگز، اور فوری پروٹو ٹائپس کے لیے بہترین۔";
+                const link_1 = cards_other[1].querySelector('.tool-card-link');
+                if (link_1) link_1.textContent = "اسے مفت میں آزمائیں →";
+
+                // Card 2: Favicon Checker
+                const h3_2 = cards_other[2].querySelector('h3');
+                if (h3_2) h3_2.textContent = "فیویکن چیکر";
+                const p_2 = cards_other[2].querySelector('p');
+                if (p_2) p_2.textContent = "اپنی ویب سائٹ کے فیویکن سیٹ اپ کی توثیق کریں۔ گم شدہ سائز، غلط فارمیٹس، اور کراس پلیٹ فارم مطابقت کے مسائل کی جانچ کرنے کے لیے کوئی بھی URL درج کریں۔";
+                const link_2 = cards_other[2].querySelector('.tool-card-link');
+                if (link_2) link_2.textContent = "ابھی چیک کریں →";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     }
      else if (targetLang === 'id' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
