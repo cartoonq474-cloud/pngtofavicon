@@ -34495,6 +34495,56 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[5].innerHTML = 'Haz clic en Guardar para confirmar.';
             }
         }
+    } else if (targetLang === 'es' && normPath === 'tutorials/squarespace-favicon/index.html') {
+        if (doc.title) doc.title = 'Añade un favicon a Squarespace | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Mejora la estética de tu sitio web. Aprende a configurar un favicon de pestaña limpia en la configuración de Squarespace.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "Inicio";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de Squarespace";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/squarespace-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon Breadcrumb schema in Spanish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Añade un favicon a <span class="gradient-text">Squarespace</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Mejora la estética de tu sitio web. Aprende a configurar un favicon de pestaña limpia en la configuración de Squarespace.';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'Instrucciones para configurar el favicon en Squarespace';
+
+            const lis = card.querySelectorAll('ol li');
+            if (lis.length >= 5) {
+                lis[0].innerHTML = 'Inicia sesión en tu cuenta de Squarespace y edita tu sitio web.';
+                lis[1].innerHTML = 'En el menú principal, haz clic en Configuración y luego en Logotipo y título (o <strong>Diseño &gt; Icono del navegador</strong> en versiones más recientes).';
+                lis[2].innerHTML = 'Desplázate hacia abajo hasta la sección Icono del navegador (Favicon).';
+                lis[3].innerHTML = 'Haz clic en el botón de subir o arrastra y suelta tu archivo PNG del favicon.';
+                lis[4].innerHTML = 'Haz clic en Guardar en la esquina superior izquierda. Recarga la página en un navegador nuevo para comprobarlo.';
+            }
+        }
     } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
