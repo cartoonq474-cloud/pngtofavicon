@@ -33843,6 +33843,100 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "Verificar ahora →";
             }
         }
+    } else if (targetLang === 'es' && normPath === 'shopify-favicon/index.html') {
+        if (doc.title) doc.title = 'Cómo añadir un favicon a Shopify (Guía Paso a Paso) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Aumenta la credibilidad de tu tienda. Sigue este breve tutorial para personalizar tu tienda online de Shopify con un favicon de alta definición.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Inicio";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
+                        schema.itemListElement[1].name = "Guía de favicon de Shopify";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/shopify-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing shopify-favicon Breadcrumb schema in Spanish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "¿Qué es un favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Un favicon (abreviatura de \"favorite icon\") es un pequeño icono asociado a un sitio web. Aparece en las pestañas del navegador, listas de marcadores, historial del navegador y resultados de búsqueda. Los favicons ayudan a los usuarios a identificar rápidamente tu sitio web entre múltiples pestañas y marcadores abiertos. La mayoría de los navegadores modernos admiten múltiples tamaños de favicon para diferentes contextos, desde pequeños iconos de pestaña de 16×16 píxeles hasta iconos grandes de 512×512 píxeles utilizados por las aplicaciones web progresivas (PWA) para accesos directos en la pantalla de inicio y pantallas de presentación.";
+
+                        schema.mainEntity[1].name = "¿Qué tamaños de favicon necesito?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para una compatibilidad completa con todos los navegadores y dispositivos, necesitas: 16×16 (icono de pestaña estándar), 32×32 (icono de pestaña HiDPI), 48×48 (icono de sitio de Windows), 180×180 (Apple Touch Icon), 192×192 (icono de Android Chrome) y 512×512 (icono de instalación de PWA). PNGtoFavicon genera todos estos tamaños automáticamente a partir de una sola carga de PNG, además de un archivo favicon.ico multitamaño.";
+
+                        schema.mainEntity[2].name = "¿Cómo añado un favicon a mi sitio web?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Después de descargar tu paquete de favicons de PNGtoFavicon, extrae el archivo ZIP en el directorio raíz de tu sitio web y añade las etiquetas de enlace HTML proporcionadas dentro de tu sección <head>. PNGtoFavicon genera el fragmento de código HTML exacto que necesitas, listo para copiar y pegar.";
+
+                        schema.mainEntity[3].name = "¿Se sube mi imagen a un servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "No, tu imagen nunca sale de tu navegador. PNGtoFavicon procesa todo al 100% del lado del cliente utilizando JavaScript y la API HTML5 Canvas. No se envían datos a ningún servidor, lo que hace de este el generador de favicons más privado y seguro disponible.";
+
+                        schema.mainEntity[4].name = "¿Qué formatos de archivo de entrada son compatibles?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon acepta PNG (recomendado porque admite transparencia), JPG/JPEG, SVG (formatos vectoriales), WEBP (formato moderno) y GIF. Para obtener los mejores resultados, utiliza una imagen PNG cuadrada de al menos 512×512 píxeles con fondo transparente.";
+
+                        schema.mainEntity[5].name = "¿Puedo usar esta herramienta en mi teléfono móvil?";
+                        schema.mainEntity[5].acceptedAnswer.text = "¡Sí! PNGtoFavicon es totalmente responsivo y funciona en cualquier dispositivo con un navegador web moderno, incluidos teléfonos inteligentes y tabletas. Puedes subir imágenes, configurar opciones y descargar tu paquete completo de favicons directamente desde tu dispositivo móvil.";
+
+                        schema.mainEntity[6].name = "¿Cuál es la diferencia entre los favicons .ico y .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "El formato .ico es un contenedor heredado que puede contener múltiples tamaños de iconos en un solo archivo, necesario para la compatibilidad con navegadores más antiguos. Los navegadores modernos prefieren archivos .png individuales especificados con etiquetas de enlace, ya que ofrecen mejor calidad y tamaños de archivo más pequeños. PNGtoFavicon genera ambos formatos.";
+
+                        schema.mainEntity[7].name = "¿Qué es site.webmanifest y lo necesito?";
+                        schema.mainEntity[7].acceptedAnswer.text = "El archivo site.webmanifest es un archivo JSON que proporciona información a los navegadores sobre tu aplicación web, incluyendo su nombre, color de tema y referencias de iconos. Es esencial para la funcionalidad de las aplicaciones web progresivas (PWA) y mejora la compatibilidad con Android Chrome y otros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing shopify-favicon FAQ schema in Spanish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Cómo añadir un favicon a <span class="gradient-text">Shopify</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Aumenta la credibilidad de tu tienda. Sigue este breve tutorial para personalizar tu tienda online de Shopify con un favicon de alta definición.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Method 1
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Instalación paso a paso del favicon de Shopify';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 7) {
+                lis1[0].innerHTML = 'Inicia sesión en tu <strong>panel de administración de Shopify</strong>.';
+                lis1[1].innerHTML = 'Ve a <strong>Tienda online &gt; Temas</strong> en el menú lateral izquierdo.';
+                lis1[2].innerHTML = 'Busca tu tema activo y haz clic en el botón <strong>Personalizar</strong>.';
+                lis1[3].innerHTML = 'Haz clic en la pestaña <strong>Configuración del tema</strong> (representada por un icono de engranaje en el panel izquierdo).';
+                lis1[4].innerHTML = 'Selecciona la opción <strong>Logotipo</strong> o <strong>Favicon</strong> (según tu tema).';
+                lis1[5].innerHTML = 'En la sección <strong>Favicon</strong>, haz clic en <strong>Seleccionar imagen</strong> y sube tu favicon cuadrado en formato PNG.';
+                lis1[6].innerHTML = 'Haz clic en <strong>Guardar</strong> en la esquina superior derecha para aplicar los cambios.';
+            }
+
+            // Method 2
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Consejos para los favicons de Shopify';
+            const lis2 = card2.querySelectorAll('ul li');
+            if (lis2.length >= 2) {
+                lis2[0].innerHTML = '<strong>Tamaño óptimo:</strong> Shopify recomienda subir una imagen cuadrada (normalmente de 32x32 píxeles o superior). Nuestro conversor funciona a la perfección.';
+                lis2[1].innerHTML = '<strong>Contraste:</strong> Asegúrate de que tu icono tenga un buen contraste tanto en las pestañas claras como en las oscuras del navegador, ya que muchos usuarios navegan en modo oscuro.';
+            }
+        }
     } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
