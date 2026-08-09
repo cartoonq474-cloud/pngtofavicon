@@ -35570,6 +35570,90 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'कॉपी करें';
         }
+    } else if (targetLang === 'hi' && normPath === 'react-favicon/index.html') {
+        if (doc.title) doc.title = 'React ऐप्स में फ़ेविकॉन कॉन्फ़िगर करना | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'सिंगल-पेज React ऐप्स में स्टैटिक ब्रांड एसेट कॉन्फ़िगर करें। पब्लिक फ़ोल्डर को मैप करना सीखें।');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "होम";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
+                        schema.itemListElement[1].name = "React फ़ेविकॉन गाइड";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/react-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon Breadcrumb schema in Hindi: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "फ़ेविकॉन क्या है?";
+                        schema.mainEntity[0].acceptedAnswer.text = "फ़ेविकॉन (Favicon - 'favorite icon' का छोटा रूप) किसी वेबसाइट से जुड़ा एक छोटा आइकॉन होता है। यह ब्राउज़र टैब, बुकमार्क लिस्ट, ब्राउज़र हिस्ट्री और सर्च रिज़ल्ट में दिखता है। फ़ेविकॉन यूज़र्स को कई खुले टैब और बुकमार्क के बीच आपकी साइट को तुरंत पहचानने में मदद करते हैं। ज़्यादातर मॉडर्न ब्राउज़र अलग-अलग जगहों के लिए कई फ़ेविकॉन साइज़ सपोर्ट करते हैं — ब्राउज़र टैब के छोटे 16×16 पिक्सल आइकॉन से लेकर प्रोग्रेसिव वेब ऐप्स (PWA) द्वारा होम स्क्रीन शॉर्टकट और स्प्लैश स्क्रीन के लिए इस्तेमाल किए जाने वाले बड़े 512×512 पिक्सल आइकॉन तक।";
+
+                        schema.mainEntity[1].name = "आपको कौन से फ़ेविकॉन साइज़ की ज़रूरत है?";
+                        schema.mainEntity[1].acceptedAnswer.text = "सभी ब्राउज़रों और डिवाइस पर कम्पलीट सपोर्ट के लिए, आपको इन साइज़ की ज़रूरत होती है: 16×16 (स्टैंडर्ड टैब आइकॉन), 32×32 (HiDPI टैब आइकॉन), 48×48 (Windows डेस्कटॉप आइकॉन), 180×180 (Apple Touch आइकॉन), 192×192 (Android Chrome आइकॉन), और 512×512 (PWA इंस्टॉल आइकॉन)। PNGtoFavicon केवल एक PNG अपलोड से ये सभी साइज़ और एक मल्टी-साइज़ favicon.ico फ़ाइल ऑटोमैटिकली बना देता है।";
+
+                        schema.mainEntity[2].name = "मैं अपनी वेबसाइट में फ़ेविकॉन कैसे जोड़ूँ?";
+                        schema.mainEntity[2].acceptedAnswer.text = "PNGtoFavicon से अपना फ़ेविकॉन पैक डाउनलोड करने के बाद, ZIP फ़ाइल को अपनी वेबसाइट की रूट डायरेक्टरी में एक्सट्रैक्ट करें और दिए गए HTML लिंक टैग को अपने <head> सेक्शन में पेस्ट करें। PNGtoFavicon आपको कॉपी-पेस्ट करने के लिए सटीक HTML कोड स्निपेट देता है।";
+
+                        schema.mainEntity[3].name = "क्या मेरी इमेज किसी सर्वर पर अपलोड की जाती है?";
+                        schema.mainEntity[3].acceptedAnswer.text = "नहीं — आपकी इमेज कभी भी आपके ब्राउज़र से बाहर नहीं जाती है। PNGtoFavicon जावास्क्रिप्ट और HTML5 कैनवस API का उपयोग करके पूरी तरह से आपके ब्राउज़र में (क्लाइंट-साइड) सब कुछ प्रोसेस करता है। सर्वर पर कोई डेटा नहीं भेजा जाता है, जिससे यह सबसे सुरक्षित और प्राइवेट फ़ेविकॉन जनरेटर बनता है।";
+
+                        schema.mainEntity[4].name = "इनपुट के लिए कौन से इमेज फ़ॉर्मेट सपोर्टेड हैं?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon मुख्य रूप से PNG (सुझाई गई क्योंकि यह ट्रांसपेरेंसी सपोर्ट करती है), JPG/JPEG, SVG (वेक्टर फ़ॉर्मेट), WEBP (मॉडर्न फ़ॉर्मेट), और GIF स्वीकार करता है। बेहतरीन रिज़ल्ट के लिए, ट्रांसपेरेंट बैकग्राउंड वाली कम से कम 512×512 पिक्सल की स्क्वायर PNG इमेज का इस्तेमाल करें।";
+
+                        schema.mainEntity[5].name = "क्या मैं इस टूल का इस्तेमाल स्मार्टफोन पर कर सकता हूँ?";
+                        schema.mainEntity[5].acceptedAnswer.text = "हाँ! PNGtoFavicon पूरी तरह से रिस्पॉन्सिव है और किसी भी मॉडर्न वेब ब्राउज़र वाले डिवाइस पर काम करता है — जिसमें स्मार्टफोन और टैबलेट भी शामिल हैं। आप सीधे अपने मोबाइल से इमेज अपलोड कर सकते हैं, ऑप्शन सेट कर सकते हैं और अपना पूरा फ़ेविकॉन पैक डाउनलोड कर सकते हैं।";
+
+                        schema.mainEntity[6].name = "फ़ेविकॉन में .ico व .png फ़ॉर्मेट के बीच क्या अंतर है?";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico फ़ॉर्मेट एक पुराना कंटेनर है जो एक ही फ़ाइल में कई आइकॉन साइज़ रख सकता है, जो पुराने ब्राउज़रों के साथ कम्पैटिबिलिटी के लिए ज़रूरी है। मॉडर्न ब्राउज़र लिंक टैग के साथ दिए गए अलग-अलग .png फ़ाइलों को पसंद करते हैं क्योंकि वे बेहतर क्वालिटी और छोटा फ़ाइल साइज़ प्रदान करते हैं। PNGtoFavicon दोनों फ़ॉर्मेट बनाता है।";
+
+                        schema.mainEntity[7].name = "site.webmanifest क्या है और क्या मुझे इसकी आवश्यकता है?";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest फ़ाइल एक JSON फ़ाइल है जो ब्राउज़रों को आपके वेब ऐप के बारे में जानकारी देती है — जिसमें नाम, थीम का रंग और आइकॉन शामिल हैं। यह प्रोग्रेसिव वेब ऐप (PWA) फ़ंक्शनलिटी के लिए ज़रूरी है और Android Chrome व अन्य मॉडर्न ब्राउज़रों के साथ कम्पैटिबिलिटी को बेहतर बनाती है।";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon FAQ schema in Hindi: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'React ऐप्स में फ़ेविकॉन <span class="gradient-text">कॉन्फ़िगर करना</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'सिंगल-पेज React ऐप्स में स्टैटिक ब्रांड एसेट कॉन्फ़िगर करें। पब्लिक फ़ोल्डर को मैप करना सीखें।';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'React में फ़ेविकॉन फ़ाइलें कहाँ रखें';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = 'चाहे आप Vite, Create React App, या Next.js इस्तेमाल कर रहे हों, फ़ेविकॉन जैसी सभी स्टैटिक फ़ाइलें आपके प्रोजेक्ट के रूट में <code>public/</code> डायरेक्टरी के अंदर होती हैं।';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 4) {
+                lis1[0].innerHTML = 'फ़ाइलों की ZIP निकालने के लिए हमारे होमपेज जनरेटर का इस्तेमाल करके अपने PNG को कनवर्ट करें।';
+                lis1[1].innerHTML = 'सभी फ़ाइलों को सीधे अपने React प्रोजेक्ट रूट में <code>public/</code> फ़ोल्डर में निकालें।';
+                lis1[2].innerHTML = '<code>index.html</code> खोलें (Vite के लिए प्रोजेक्ट रूट में, या Create React App के लिए <code>public/</code> के अंदर)।';
+                lis1[3].innerHTML = 'स्टैंडर्ड HTML हेड मेटा टैग जोड़ें या बदलें, रिलेटिव URL को पब्लिक डायरेक्टरी पर पॉइंट करें:';
+            }
+            const copyBtn = card1.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'कॉपी करें';
+        }
     } else if (targetLang === 'id' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Generator Emoji ke Favicon | PNGtoFavicon";
