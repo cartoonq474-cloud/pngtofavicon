@@ -36439,6 +36439,100 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
+    } else if (targetLang === 'id' && normPath === 'shopify-favicon/index.html') {
+        if (doc.title) doc.title = 'Cara Menambahkan Favicon ke Shopify (Panduan 2026) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Bangun kredibilitas toko. Ikuti tutorial singkat ini untuk menyesuaikan toko Shopify online Anda dengan ikon tab favicon berdefinisi tinggi.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Beranda";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
+                        schema.itemListElement[1].name = "Panduan Favicon Shopify";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/shopify-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing shopify-favicon Breadcrumb schema in Indonesian: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Apa itu Favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Favicon (singkatan dari \"favorite icon\") adalah ikon kecil yang terkait dengan situs web. Ini muncul di tab browser, daftar bookmark, riwayat browser, dan hasil pencarian. Favicon membantu pengguna mengidentifikasi situs web Anda dengan cepat di antara banyak tab yang terbuka dan bookmark. Sebagian besar browser modern mendukung beberapa ukuran favicon untuk konteks yang berbeda — dari ikon tab kecil 16×16 piksel hingga ikon 512×512 piksel yang lebih besar yang digunakan oleh Progressive Web Apps (PWA) untuk pintasan layar beranda dan layar splash.";
+
+                        schema.mainEntity[1].name = "Berapa ukuran favicon yang Anda butuhkan?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Untuk dukungan lengkap di semua browser dan perangkat, Anda memerlukan: 16×16 (ikon tab standar), 32×32 (ikon tab HiDPI), 48×48 (ikon situs Windows), 180×180 (Ikon Sentuh Apple), 192×192 (ikon Android Chrome), dan 512×512 (ikon pemasangan PWA). PNGtoFavicon secara otomatis menghasilkan semua ukuran ini dari satu unggahan PNG, ditambah file favicon.ico multi-ukuran.";
+
+                        schema.mainEntity[2].name = "Bagaimana cara menambahkan favicon ke situs web saya?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Setelah mengunduh paket favicon Anda dari PNGtoFavicon, ekstrak file ZIP ke direktori utama situs web Anda dan tambahkan tag tautan HTML yang disediakan ke bagian <head> Anda. PNGtoFavicon menghasilkan cuplikan kode HTML yang tepat untuk Anda salin dan tempel.";
+
+                        schema.mainEntity[3].name = "Apakah gambar saya diunggah ke server?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Tidak — gambar Anda tidak pernah keluar dari browser Anda. PNGtoFavicon memproses semuanya 100% di sisi klien menggunakan JavaScript dan HTML5 Canvas API. Tidak ada data yang dikirim ke server, menjadikannya pembuat favicon paling pribadi dan aman yang tersedia.";
+
+                        schema.mainEntity[4].name = "Format gambar masukan apa yang didukung?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon menerima PNG (direkomendasikan karena mendukung transparansi), JPG/JPEG, SVG (format vektor), WEBP (format modern), dan GIF. Untuk hasil terbaik, gunakan gambar PNG persegi berukuran minimal 512×512 piksel dengan latar belakang transparan.";
+
+                        schema.mainEntity[5].name = "Bisakah saya menggunakan alat ini di smartphone?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Ya! PNGtoFavicon sepenuhnya responsif dan berfungsi pada perangkat apa pun dengan browser web modern — termasuk smartphone dan tablet. Anda dapat mengunggah gambar, mengonfigurasi opsi, dan mengunduh paket favicon lengkap Anda langsung dari perangkat seluler Anda.";
+
+                        schema.mainEntity[6].name = "Apa perbedaan antara favicon .ico dan .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "Format .ico adalah wadah lama yang dapat menampung beberapa ukuran ikon dalam satu file, yang diperlukan untuk kompatibilitas dengan browser lama. Browser modern lebih menyukai file .png individual yang ditentukan oleh tag tautan karena menawarkan kualitas yang lebih baik dan ukuran file yang lebih kecil. PNGtoFavicon menghasilkan kedua format tersebut.";
+
+                        schema.mainEntity[7].name = "Apa itu site.webmanifest dan apakah saya memerlukannya?";
+                        schema.mainEntity[7].acceptedAnswer.text = "File site.webmanifest adalah file JSON yang memberi tahu browser informasi tentang aplikasi web Anda – termasuk nama, warna tema, dan referensi ikon. Ini penting untuk fungsionalitas Progressive Web Apps (PWA) dan meningkatkan kompatibilitas dengan Android Chrome dan browser modern lainnya.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing shopify-favicon FAQ schema in Indonesian: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Cara Menambahkan Favicon ke <span class="gradient-text">Shopify</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Bangun kredibilitas toko. Ikuti tutorial singkat ini untuk menyesuaikan toko Shopify online Anda dengan ikon tab favicon berdefinisi tinggi.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 2) {
+            // Method 1
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Instalasi Favicon Shopify Langkah demi Langkah';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 7) {
+                lis1[0].innerHTML = 'Masuk ke dasbor admin Shopify Anda.';
+                lis1[1].innerHTML = 'Buka <strong>Toko Online &gt; Tema</strong> di menu sidebar kiri.';
+                lis1[2].innerHTML = 'Temukan tema aktif Anda saat ini dan klik tombol <strong>Sesuaikan</strong>.';
+                lis1[3].innerHTML = 'Klik tab <strong>Pengaturan Tema</strong> (diwakili oleh ikon roda gigi di panel kiri).';
+                lis1[4].innerHTML = 'Pilih pengaturan <strong>Logo</strong> atau <strong>Favicon</strong> (tergantung tema Anda).';
+                lis1[5].innerHTML = 'Di area <strong>Favicon</strong>, klik <strong>Pilih Gambar</strong> dan unggah favicon PNG persegi Anda.';
+                lis1[6].innerHTML = 'Klik <strong>Simpan</strong> di kanan atas untuk menerapkan perubahan.';
+            }
+
+            // Method 2
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Tips untuk Favicon Shopify';
+            const lis2 = card2.querySelectorAll('ul li');
+            if (lis2.length >= 2) {
+                lis2[0].innerHTML = '<strong>Ukuran Optimal:</strong> Shopify merekomendasikan mengunggah gambar persegi (biasanya 32x32px atau lebih tinggi). Output konverter kami berfungsi dengan sempurna.';
+                lis2[1].innerHTML = '<strong>Kontras:</strong> Pastikan ikon Anda memiliki kontras yang baik terhadap tab browser terang dan gelap, karena banyak pengguna menjelajah dalam mode gelap.';
+            }
+        }
     } else if (targetLang === 'fr' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Générateur d'emojis en favicon | PNGtoFavicon";
