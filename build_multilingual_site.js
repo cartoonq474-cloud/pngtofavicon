@@ -34328,6 +34328,90 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 &lt;link rel="manifest" href="/site.webmanifest"&gt;`;
             }
         }
+    } else if (targetLang === 'es' && normPath === 'react-favicon/index.html') {
+        if (doc.title) doc.title = 'Configuración de favicons en apps de React | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Configura los recursos estáticos de marca en apps de React de una sola página. Aprende a mapear carpetas públicas.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Inicio";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
+                        schema.itemListElement[1].name = "Guía de favicon de React";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/react-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon Breadcrumb schema in Spanish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "¿Qué es un favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Un favicon (abreviatura de \"favorite icon\") es un pequeño icono asociado a un sitio web. Aparece en las pestañas del navegador, listas de marcadores, historial del navegador y resultados de búsqueda. Los favicons ayudan a los usuarios a identificar rápidamente tu sitio web entre múltiples pestañas y marcadores abiertos. La mayoría de los navegadores modernos admiten múltiples tamaños de favicon para diferentes contextos, desde pequeños iconos de pestaña de 16×16 píxeles hasta iconos grandes de 512×512 píxeles utilizados por las aplicaciones web progresivas (PWA) para accesos directos en la pantalla de inicio y pantallas de presentación.";
+
+                        schema.mainEntity[1].name = "¿Qué tamaños de favicon necesito?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para una compatibilidad completa con todos los navegadores y dispositivos, necesitas: 16×16 (icono de pestaña estándar), 32×32 (icono de pestaña HiDPI), 48×48 (icono de sitio de Windows), 180×180 (Apple Touch Icon), 192×192 (icono de Android Chrome) y 512×512 (icono de instalación de PWA). PNGtoFavicon genera todos estos tamaños automáticamente a partir de una sola carga de PNG, además de un archivo favicon.ico multitamaño.";
+
+                        schema.mainEntity[2].name = "¿Cómo añado un favicon a mi sitio web?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Después de descargar tu paquete de favicons de PNGtoFavicon, extrae el archivo ZIP en el directorio raíz de tu sitio web y añade las etiquetas de enlace HTML proporcionadas dentro de tu sección <head>. PNGtoFavicon genera el fragmento de código HTML exacto que necesitas, listo para copiar y pegar.";
+
+                        schema.mainEntity[3].name = "¿Se sube mi imagen a un servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "No, tu imagen nunca sale de tu navegador. PNGtoFavicon procesa todo al 100% del lado del cliente utilizando JavaScript y la API HTML5 Canvas. No se envían datos a ningún servidor, lo que hace de este el generador de favicons más privado y seguro disponible.";
+
+                        schema.mainEntity[4].name = "¿Qué formatos de archivo de entrada son compatibles?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon acepta PNG (recomendado porque admite transparencia), JPG/JPEG, SVG (formatos vectoriales), WEBP (formato moderno) y GIF. Para obtener los mejores resultados, utiliza una imagen PNG cuadrada de al menos 512×512 píxeles con fondo transparente.";
+
+                        schema.mainEntity[5].name = "¿Puedo usar esta herramienta en mi teléfono móvil?";
+                        schema.mainEntity[5].acceptedAnswer.text = "¡Sí! PNGtoFavicon es totalmente responsivo y funciona en cualquier dispositivo con un navegador web moderno, incluidos teléfonos inteligentes y tabletas. Puedes subir imágenes, configurar opciones y descargar tu paquete completo de favicons directamente desde tu dispositivo móvil.";
+
+                        schema.mainEntity[6].name = "¿Cuál es la diferencia entre los favicons .ico y .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "El formato .ico es un contenedor heredado que puede contener múltiples tamaños de iconos en un solo archivo, necesario para la compatibilidad con navegadores más antiguos. Los navegadores modernos prefieren archivos .png individuales especificados con etiquetas de enlace, ya que ofrecen mejor calidad y tamaños de archivo más pequeños. PNGtoFavicon genera ambos formatos.";
+
+                        schema.mainEntity[7].name = "¿Qué es site.webmanifest y lo necesito?";
+                        schema.mainEntity[7].acceptedAnswer.text = "El archivo site.webmanifest es un archivo JSON que proporciona información a los navegadores sobre tu aplicación web, incluyendo su nombre, color de tema y referencias de iconos. Es esencial para la funcionalidad de las aplicaciones web progresivas (PWA) y mejora la compatibilidad con Android Chrome y otros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon FAQ schema in Spanish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Configuración de favicons en <span class="gradient-text">apps de React</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Configura los recursos estáticos de marca en apps de React de una sola página. Aprende a mapear carpetas públicas.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Dónde colocar los archivos de favicon en React';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = 'Independientemente de si usas Vite, Create React App o Next.js, todos los archivos estáticos, como los favicons, deben estar dentro del directorio <code>public/</code> en la raíz de tu proyecto.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 4) {
+                lis1[0].innerHTML = 'Convierte tu PNG usando nuestro generador de páginas de inicio para obtener los archivos ZIP.';
+                lis1[1].innerHTML = 'Extrae todos los archivos directamente en la carpeta <code>public/</code> en la raíz de tu proyecto de React.';
+                lis1[2].innerHTML = 'Abre <code>index.html</code> (ubicado en la raíz del proyecto si usas Vite, o dentro de <code>public/</code> si usas Create React App).';
+                lis1[3].innerHTML = 'Agrega o modifica las etiquetas meta de encabezado HTML estándar, apuntando URL relativas al directorio público:';
+            }
+            const copyBtn = card1.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'Copiar';
+        }
     } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
