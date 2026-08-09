@@ -34412,6 +34412,89 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'Copiar';
         }
+    } else if (targetLang === 'es' && normPath === 'blogger-favicon/index.html') {
+        dict['Blogger'] = 'Blogger';
+        if (doc.title) doc.title = 'Cambiar el favicon en Blogger | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Reemplaza el ícono predeterminado de Blogger con tu propia marca personal. Guía para configurar los íconos de Blogspot.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Inicio";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
+                        schema.itemListElement[1].name = "Guía de favicon de Blogger";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/blogger-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon Breadcrumb schema in Spanish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "¿Qué es un favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Un favicon (abreviatura de \"favorite icon\") es un pequeño icono asociado a un sitio web. Aparece en las pestañas del navegador, listas de marcadores, historial del navegador y resultados de búsqueda. Los favicons ayudan a los usuarios a identificar rápidamente tu sitio web entre múltiples pestañas y marcadores abiertos. La mayoría de los navegadores modernos admiten múltiples tamaños de favicon para diferentes contextos, desde pequeños iconos de pestaña de 16×16 píxeles hasta iconos grandes de 512×512 píxeles utilizados por las aplicaciones web progresivas (PWA) para accesos directos en la pantalla de inicio y pantallas de presentación.";
+
+                        schema.mainEntity[1].name = "¿Qué tamaños de favicon necesito?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para una compatibilidad completa con todos los navegadores y dispositivos, necesitas: 16×16 (icono de pestaña estándar), 32×32 (icono de pestaña HiDPI), 48×48 (icono de sitio de Windows), 180×180 (Apple Touch Icon), 192×192 (icono de Android Chrome) y 512×512 (icono de instalación de PWA). PNGtoFavicon genera todos estos tamaños automáticamente a partir de una sola carga de PNG, además de un archivo favicon.ico multitamaño.";
+
+                        schema.mainEntity[2].name = "¿Cómo añado un favicon a mi sitio web?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Después de descargar tu paquete de favicons de PNGtoFavicon, extrae el archivo ZIP en el directorio raíz de tu sitio web y añade las etiquetas de enlace HTML proporcionadas dentro de tu sección <head>. PNGtoFavicon genera el fragmento de código HTML exacto que necesitas, listo para copiar y pegar.";
+
+                        schema.mainEntity[3].name = "¿Se sube mi imagen a un servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "No, tu imagen nunca sale de tu navegador. PNGtoFavicon procesa todo al 100% del lado del cliente utilizando JavaScript y la API HTML5 Canvas. No se envían datos a ningún servidor, lo que hace de este el generador de favicons más privado y seguro disponible.";
+
+                        schema.mainEntity[4].name = "¿Qué formatos de archivo de entrada son compatibles?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon acepta PNG (recomendado porque admite transparencia), JPG/JPEG, SVG (formatos vectoriales), WEBP (formato moderno) y GIF. Para obtener los mejores resultados, utiliza una imagen PNG cuadrada de al menos 512×512 píxeles con fondo transparente.";
+
+                        schema.mainEntity[5].name = "¿Puedo usar esta herramienta en mi teléfono móvil?";
+                        schema.mainEntity[5].acceptedAnswer.text = "¡Sí! PNGtoFavicon es totalmente responsivo y funciona en cualquier dispositivo con un navegador web moderno, incluidos teléfonos inteligentes y tabletas. Puedes subir imágenes, configurar opciones y descargar tu paquete completo de favicons directamente desde tu dispositivo móvil.";
+
+                        schema.mainEntity[6].name = "¿Cuál es la diferencia entre los favicons .ico y .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "El formato .ico es un contenedor heredado que puede contener múltiples tamaños de iconos en un solo archivo, necesario para la compatibilidad con navegadores más antiguos. Los navegadores modernos prefieren archivos .png individuales especificados con etiquetas de enlace, ya que ofrecen mejor calidad y tamaños de archivo más pequeños. PNGtoFavicon genera ambos formatos.";
+
+                        schema.mainEntity[7].name = "¿Qué es site.webmanifest y lo necesito?";
+                        schema.mainEntity[7].acceptedAnswer.text = "El archivo site.webmanifest es un archivo JSON que proporciona información a los navegadores sobre tu aplicación web, incluyendo su nombre, color de tema y referencias de iconos. Es esencial para la funcionalidad de las aplicaciones web progresivas (PWA) y mejora la compatibilidad con Android Chrome y otros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing blogger-favicon FAQ schema in Spanish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Cambiar el favicon en <span class="gradient-text">Blogger</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Reemplaza el ícono predeterminado de Blogger con tu propia marca personal. Guía para configurar los íconos de Blogspot.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Configuración de Blogger';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'Inicia sesión en tu panel de control de Blogger (blogger.com).';
+                lis1[1].innerHTML = 'Selecciona el blog deseado en el menú desplegable superior izquierdo.';
+                lis1[2].innerHTML = 'Haz clic en Configuración en la barra lateral izquierda.';
+                lis1[3].innerHTML = 'En Configuración básica, haz clic en Favicon.';
+                lis1[4].innerHTML = 'Se abrirá una nueva página. Haz clic en Elegir archivo y sube tu favicon cuadrado en formato PNG. Asegúrate de que el tamaño de la imagen sea inferior a 100 KB.';
+                lis1[5].innerHTML = 'Haz clic en Guardar para confirmar.';
+            }
+        }
     } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
