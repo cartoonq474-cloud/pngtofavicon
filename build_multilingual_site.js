@@ -36881,6 +36881,89 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[5].innerHTML = 'Cliquez sur « Enregistrer » pour confirmer.';
             }
         }
+    } else if (targetLang === 'fr' && normPath === 'tutorials/squarespace-favicon/index.html') {
+        if (doc.title) doc.title = 'Ajouter une favicon à Squarespace | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Améliorez l\'esthétique de votre site. Découvrez comment configurer une favicon pour les nouveaux onglets dans les paramètres de Squarespace.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "Accueil";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon Squarespace";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/squarespace-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon Breadcrumb schema in French: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Qu'est-ce qu'un favicon ?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Un favicon (raccourci de « favorite icon ») est une petite icône associée à un site web. Il apparaît dans les onglets du navigateur, les listes de signets, l'historique du navigateur et les résultats de recherche. Les favicons aident les utilisateurs à identifier rapidement votre site web parmi plusieurs onglets ouverts et favoris. La plupart des navigateurs modernes prennent en charge plusieurs tailles de favicon pour différents contextes, depuis les petites icônes d'onglet de 16×16 pixels jusqu'aux grandes icônes de 512×512 pixels utilisées par les Progressive Web Apps (PWA) pour les raccourcis sur l'écran d'accueil et les écrans de démarrage.";
+
+                        schema.mainEntity[1].name = "De quelles tailles de favicon avez-vous besoin ?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Pour une prise en charge complète sur tous les navigateurs et appareils, vous avez besoin de : 16×16 (icône d'onglet standard), 32×32 (icône d'onglet HiDPI), 48×48 (icône de site Windows), 180×180 (Apple Touch Icon), 192×192 (icône Android Chrome) et 512×512 (icône d'installation PWA). PNGtoFavicon génère automatiquement toutes ces tailles à partir d'un seul fichier PNG importé, ainsi qu'un fichier favicon.ico multi-tailles.";
+
+                        schema.mainEntity[2].name = "Comment ajouter un favicon à mon site ?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Après avoir téléchargé votre pack de favicons depuis PNGtoFavicon, extrayez le fichier ZIP dans le répertoire racine de votre site web et ajoutez les balises HTML fournies dans votre section <head>. PNGtoFavicon génère le code HTML exact à copier-coller.";
+
+                        schema.mainEntity[3].name = "Mon image est-elle téléchargée sur un serveur ?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Non, votre image ne quitte jamais votre navigateur. PNGtoFavicon traite tout à 100 % côté client à l'aide de JavaScript et de l'API HTML5 Canvas. Aucune donnée n'est envoyée à un serveur, ce qui en fait le générateur de favicons le plus privé et sécurisé disponible.";
+
+                        schema.mainEntity[4].name = "Quels formats d'image d'entrée sont pris en charge ?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon accepte le PNG (recommandé car il gère la transparence), le JPG/JPEG, le SVG (format vectoriel), le WEBP (format moderne) et le GIF. Pour de meilleurs résultats, utilisez une image PNG carrée d'au moins 512×512 pixels avec un fond transparent.";
+
+                        schema.mainEntity[5].name = "Puis-je utiliser cet outil sur mon smartphone ?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Oui ! PNGtoFavicon est entièrement réactif et fonctionne sur n'importe quel appareil équipé d'un navigateur web moderne, y compris les smartphones et les tablettes. Vous pouvez importer des images, configurer les options et télécharger votre pack complet de favicons directement depuis votre appareil mobile.";
+
+                        schema.mainEntity[6].name = "Quelle la différence entre les favicons .ico et .png ?";
+                        schema.mainEntity[6].acceptedAnswer.text = "Le format .ico est un conteneur hérité qui peut contenir plusieurs tailles d'icônes dans un seul fichier, nécessaire pour la compatibilité avec les anciens navigateurs. Les navigateurs modernes préfèrent les fichiers .png individuels spécifiés par des balises de liaison, car ils offrent une meilleure qualité et des tailles de fichier plus petites. PNGtoFavicon génère les deux formats.";
+
+                        schema.mainEntity[7].name = "Qu'est-ce que le fichier site.webmanifest et en ai-je besoin ?";
+                        schema.mainEntity[7].acceptedAnswer.text = "Le fichier site.webmanifest est un fichier JSON qui fournit aux navigateurs des informations sur votre application web, notamment son nom, sa couleur de thème et ses références d'icônes. Il est essentiel pour les fonctionnalités des Progressive Web Apps (PWA) et améliore la compatibilité avec Android Chrome et d'autres navigateurs modernes.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon FAQ schema in French: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Ajouter une favicon à <span class="gradient-text">Squarespace</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Améliorez l\'esthétique de votre site. Découvrez comment configurer une favicon pour les nouveaux onglets dans les paramètres de Squarespace.';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'Instructions pour configurer une favicon Squarespace';
+
+            const lis = card.querySelectorAll('ol li');
+            if (lis.length >= 5) {
+                lis[0].innerHTML = 'Connectez-vous à votre compte Squarespace et modifiez votre site web.';
+                lis[1].innerHTML = 'Dans le menu Accueil, cliquez sur Paramètres, puis sur Logo et titre (ou <strong>Design &gt; Icône du navigateur</strong> dans les versions plus récentes).';
+                lis[2].innerHTML = 'Faites défiler jusqu\'à la section Icône du navigateur (Favicon).';
+                lis[3].innerHTML = 'Cliquez sur le bouton Importer ou glissez-deposez votre fichier favicon au format PNG.';
+                lis[4].innerHTML = 'Cliquez sur Enregistrer en haut à gauche. Rechargez votre page dans un nouveau navigateur pour vérifier.';
+            }
+        }
     } else if (targetLang === 'pt' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Gerador de Emoji para Favicon | PNGtoFavicon";
