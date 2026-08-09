@@ -34116,6 +34116,124 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn2 = card2.querySelector('.copy-btn');
             if (copyBtn2) copyBtn2.textContent = 'Copiar';
         }
+    } else if (targetLang === 'es' && normPath === 'wordpress-favicon/index.html') {
+        if (doc.title) doc.title = 'Cómo añadir un favicon a WordPress (Guía Paso a Paso) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Aprende a añadir fácilmente un favicon a tu sitio web de WordPress. Guía paso a paso usando el Personalizador, plugins o editando los archivos del encabezado.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Inicio";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
+                        schema.itemListElement[1].name = "Guía de favicon de WordPress";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/wordpress-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon Breadcrumb schema in Spanish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "¿Qué es un favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Un favicon (abreviatura de \"favorite icon\") es un pequeño icono asociado a un sitio web. Aparece en las pestañas del navegador, listas de marcadores, historial del navegador y resultados de búsqueda. Los favicons ayudan a los usuarios a identificar rápidamente tu sitio web entre múltiples pestañas y marcadores abiertos. La mayoría de los navegadores modernos admiten múltiples tamaños de favicon para diferentes contextos, desde pequeños iconos de pestaña de 16×16 píxeles hasta iconos grandes de 512×512 píxeles utilizados por las aplicaciones web progresivas (PWA) para accesos directos en la pantalla de inicio y pantallas de presentación.";
+
+                        schema.mainEntity[1].name = "¿Qué tamaños de favicon necesito?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para una compatibilidad completa con todos los navegadores y dispositivos, necesitas: 16×16 (icono de pestaña estándar), 32×32 (icono de pestaña HiDPI), 48×48 (icono de sitio de Windows), 180×180 (Apple Touch Icon), 192×192 (icono de Android Chrome) y 512×512 (icono de instalación de PWA). PNGtoFavicon genera todos estos tamaños automáticamente a partir de una sola carga de PNG, además de un archivo favicon.ico multitamaño.";
+
+                        schema.mainEntity[2].name = "¿Cómo añado un favicon a mi sitio web?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Después de descargar tu paquete de favicons de PNGtoFavicon, extrae el archivo ZIP en el directorio raíz de tu sitio web y añade las etiquetas de enlace HTML proporcionadas dentro de tu sección <head>. PNGtoFavicon genera el fragmento de código HTML exacto que necesitas, listo para copiar y pegar.";
+
+                        schema.mainEntity[3].name = "¿Se sube mi imagen a un servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "No, tu imagen nunca sale de tu navegador. PNGtoFavicon procesa todo al 100% del lado del cliente utilizando JavaScript y la API HTML5 Canvas. No se envían datos a ningún servidor, lo que hace de este el generador de favicons más privado y seguro disponible.";
+
+                        schema.mainEntity[4].name = "¿Qué formatos de archivo de entrada son compatibles?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon acepta PNG (recomendado porque admite transparencia), JPG/JPEG, SVG (formatos vectoriales), WEBP (formato moderno) y GIF. Para obtener los mejores resultados, utiliza una imagen PNG cuadrada de al menos 512×512 píxeles con fondo transparente.";
+
+                        schema.mainEntity[5].name = "¿Puedo usar esta herramienta en mi teléfono móvil?";
+                        schema.mainEntity[5].acceptedAnswer.text = "¡Sí! PNGtoFavicon es totalmente responsivo y funciona en cualquier dispositivo con un navegador web moderno, incluidos teléfonos inteligentes y tabletas. Puedes subir imágenes, configurar opciones y descargar tu paquete completo de favicons directamente desde tu dispositivo móvil.";
+
+                        schema.mainEntity[6].name = "¿Cuál es la diferencia entre los favicons .ico y .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "El formato .ico es un contenedor heredado que puede contener múltiples tamaños de iconos en un solo archivo, necesario para la compatibilidad con navegadores más antiguos. Los navegadores modernos prefieren archivos .png individuales especificados con etiquetas de enlace, ya que ofrecen mejor calidad y tamaños de archivo más pequeños. PNGtoFavicon genera ambos formatos.";
+
+                        schema.mainEntity[7].name = "¿Qué es site.webmanifest y lo necesito?";
+                        schema.mainEntity[7].acceptedAnswer.text = "El archivo site.webmanifest es un archivo JSON que proporciona información a los navegadores sobre tu aplicación web, incluyendo su nombre, color de tema y referencias de iconos. Es esencial para la funcionalidad de las aplicaciones web progresivas (PWA) y mejora la compatibilidad con Android Chrome y otros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon FAQ schema in Spanish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Cómo añadir un favicon a <span class="gradient-text">WordPress</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'WordPress impulsa más del 40% de la web. Sigue esta guía moderna (2026) para asegurarte de que tu favicon de WordPress se muestre correctamente en las pestañas del navegador y en la pantalla de inicio de tu móvil.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 3) {
+            // Method 1
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Método 1: Usando el Personalizador de WordPress (Recomendado)';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.textContent = 'WordPress incluye una función llamada "Icono del sitio" que facilita enormemente la adición de un favicon. Esta función ajusta automáticamente el tamaño para los principales dispositivos.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'Inicia sesión en tu panel de control de WordPress (normalmente en tudominio.com/wp-admin).';
+                lis1[1].innerHTML = 'Ve a <strong>Apariencia &gt; Personalizar</strong> en el menú lateral izquierdo.';
+                lis1[2].innerHTML = 'Haz clic en <strong>Identidad del sitio</strong> (algunos temas la encuentran en Ajustes de encabezado).';
+                lis1[3].innerHTML = 'Desplázate hacia abajo hasta la sección <strong>Icono del sitio</strong>. Haz clic en <strong>Seleccionar icono del sitio</strong>.';
+                lis1[4].innerHTML = 'Sube tu icono PNG de alta resolución (recomendamos al menos 512 × 512 píxeles).';
+                lis1[5].innerHTML = 'Haz clic en <strong>Publicar</strong> para guardar los cambios. ¡Tu favicon ya está publicado!';
+            }
+
+            // Method 2
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Método 2: Subir directamente al encabezado de tu tema';
+            const p2 = card2.querySelector('p');
+            if (p2) p2.textContent = 'Si prefieres el código HTML estándar o tu tema no es compatible con la función de iconos del Personalizador, puedes subir los iconos manualmente:';
+            const lis2 = card2.querySelectorAll('ol li');
+            if (lis2.length >= 4) {
+                lis2[0].innerHTML = 'Primero, convierte tu PNG a un paquete de favicon con nuestro <a href="/es/">conversor gratuito de PNG a favicon</a>.';
+                lis2[1].innerHTML = 'Sube todos los archivos (favicon.ico, apple-touch-icon.png, etc.) al directorio raíz de tu instalación de WordPress mediante FTP o el Administrador de archivos de tu panel de control de hosting.';
+                lis2[2].innerHTML = 'Edita el archivo <code>header.php</code> de tu tema (usa un tema hijo para evitar que las actualizaciones sobrescriban los cambios).';
+                lis2[3].innerHTML = 'Añade los siguientes enlaces HTML directamente dentro de las etiquetas <code>&lt;head&gt;</code>:';
+            }
+            const copyBtn = card2.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'Copiar';
+
+            // FAQ Section
+            const card3 = cards[2];
+            const h2_3 = card3.querySelector('h2');
+            if (h2_3) h2_3.textContent = 'Preguntas frecuentes';
+            const faqItems = card3.querySelectorAll('.faq-item');
+            if (faqItems.length >= 2) {
+                const q1 = faqItems[0].querySelector('summary h3');
+                if (q1) q1.textContent = '¿Por qué no se actualiza mi nuevo favicon de WordPress?';
+                const a1 = faqItems[0].querySelector('.faq-answer');
+                if (a1) a1.innerHTML = 'Los navegadores web guardan los favicons en caché de forma muy agresiva. Si has actualizado recientemente tu icono, prueba a borrar la caché del navegador, a visitar tu sitio en una ventana de incógnito o a añadir una cadena de consulta en el enlace de tu encabezado (por ejemplo, <code>/favicon.ico?v=2</code>).';
+
+                const q2 = faqItems[1].querySelector('summary h3');
+                if (q2) q2.textContent = '¿Cuál es el tamaño recomendado para el icono de un sitio de WordPress?';
+                const a2 = faqItems[1].querySelector('.faq-answer');
+                if (a2) a2.innerHTML = 'WordPress recomienda subir una imagen cuadrada de al menos 512×512 píxeles. Esto garantiza que el icono se escale correctamente para las instalaciones de PWA y pantallas móviles.';
+            }
+        }
     } else if (targetLang === 'hi' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "इमोजी से फ़ेविकॉन जेनरेटर | PNGtoFavicon";
