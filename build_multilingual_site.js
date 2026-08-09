@@ -26929,6 +26929,166 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
+    } else if (targetLang === 'id' && normPath === 'tutorials/squarespace-favicon/index.html') {
+        if (doc.title) doc.title = 'Menambahkan Favicon ke Squarespace | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Tingkatkan estetika situs Anda. Pelajari cara mengkonfigurasi favicon tab yang bersih di dalam pengaturan Squarespace.');
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'Menambahkan Favicon ke Squarespace | PNGtoFavicon');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'Tingkatkan estetika situs Anda. Pelajari cara mengkonfigurasi favicon tab yang bersih di dalam pengaturan Squarespace.');
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', 'Menambahkan Favicon ke Squarespace');
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', 'Tingkatkan estetika situs Anda. Pelajari cara mengkonfigurasi favicon tab yang bersih di dalam pengaturan Squarespace.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "Beranda";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon Squarespace";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/squarespace-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon Breadcrumb schema in Indonesian: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Apa itu Favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Favicon (singkatan dari \"favorite icon\") adalah ikon kecil yang terkait dengan situs web. Ini muncul di tab browser, daftar bookmark, riwayat browser, dan hasil pencarian. Favicon membantu pengguna mengidentifikasi situs web Anda dengan cepat di antara banyak tab yang terbuka dan bookmark. Sebagian besar browser modern mendukung beberapa ukuran favicon untuk konteks yang berbeda — dari ikon tab kecil 16×16 piksel hingga ikon 512×512 piksel yang lebih besar yang digunakan oleh Progressive Web Apps (PWA) untuk pintasan layar beranda dan layar splash.";
+
+                        schema.mainEntity[1].name = "Berapa ukuran favicon yang Anda butuhkan?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Untuk dukungan lengkap di semua browser dan perangkat, Anda memerlukan: 16×16 (ikon tab standar), 32×32 (ikon tab HiDPI), 48×48 (ikon situs Windows), 180×180 (Ikon Sentuh Apple), 192×192 (ikon Android Chrome), dan 512×512 (ikon pemasangan PWA). PNGtoFavicon secara otomatis menghasilkan semua ukuran ini dari satu unggahan PNG, ditambah file favicon.ico multi-ukuran.";
+
+                        schema.mainEntity[2].name = "Bagaimana cara menambahkan favicon ke situs web saya?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Setelah mengunduh paket favicon Anda dari PNGtoFavicon, ekstrak file ZIP ke direktori utama situs web Anda dan tambahkan tag tautan HTML yang disediakan ke bagian <head> Anda. PNGtoFavicon menghasilkan cuplikan kode HTML yang tepat untuk Anda salin dan tempel.";
+
+                        schema.mainEntity[3].name = "Apakah gambar saya diunggah ke server?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Tidak — gambar Anda tidak pernah keluar dari browser Anda. PNGtoFavicon memproses semuanya 100% di sisi klien menggunakan JavaScript dan HTML5 Canvas API. Tidak ada data yang dikirim ke server, menjadikannya pembuat favicon paling pribadi dan aman yang tersedia.";
+
+                        schema.mainEntity[4].name = "Format gambar masukan apa yang didukung?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon menerima PNG (direkomendasikan karena mendukung transparansi), JPG/JPEG, SVG (format vektor), WEBP (format modern), dan GIF. Untuk hasil terbaik, gunakan gambar PNG persegi berukuran minimal 512×512 piksel dengan latar belakang transparan.";
+
+                        schema.mainEntity[5].name = "Bisakah saya menggunakan alat ini di smartphone?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Ya! PNGtoFavicon sepenuhnya responsif dan berfungsi pada perangkat any dengan browser web modern — termasuk smartphone dan tablet. Anda dapat mengunggah gambar, mengonfigurasi opsi, dan mengunduh paket favicon lengkap Anda langsung dari perangkat seluler Anda.";
+
+                        schema.mainEntity[6].name = "Apa perbedaan antara favicon .ico dan .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "Format .ico adalah wadah lama yang dapat menampung beberapa ukuran ikon dalam satu file, yang diperlukan untuk kompatibilitas dengan browser lama. Browser modern lebih menyukai file .png individual yang ditentukan oleh tag tautan karena menawarkan kualitas yang lebih baik dan ukuran file yang lebih kecil. PNGtoFavicon menghasilkan kedua format tersebut.";
+
+                        schema.mainEntity[7].name = "Apa itu site.webmanifest dan apakah saya memerlukannya?";
+                        schema.mainEntity[7].acceptedAnswer.text = "File site.webmanifest adalah file JSON yang memberi tahu browser informasi tentang aplikasi web Anda – termasuk nama, warna tema, dan referensi ikon. Ini penting untuk fungsionalitas Progressive Web Apps (PWA) dan meningkatkan kompatibilitas dengan Android Chrome dan browser modern lainnya.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon FAQ schema in Indonesian: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Menambahkan Favicon ke <span class="gradient-text">Squarespace</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Tingkatkan estetika situs Anda. Pelajari cara mengkonfigurasi favicon tab yang bersih di dalam pengaturan Squarespace.';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'Petunjuk Pengaturan Favicon Squarespace';
+
+            const lis = card.querySelectorAll('ol li');
+            if (lis.length >= 5) {
+                lis[0].innerHTML = 'Masuk ke akun Squarespace Anda dan edit situs web target Anda.';
+                lis[1].innerHTML = 'Di Menu Utama, klik <strong>Pengaturan</strong>, lalu klik <strong>Logo & Judul</strong> (atau <strong>Desain &gt; Ikon Browser</strong> di versi yang lebih baru).';
+                lis[2].innerHTML = 'Gulir ke bawah ke bagian Ikon Browser (Favicon).';
+                lis[3].innerHTML = 'Klik tombol unggah atau seret dan lepas file favicon PNG Anda.';
+                lis[4].innerHTML = 'Klik <strong>Simpan</strong> di kiri atas. Muat ulang halaman Anda di browser baru untuk memeriksa.';
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'Konverter';
+            else if (text === 'Text to Favicon') link.textContent = 'Teks ke Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji ke Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Pemeriksa Favicon';
+            else if (text === 'Tutorials') link.textContent = 'Tutorial';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'Konversi PNG ke Favicon secara instan — alat online gratis';
+            }
+
+            // Phone link
+            const phoneLink = footer.querySelector('a[href*="tel:"]');
+            if (phoneLink) {
+                const phoneSpan = phoneLink.querySelector('span');
+                if (phoneSpan) phoneSpan.textContent = '+977 9866735560';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Obrolan di WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Alat';
+                else if (text === 'Resources') h4.textContent = 'Sumber Daya';
+                else if (text === 'Company') h4.textContent = 'Perusahaan';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter' || text === 'PNG to Favicon converter') link.textContent = 'Konverter PNG ke Favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'Teks ke Favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji ke Favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Pemeriksa Favicon';
+                else if (text === 'Tutorials') link.textContent = 'Tutorial';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Panduan Ukuran Favicon';
+                else if (text === 'What is a Favicon?') link.textContent = 'Apa itu Favicon?';
+                else if (text === 'About') link.textContent = 'Tentang Kami';
+                else if (text === 'Contact') link.textContent = 'Kontak';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'Kebijakan Privasi';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'Ketentuan Layanan';
+                else if (text === 'Cookie Policy') link.textContent = 'Kebijakan Cookie';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
+            }
+        }
     } else if (targetLang === 'es' && normPath === 'tutorials/favicon-best-practices/index.html') {
         // Page title & metadata
         doc.title = "Diseño de favicon y mejores prácticas de SEO | PNGtoFavicon";
