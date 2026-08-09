@@ -39706,6 +39706,166 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
+    } else if (targetLang === 'pt' && normPath === 'wix-favicon/index.html') {
+        if (doc.title) doc.title = 'Como personalizar o favicon no Wix | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'O Wix permite remover os ícones padrão nos planos premium. Personalize o seu favicon para aumentar a consistência do design da sua loja.');
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'Como personalizar o favicon no Wix | PNGtoFavicon');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'O Wix permite remover os ícones padrão nos planos premium. Personalize o seu favicon para aumentar a consistência do design da sua loja.');
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', 'Como personalizar o favicon no Wix');
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', 'O Wix permite remover os ícones padrão nos planos premium. Personalize o seu favicon para aumentar a consistência do design da sua loja.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Sobre";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
+                        schema.itemListElement[1].name = "Guia de favicon Wix";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/wix-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon Breadcrumb schema in Portuguese: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "O que é um Favicon?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Um favicon (abreviação de \"favorite icon\") é um pequeno ícone associado a um site. Ele aparece em abas de navegadores, listas de favoritos, histórico do navegador e resultados de pesquisa. Os favicons ajudam os usuários a identificar rapidamente o seu site entre várias abas abertas e favoritos. A maioria dos navegadores modernos suporta múltiplos tamanhos de favicon para diferentes contextos — desde o ícone de aba de 16×16 pixels até ícones maiores de 512×512 pixels usados por Progressive Web Apps (PWA) para atalhos na tela inicial e telas de carregamento.";
+
+                        schema.mainEntity[1].name = "De quais tamanhos de favicon você precisa?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Para suporte completo em todos os navegadores e dispositivos, você precisa de: 16×16 (ícone de aba padrão), 32×32 (ícone de aba HiDPI), 48×48 (ícone do site Windows), 180×180 (ícone Apple Touch), 192×192 (ícone do Chrome para Android) e 512×512 (ícone de instalação do PWA). O PNGtoFavicon gera automaticamente todos esses tamanhos a partir de um único carregamento de imagem PNG, além de um arquivo favicon.ico multi-tamanhos.";
+
+                        schema.mainEntity[2].name = "Como adiciono um favicon ao meu site?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Depois de baixar o pacote de favicon do PNGtoFavicon, extraia o arquivo ZIP no diretório raiz do seu site e adicione as tags de link HTML fornecidas na seção <head>. O PNGtoFavicon gera o snippet exato de código HTML para você copiar e colar.";
+
+                        schema.mainEntity[3].name = "Minha imagem é enviada para um servidor?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Não — a sua imagem nunca sai do seu navegador. O PNGtoFavicon processa tudo 100% no lado do cliente usando JavaScript e a API Canvas HTML5. Nenhum dada é enviado para qualquer servidor, tornando-o o gerador de favicon mais privado e seguro disponível.";
+
+                        schema.mainEntity[4].name = "Quais formatos de imagem de entrada são suportados?";
+                        schema.mainEntity[4].acceptedAnswer.text = "O PNGtoFavicon aceita PNG (recomendado pois suporta transparência), JPG/JPEG, SVG (formatos vetoriais), WEBP (formato moderno) e GIF. Para obter melhores resultados, use uma imagem PNG quadrada com pelo menos 512×512 pixels e fundo transparente.";
+
+                        schema.mainEntity[5].name = "Posso usar esta ferramenta no smartphone?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Sim! O PNGtoFavicon é totalmente responsivo e funciona em qualquer dispositivo com um navegador moderno — incluindo smartphones e tablets. Você pode carregar imagens, configure opções e baixar o pacote completo de favicon diretamente do seu dispositivo móvel.";
+
+                        schema.mainEntity[6].name = "Qual é a diferença entre um favicon .ico e .png?";
+                        schema.mainEntity[6].acceptedAnswer.text = "O formato .ico é um contêiner legado que pode armazenar vários tamanhos de ícone em um único arquivo, necessário para compatibilidade com navegadores antigos. Os navegadores modernos preferem arquivos .png individuais definidos por tags de link por oferecerem melhor qualidade e arquivos menores. O PNGtoFavicon gera ambos os formatos.";
+
+                        schema.mainEntity[7].name = "O que é site.webmanifest e eu preciso dele?";
+                        schema.mainEntity[7].acceptedAnswer.text = "O arquivo site.webmanifest é um arquivo JSON que fornece informações aos navegadores sobre sua aplicação web – incluindo seu nome, cor do tema e referências de ícone. É essencial para a funcionalidade de Progressive Web Apps (PWA) e melhora a compatibilidade com o Chrome para Android e outros navegadores modernos.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon FAQ schema in Portuguese: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Como personalizar o favicon no <span class="gradient-text">Wix</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'O Wix permite remover os ícones padrão nos planos premium. Personalize o seu favicon para aumentar a consistência do design da sua loja.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = "Alterar o seu favicon no Wix";
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = '<strong>Nota</strong>: o Wix requer um plano de alojamento Premium para fazer o upload de um favicon personalizado.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 5) {
+                lis1[0].innerHTML = "Faça login no painel do seu site Wix.";
+                lis1[1].innerHTML = "Clique em <strong>Definições</strong> no menu lateral esquerdo.";
+                lis1[2].innerHTML = "Clique em <strong>Definições do site</strong> em <em>Definições gerais</em>.";
+                lis1[3].innerHTML = "Encontre a secção <strong>Favicon</strong> e clique em <strong>Atualizar imagem</strong> (ou <strong>Fazer upload de imagem</strong>).";
+                lis1[4].innerHTML = "Escolha a sua imagem PNG e clique em <strong>Aplicar</strong>.";
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'Conversor';
+            else if (text === 'Text to Favicon') link.textContent = 'Texto para Favicon';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji para Favicon';
+            else if (text === 'Favicon Checker') link.textContent = 'Verificador de Favicon';
+            else if (text === 'Tutorials') link.textContent = 'Tutoriais';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'Converta PNG em favicon instantaneamente — ferramenta online gratuita';
+            }
+
+            // Phone link
+            const phoneLink = footer.querySelector('a[href*="tel:"]');
+            if (phoneLink) {
+                const phoneSpan = phoneLink.querySelector('span');
+                if (phoneSpan) phoneSpan.textContent = '+977 9866735560';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'Conversar no WhatsApp';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Ferramentas';
+                else if (text === 'Resources') h4.textContent = 'Recursos';
+                else if (text === 'Company') h4.textContent = 'Empresa';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter' || text === 'PNG to Favicon converter' || text === 'Conversor de PNG para Favicon') link.textContent = 'Conversor de PNG para favicon';
+                else if (text === 'Text to Favicon') link.textContent = 'Texto para favicon';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji para favicon';
+                else if (text === 'Favicon Checker') link.textContent = 'Verificador de favicon';
+                else if (text === 'Tutorials') link.textContent = 'Tutoriais';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Guia de tamanhos de favicon';
+                else if (text === 'What is a Favicon?') link.textContent = 'O que é um favicon?';
+                else if (text === 'About') link.textContent = 'Sobre';
+                else if (text === 'Contact') link.textContent = 'Contato';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'Política de Privacidade';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'Termos de Serviço';
+                else if (text === 'Cookie Policy') link.textContent = 'Política de Cookies';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
+            }
+        }
     } else if (targetLang === 'tr' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "Emoji'den Favicon Oluşturucu | PNGtoFavicon";
