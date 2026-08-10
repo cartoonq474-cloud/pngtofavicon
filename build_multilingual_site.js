@@ -41710,6 +41710,166 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
+    } else if (targetLang === 'tr' && normPath === 'wix-favicon/index.html') {
+        if (doc.title) doc.title = 'Wix Web Sitesinde Favicon Nasıl Değiştirilir? | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'Wix, premium planlarda varsayılan simgeleri kaldırmanıza olanak tanır. Mağaza tasarım tutarlılığını artırmak için favicon\'unuzu özelleştirin.');
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'Wix Web Sitesinde Favicon Nasıl Değiştirilir? | PNGtoFavicon');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'Wix, premium planlarda varsayılan simgeleri kaldırmanıza olanak tanır. Mağaza tasarım tutarlılığını artırmak için favicon\'unuzu özelleştirin.');
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', 'Wix Web Sitesinde Favicon Nasıl Değiştirilir?');
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', 'Wix, premium planlarda varsayılan simgeleri kaldırmanıza olanak tanır. Mağaza tasarım tutarlılığını artırmak için favicon\'unuzu özelleştirin.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Ana Sayfa";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
+                        schema.itemListElement[1].name = "Wix Favicon Kılavuzu";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/wix-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon Breadcrumb schema in Turkish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Favicon nedir?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Favicon (\"favori simge\" kelimesinin kısaltması), bir web sitesiyle ilişkilendirilen küçük bir simgedir. Tarayıcı sekmelerinde, yer imi listelerinde, tarayıcı geçmişinde ve arama sonuçlarında görünür. Favicon'lar, kullanıcıların açık olan çok sayıda sekme ve yer imi arasında web sitenizi hızlı bir şekilde tanımlamasına yardımcı olur. Çoğu modern tarayıcı, farklı bağlamlar için birden fazla favicon boyutunu destekler — küçük 16×16 piksel sekme simgelerinden, ana ekran kısayolları ve başlangıç ekranları için Aşamalı Web Uygulamaları (PWA'lar) tarafından kullanılan büyük 512×512 piksel simgelere kadar.";
+
+                        schema.mainEntity[1].name = "Bir favicon için hangi boyutlara ihtiyacım var?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Kapsamlı tarayıcılar arası ve cihazlar arası destek için şunlara ihtiyacınız vardır: 16×16 (standart sekme simgesi), 32×32 (HiDPI sekme simgesi), 48×48 (Windows site simgesi), 180×180 (Apple Touch simgesi), 192×192 (Android Chrome simgesi) ve 512×512 (PWA yükleme simgesi). PNGtoFavicon, tek bir PNG yüklemesinden bunların tümünü ve ayrıca çok boyutlu bir favicon.ico dosyasını otomatik olarak oluşturur.";
+
+                        schema.mainEntity[2].name = "Web siteme nasıl favicon eklerim?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Favicon paketinizi PNGtoFavicon'dan indirdikten sonra, ZIP dosyasını web sitenizin kök dizinine çıkarın ve sağlanan HTML bağlantı etiketlerini <head> bölümünüzün içine ekleyin. PNGtoFavicon, kopyalayıp yapıştırmanız için hazır olan tam HTML kod parçasını oluşturur.";
+
+                        schema.mainEntity[3].name = "Resmim bir sunucuya yükleniyor mu?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Hayır — resminiz asla tarayıcınızdan ayrılmaz. PNGtoFavicon, JavaScript ve HTML5 Canvas API kullanarak her şeyi %100 istemci tarafında işler. Hiçbir veri herhangi bir sunucuya gönderilmez, bu da burayı mevcut en güvenli ve gizli favicon oluşturucu yapar.";
+
+                        schema.mainEntity[4].name = "Giriş için hangi dosya biçimleri destekleniyor?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon; PNG (şeffaflığı desteklediği için önerilir), JPG/JPEG, SVG (vektör biçimi), WEBP (modern biçim) ve GIF biçimlerini kabul eder. En iyi sonuçlar için, şeffaf arka plana sahip en az 512×512 piksel boyutunda kare bir PNG resmi kullanın.";
+
+                        schema.mainEntity[5].name = "Bu aracı mobilde kullanabilir miyim?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Evet! PNGtoFavicon tamamen duyarlıdır (responsive) ve akıllı telefonlar ile tabletler dahil modern bir web tarayıcısına sahip her cihazda çalışır. Doğrudan mobil cihazınızdan resim yükleyebilir, seçenekleri yapılandırabilir ve eksiksiz favicon paketinizi indirebilirsiniz.";
+
+                        schema.mainEntity[6].name = ".ico ve .png favicon'ları arasındaki fark nedir?";
+                        schema.mainEntity[6].acceptedAnswer.text = "ICO formatı, daha eski tarayıcılarla uyumluluk için gerekli olan, tek bir dosyada birden fazla simge boyutunu barındırabilen eski bir kapsayıcıdır. Modern tarayıcılar ise daha iyi kalite ve daha küçük dosya boyutları sunan, bağlantı etiketleriyle belirtilen ayrı PNG dosyalarını tercih eder. PNGtoFavicon her iki formatı da üretir.";
+
+                        schema.mainEntity[7].name = "site.webmanifest nedir ve buna ihtiyacım var mı?";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest, tarayıcılara web uygulamanız hakkında bilgi veren (adı, tema rengi ve simge referansları dahil) bir JSON dosyasıdır. Aşamalı Web Uygulaması (PWA) işlevselliği için gereklidir ve Android Chrome ile diğer modern tarayıcılarla uyumluluğu artırır.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon FAQ schema in Turkish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Wix\'te Favicon <span class="gradient-text">Nasıl Özelleştirilir?</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Wix, premium planlarda varsayılan simgeleri kaldırmanıza olanak tanır. Mağaza tasarım tutarlılığını artırmak için favicon\'unuzu özelleştirin.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = "Wix Favicon'unuzu Değiştirme";
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = '<strong>Not</strong>: Wix, özel bir favicon yüklemek için Premium barındırma planı gerektirir.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 5) {
+                lis1[0].innerHTML = "Wix Site Kontrol Panelinize giriş yapın.";
+                lis1[1].innerHTML = "Sol kenar çubuğu menüsünde <strong>Ayarlar</strong>'a tıklayın.";
+                lis1[2].innerHTML = "Genel Ayarlar altında <strong>Web Sitesi Ayarları</strong>'na tıklayın.";
+                lis1[3].innerHTML = "Favicon bölümünü bulun ve <strong>Görüntüyü Güncelle</strong>'ye (veya <strong>Görüntü Yükle</strong>'ye) tıklayın.";
+                lis1[4].innerHTML = "PNG görselinizi seçin ve <strong>Uygula</strong>'ya tıklayın.";
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG\'den Favicon\'a Dönüştürücü';
+            else if (text === 'Text to Favicon') link.textContent = 'Metni Favicon\'a Dönüştürme';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji\'yi Favicon\'a Dönüştürme';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon Denetleyicisi';
+            else if (text === 'Tutorials') link.textContent = 'Eğitimler';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG\'yi anında Favicon\'a dönüştürün — ücretsiz çevrimiçi araç';
+            }
+
+            // Phone link
+            const phoneLink = footer.querySelector('a[href*="tel:"]');
+            if (phoneLink) {
+                const phoneSpan = phoneLink.querySelector('span');
+                if (phoneSpan) phoneSpan.textContent = '+977 9866735560';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'WhatsApp\'tan Sohbet Edin';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Araçlar';
+                else if (text === 'Resources') h4.textContent = 'Kaynaklar';
+                else if (text === 'Company') h4.textContent = 'Şirket';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter' || text === 'PNG to Favicon converter') link.textContent = 'PNG\'den Favicon\'a Dönüştürücü';
+                else if (text === 'Text to Favicon') link.textContent = 'Metni Favicon\'a Dönüştürme';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji\'yi Favicon\'a Dönüştürme';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon Denetleyicisi';
+                else if (text === 'Tutorials') link.textContent = 'Eğitimler';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Favicon Boyutları Kılavuzu';
+                else if (text === 'What is a Favicon?') link.textContent = 'Favicon Nedir?';
+                else if (text === 'About') link.textContent = 'Hakkımızda';
+                else if (text === 'Contact') link.textContent = 'İletişim';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'Gizlilik Politikası';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'Hizmet Şartları';
+                else if (text === 'Cookie Policy') link.textContent = 'Çerez Politikası';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
+            }
+        }
     } else if (targetLang === 'ur' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "ایموجی سے فیوی کون جنریٹر | PNGtoFavicon";
