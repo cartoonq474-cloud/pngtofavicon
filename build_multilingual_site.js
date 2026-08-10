@@ -42069,6 +42069,207 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
+    } else if (targetLang === 'tr' && normPath === 'wordpress-favicon/index.html') {
+        if (doc.title) doc.title = 'WordPress\'e Favicon Nasıl Eklenir? (2026 Kılavuzu) | PNGtoFavicon';
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', 'WordPress sitenize nasıl kolayca favicon ekleyeceğinizi öğrenin. Özelleştirici, eklentiler veya başlık dosyalarını düzenlemeyi içeren adım adım kılavuz.');
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', 'WordPress\'e Favicon Nasıl Eklenir? (2026 Kılavuzu) | PNGtoFavicon');
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', 'WordPress sitenize nasıl kolayca favicon ekleyeceğinizi öğrenin. Özelleştirici, eklentiler veya başlık dosyalarını düzenlemeyi içeren adım adım kılavuz.');
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', 'WordPress\'e Favicon Nasıl Eklenir? (2026 Kılavuzu)');
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', 'WordPress sitenize nasıl kolayca favicon ekleyeceğinizi öğrenin. Özelleştirici, eklentiler veya başlık dosyalarını düzenlemeyi içeren adım adım kılavuz.');
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "Ana Sayfa";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
+                        schema.itemListElement[1].name = "WordPress Favicon Kılavuzu";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/wordpress-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon Breadcrumb schema in Turkish: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "Favicon nedir?";
+                        schema.mainEntity[0].acceptedAnswer.text = "Favicon (\"favori simge\" kelimesinin kısaltması), bir web sitesiyle ilişkilendirilen küçük bir simgedir. Tarayıcı sekmelerinde, yer imi listelerinde, tarayıcı geçmişinde ve arama sonuçlarında görünür. Favicon'lar, kullanıcıların açık olan çok sayıda sekme ve yer imi arasında web sitenizi hızlı bir şekilde tanımlamasına yardımcı olur. Çoğu modern tarayıcı, farklı bağlamlar için birden fazla favicon boyutunu destekler — küçük 16×16 piksel sekme simgelerinden, ana ekran kısayolları ve başlangıç ekranları için Aşamalı Web Uygulamaları (PWA'lar) tarafından kullanılan büyük 512×512 piksel simgelere kadar.";
+
+                        schema.mainEntity[1].name = "Bir favicon için hangi boyutlara ihtiyacım var?";
+                        schema.mainEntity[1].acceptedAnswer.text = "Kapsamlı tarayıcılar arası ve cihazlar arası destek için şunlara ihtiyacınız vardır: 16×16 (standart sekme simgesi), 32×32 (HiDPI sekme simgesi), 48×48 (Windows site simgesi), 180×180 (Apple Touch simgesi), 192×192 (Android Chrome simgesi) ve 512×512 (PWA yükleme simgesi). PNGtoFavicon, tek bir PNG yüklemesinden bunların tümünü ve ayrıca çok boyutlu bir favicon.ico dosyasını otomatik olarak oluşturur.";
+
+                        schema.mainEntity[2].name = "Web siteme nasıl favicon eklerim?";
+                        schema.mainEntity[2].acceptedAnswer.text = "Favicon paketinizi PNGtoFavicon'dan indirdikten sonra, ZIP dosyasını web sitenizin kök dizinine çıkarın ve sağlanan HTML bağlantı etiketlerini <head> bölümünüzün içine ekleyin. PNGtoFavicon, kopyalayıp yapıştırmanız için hazır olan tam HTML kod parçasını oluşturur.";
+
+                        schema.mainEntity[3].name = "Resmim bir sunucuya yükleniyor mu?";
+                        schema.mainEntity[3].acceptedAnswer.text = "Hayır — resminiz asla tarayıcınızdan ayrılmaz. PNGtoFavicon, JavaScript ve HTML5 Canvas API kullanarak her şeyi %100 istemci tarafında işler. Hiçbir veri herhangi bir sunucuya gönderilmez, bu da burayı mevcut en güvenli og gizli favicon oluşturucu yapar.";
+
+                        schema.mainEntity[4].name = "Giriş için hangi dosya biçimleri destekleniyor?";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon; PNG (şeffaflığı desteklediği için önerilir), JPG/JPEG, SVG (vektör biçimi), WEBP (modern biçim) ve GIF biçimlerini kabul eder. En iyi sonuçlar için, şeffaf arka plana sahip en az 512×512 piksel boyutunda kare bir PNG resmi kullanın.";
+
+                        schema.mainEntity[5].name = "Bu aracı mobilde kullanabilir miyim?";
+                        schema.mainEntity[5].acceptedAnswer.text = "Evet! PNGtoFavicon tamamen duyarlıdır (responsive) ve akıllı telefonlar ile tabletler dahil modern bir web tarayıcısına sahip her cihazda çalışır. Doğrudan mobil cihazınızdan resim yükleyebilir, seçenekleri yapılandırabilir ve eksiksiz favicon paketinizi indirebilirsiniz.";
+
+                        schema.mainEntity[6].name = ".ico ve .png favicon'ları arasındaki fark nedir?";
+                        schema.mainEntity[6].acceptedAnswer.text = "ICO formatı, daha eski tarayıcılarla uyumluluk için gerekli olan, tek bir dosyada birden fazla simge boyutunu barındırabilen eski bir kapsayıcıdır. Modern tarayıcılar ise daha iyi kalite ve daha küçük dosya boyutları sunan, bağlantı etiketleriyle belirtilen ayrı PNG dosyalarını tercih eder. PNGtoFavicon her iki formatı da üretir.";
+
+                        schema.mainEntity[7].name = "site.webmanifest nedir ve buna ihtiyacım var mı?";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest, tarayıcılara web uygulamanız hakkında bilgi veren (adı, tema rengi ve simge referansları dahil) bir JSON dosyasıdır. Aşamalı Web Uygulaması (PWA) işlevselliği için gereklidir ve Android Chrome ile diğer modern tarayıcılarla uyumluluğu artırır.";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon FAQ schema in Turkish: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'WordPress\'e Favicon <span class="gradient-text">Nasıl Eklenir?</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'WordPress, web\'in %40\'ından fazlasına güç veriyor. WordPress favicon\'unuzun tarayıcı sekmelerinde ve mobil ana ekranlarda doğru şekilde görüntülenmesini sağlamak için bu modern, 2026 kılavuzunu izleyin.';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'Yöntem 1: WordPress Özelleştiriciyi Kullanma (Önerilir)';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = 'WordPress\'in, favicon eklemeyi son derece kolaylaştıran "Site Simgesi" adlı yerleşik bir özelliği vardır. Bu özellik, büyük cihazlar için yeniden boyutlandırmayı otomatik olarak halleder.';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'WordPress Kontrol Panelinize giriş yapın (genellikle <code>yoursite.com/wp-admin</code> adresinden).';
+                lis1[1].innerHTML = 'Sol kenar çubuğu menüsünde <strong>Görünüm &gt; Özelleştir</strong>\'e gidin.';
+                lis1[2].innerHTML = '<strong>Site Kimliği</strong>\'ne tıklayın (bazı temalar bunu Başlık Ayarları altına yerleştirir).';
+                lis1[3].innerHTML = '<strong>Site Simgesi</strong> bölümüne kadar aşağı kaydırın. <strong>Site Simgesi Seç</strong>\'e tıklayın.';
+                lis1[4].innerHTML = 'Yüksek çözünürlüklü PNG simgenizi yükleyin (en az 512×512 piksel öneririz).';
+                lis1[5].innerHTML = 'Değişiklikleri kaydetmek için <strong>Yayınla</strong>\'ya tıklayın. Favicon\'unuz artık yayında!';
+            }
+        }
+        if (cards.length >= 2) {
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = 'Yöntem 2: Doğrudan Tema Başlığına Yükleme';
+            const p1 = card2.querySelector('p');
+            if (p1) p1.innerHTML = 'Standart HTML kodunu tercih ediyorsanız veya temanız Özelleştirici Site Simgesi özelliğini desteklemiyorsa, simgeleri manuel olarak yükleyebilirsiniz:';
+            const lis2 = card2.querySelectorAll('ol li');
+            if (lis2.length >= 4) {
+                lis2[0].innerHTML = 'Öncelikle, ücretsiz <a href="/tr/">PNG\'den Favicon\'a dönüştürücümüzü</a> kullanarak PNG dosyanızı favicon paketine dönüştürün.';
+                lis2[1].innerHTML = 'Tüm dosyaları (<code>favicon.ico</code>, <code>apple-touch-icon.png</code>, vb.) FTP veya hosting kontrol panelinizin Dosya Yöneticisi aracılığıyla WordPress kurulumunuzun kök dizinine yükleyin.';
+                lis2[2].innerHTML = 'Temanızın <code>header.php</code> dosyasını düzenleyin (güncellemelerin değişiklikleri üzerine yazmasını önlemek için bir alt tema kullanın).';
+                lis2[3].innerHTML = 'Aşağıdaki HTML bağlantılarını doğrudan <code>&lt;head&gt;</code> etiketlerinin içine ekleyin:';
+            }
+
+            const wpCode = card2.querySelector('#wpCode');
+            if (wpCode) {
+                wpCode.textContent = `<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">`;
+            }
+        }
+        if (cards.length >= 3) {
+            const card3 = cards[2];
+            const h2_3 = card3.querySelector('h2');
+            if (h2_3) h2_3.textContent = 'Sıkça Sorulan Sorular';
+
+            const faqItems = card3.querySelectorAll('.faq-item');
+            if (faqItems.length >= 2) {
+                const q1 = faqItems[0].querySelector('h3');
+                if (q1) q1.textContent = "Yeni WordPress favicon'um neden güncellenmiyor?";
+                const a1 = faqItems[0].querySelector('.faq-answer');
+                if (a1) a1.innerHTML = "Web tarayıcıları favicon'ları agresif bir şekilde önbelleğe alır. Simgenizi yakın zamanda güncellediyseniz, tarayıcı önbelleğinizi temizlemeyi, sitenizi gizli bir pencerede ziyaret etmeyi veya başlık bağlantınıza bir sorgu dizesi eklemeyi deneyin (örneğin <code>/favicon.ico?v=2</code>).";
+
+                const q2 = faqItems[1].querySelector('h3');
+                if (q2) q2.textContent = "Bir WordPress site simgesi için önerilen boyut nedir?";
+                const a2 = faqItems[1].querySelector('.faq-answer');
+                if (a2) a2.innerHTML = "WordPress, kare ve en az 512×512 piksel boyutunda bir resim yüklemenizi önerir. Bu, simgenin PWA kurulumları ve mobil ekranlar için doğru şekilde ölçeklenmesini sağlar.";
+            }
+        }
+
+        // Header Navbar Links
+        const navLinksList = doc.querySelectorAll('#navLinks a');
+        navLinksList.forEach(link => {
+            const text = link.textContent.trim();
+            if (text === 'Converter' || text === 'PNG to Favicon') link.textContent = 'PNG\'den Favicon\'a Dönüştürücü';
+            else if (text === 'Text to Favicon') link.textContent = 'Metni Favicon\'a Dönüştürme';
+            else if (text === 'Emoji to Favicon') link.textContent = 'Emoji\'yi Favicon\'a Dönüştürme';
+            else if (text === 'Favicon Checker') link.textContent = 'Favicon Denetleyicisi';
+            else if (text === 'Tutorials') link.textContent = 'Eğitimler';
+            else if (text === 'Blog') link.textContent = 'Blog';
+        });
+
+        // Footer Section
+        const footer = doc.querySelector('footer');
+        if (footer) {
+            const brandDesc = footer.querySelector('.footer-brand-col p') || footer.querySelector('p');
+            if (brandDesc) {
+                brandDesc.textContent = 'PNG\'yi anında Favicon\'a dönüştürün — ücretsiz çevrimiçi araç';
+            }
+
+            // Phone link
+            const phoneLink = footer.querySelector('a[href*="tel:"]');
+            if (phoneLink) {
+                const phoneSpan = phoneLink.querySelector('span');
+                if (phoneSpan) phoneSpan.textContent = '+977 9866735560';
+            }
+
+            // WhatsApp Link
+            const waLink = footer.querySelector('a[href*="wa.me"]');
+            if (waLink) {
+                const waSpan = waLink.querySelector('span');
+                if (waSpan) waSpan.textContent = 'WhatsApp\'tan sohbet edin';
+            }
+
+            // Columns headers
+            const colHeaders = footer.querySelectorAll('h4');
+            colHeaders.forEach(h4 => {
+                const text = h4.textContent.trim();
+                if (text === 'Tools') h4.textContent = 'Araçlar';
+                else if (text === 'Resources') h4.textContent = 'Kaynaklar';
+                else if (text === 'Company') h4.textContent = 'Şirket';
+            });
+
+            // Links
+            const footerLinks = footer.querySelectorAll('a');
+            footerLinks.forEach(link => {
+                const text = link.textContent.trim();
+                if (text === 'PNG to Favicon Converter' || text === 'PNG-zu-Favicon-Konverter' || text === 'PNG-in-Favicon-Konverter' || text === 'PNG to Favicon converter') link.textContent = 'PNG\'den Favicon\'a Dönüştürücü';
+                else if (text === 'Text to Favicon') link.textContent = 'Metni Favicon\'a Dönüştürme';
+                else if (text === 'Emoji to Favicon') link.textContent = 'Emoji\'yi Favicon\'a Dönüştürme';
+                else if (text === 'Favicon Checker') link.textContent = 'Favicon Denetleyicisi';
+                else if (text === 'Tutorials') link.textContent = 'Eğitimler';
+                else if (text === 'Blog') link.textContent = 'Blog';
+                else if (text === 'Favicon Sizes Guide') link.textContent = 'Favicon Boyutları Kılavuzu';
+                else if (text === 'What is a Favicon?') link.textContent = 'Favicon Nedir?';
+                else if (text === 'About') link.textContent = 'Hakkımızda';
+                else if (text === 'Contact') link.textContent = 'İletişim';
+                else if (text === 'Privacy Policy' || text === 'Privacy') link.textContent = 'Gizlilik Politikası';
+                else if (text === 'Terms of Service' || text === 'Terms') link.textContent = 'Hizmet Şartları';
+                else if (text === 'Cookie Policy') link.textContent = 'Çerez Politikası';
+            });
+
+            // Copyright text
+            const copyright = footer.querySelector('.footer-bottom p');
+            if (copyright) {
+                copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
+            }
+        }
     } else if (targetLang === 'ur' && normPath === 'emoji-to-favicon/index.html') {
         // Page title & metadata
         doc.title = "ایموجی سے فیوی کون جنریٹر | PNGtoFavicon";
