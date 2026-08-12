@@ -43708,6 +43708,161 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
+    } else if (targetLang === 'ur' && normPath === 'wix-favicon/index.html') {
+        doc.title = "Wix پر فیویکن کو کس طرح اپنی مرضی کے مطابق بنائیں | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "Wix آپ کو پریمیم پلانز پر ڈیفالٹ آئیکنز کو ہٹانے دیتا ہے۔ اسٹور ڈیزائن کی مستقل مزاجی کو بڑھانے کے لیے اپنے فیویکون کو حسب ضرورت بنائیں۔");
+        const metaKeywords = doc.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute('content', "Wix فیویکن, Wix پر فیویکن کیسے تبدیل کریں, Wix اسٹور آئیکن, Wix کسٹم فیویکن");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "Wix پر فیویکن کو کس طرح اپنی مرضی کے مطابق بنائیں | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "Wix آپ کو پریمیم پلانز پر ڈیفالٹ آئیکنز کو ہٹانے دیتا ہے۔ اسٹور ڈیزائن کی مستقل مزاجی کو بڑھانے کے لیے اپنے فیویکون کو حسب ضرورت بنائیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "Wix پر فیویکن کو کس طرح اپنی مرضی کے مطابق بنائیں");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "Wix آپ کو پریمیم پلانز پر ڈیفالٹ آئیکنز کو ہٹانے دیتا ہے۔ اسٹور ڈیزائن کی مستقل مزاجی کو بڑھانے کے لیے اپنے فیویکون کو حسب ضرورت بنائیں۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "Wix فیویکن گائیڈ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/wix-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon Breadcrumb schema in Urdu: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32, 48x48, 180x180, 192x192، اور 512x512۔ PNGtoFavicon ایک ہی PNG اپ لوڈ سے یہ تمام خود بخود تیار کرتا ہے، اور ساتھ ہی ایک کثیر سائز کی favicon.ico فائل بھی فراہم کرتا ہے۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "PNGtoFavicon سے اپنا فیویکن پیکیج ڈاؤن لوڈ کرنے کے بعد، زپ فائل کو اپنی ویب سائٹ کی مرکزی ڈائرکٹری میں نکالیں اور فراہم کردہ HTML لنک ٹیگز کو اپنے <head> سیکشن کے اندر شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔ کوئی بھی ڈیٹا کسی سرور کو نہیں بھیجا جاتا، جس سے یہ دستیاب سب سے نجی فیویکن جنریٹر بن جاتا ہے۔";
+
+                        schema.mainEntity[4].name = "ان پٹ کے لیے کون سے فائل فارمیٹس سپورٹڈ ہیں؟";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon پی این جی (تجویز کردہ، شفافیت کو سپورٹ کرتا ہے)، جے پی جی/جے پی ای جی، ایس وی جی، ویب پی، اور جی آئی ایف کو قبول کرتا ہے۔ بہترین نتائج کے لیے، شفاف پس منظر والی کم از کم 512x512 پکسلز کی مربع پی این جی تصویر استعمال کریں۔";
+
+                        schema.mainEntity[5].name = "کیا میں اس ٹول کو موبائل پر استعمال کر سکتا ہوں؟";
+                        schema.mainEntity[5].acceptedAnswer.text = "جی ہاں! PNGtoFavicon مکمل طور پر ریسپانسیو ہے اور کسی بھی جدید ویب براؤزر والے آلے پر کام کرتا ہے — بشمول اسمارٹ فونز اور ٹیبلٹس۔";
+
+                        schema.mainEntity[6].name = ".ico اور .png فیویکونز میں کیا فرق ہے؟";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico فارمیٹ ایک پرانی فائل ہے جو ایک ہی فائل میں متعدد آئیکن سائز رکھ سکتی ہے، جو پرانے براؤzرز کے ساتھ مطابقت کے لیے ضروری ہے۔ جدید براؤزر انفرادی .png فائلوں کو ترجیح دیتے ہیں، جو بہتر معیار اور چھوٹے سائز کی پیشکش کرتی ہے۔";
+
+                        schema.mainEntity[7].name = "site.webmanifest کیا ہے اور کیا مجھے اس کی ضرورت ہے؟";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest ایک JSON فائل ہے جو براؤزرز کو آپ کی ویب ایپلیکیشن کے بارے میں معلومات فراہم کرتی ہے — بشمول اس کا نام، تھیم کا رنگ، اور آئیکن کے حوالہ جات۔ یہ پروگریسو ویب ایپ (PWA) کی خصوصیات کے لیے ضروری ہے اور اینڈرائیڈ کروم کے ساتھ مطابقت کو بہتر بناتی ہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wix-favicon FAQ schema in Urdu: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'Wix پر فیویکن کو <span class="gradient-text">کس طرح اپنی مرضی کے مطابق بنائیں</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'Wix آپ کو پریمیم پلانز پر ڈیفالٹ آئیکنز کو ہٹانے دیتا ہے۔ اسٹور ڈیزائن کی مستقل مزاجی کو بڑھانے کے لیے اپنے فیویکون کو حسب ضرورت بنائیں۔';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = "اپنا Wix Favicon تبدیل کرنا";
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = '<strong>نوٹ:</strong> Wix کو حسب ضرورت فیوی کون اپ لوڈ کرنے کے لیے ایک پریمیم ہوسٹنگ پلان کی ضرورت ہے۔';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 5) {
+                lis1[0].innerHTML = "اپنے Wix سائٹ ڈیش بورڈ میں لاگ ان کریں۔";
+                lis1[1].innerHTML = "بائیں طرف کے سائڈبار مینو میں <strong>ترتیبات</strong> پر کلک کریں۔";
+                lis1[2].innerHTML = "عام ترتیبات کے تحت <strong>ویب سائٹ کی ترتیبات</strong> پر کلک کریں۔";
+                lis1[3].innerHTML = "فیویکون سیکشن تلاش کریں، اور <strong>اپ ڈیٹ امیج</strong> (یا <strong>تصویر اپ لوڈ کریں</strong>) پر کلک کریں۔";
+                lis1[4].innerHTML = "اپنی PNG تصویر منتخب کریں اور <strong>اپلائی</strong> پر کلک کریں۔";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     }
 
 
