@@ -44253,6 +44253,110 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
+    } else if (targetLang === 'ur' && normPath === 'html-favicon/index.html') {
+        doc.title = "HTML Favicon لنک ٹیگز کا حوالہ | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "معیاری، معیارات کے مطابق لنک مارک اپ عناصر کو چسپاں کر کے کامل کراس براؤزر آئیکن سپورٹ کو یقینی بنائیں۔");
+        const metaKeywords = doc.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute('content', "html favicon, link favicon tag, favicon html code, web manifest HTML");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "HTML Favicon لنک ٹیگز کا حوالہ | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "معیاری، معیارات کے مطابق لنک مارک اپ عناصر کو چسپاں کر کے کامل کراس براؤزر آئیکن سپورٹ کو یقینی بنائیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "HTML Favicon لنک ٹیگز کا حوالہ");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "معیاری، معیارات کے مطابق لنک مارک اپ عناصر کو چسپاں کر کے کامل کراس براؤزر آئیکن سپورٹ کو یقینی بنائیں۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "HTML Favicon لنک ٹیگز کا حوالہ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/html-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing html-favicon Breadcrumb schema in Urdu: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32, 48x48, 180x180, 192x192، اور 512x512۔ PNGtoFavicon ایک ہی PNG اپ لوڈ سے یہ تمام خود بخود تیار کرتا ہے، اور ساتھ ہی ایک کثیر سائز کی favicon.ico فائل بھی فراہم کرتا ہے۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "PNGtoFavicon سے اپنا فیویکن پیکیج ڈاؤن لوڈ کرنے کے بعد، زپ فائل کو اپنی ویب سائٹ کی مرکزی ڈائرکٹری میں نکالیں اور فراہم کردہ HTML لنک ٹیگز کو اپنے <head> سیکشن کے اندر شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔ کوئی بھی ڈیٹا کسی سرور کو نہیں بھیجا جاتا، جس سے یہ دستیاب سب سے نجی فیویکن جنریٹر بن جاتا ہے۔";
+
+                        schema.mainEntity[4].name = "ان پٹ کے لیے کون سے فائل فارمیٹس سپورٹڈ ہیں؟";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon پی این جی (تجویز کردہ، شفافیت کو سپورٹ کرتا ہے)، جے پی جی/جے پی ای جی، ایس وی جی، ویب پی، اور جی آئی ایف کو قبول کرتا ہے۔ بہترین نتائج کے لیے، شفاف پس منظر والی کم از کم 512x512 پکسلز کی مربع پی این جی تصویر استعمال کریں۔";
+
+                        schema.mainEntity[5].name = "کیا میں اس ٹول کو موبائل پر استعمال کر سکتا ہوں؟";
+                        schema.mainEntity[5].acceptedAnswer.text = "جی ہاں! PNGtoFavicon مکمل طور پر ریسپانسیو ہے اور کسی بھی جدید ویب براؤزر والے آلے پر کام کرتا ہے — بشمول اسمارٹ فونز اور ٹیبلٹس۔";
+
+                        schema.mainEntity[6].name = ".ico اور .png فیویکونز میں کیا فرق ہے؟";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico فارمیٹ ایک پرانی فائل ہے جو ایک ہی فائل میں متعدد آئیکن سائز رکھ سکتی ہے، جو پرانے براؤزرز کے ساتھ مطابقت کے لیے ضروری ہے۔ جدید براؤزر انفرادی .png فائلوں کو ترجیح دیتے ہیں، جو بہتر معیار اور چھوٹے سائز کی پیشکش کرتی ہے۔";
+
+                        schema.mainEntity[7].name = "site.webmanifest کیا ہے اور کیا مجھے اس کی ضرورت ہے؟";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest ایک JSON فائل ہے جو براؤزرز کو آپ کی ویب ایپلیکیشن کے بارے میں معلومات فراہم کرتی ہے — بشمول اس کا نام، تھیم کا رنگ، اور آئیکن کے حوالہ جات۔ یہ پروگریسو ویب ایپ (PWA) کی خصوصیات کے لیے ضروری ہے اور اینڈرائیڈ کروم کے ساتھ مطابقت کو بہتر بناتی ہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing html-favicon FAQ schema in Urdu: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'HTML Favicon <span class="gradient-text">لنک ٹیگز</span> کا حوالہ';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'معیاری، معیارات کے مطابق لنک مارک اپ عناصر کو چسپاں کر کے کامل کراس براؤزر آئیکن سپورٹ کو یقینی بنائیں۔';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'فیویکن ایچ ٹی ایم ایل ہیڈ ٹیمپلیٹ کو مکمل کریں۔';
+            
+            const p = card.querySelector('p');
+            if (p) p.innerHTML = 'اپنے تمام HTML صفحات کے <code>&lt;head&gt;</code> بلاک کے اندر درج ذیل لنک عناصر کو چسپاں کریں:';
+
+            const copyBtn = card.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'کاپی';
+
+            const codeEl = card.querySelector('code#htmlGuideCode');
+            if (codeEl) {
+                codeEl.innerHTML = `&lt;!-- پرانے براؤزرز کے لیے کلاسک فال بیک --&gt;
+&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
+
+&lt;!-- جدید ویب براؤزرز کے لیے ہائی ریزولوشن PNGs --&gt;
+&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
+&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;
+
+&lt;!-- Apple iOS ڈیوائس ہوم اسکرینز --&gt;
+&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
+
+&lt;!-- Android / Progressive Web Apps config --&gt;
+&lt;link rel="manifest" href="/site.webmanifest"&gt;`;
+            }
+        }
     }
 
 
