@@ -44057,6 +44057,202 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
+    } else if (targetLang === 'ur' && normPath === 'wordpress-favicon/index.html') {
+        doc.title = "ورڈپریس میں فیویکن کیسے شامل کریں۔ | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔");
+        const metaKeywords = doc.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute('content', "WordPress favicon, ورڈپریس فیویکن, WordPress site icon, ورڈپریس سائٹ آئیکن");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "ورڈپریس میں فیویکن کیسے شامل کریں۔ | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "ورڈپریس میں فیویکن کیسے شامل کریں۔");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "ورڈپریس فیویکن گائیڈ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/wordpress-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon Breadcrumb schema in Urdu: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32, 48x48, 180x180, 192x192، اور 512x512۔ PNGtoFavicon ایک ہی PNG اپ لوڈ سے یہ تمام خود بخود تیار کرتا ہے، اور ساتھ ہی ایک کثیر سائز کی favicon.ico فائل بھی فراہم کرتا ہے۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "PNGtoFavicon سے اپنا فیویکن پیکیج ڈاؤن لوڈ کرنے کے بعد، زپ فائل کو اپنی ویب سائٹ کی مرکزی ڈائرکٹری میں نکالیں اور فراہم کردہ HTML لنک ٹیگز کو اپنے <head> سیکشن کے اندر شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔ کوئی بھی ڈیٹا کسی سرور کو نہیں بھیجا جاتا، جس سے یہ دستیاب سب سے نجی فیویکن جنریٹر بن جاتا ہے۔";
+
+                        schema.mainEntity[4].name = "ان پٹ کے لیے کون سے فائل فارمیٹس سپورٹڈ ہیں؟";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon پی این جی (تجویز کردہ، شفافیت کو سپورٹ کرتا ہے)، جے پی جی/جے پی ای جی، ایس وی جی، ویب پی، اور جی آئی ایف کو قبول کرتا ہے۔ بہترین نتائج کے لیے، شفاف پس منظر والی کم از کم 512x512 پکسلز کی مربع پی این جی تصویر استعمال کریں۔";
+
+                        schema.mainEntity[5].name = "کیا میں اس ٹول کو موبائل پر استعمال کر سکتا ہوں؟";
+                        schema.mainEntity[5].acceptedAnswer.text = "جی ہاں! PNGtoFavicon مکمل طور پر ریسپانسیو ہے اور کسی بھی جدید ویب براؤزر والے آلے پر کام کرتا ہے — بشمول اسمارٹ فونز اور ٹیبلٹس۔";
+
+                        schema.mainEntity[6].name = ".ico اور .png فیویکونز میں کیا فرق ہے؟";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico فارمیٹ ایک پرانی فائل ہے جو ایک ہی فائل میں متعدد آئیکن سائز رکھ سکتی ہے، جو پرانے براؤzرز کے ساتھ مطائقت کے لیے ضروری ہے۔ جدید براؤزر انفرادی .png فائلوں کو ترجیح دیتے ہیں، جو بہتر معیار اور چھوٹے سائز کی پیشکش کرتی ہے۔";
+
+                        schema.mainEntity[7].name = "site.webmanifest کیا ہے اور کیا مجھے اس کی ضرورت ہے؟";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest ایک JSON فائل ہے جو براؤزرز کو آپ کی ویب ایپلیکیشن کے بارے میں معلومات فراہم کرتی ہے — بشمول اس کا نام، تھیم کا رنگ، اور آئیکن کے حوالہ جات۔ یہ پروگریسو ویب ایپ (PWA) کی خصوصیات کے لیے ضروری ہے اور اینڈرائیڈ کروم کے ساتھ مطابقت کو بہتر بناتی ہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing wordpress-favicon FAQ schema in Urdu: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'ورڈپریس میں فیویکن <span class="gradient-text">کیسے شامل کریں۔</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = "طریقہ 1: ورڈپریس کسٹمائزر کا استعمال (تجویز کردہ)";
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = 'ورڈپریس میں "سائٹ آئیکن" نامی ایک بلٹ ان فیچر ہے جو فیویکن کو شامل کرنا انتہائی آسان بناتا ہے۔ یہ بڑے آلات کے لیے خود بخود سائز تبدیل کرتا ہے۔';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 6) {
+                lis1[0].innerHTML = 'اپنے ورڈپریس ڈیش بورڈ میں لاگ ان کریں (عام طور پر <code>yoursite.com/wp-admin</code> پر)۔';
+                lis1[1].innerHTML = 'بائیں سائڈبار مینو میں <strong>ظاہری شکل &gt; حسب ضرورت</strong> پر جائیں۔';
+                lis1[2].innerHTML = '<strong>سائٹ کی شناخت</strong> پر کلک کریں (کچھ تھیمز اسے ہیڈر کی ترتیبات کے تحت رکھتے ہیں)۔';
+                lis1[3].innerHTML = '<strong>سائٹ آئیکن</strong> سیکشن تک نیچے سکرول کریں۔ <strong>سائٹ آئیکن کو منتخب کریں</strong> پر کلک کریں۔';
+                lis1[4].innerHTML = 'اپنا ہائی ریزولوشن PNG آئیکن اپ لوڈ کریں (ہم کم از کم 512×512 پکسلز تجویز کرتے ہیں)۔';
+                lis1[5].innerHTML = 'تبدیلیاں محفوظ کرنے کے لیے <strong>شائع کریں</strong> پر کلک کریں۔ آپ کا فیویکن اب لائیو ہے!';
+            }
+        }
+        if (cards.length >= 2) {
+            const card2 = cards[1];
+            const h2_2 = card2.querySelector('h2');
+            if (h2_2) h2_2.textContent = "طریقہ 2: اپنے تھیم ہیڈ پر براہ راست اپ لوڈ کرنا";
+            const p1 = card2.querySelector('p');
+            if (p1) p1.innerHTML = 'اگر آپ معیاری HTML کوڈ کو ترجیح دیتے ہیں یا آپ کا تھیم Customizer Site Icon کی خصوصیت کو سپورٹ نہیں کرتا ہے، تو آپ آئیکنز کو دستی طور پر اپ لوڈ کر سکتے ہیں:';
+            const lis2 = card2.querySelectorAll('ol li');
+            if (lis2.length >= 4) {
+                lis2[0].innerHTML = 'سب سے پہلے، ہمارے مفت <a href="/ur/">PNG سے Favicon کنورٹر</a> کا استعمال کرتے ہوئے اپنے PNG کو فیوی کون پیکیج میں تبدیل کریں۔';
+                lis2[1].innerHTML = 'تمام فائلیں (<code>favicon.ico</code>، <code>apple-touch-icon.png</code>، وغیرہ) اپنے ورڈپریس انسٹالیشن کی روٹ ڈائرکٹری میں FTP یا اپنے ہوسٹنگ کنٹرول پینل کے فائل مینیجر کے ذریعے اپ لوڈ کریں۔';
+                lis2[2].innerHTML = 'اپنے تھیم کی <code>header.php</code> فائل میں ترمیم کریں (تبدیلیوں کو اوور رائٹنگ سے بچانے کے لیے چائلڈ تھیم کا استعمال کریں)۔';
+                lis2[3].innerHTML = 'درج ذیل HTML لنکس کو براہ راست <code>&lt;head&gt;</code> ٹیگز کے اندر شامل کریں:';
+            }
+
+            const wpCode = card2.querySelector('#wpCode');
+            if (wpCode) {
+                wpCode.textContent = `<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">`;
+            }
+        }
+        if (cards.length >= 3) {
+            const card3 = cards[2];
+            const h2_3 = card3.querySelector('h2');
+            if (h2_3) h2_3.textContent = "اکثر پوچھے گئے سوالات";
+
+            const faqItems = card3.querySelectorAll('.faq-item');
+            if (faqItems.length >= 2) {
+                const q1 = faqItems[0].querySelector('h3');
+                if (q1) q1.textContent = "میرا نیا ورڈپریس فیویکن اپ ڈیٹ کیوں نہیں ہو رہا ہے؟";
+                const a1 = faqItems[0].querySelector('.faq-answer');
+                if (a1) a1.innerHTML = "ویب براؤزر فیویکونز کو بہت تیزی سے کیش کرتے ہیں۔ اگر آپ نے حال ہی میں اپنا آئیکن اپ ڈیٹ کیا ہے تو، اپنے براؤزر کا کیشے صاف کرنے کی کوشش کریں، اپنی سائٹ کو انکوگنیٹو (incognito) ونڈو میں وزٹ کریں، یا اپنے ہیڈر لنک میں ایک کیوری اسٹرنگ شامل کریں (مثال کے طور پر <code>/favicon.ico?v=2</code>)۔";
+
+                const q2 = faqItems[1].querySelector('h3');
+                if (q2) q2.textContent = "ورڈپریس سائٹ آئیکن کے لیے تجویز کردہ سائز کیا ہے؟";
+                const a2 = faqItems[1].querySelector('.faq-answer');
+                if (a2) a2.innerHTML = "ورڈپریس ایک ایسی تصویر اپ لوڈ کرنے کی تجویز کرتا ہے جو مربع ہو اور کم از کم 512×512 پکسلز کی ہو۔ یہ اس بات کو یقینی بناتا ہے کہ آئیکن PWA انسٹالیشنز اور موبائل اسکرینز کے لیے صحیح طریقے سے اسکیل ہو۔";
+            }
+        }
+
+        // Header Navigation Links
+        const navLinks = doc.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+            });
+        }
+
+        // Footer Brand and links
+        const footerLogoDesc = doc.querySelector('.footer-brand p') || doc.querySelector('.footer-tagline');
+        if (footerLogoDesc) footerLogoDesc.textContent = "PNG کو فوری طور پر Favicon میں تبدیل کریں — مفت آن لائن ٹول";
+
+        doc.querySelectorAll('.footer-col').forEach(col => {
+            const h4 = col.querySelector('h4');
+            if (h4) {
+                const txt = h4.textContent.trim();
+                if (txt === 'Tools') h4.textContent = "اوزار";
+                else if (txt === 'Resources') h4.textContent = "وسائل";
+                else if (txt === 'Company') h4.textContent = "کمپنی";
+            }
+            col.querySelectorAll('a').forEach(el => {
+                const txt = el.textContent.trim();
+                if (txt === 'PNG to Favicon Converter' || txt === 'PNG to Favicon') el.textContent = "پی این جی سے فیوی کون کنورٹر";
+                else if (txt === 'Text to Favicon') el.textContent = "ٹیکسٹ ٹو فیوی کون";
+                else if (txt === 'Emoji to Favicon') el.textContent = "ایموجی ٹو فیوی کون";
+                else if (txt === 'Favicon Checker') el.textContent = "فیوی کون چیکر";
+                else if (txt === 'Tutorials') el.textContent = "ٹیوٹوریلز";
+                else if (txt === 'Blog') el.textContent = "بلاگ";
+                else if (txt === 'Favicon Sizes Guide') el.textContent = "فیوی کون سائز گائیڈ";
+                else if (txt === 'What is a Favicon?') el.textContent = "Favicon کیا ہے؟";
+                else if (txt === 'About') el.textContent = "کے بارے میں";
+                else if (txt === 'Contact') el.textContent = "رابطہ کریں۔";
+                else if (txt === 'Privacy Policy') el.textContent = "رازداری کی پالیسی";
+                else if (txt === 'Terms of Service') el.textContent = "سروس کی شرائط";
+                else if (txt === 'Cookie Policy') el.textContent = "کوکی پالیسی";
+            });
+        });
+
+        // Contact info in footers
+        const emailContact = doc.querySelector('a[href^="mailto:"]');
+        if (emailContact && emailContact.innerHTML.includes('Contact Support')) {
+            emailContact.innerHTML = 'سپورٹ: <span class="footer-email">bishaloli610@gmail.com</span>';
+        }
+        doc.querySelectorAll('.footer-contact a').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) {
+                const txt = span.textContent.trim();
+                if (txt === 'Chat on WhatsApp') {
+                    span.textContent = "واٹس ایپ پر چیٹ کریں۔";
+                }
+            }
+        });
+
+        const copyright = doc.querySelector('.footer-bottom p');
+        if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     }
 
 
