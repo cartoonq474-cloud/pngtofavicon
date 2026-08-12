@@ -44543,6 +44543,66 @@ export default function Document() {
                 lis1[5].innerHTML = 'تصدیق کے لیے محفوظ کریں پر کلک کریں۔';
             }
         }
+    } else if (targetLang === 'ur' && normPath === 'tutorials/squarespace-favicon/index.html') {
+        doc.title = "اسکوائر اسپیس میں فیویکن شامل کریں | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "اپنی سائٹ کی جمالیات کو اپ گریڈ کریں۔ اسکوائر اسپیس سیٹنگز کے اندر کلین ٹیب فیویکن کو کنفیگر کرنے کا طریقہ سیکھیں۔");
+        const metaKeywords = doc.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute('content', "Squarespace favicon, add favicon squarespace, squarespace browser icon");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "اسکوائر اسپیس میں فیویکن شامل کریں | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "اپنی سائٹ کی جمالیات کو اپ گریڈ کریں۔ اسکوائر اسپیس سیٹنگز کے اندر کلین ٹیب فیویکن کو کنفیگر کرنے کا طریقہ سیکھیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "اسکوائر اسپیس میں فیویکن شامل کریں");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "اپنی سائٹ کی جمالیات کو اپ گریڈ کریں۔ اسکوائر اسپیس سیٹنگز کے اندر کلین ٹیب فیویکن کو کنفیگر کرنے کا طریقہ سیکھیں۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "Squarespace Favicon گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/squarespace-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing squarespace-favicon Breadcrumb schema in Urdu: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'اسکوائر اسپیس میں فیویکن <span class="gradient-text">شامل کریں</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'اپنی سائٹ کی جمالیات کو اپ گریڈ کریں۔ اسکوائر اسپیس سیٹنگز کے اندر کلین ٹیب فیویکن کو کنفیگر کرنے کا طریقہ سیکھیں۔';
+        }
+
+        // Section Content
+        const card = doc.querySelector('.section .glass-card');
+        if (card) {
+            const h2 = card.querySelector('h2');
+            if (h2) h2.textContent = 'اسکوائر اسپیس فیویکن سیٹ اپ کی ہدایات';
+
+            const lis = card.querySelectorAll('ol li');
+            if (lis.length >= 5) {
+                lis[0].innerHTML = 'اپنے اسکوائر اسپیس اکاؤنٹ میں لاگ ان کریں اور اپنی ٹارگٹ ویب سائٹ میں ترمیم کریں۔';
+                lis[1].innerHTML = 'ہوم مینو میں، ترتیبات پر کلک کریں، پھر لوگو اور ٹائٹل پر کلک کریں (یا <strong>ڈیزائن &gt; براؤزر آئیکن</strong> نئے ورژن میں)۔';
+                lis[2].innerHTML = 'براؤزر آئیکن (فیویکن) سیکشن تک نیچے سکرول کریں۔';
+                lis[3].innerHTML = 'اپ لوڈ بٹن پر کلک کریں یا اپنی PNG فیویکون فائل کو گھسیٹ کر ڈراپ کریں۔';
+                lis[4].innerHTML = 'اوپر بائیں طرف محفوظ کریں پر کلک کریں۔ چیک کرنے کے لیے اپنے صفحہ کو ایک تازہ براؤزر میں دوبارہ لوڈ کریں۔';
+            }
+        }
     }
 
 
