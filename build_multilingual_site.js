@@ -44357,6 +44357,100 @@ export default function Document() {
 &lt;link rel="manifest" href="/site.webmanifest"&gt;`;
             }
         }
+    } else if (targetLang === 'ur' && normPath === 'react-favicon/index.html') {
+        doc.title = "React ایپس میں Favicons کو ترتیب دینا | PNGtoFavicon";
+        const metaDesc = doc.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', "سنگل پیج ری ایکٹ ایپس میں جامد برانڈ کے اثاثے کنفیگر کریں۔ عوامی فولڈرز کا نقشہ بنانے کا طریقہ جانیں۔");
+        const metaKeywords = doc.querySelector('meta[name="keywords"]');
+        if (metaKeywords) metaKeywords.setAttribute('content', "React favicon, React app favicon, public folder favicon, React assets");
+        const ogTitle = doc.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', "React ایپس میں Favicons کو ترتیب دینا | PNGtoFavicon");
+        const ogDesc = doc.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', "سنگل پیج ری ایکٹ ایپس میں جامد برانڈ کے اثاثے کنفیگر کریں۔ عوامی فولڈرز کا نقشہ بنانے کا طریقہ جانیں۔");
+        const twTitle = doc.querySelector('meta[property="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', "React ایپس میں Favicons کو ترتیب دینا");
+        const twDesc = doc.querySelector('meta[property="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', "سنگل پیج ری ایکٹ ایپس میں جامد برانڈ کے اثاثے کنفیگر کریں۔ عوامی فولڈرز کا نقشہ بنانے کا طریقہ جانیں۔");
+
+        // Breadcrumb Schema
+        doc.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+            let jsonText = script.textContent;
+            if (jsonText.includes('"BreadcrumbList"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                        schema.itemListElement[0].name = "ہوم پیج";
+                        schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
+                        schema.itemListElement[1].name = "React Favicon گائیڈ";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/react-favicon/";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon Breadcrumb schema in Urdu: ", e);
+                }
+            }
+            if (jsonText.includes('"FAQPage"')) {
+                try {
+                    const schema = JSON.parse(jsonText);
+                    if (schema.mainEntity && schema.mainEntity.length >= 8) {
+                        schema.mainEntity[0].name = "ایک Favicon کیا ہے؟";
+                        schema.mainEntity[0].acceptedAnswer.text = "فیویکن (پسندیدہ آئیکن کے لیے مختصر) ایک چھوٹا سا گرافک ہے جو ویب سائٹ یا ویب ایپلیکیشن کی نمائندگی کرتا ہے۔ یہ ایک بصری شناخت کنندہ کے طور پر کام کرتا ہے، جس سے صارفین کے لیے متعدد براؤزر ٹیبز، بُک مارکس، براؤزر کی تاریخ کے اندراجات، اور دیگر مقامات جہاں ویب سائٹس درج ہیں کے درمیان آپ کی سائٹ کو پہچاننا آسان بناتا ہے۔";
+
+                        schema.mainEntity[1].name = "Favicon کے لیے کون سے سائز کی ضرورت ہے؟";
+                        schema.mainEntity[1].acceptedAnswer.text = "جدید ریٹنا اسکرینز، اینڈرائیڈ ایپس، اور iOS بک مارکس کے لیے مناسب سائز کی ضرورت ہے جیسے 16x16، 32x32, 48x48, 180x180, 192x192، اور 512x512۔ PNGtoFavicon ایک ہی PNG اپ لوڈ سے یہ تمام خود بخود تیار کرتا ہے، اور ساتھ ہی ایک کثیر سائز کی favicon.ico فائل بھی فراہم کرتا ہے۔";
+
+                        schema.mainEntity[2].name = "فیویکن کیسے شامل کریں؟";
+                        schema.mainEntity[2].acceptedAnswer.text = "PNGtoFavicon سے اپنا فیویکن پیکیج ڈاؤن لوڈ کرنے کے بعد، زپ فائل کو اپنی ویب سائٹ کی مرکزی ڈائرکٹری میں نکالیں اور فراہم کردہ HTML لنک ٹیگز کو اپنے <head> سیکشن کے اندر شامل کریں۔";
+
+                        schema.mainEntity[3].name = "کیا امیج سرور پر اپ لوڈ ہوتی ہے؟";
+                        schema.mainEntity[3].acceptedAnswer.text = "نہیں۔ پروسیسنگ 100% مقامی براؤزر میں ہوتی ہے تاکہ رازداری اور سلامتی برقرار رہے۔ کوئی بھی ڈیٹا کسی سرور کو نہیں بھیجا جاتا، جس سے یہ دستیاب سب سے نجی فیویکن جنریٹر بن جاتا ہے۔";
+
+                        schema.mainEntity[4].name = "ان پٹ کے لیے کون سے فائل فارمیٹس سپورٹڈ ہیں؟";
+                        schema.mainEntity[4].acceptedAnswer.text = "PNGtoFavicon پی این جی (تجویز کردہ، شفافیت کو سپورٹ کرتا ہے)، جے پی جی/جے پی ای جی، ایس وی جی، ویب پی، اور جی آئی ایف کو قبول کرتا ہے۔ بہترین نتائج کے لیے، شفاف پس منظر والی کم از کم 512x512 پکسلز کی مربع پی این جی تصویر استعمال کریں۔";
+
+                        schema.mainEntity[5].name = "کیا میں اس ٹول کو موبائل پر استعمال کر سکتا ہوں؟";
+                        schema.mainEntity[5].acceptedAnswer.text = "جی ہاں! PNGtoFavicon مکمل طور پر ریسپانسیو ہے اور کسی بھی جدید ویب براؤزر والے آلے پر کام کرتا ہے — بشمول اسمارٹ فونز اور ٹیبلٹس۔";
+
+                        schema.mainEntity[6].name = ".ico اور .png فیویکونز میں کیا فرق ہے؟";
+                        schema.mainEntity[6].acceptedAnswer.text = ".ico فارمیٹ ایک پرانی فائل ہے جو ایک ہی فائل میں متعدد آئیکن سائز رکھ سکتی ہے، جو پرانے براؤزرز کے ساتھ مطابقت کے لیے ضروری ہے۔ جدید براؤزر انفرادی .png فائلوں کو ترجیح دیتے ہیں، جو بہتر معیار اور چھوٹے سائز کی پیشکش کرتی ہے۔";
+
+                        schema.mainEntity[7].name = "site.webmanifest کیا ہے اور کیا مجھے اس کی ضرورت ہے؟";
+                        schema.mainEntity[7].acceptedAnswer.text = "site.webmanifest ایک JSON فائل ہے جو براؤزرز کو آپ کی ویب ایپلیکیشن کے بارے میں معلومات فراہم کرتی ہے — بشمول اس کا نام، تھیم کا رنگ، اور آئیکن کے حوالہ جات۔ یہ پروگریسو ویب ایپ (PWA) کی خصوصیات کے لیے ضروری ہے اور اینڈرائیڈ کروم کے ساتھ مطابقت کو بہتر بناتی ہے۔";
+                    }
+                    script.textContent = JSON.stringify(schema, null, 2);
+                } catch(e) {
+                    console.error("Error parsing react-favicon FAQ schema in Urdu: ", e);
+                }
+            }
+        });
+
+        // Hero Section
+        const heroSec = doc.getElementById('hero');
+        if (heroSec) {
+            const h1 = heroSec.querySelector('h1');
+            if (h1) h1.innerHTML = 'React ایپس میں Favicons <span class="gradient-text">کو ترتیب دینا</span>';
+            const subtitle = heroSec.querySelector('.subtitle') || heroSec.querySelector('p');
+            if (subtitle) subtitle.textContent = 'سنگل پیج ری ایکٹ ایپس میں جامد برانڈ کے اثاثے کنفیگر کریں۔ عوامی فولڈرز کا نقشہ بنانے کا طریقہ جانیں۔';
+        }
+
+        // Section Content
+        const cards = doc.querySelectorAll('.section .glass-card');
+        if (cards.length >= 1) {
+            const card1 = cards[0];
+            const h2_1 = card1.querySelector('h2');
+            if (h2_1) h2_1.textContent = 'رد عمل میں فیویکن فائلوں کو کہاں رکھنا ہے';
+            const p1 = card1.querySelector('p');
+            if (p1) p1.innerHTML = 'اس سے قطع نظر کہ آپ Vite، Create React ایپ، یا Next.js استعمال کر رہے ہیں، تمام سٹیٹک فائلز جیسے فیوی کون آپ کے پروجیکٹ کی جڑ میں <code>public/</code> ڈائرکٹری کے اندر ہے۔';
+            const lis1 = card1.querySelectorAll('ol li');
+            if (lis1.length >= 4) {
+                lis1[0].innerHTML = 'زپ فائلوں کو بازیافت کرنے کے لیے ہمارے ہوم پیج جنریٹر کا استعمال کرتے ہوئے اپنے PNG کو تبدیل کریں۔';
+                lis1[1].innerHTML = 'تمام فائلوں کو اپنے React پروجیکٹ روٹ میں براہ راست <code>public/</code> فولڈر میں نکالیں۔';
+                lis1[2].innerHTML = '<code>index.html</code> کھولیں (وائٹ کے لیے پروجیکٹ روٹ میں، یا ری ایکٹ ایپ بنانے کے لیے <code>public/</code> کے اندر)۔';
+                lis1[3].innerHTML = 'معیاری HTML ہیڈ میٹا ٹیگز شامل کریں یا ان میں ترمیم کریں، متعلقہ یو آر ایل کو عوامی ڈائرکٹری کی طرف اشارہ کرتے ہوئے:';
+            }
+            const copyBtn = card1.querySelector('.copy-btn');
+            if (copyBtn) copyBtn.textContent = 'کاپی کریں';
+        }
     }
 
 
