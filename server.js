@@ -23,6 +23,22 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   console.log(`${req.method} ${req.url}`);
 
+  // 301 Redirect for shopify-favicon to tutorials/shopify-favicon
+  const parsedUrl = new URL(req.url, 'http://localhost');
+  let pathname = parsedUrl.pathname;
+  const redirectRegex = /^\/((?:[a-z]{2}\/)?)shopify-favicon\/?$/i;
+  const match = pathname.match(redirectRegex);
+  if (match) {
+    const langPrefix = match[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/shopify-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 

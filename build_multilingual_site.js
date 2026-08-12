@@ -7546,7 +7546,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'shopify-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'كيفية إضافة أيقونة الموقع (Favicon) إلى متجر Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'عزز مصداقية متجرك. اتبع هذا الدليل السريع لتخصيص متجرك الإلكتروني على Shopify باستخدام أيقونة موقع عالية الدقة.');
@@ -7557,11 +7557,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "دليل أيقونة Shopify";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/shopify-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "دليل أيقونة Shopify";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -7713,7 +7715,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'shopify-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'So fügen Sie ein Favicon zu Shopify hinzu (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie Ihren Shopify-Shop anpassen, indem Sie ein benutzerdefiniertes Favicon hinzufügen. Optimieren Sie den Wiederkennungswert und das Shop-Design.');
@@ -7724,11 +7726,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "Shopify-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/shopify-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "Shopify-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34003,7 +34007,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "Verificar ahora →";
             }
         }
-    } else if (targetLang === 'es' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Cómo añadir un favicon a Shopify (Guía Paso a Paso) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aumenta la credibilidad de tu tienda. Sigue este breve tutorial para personalizar tu tienda online de Shopify con un favicon de alta definición.');
@@ -34023,11 +34027,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon de Shopify";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/shopify-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de Shopify";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35269,7 +35275,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "अभी चेक करें →";
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Shopify में फ़ेविकॉन कैसे जोड़ें (स्टेप-बाय-स्टेप गाइड) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'स्टोर की क्रेडिबिलिटी बनाएं। अपने ऑनलाइन Shopify स्टोर को हाई-डेफ़िनिशन फ़ेविकॉन टैब आइकन के साथ कस्टमाइज़ करने के लिए यह क्विक ट्यूटोरियल फ़ॉलो करें।');
@@ -35280,11 +35286,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "Shopify फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/shopify-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "Shopify फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -36617,7 +36625,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
-    } else if (targetLang === 'id' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Menambahkan Favicon ke Shopify (Panduan 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Bangun kredibilitas toko. Ikuti tutorial singkat ini untuk menyesuaikan toko Shopify online Anda dengan ikon tab favicon berdefinisi tinggi.');
@@ -36637,11 +36645,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Panduan Favicon Shopify";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/shopify-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon Shopify";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38209,7 +38219,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "Vérifier maintenant →";
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Comment ajouter une favicon à Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Renforcez la crédibilité de votre boutique. Suivez ce tutoriel rapide pour personnaliser votre boutique Shopify en ligne avec une favicon haute définition.');
@@ -38220,11 +38230,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon Shopify";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/shopify-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon Shopify";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -39536,7 +39548,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
-    } else if (targetLang === 'pt' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Como adicionar um favicon à sua loja Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aumente a credibilidade da sua loja. Siga este tutorial rápido para personalizar a sua loja online Shopify com um ícone de guia favicon de alta definição.');
@@ -39555,11 +39567,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon Shopify";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/shopify-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon Shopify";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -41540,7 +41554,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
-    } else if (targetLang === 'tr' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Shopify\'a Favicon Nasıl Eklenir? (Adım Adım Kılavuz) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Mağazanızın güvenilirliğini artırın. Çevrimiçi Shopify mağazanızı yüksek çözünürlüklü bir favicon sekme simgesiyle özelleştirmek için bu hızlı kılavuzu izleyin.');
@@ -41559,11 +41573,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "Shopify Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/shopify-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "Shopify Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -43543,7 +43559,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'shopify-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/shopify-favicon/index.html') {
         doc.title = "Shopify میں فیویکن کیسے شامل کریں؟ (مرحلہ وار گائیڈ) | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "اسٹور کی ساکھ بنائیں۔ ہائی ڈیفینیشن فیوی کون ٹیب آئیکن کے ساتھ اپنے آن لائن Shopify اسٹور کو حسب ضرورت بنانے کے لیے اس فوری ٹیوٹوریل پر عمل کریں۔");
@@ -43564,11 +43580,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "Shopify فیویکن گائیڈ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/shopify-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "Shopify فیویکن گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/shopify-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
