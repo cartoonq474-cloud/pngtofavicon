@@ -52,6 +52,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 301 Redirect for wix-favicon to tutorials/wix-favicon
+  const wixMatch = pathname.match(/^\/((?:[a-z]{2}\/)?)wix-favicon\/?$/i);
+  if (wixMatch) {
+    const langPrefix = wixMatch[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/wix-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 
