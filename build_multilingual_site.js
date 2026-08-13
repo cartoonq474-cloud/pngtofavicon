@@ -8192,7 +8192,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'react-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'إعداد أيقونات المواقع في تطبيقات React | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'إعداد عناصر العلامة التجارية الثابتة في تطبيقات React أحادية الصفحة. تعرّف على كيفية ربط المجلدات العامة.');
@@ -8203,11 +8203,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "دليل أيقونة React";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/react-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "دليل أيقونة React";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -8638,7 +8640,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'react-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'Favicons in React-Apps konfigurieren | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Konfigurieren Sie statische Markenelemente in Single-Page-React-Apps. Erfahren Sie, wie Sie öffentliche Ordner zuordnen.');
@@ -8649,11 +8651,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "React-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/react-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "React-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34528,7 +34532,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 &lt;link rel="manifest" href="/site.webmanifest"&gt;`;
             }
         }
-    } else if (targetLang === 'es' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'Configuración de favicons en apps de React | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Configura los recursos estáticos de marca en apps de React de una sola página. Aprende a mapear carpetas públicas.');
@@ -34539,11 +34543,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon de React";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/react-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de React";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35778,7 +35784,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'कॉपी करें';
         }
-    } else if (targetLang === 'hi' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'React ऐप्स में फ़ेविकॉन कॉन्फ़िगर करना | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'सिंगल-पेज React ऐप्स में स्टैटिक ब्रांड एसेट कॉन्फ़िगर करें। पब्लिक फ़ोल्डर को मैप करना सीखें।');
@@ -35789,11 +35795,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "React फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/react-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "React फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -37393,7 +37401,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'Mengonfigurasi Favicon di Aplikasi React | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Konfigurasikan aset merek statis di aplikasi React satu halaman. Pelajari cara memetakan folder publik.');
@@ -37412,11 +37420,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Panduan Favicon React";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/react-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon React";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38725,7 +38735,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'Copier';
         }
-    } else if (targetLang === 'fr' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'Configuration des favicons dans les applications React | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Configurez les ressources statiques de votre marque dans les applications React monopages. Découvrez comment associer les dossiers publics.');
@@ -38736,11 +38746,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon React";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/react-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon React";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -40484,7 +40496,7 @@ export default function Document() {
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'Configurar Favicons em Aplicações React | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Configure recursos estáticos da marca em aplicações React de página única. Aprenda a mapear pastas públicas.');
@@ -40503,11 +40515,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon React";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/react-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon React";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -42496,7 +42510,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/react-favicon/index.html') {
         if (doc.title) doc.title = 'React Uygulamalarında Favicon Yapılandırması | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Tek sayfalık React uygulamalarında statik marka öğelerini yapılandırın. Genel klasörleri nasıl eşleştireceğinizi öğrenin.');
@@ -42515,11 +42529,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "React Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/react-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "React Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -44427,7 +44443,7 @@ export default function Document() {
 &lt;link rel="manifest" href="/site.webmanifest"&gt;`;
             }
         }
-    } else if (targetLang === 'ur' && normPath === 'react-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/react-favicon/index.html') {
         doc.title = "React ایپس میں Favicons کو ترتیب دینا | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "سنگل پیج ری ایکٹ ایپس میں جامد برانڈ کے اثاثے کنفیگر کریں۔ عوامی فولڈرز کا نقشہ بنانے کا طریقہ جانیں۔");
@@ -44448,11 +44464,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "React Favicon گائیڈ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/react-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "React Favicon گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/react-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {

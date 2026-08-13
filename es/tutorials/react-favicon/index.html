@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="fr"><head>
+<!DOCTYPE html><html lang="es"><head>
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SG8HRCXJNB"></script>
 <script>
@@ -10,21 +10,21 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Configuration des favicons dans les applications React | PNGtoFavicon</title>
-  <meta name="description" content="Configurez les ressources statiques de votre marque dans les applications React monopages. Découvrez comment associer les dossiers publics.">
+  <title>Configuración de favicons en apps de React | PNGtoFavicon</title>
+  <meta name="description" content="Configura los recursos estáticos de marca en apps de React de una sola página. Aprende a mapear carpetas públicas.">
   <meta name="keywords" content="react favicon, add favicon to react, vite favicon, create react app favicon">
-  <link rel="canonical" href="https://pngtofavicon.com/fr/react-favicon/">
+  <link rel="canonical" href="https://pngtofavicon.com/es/tutorials/react-favicon/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://pngtofavicon.com/fr/react-favicon/">
+  <meta property="og:url" content="https://pngtofavicon.com/es/tutorials/react-favicon/">
   <meta property="og:title" content="How to Add a Favicon to React App (Vite &amp; CRA) | PNGtoFavicon">
   <meta property="og:description" content="Guide to adding favicons to React projects. Learn where to place public files and how to configure index.html in Vite or Create React App.">
   <meta property="og:image" content="https://pngtofavicon.com/images/og.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://pngtofavicon.com/fr/react-favicon/">
+  <meta property="twitter:url" content="https://pngtofavicon.com/es/tutorials/react-favicon/">
   <meta property="twitter:title" content="How to Add a Favicon to React App (Vite &amp; CRA) | PNGtoFavicon">
   <meta property="twitter:description" content="Guide to adding favicons to React projects. Learn where to place public files and how to configure index.html in Vite or Create React App.">
   <meta property="twitter:image" content="https://pngtofavicon.com/images/og.png">
@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="../../styles.css?v=2.9">
+  <link rel="stylesheet" href="../../../styles.css?v=2.9">
 
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">{
@@ -45,18 +45,24 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Accueil",
-      "item": "https://pngtofavicon.com/fr/"
+      "name": "Inicio",
+      "item": "https://pngtofavicon.com/es/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Guide de favicon React",
-      "item": "https://pngtofavicon.com/fr/react-favicon/"
+      "name": "Tutoriales",
+      "item": "https://pngtofavicon.com/es/tutorials/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Guía de favicon de React",
+      "item": "https://pngtofavicon.com/es/tutorials/react-favicon/"
     }
   ]
 }</script>
-<link rel="alternate" hreflang="x-default" href="https://pngtofavicon.com/react-favicon/"><link rel="alternate" hreflang="en" href="https://pngtofavicon.com/react-favicon/"><link rel="alternate" hreflang="ar" href="https://pngtofavicon.com/ar/react-favicon/"><link rel="alternate" hreflang="de" href="https://pngtofavicon.com/de/react-favicon/"><link rel="alternate" hreflang="es" href="https://pngtofavicon.com/es/react-favicon/"><link rel="alternate" hreflang="fr" href="https://pngtofavicon.com/fr/react-favicon/"><link rel="alternate" hreflang="hi" href="https://pngtofavicon.com/hi/react-favicon/"><link rel="alternate" hreflang="id" href="https://pngtofavicon.com/id/react-favicon/"><link rel="alternate" hreflang="pt" href="https://pngtofavicon.com/pt/react-favicon/"><link rel="alternate" hreflang="tr" href="https://pngtofavicon.com/tr/react-favicon/"><link rel="alternate" hreflang="ur" href="https://pngtofavicon.com/ur/react-favicon/"></head>
+<link rel="alternate" hreflang="x-default" href="https://pngtofavicon.com/tutorials/react-favicon/"><link rel="alternate" hreflang="en" href="https://pngtofavicon.com/tutorials/react-favicon/"><link rel="alternate" hreflang="ar" href="https://pngtofavicon.com/ar/tutorials/react-favicon/"><link rel="alternate" hreflang="de" href="https://pngtofavicon.com/de/tutorials/react-favicon/"><link rel="alternate" hreflang="es" href="https://pngtofavicon.com/es/tutorials/react-favicon/"><link rel="alternate" hreflang="fr" href="https://pngtofavicon.com/fr/tutorials/react-favicon/"><link rel="alternate" hreflang="hi" href="https://pngtofavicon.com/hi/tutorials/react-favicon/"><link rel="alternate" hreflang="id" href="https://pngtofavicon.com/id/tutorials/react-favicon/"><link rel="alternate" hreflang="pt" href="https://pngtofavicon.com/pt/tutorials/react-favicon/"><link rel="alternate" hreflang="tr" href="https://pngtofavicon.com/tr/tutorials/react-favicon/"><link rel="alternate" hreflang="ur" href="https://pngtofavicon.com/ur/tutorials/react-favicon/"></head>
 <body>
 
   <!-- ============================== -->
@@ -64,7 +70,7 @@
   <!-- ============================== -->
   <header class="navbar" id="navbar">
     <div class="container">
-      <a href="../" class="nav-brand" aria-label="PNGtoFavicon Home">
+      <a href="../../" class="nav-brand" aria-label="PNGtoFavicon Home">
         
         <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
           <rect x="2" y="2" width="32" height="32" rx="8" fill="url(#grad)"></rect>
@@ -87,23 +93,23 @@
       </button>
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a href="../">Convertisseur</a></li>
-          <li><a href="../text-to-favicon/">Texte dans Favicon</a></li>
-          <li><a href="../emoji-to-favicon/">Emoji dans Favicon</a></li>
-          <li><a href="../favicon-checker/">Vérificateur de Favicon</a></li>
-          <li><a href="../tutorials/">Tutoriels</a></li>
-          <li><a href="../blog/">Blog</a></li>
+          <li><a href="../../">Convertidor</a></li>
+          <li><a href="../../text-to-favicon/">Texto a favicon</a></li>
+          <li><a href="../../emoji-to-favicon/">Emoji a favicon</a></li>
+          <li><a href="../../favicon-checker/">Verificador de favicon</a></li>
+          <li><a href="../../tutorials/">Tutoriales</a></li>
+          <li><a href="../../blog/">Blog</a></li>
         <li class="lang-dropdown-wrapper">
         <div class="lang-dropdown">
-            <a href="#" class="lang-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Choisir la langue">
+            <a href="#" class="lang-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Seleccionar idioma">
                 <div class="lang-dropdown-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path>
                     </svg>
                 </div>
                 <div class="lang-dropdown-label">
-                    <span>Langue</span>
-                    <span>Français</span>
+                    <span>Idioma</span>
+                    <span>Español</span>
                 </div>
                 <svg class="lang-dropdown-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -111,52 +117,52 @@
             </a>
             <div class="lang-dropdown-menu">
                 
-            <a href="/react-favicon/" class="lang-dropdown-item ">
+            <a href="/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" width="20" height="20" alt="English flag" class="flag-icon">
                 <span>English</span>
             </a>
         
-            <a href="/ar/react-favicon/" class="lang-dropdown-item ">
+            <a href="/ar/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" width="20" height="20" alt="العربية flag" class="flag-icon">
                 <span>العربية</span>
             </a>
         
-            <a href="/de/react-favicon/" class="lang-dropdown-item ">
+            <a href="/de/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" width="20" height="20" alt="Deutsch flag" class="flag-icon">
                 <span>Deutsch</span>
             </a>
         
-            <a href="/es/react-favicon/" class="lang-dropdown-item ">
+            <a href="/es/tutorials/react-favicon/" class="lang-dropdown-item active">
                 <img src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" width="20" height="20" alt="Español flag" class="flag-icon">
                 <span>Español</span>
             </a>
         
-            <a href="/fr/react-favicon/" class="lang-dropdown-item active">
+            <a href="/fr/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" width="20" height="20" alt="Français flag" class="flag-icon">
                 <span>Français</span>
             </a>
         
-            <a href="/hi/react-favicon/" class="lang-dropdown-item ">
+            <a href="/hi/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/in.png" srcset="https://flagcdn.com/w80/in.png 2x" width="20" height="20" alt="हिन्दी flag" class="flag-icon">
                 <span>हिन्दी</span>
             </a>
         
-            <a href="/id/react-favicon/" class="lang-dropdown-item ">
+            <a href="/id/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/id.png" srcset="https://flagcdn.com/w80/id.png 2x" width="20" height="20" alt="Bahasa Indonesia flag" class="flag-icon">
                 <span>Bahasa Indonesia</span>
             </a>
         
-            <a href="/pt/react-favicon/" class="lang-dropdown-item ">
+            <a href="/pt/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" width="20" height="20" alt="Português flag" class="flag-icon">
                 <span>Português</span>
             </a>
         
-            <a href="/tr/react-favicon/" class="lang-dropdown-item ">
+            <a href="/tr/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" width="20" height="20" alt="Türkçe flag" class="flag-icon">
                 <span>Türkçe</span>
             </a>
         
-            <a href="/ur/react-favicon/" class="lang-dropdown-item ">
+            <a href="/ur/tutorials/react-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/pk.png" srcset="https://flagcdn.com/w80/pk.png 2x" width="20" height="20" alt="اردو flag" class="flag-icon">
                 <span>اردو</span>
             </a>
@@ -174,8 +180,8 @@
     <!-- ============================== -->
     <section class="hero" id="hero">
       <div class="container">
-        <h1>Configuration des favicons dans les applications <span class="gradient-text">React</span></h1>
-        <p class="subtitle">Configurez les ressources statiques de votre marque dans les applications React monopages. Découvrez comment associer les dossiers publics.</p>
+        <h1>Configuración de favicons en <span class="gradient-text">apps de React</span></h1>
+        <p class="subtitle">Configura los recursos estáticos de marca en apps de React de una sola página. Aprende a mapear carpetas públicas.</p>
       </div>
     </section>
 
@@ -184,16 +190,16 @@
       <section class="section">
         <div class="container" style="max-width: 800px;">
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Où placer les fichiers favicon dans React ?</h2>
-            <p>Que vous utilisiez Vite, Create React App ou Next.js, tous les fichiers statiques, comme les favicons, doivent être placés dans le répertoire <code>public/</code> à la racine de votre projet.</p>
+            <h2>Dónde colocar los archivos de favicon en React</h2>
+            <p>Independientemente de si usas Vite, Create React App o Next.js, todos los archivos estáticos, como los favicons, deben estar dentro del directorio <code>public/</code> en la raíz de tu proyecto.</p>
             <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Convertissez votre fichier PNG à l'aide de notre générateur de page d'accueil pour obtenir le fichier ZIP.</li>
-              <li>Extrayez tous les fichiers directement dans le dossier <code>public/</code> à la racine de votre projet React.</li>
-              <li>Ouvrez le fichier <code>index.html</code> (situé à la racine du projet pour Vite, ou dans <code>public/</code> pour Create React App).</li>
-              <li>Ajoutez ou modifiez les balises méta HTML standard de l'en-tête, en pointant les URL relatives vers le répertoire public :</li>
+              <li>Convierte tu PNG usando nuestro generador de páginas de inicio para obtener los archivos ZIP.</li>
+              <li>Extrae todos los archivos directamente en la carpeta <code>public/</code> en la raíz de tu proyecto de React.</li>
+              <li>Abre <code>index.html</code> (ubicado en la raíz del proyecto si usas Vite, o dentro de <code>public/</code> si usas Create React App).</li>
+              <li>Agrega o modifica las etiquetas meta de encabezado HTML estándar, apuntando URL relativas al directorio público:</li>
             </ol>
             <div class="code-block" style="margin-top: 1rem; background: #111827;">
-              <button class="copy-btn" data-copy="reactCode">Copier</button>
+              <button class="copy-btn" data-copy="reactCode">Copiar</button>
               <code id="reactCode">&lt;link rel="icon" type="image/x-icon" href="/favicon.ico"&gt;
 &lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
 &lt;link rel="manifest" href="/site.webmanifest"&gt;</code>
@@ -212,7 +218,7 @@
       <div class="footer-grid">
         <!-- Column 1: Brand -->
         <div class="footer-col footer-brand-col">
-          <a href="/fr/" class="footer-brand" aria-label="PNGtoFavicon Home">
+          <a href="/es/" class="footer-brand" aria-label="PNGtoFavicon Home">
             <svg width="32" height="32" viewBox="0 0 36 36" aria-hidden="true">
               <rect x="2" y="2" width="32" height="32" rx="8" fill="url(#gradFooter)"></rect>
               <defs>
@@ -228,7 +234,7 @@
             </svg>
             <span>PNG<span style="color: #8b5cf6">to</span>Favicon</span>
           </a>
-          <p class="footer-tagline">Convertisseur gratuit de PNG en favicon — un outil en ligne gratuit.</p>
+          <p class="footer-tagline">Convertidor gratuito de PNG a favicon: una herramienta online gratuita.</p>
           <div class="social-links">
             <a href="https://facebook.com/pngtofavicon" target="_blank" rel="noopener noreferrer" aria-label="PNGtoFavicon on Facebook" id="social-facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
@@ -248,42 +254,42 @@
             </a>
             <a href="https://wa.me/9779866735560" target="_blank" rel="noopener noreferrer" class="footer-contact-link" aria-label="Chat on WhatsApp">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.965C16.588 1.977 14.12 1.05 11.5 1.05c-5.442 0-9.866 4.372-9.87 9.802 0 1.772.483 3.502 1.396 5.042L2.093 21.93l6.23-1.61c.883.332 1.737.5 2.6.5 1.637 0 3.226-.499 4.825-1.451z"></path></svg>
-              <span>Discuter sur WhatsApp</span>
+              <span>Chatear en WhatsApp</span>
             </a>
           </div>
         </div>
 
         <!-- Column 2: Tools -->
         <div class="footer-col">
-          <h4>Outils</h4>
+          <h4>Herramientas</h4>
           <ul>
-            <li><a href="/fr/">Convertisseur PNG vers favicon</a></li>
-            <li><a href="/fr/text-to-favicon/">Texte dans Favicon</a></li>
-            <li><a href="/fr/emoji-to-favicon/">Emoji dans Favicon</a></li>
-            <li><a href="/fr/favicon-checker/">Vérificateur de Favicon</a></li>
+            <li><a href="/es/">Convertidor de PNG a favicon</a></li>
+            <li><a href="/es/text-to-favicon/">Texto a favicon</a></li>
+            <li><a href="/es/emoji-to-favicon/">Emoji a favicon</a></li>
+            <li><a href="/es/favicon-checker/">Verificador de favicon</a></li>
           </ul>
         </div>
 
         <!-- Column 3: Resources -->
         <div class="footer-col">
-          <h4>Ressources</h4>
+          <h4>Recursos</h4>
           <ul>
-            <li><a href="/fr/tutorials/">Tutoriels</a></li>
-            <li><a href="/fr/blog/">Blog</a></li>
-            <li><a href="/fr/tutorials/favicon-sizes/">Guide des tailles de favicon</a></li>
-            <li><a href="/fr/tutorials/what-is-a-favicon/">Qu'est-ce qu'un favicon ?</a></li>
+            <li><a href="/es/tutorials/">Tutoriales</a></li>
+            <li><a href="/es/blog/">Blog</a></li>
+            <li><a href="/es/tutorials/favicon-sizes/">Guía de tamaños de favicon</a></li>
+            <li><a href="/es/tutorials/what-is-a-favicon/">¿Qué es un favicon?</a></li>
           </ul>
         </div>
 
         <!-- Column 4: Company -->
         <div class="footer-col">
-          <h4>Entreprise</h4>
+          <h4>Compañía</h4>
           <ul>
-            <li><a href="/fr/about/">À propos</a></li>
-            <li><a href="/fr/contact/">Contact</a></li>
-            <li><a href="/fr/privacy/">Politique de confidentialité</a></li>
-            <li><a href="/fr/terms/">Conditions d'utilisation</a></li>
-            <li><a href="/fr/cookie-policy/">Politique relative aux cookies</a></li>
+            <li><a href="/es/about/">Acerca de</a></li>
+            <li><a href="/es/contact/">Contacto</a></li>
+            <li><a href="/es/privacy/">Política de privacidad</a></li>
+            <li><a href="/es/terms/">Condiciones de uso</a></li>
+            <li><a href="/es/cookie-policy/">Política de cookies</a></li>
           </ul>
         </div>
       </div>
@@ -293,7 +299,7 @@
 
       <!-- Copyright -->
       <div class="footer-bottom">
-        <p>© 2026 PNGtoFavicon.com — Tous droits réservés.</p>
+        <p>© 2026 PNGtoFavicon.com — Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
@@ -305,66 +311,66 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Qu'est-ce qu'un favicon ?",
+      "name": "¿Qué es un favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Un favicon (raccourci de « favorite icon ») est une petite icône associée à un site web. Il apparaît dans les onglets du navigateur, les listes de signets, l'historique du navigateur et les résultats de recherche. Les favicons aident les utilisateurs à identifier rapidement votre site web parmi plusieurs onglets ouverts et favoris. La plupart des navigateurs modernes prennent en charge plusieurs tailles de favicon pour différents contextes, depuis les petites icônes d'onglet de 16×16 pixels jusqu'aux grandes icônes de 512×512 pixels utilisées par les Progressive Web Apps (PWA) pour les raccourcis sur l'écran d'accueil et les écrans de démarrage."
+        "text": "Un favicon (abreviatura de \"favorite icon\") es un pequeño icono asociado a un sitio web. Aparece en las pestañas del navegador, listas de marcadores, historial del navegador y resultados de búsqueda. Los favicons ayudan a los usuarios a identificar rápidamente tu sitio web entre múltiples pestañas y marcadores abiertos. La mayoría de los navegadores modernos admiten múltiples tamaños de favicon para diferentes contextos, desde pequeños iconos de pestaña de 16×16 píxeles hasta iconos grandes de 512×512 píxeles utilizados por las aplicaciones web progresivas (PWA) para accesos directos en la pantalla de inicio y pantallas de presentación."
       }
     },
     {
       "@type": "Question",
-      "name": "De quelles tailles de favicon avez-vous besoin ?",
+      "name": "¿Qué tamaños de favicon necesito?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pour une prise en charge complète sur tous les navigateurs et appareils, vous avez besoin de : 16×16 (icône d'onglet standard), 32×32 (icône d'onglet HiDPI), 48×48 (icône de site Windows), 180×180 (Apple Touch Icon), 192×192 (icône Android Chrome) et 512×512 (icône d'installation PWA). PNGtoFavicon génère automatiquement toutes ces tailles à partir d'un seul fichier PNG importé, ainsi qu'un fichier favicon.ico multi-tailles."
+        "text": "Para una compatibilidad completa con todos los navegadores y dispositivos, necesitas: 16×16 (icono de pestaña estándar), 32×32 (icono de pestaña HiDPI), 48×48 (icono de sitio de Windows), 180×180 (Apple Touch Icon), 192×192 (icono de Android Chrome) y 512×512 (icono de instalación de PWA). PNGtoFavicon genera todos estos tamaños automáticamente a partir de una sola carga de PNG, además de un archivo favicon.ico multitamaño."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment ajouter un favicon à mon site ?",
+      "name": "¿Cómo añado un favicon a mi sitio web?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Après avoir téléchargé votre pack de favicons depuis PNGtoFavicon, extrayez le fichier ZIP dans le répertoire racine de votre site web et ajoutez les balises HTML fournies dans votre section <head>. PNGtoFavicon génère le code HTML exact à copier-coller."
+        "text": "Después de descargar tu paquete de favicons de PNGtoFavicon, extrae el archivo ZIP en el directorio raíz de tu sitio web y añade las etiquetas de enlace HTML proporcionadas dentro de tu sección <head>. PNGtoFavicon genera el fragmento de código HTML exacto que necesitas, listo para copiar y pegar."
       }
     },
     {
       "@type": "Question",
-      "name": "Mon image est-elle téléchargée sur un serveur ?",
+      "name": "¿Se sube mi imagen a un servidor?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non, votre image ne quitte jamais votre navigateur. PNGtoFavicon traite tout à 100 % côté client à l'aide de JavaScript et de l'API HTML5 Canvas. Aucune donnée n'est envoyée à un serveur, ce qui en fait le générateur de favicons le plus privé et sécurisé disponible."
+        "text": "No, tu imagen nunca sale de tu navegador. PNGtoFavicon procesa todo al 100% del lado del cliente utilizando JavaScript y la API HTML5 Canvas. No se envían datos a ningún servidor, lo que hace de este el generador de favicons más privado y seguro disponible."
       }
     },
     {
       "@type": "Question",
-      "name": "Quels formats d'image d'entrée sont pris en charge ?",
+      "name": "¿Qué formatos de archivo de entrada son compatibles?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PNGtoFavicon accepte le PNG (recommandé car il gère la transparence), le JPG/JPEG, le SVG (format vectoriel), le WEBP (format moderne) et le GIF. Pour de meilleurs résultats, utilisez une image PNG carrée d'au moins 512×512 pixels avec un fond transparent."
+        "text": "PNGtoFavicon acepta PNG (recomendado porque admite transparencia), JPG/JPEG, SVG (formatos vectoriales), WEBP (formato moderno) y GIF. Para obtener los mejores resultados, utiliza una imagen PNG cuadrada de al menos 512×512 píxeles con fondo transparente."
       }
     },
     {
       "@type": "Question",
-      "name": "Puis-je utiliser cet outil sur mon smartphone ?",
+      "name": "¿Puedo usar esta herramienta en mi teléfono móvil?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui ! PNGtoFavicon est entièrement réactif et fonctionne sur n'importe quel appareil équipé d'un navigateur web moderne, y compris les smartphones et les tablettes. Vous pouvez importer des images, configurer les options et télécharger votre pack complet de favicons directement depuis votre appareil mobile."
+        "text": "¡Sí! PNGtoFavicon es totalmente responsivo y funciona en cualquier dispositivo con un navegador web moderno, incluidos teléfonos inteligentes y tabletas. Puedes subir imágenes, configurar opciones y descargar tu paquete completo de favicons directamente desde tu dispositivo móvil."
       }
     },
     {
       "@type": "Question",
-      "name": "Quelle la différence entre les favicons .ico et .png ?",
+      "name": "¿Cuál es la diferencia entre los favicons .ico y .png?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le format .ico est un conteneur hérité qui peut contenir plusieurs tailles d'icônes dans un seul fichier, nécessaire pour la compatibilité avec les anciens navigateurs. Les navigateurs modernes préfèrent les fichiers .png individuels spécifiés par des balises de liaison, car ils offrent une meilleure qualité et des tailles de fichier plus petites. PNGtoFavicon génère les deux formats."
+        "text": "El formato .ico es un contenedor heredado que puede contener múltiples tamaños de iconos en un solo archivo, necesario para la compatibilidad con navegadores más antiguos. Los navegadores modernos prefieren archivos .png individuales especificados con etiquetas de enlace, ya que ofrecen mejor calidad y tamaños de archivo más pequeños. PNGtoFavicon genera ambos formatos."
       }
     },
     {
       "@type": "Question",
-      "name": "Qu'est-ce que le fichier site.webmanifest et en ai-je besoin ?",
+      "name": "¿Qué es site.webmanifest y lo necesito?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le fichier site.webmanifest est un fichier JSON qui fournit aux navigateurs des informations sur votre application web, notamment son nom, sa couleur de thème et ses références d'icônes. Il est essentiel pour les fonctionnalités des Progressive Web Apps (PWA) et améliore la compatibilité avec Android Chrome et d'autres navigateurs modernes."
+        "text": "El archivo site.webmanifest es un archivo JSON que proporciona información a los navegadores sobre tu aplicación web, incluyendo su nombre, color de tema y referencias de iconos. Es esencial para la funcionalidad de las aplicaciones web progresivas (PWA) y mejora la compatibilidad con Android Chrome y otros navegadores modernos."
       }
     }
   ]
@@ -379,7 +385,7 @@
 
 
   <!-- Scripts -->
-  <script src="../../js/main.js?v=3.3" defer=""></script>
+  <script src="../../../js/main.js?v=3.3" defer=""></script>
 
 
 </body></html>
