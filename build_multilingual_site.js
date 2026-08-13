@@ -6846,7 +6846,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'wordpress-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'كيفية إضافة أيقونة الموقع (Favicon) إلى ووردبريس | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'يُشغّل ووردبريس أكثر من 40% من مواقع الويب. اتبع هذا الدليل الحديث لعام 2026 لضمان عرض أيقونة موقعك بشكل صحيح في علامات تبويب المتصفح وشاشات الجوال الرئيسية.');
@@ -6857,11 +6857,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "دليل أيقونة ووردبريس";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/wordpress-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "دليل أيقونة ووردبريس";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -7034,7 +7036,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'wordpress-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'So fügen Sie ein Favicon in WordPress hinzu (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie ganz einfach ein Favicon zu Ihrer WordPress-Website hinzufügen. Schritt-für-Schritt-Anleitung zur Verwendung des Customizers, von Plugins oder zum Bearbeiten von Header-Dateien.');
@@ -7045,11 +7047,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "WordPress-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "WordPress-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34300,7 +34304,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn2 = card2.querySelector('.copy-btn');
             if (copyBtn2) copyBtn2.textContent = 'Copiar';
         }
-    } else if (targetLang === 'es' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Cómo añadir un favicon a WordPress (Guía Paso a Paso) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aprende a añadir fácilmente un favicon a tu sitio web de WordPress. Guía paso a paso usando el Personalizador, plugins o editando los archivos del encabezado.');
@@ -34311,11 +34315,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon de WordPress";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de WordPress";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35550,7 +35556,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn2 = card2.querySelector('.copy-btn');
             if (copyBtn2) copyBtn2.textContent = 'कॉपी करें';
         }
-    } else if (targetLang === 'hi' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'वर्डप्रेस में फ़ेविकॉन कैसे जोड़ें | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'वर्डप्रेस 40% से ज़्यादा वेब पर काम करता है। यह पक्का करने के लिए कि आपका वर्डप्रेस फ़ेविकॉन ब्राउज़र टैब और मोबाइल होम स्क्रीन पर सही तरीके से दिखे, इस मॉडर्न, 2026 गाइड को फ़ॉलो करें।');
@@ -35561,11 +35567,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "वर्डप्रेस फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/wordpress-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "वर्डप्रेस फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -36998,7 +37006,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Menambahkan Favicon ke WordPress (Panduan 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress menggerakkan lebih dari 40% situs web. Ikuti panduan modern tahun 2026 ini untuk memastikan favicon WordPress Anda ditampilkan dengan benar di tab browser dan layar beranda ponsel.');
@@ -37017,11 +37025,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Panduan Favicon WordPress";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon WordPress";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38487,7 +38497,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const p1 = card2.querySelector('p');
             if (p1) p1.innerHTML = 'Si vous utilisez Pages Router, modifiez votre fichier <code>_document.js</code> dans le répertoire pages et ajoutez les métadonnées standard :';
         }
-    } else if (targetLang === 'fr' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Comment ajouter une favicon à WordPress | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress alimente plus de 40 % du web. Suivez ce guide moderne (2026) pour vous assurer que votre favicon WordPress s\'affiche correctement dans les onglets de votre navigateur et sur les écrans d\'accueil mobiles.');
@@ -38498,11 +38508,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon WordPress";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon WordPress";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -40079,7 +40091,7 @@ export default function Document() {
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Como adicionar um favicon ao WordPress | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'O WordPress alimenta mais de 40% da web. Siga este guia moderno de 2026 para garantir que o seu favicon do WordPress é apresentado corretamente nos separadores do navegador e nos ecrãs iniciais dos dispositivos móveis.');
@@ -40098,11 +40110,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon WordPress";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon WordPress";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -42085,7 +42099,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'WordPress\'e Favicon Nasıl Eklenir? (2026 Kılavuzu) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress sitenize nasıl kolayca favicon ekleyeceğinizi öğrenin. Özelleştirici, eklentiler veya başlık dosyalarını düzenlemeyi içeren adım adım kılavuz.');
@@ -42104,11 +42118,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "WordPress Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/wordpress-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "WordPress Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -44075,7 +44091,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'wordpress-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/wordpress-favicon/index.html') {
         doc.title = "ورڈپریس میں فیویکن کیسے شامل کریں۔ | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔");
@@ -44096,11 +44112,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "ورڈپریس فیویکن گائیڈ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/wordpress-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "ورڈپریس فیویکن گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/wordpress-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {

@@ -39,6 +39,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 301 Redirect for wordpress-favicon to tutorials/wordpress-favicon
+  const wpMatch = pathname.match(/^\/((?:[a-z]{2}\/)?)wordpress-favicon\/?$/i);
+  if (wpMatch) {
+    const langPrefix = wpMatch[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/wordpress-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 
