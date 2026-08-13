@@ -91,6 +91,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 301 Redirect for nextjs-favicon to tutorials/nextjs-favicon
+  const nextjsMatch = pathname.match(/^\/((?:[a-z]{2}\/)?)nextjs-favicon\/?$/i);
+  if (nextjsMatch) {
+    const langPrefix = nextjsMatch[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/nextjs-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 

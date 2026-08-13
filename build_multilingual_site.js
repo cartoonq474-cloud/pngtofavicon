@@ -7220,7 +7220,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'nextjs-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'إعداد أيقونات المواقع في Next.js | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'تتطلب الأطر الحديثة استراتيجيات حديثة للعلامات الوصفية. اضبط أيقونات متصفحك بشكل صحيح في Next.js.');
@@ -7231,11 +7231,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "دليل Next.js أيقونة الموقع";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/nextjs-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "دليل Next.js أيقونة الموقع";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -7390,7 +7392,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'nextjs-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Favicons in Next.js konfigurieren (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie statische Favicon-Assets und Manifest-Dateien in modernen Next.js-Anwendungen mithilfe des App- und Pages-Routers richtig konfigurieren.');
@@ -7401,11 +7403,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "Next.js-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "Next.js-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34222,7 +34226,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[4].innerHTML = 'Elige tu imagen PNG y haz clic en <strong>Aplicar</strong>.';
             }
         }
-    } else if (targetLang === 'es' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Configuración de favicons en Next.js (App & Pages Router) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aprende a configurar correctamente activos estáticos de favicon y archivos de manifiesto en aplicaciones Next.js modernas usando App y Pages routers.');
@@ -34233,11 +34237,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon de Next.js";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de Next.js";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35480,7 +35486,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[4].innerHTML = 'अपनी PNG इमेज चुनें और <strong>अप्लाई</strong> पर क्लिक करें।';
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Next.js में फ़ेविकॉन कॉन्फ़िगर करना | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'मॉक फ़्रेमवर्क के लिए मॉडर्न मेटा टैग स्ट्रेटेजी की ज़रूरत होती है। Next.js में अपने ब्राउज़र आइकन को ठीक से कॉन्फ़िगर करें।');
@@ -35491,11 +35497,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "Next.js फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/nextjs-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "Next.js फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -36856,7 +36864,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[4].innerHTML = 'Pilih gambar PNG Anda dan klik <strong>Terapkan</strong>.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Mengonfigurasi Favicon di Next.js (App & Pages Router) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Framework modern membutuhkan strategi meta tag modern. Konfigurasikan ikon browser Anda dengan benar di Next.js.');
@@ -36875,11 +36883,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Panduan Favicon Next.js";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon Next.js";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38439,7 +38449,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis1[4].innerHTML = 'Choisissez votre image PNG et cliquez sur « Appliquer ».';
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Configuration des favicons dans Next.js | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Les frameworks modernes nécessitent des stratégies de balises meta modernes. Configurez correctement les icônes de votre navigateur dans Next.js.');
@@ -38450,11 +38460,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon Next.js";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon Next.js";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -39930,7 +39942,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Configurar Favicons no Next.js | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Os frameworks modernos exigem estratégias modernas de meta tags. Configure os ícones do seu browser corretamente no Next.js.');
@@ -39949,11 +39961,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon Next.js";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon Next.js";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -41944,7 +41958,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/nextjs-favicon/index.html') {
         if (doc.title) doc.title = 'Next.js Web Sitesinde Favicon Nasıl Yapılandırılır? | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Modern çerçeveler, modern meta etiket stratejileri gerektirir. Next.js\'de tarayıcı simgelerinizi doğru şekilde yapılandırın.');
@@ -41963,11 +41977,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "Next.js Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/nextjs-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "Next.js Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -43947,7 +43963,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'nextjs-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/nextjs-favicon/index.html') {
         doc.title = "Next.js میں Favicons کو ترتیب دینا | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "جدید فریم ورک کو جدید میٹا ٹیگ حکمت عملیوں کی ضرورت ہوتی ہے۔ Next.js میں اپنے براؤزر کے آئیکنز کو صحیح طریقے سے کنفیگر کریں۔");
@@ -43968,11 +43984,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "Next.js فیویکن گائیڈ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/nextjs-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "Next.js فیویکن گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/nextjs-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {

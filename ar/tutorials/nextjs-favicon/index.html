@@ -13,18 +13,18 @@
   <title>إعداد أيقونات المواقع في Next.js | PNGtoFavicon</title>
   <meta name="description" content="تتطلب الأطر الحديثة استراتيجيات حديثة للعلامات الوصفية. اضبط أيقونات متصفحك بشكل صحيح في Next.js.">
   <meta name="keywords" content="nextjs favicon, next.js site icon, favicon in nextjs, app router favicon">
-  <link rel="canonical" href="https://pngtofavicon.com/ar/nextjs-favicon/">
+  <link rel="canonical" href="https://pngtofavicon.com/ar/tutorials/nextjs-favicon/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://pngtofavicon.com/ar/nextjs-favicon/">
+  <meta property="og:url" content="https://pngtofavicon.com/ar/tutorials/nextjs-favicon/">
   <meta property="og:title" content="How to Setup Favicons in Next.js (App &amp; Pages Router) | PNGtoFavicon">
   <meta property="og:description" content="Learn how to properly configure static favicon assets and manifest files in modern Next.js applications using both App and Pages routers.">
   <meta property="og:image" content="https://pngtofavicon.com/images/og.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://pngtofavicon.com/ar/nextjs-favicon/">
+  <meta property="twitter:url" content="https://pngtofavicon.com/ar/tutorials/nextjs-favicon/">
   <meta property="twitter:title" content="How to Setup Favicons in Next.js (App &amp; Pages Router) | PNGtoFavicon">
   <meta property="twitter:description" content="Learn how to properly configure static favicon assets and manifest files in modern Next.js applications using both App and Pages routers.">
   <meta property="twitter:image" content="https://pngtofavicon.com/images/og.png">
@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet">
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="../../styles.css?v=2.9">
+  <link rel="stylesheet" href="../../../styles.css?v=2.9">
 
   <!-- Structured Data: BreadcrumbList -->
   <script type="application/ld+json">{
@@ -51,12 +51,18 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "دروس تعليمية",
+      "item": "https://pngtofavicon.com/ar/tutorials/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "دليل Next.js أيقونة الموقع",
-      "item": "https://pngtofavicon.com/ar/nextjs-favicon/"
+      "item": "https://pngtofavicon.com/ar/tutorials/nextjs-favicon/"
     }
   ]
 }</script>
-<link rel="alternate" hreflang="x-default" href="https://pngtofavicon.com/nextjs-favicon/"><link rel="alternate" hreflang="en" href="https://pngtofavicon.com/nextjs-favicon/"><link rel="alternate" hreflang="ar" href="https://pngtofavicon.com/ar/nextjs-favicon/"><link rel="alternate" hreflang="de" href="https://pngtofavicon.com/de/nextjs-favicon/"><link rel="alternate" hreflang="es" href="https://pngtofavicon.com/es/nextjs-favicon/"><link rel="alternate" hreflang="fr" href="https://pngtofavicon.com/fr/nextjs-favicon/"><link rel="alternate" hreflang="hi" href="https://pngtofavicon.com/hi/nextjs-favicon/"><link rel="alternate" hreflang="id" href="https://pngtofavicon.com/id/nextjs-favicon/"><link rel="alternate" hreflang="pt" href="https://pngtofavicon.com/pt/nextjs-favicon/"><link rel="alternate" hreflang="tr" href="https://pngtofavicon.com/tr/nextjs-favicon/"><link rel="alternate" hreflang="ur" href="https://pngtofavicon.com/ur/nextjs-favicon/"></head>
+<link rel="alternate" hreflang="x-default" href="https://pngtofavicon.com/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="en" href="https://pngtofavicon.com/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="ar" href="https://pngtofavicon.com/ar/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="de" href="https://pngtofavicon.com/de/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="es" href="https://pngtofavicon.com/es/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="fr" href="https://pngtofavicon.com/fr/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="hi" href="https://pngtofavicon.com/hi/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="id" href="https://pngtofavicon.com/id/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="pt" href="https://pngtofavicon.com/pt/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="tr" href="https://pngtofavicon.com/tr/tutorials/nextjs-favicon/"><link rel="alternate" hreflang="ur" href="https://pngtofavicon.com/ur/tutorials/nextjs-favicon/"></head>
 <body>
 
   <!-- ============================== -->
@@ -64,7 +70,7 @@
   <!-- ============================== -->
   <header class="navbar" id="navbar">
     <div class="container">
-      <a href="../" class="nav-brand" aria-label="PNGtoFavicon Home">
+      <a href="../../" class="nav-brand" aria-label="PNGtoFavicon Home">
         
         <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true">
           <rect x="2" y="2" width="32" height="32" rx="8" fill="url(#grad)"></rect>
@@ -87,12 +93,12 @@
       </button>
       <nav aria-label="Main navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a href="../">المحول</a></li>
-          <li><a href="../text-to-favicon/">نص إلى أيقونة</a></li>
-          <li><a href="../emoji-to-favicon/">رمز تعبيري إلى أيقونة</a></li>
-          <li><a href="../favicon-checker/">فاحص الأيقونات</a></li>
-          <li><a href="../tutorials/">دروس تعليمية</a></li>
-          <li><a href="../blog/">المدونة</a></li>
+          <li><a href="../../">المحول</a></li>
+          <li><a href="../../text-to-favicon/">نص إلى أيقونة</a></li>
+          <li><a href="../../emoji-to-favicon/">رمز تعبيري إلى أيقونة</a></li>
+          <li><a href="../../favicon-checker/">فاحص الأيقونات</a></li>
+          <li><a href="../../tutorials/">دروس تعليمية</a></li>
+          <li><a href="../../blog/">المدونة</a></li>
         <li class="lang-dropdown-wrapper">
         <div class="lang-dropdown">
             <a href="#" class="lang-dropdown-trigger" role="button" aria-haspopup="true" aria-expanded="false" aria-label="اختر اللغة">
@@ -111,52 +117,52 @@
             </a>
             <div class="lang-dropdown-menu">
                 
-            <a href="/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/us.png" srcset="https://flagcdn.com/w80/us.png 2x" width="20" height="20" alt="English flag" class="flag-icon">
                 <span>English</span>
             </a>
         
-            <a href="/ar/nextjs-favicon/" class="lang-dropdown-item active">
+            <a href="/ar/tutorials/nextjs-favicon/" class="lang-dropdown-item active">
                 <img src="https://flagcdn.com/w40/sa.png" srcset="https://flagcdn.com/w80/sa.png 2x" width="20" height="20" alt="العربية flag" class="flag-icon">
                 <span>العربية</span>
             </a>
         
-            <a href="/de/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/de/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/de.png" srcset="https://flagcdn.com/w80/de.png 2x" width="20" height="20" alt="Deutsch flag" class="flag-icon">
                 <span>Deutsch</span>
             </a>
         
-            <a href="/es/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/es/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/es.png" srcset="https://flagcdn.com/w80/es.png 2x" width="20" height="20" alt="Español flag" class="flag-icon">
                 <span>Español</span>
             </a>
         
-            <a href="/fr/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/fr/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/fr.png" srcset="https://flagcdn.com/w80/fr.png 2x" width="20" height="20" alt="Français flag" class="flag-icon">
                 <span>Français</span>
             </a>
         
-            <a href="/hi/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/hi/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/in.png" srcset="https://flagcdn.com/w80/in.png 2x" width="20" height="20" alt="हिन्दी flag" class="flag-icon">
                 <span>हिन्दी</span>
             </a>
         
-            <a href="/id/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/id/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/id.png" srcset="https://flagcdn.com/w80/id.png 2x" width="20" height="20" alt="Bahasa Indonesia flag" class="flag-icon">
                 <span>Bahasa Indonesia</span>
             </a>
         
-            <a href="/pt/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/pt/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/pt.png" srcset="https://flagcdn.com/w80/pt.png 2x" width="20" height="20" alt="Português flag" class="flag-icon">
                 <span>Português</span>
             </a>
         
-            <a href="/tr/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/tr/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/tr.png" srcset="https://flagcdn.com/w80/tr.png 2x" width="20" height="20" alt="Türkçe flag" class="flag-icon">
                 <span>Türkçe</span>
             </a>
         
-            <a href="/ur/nextjs-favicon/" class="lang-dropdown-item ">
+            <a href="/ur/tutorials/nextjs-favicon/" class="lang-dropdown-item ">
                 <img src="https://flagcdn.com/w40/pk.png" srcset="https://flagcdn.com/w80/pk.png 2x" width="20" height="20" alt="اردو flag" class="flag-icon">
                 <span>اردو</span>
             </a>
@@ -408,7 +414,7 @@ export default function Document() {
 
 
   <!-- Scripts -->
-  <script src="../../js/main.js?v=3.3" defer=""></script>
+  <script src="../../../js/main.js?v=3.3" defer=""></script>
 
 
 </body></html>
