@@ -6209,7 +6209,7 @@ async function localizePage(relativePath, targetLang) {
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'html-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'مرجع علامات روابط أيقونات المواقع HTML | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'لضمان دعم مثالي للأيقونات عبر جميع المتصفحات، قم بلصق عناصر ترميز الروابط القياسية والمتوافقة مع المعايير.');
@@ -6220,11 +6220,13 @@ async function localizePage(relativePath, targetLang) {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "مرجع علامات روابط HTML";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/html-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "مرجع علامات روابط HTML";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -6721,7 +6723,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'html-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'HTML-Favicon-Link-Tags-Referenz | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Gewährleisten Sie die perfekte browserübergreifende Darstellung des Icons durch Einfügen standardkonformer Link-Markup-Elemente.');
@@ -6732,11 +6734,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "HTML-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/html-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "HTML-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34444,7 +34448,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (a2) a2.innerHTML = 'WordPress recomienda subir una imagen cuadrada de al menos 512×512 píxeles. Esto garantiza que el icono se escale correctamente para las instalaciones de PWA y pantallas móviles.';
             }
         }
-    } else if (targetLang === 'es' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'Referencia de etiquetas HTML para enlaces de favicon | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Garantiza una compatibilidad perfecta con iconos en todos los navegadores pegando elementos de marcado de enlace estándar que cumplan con los estándares.');
@@ -34455,11 +34459,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon HTML";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/html-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon HTML";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35704,7 +35710,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (a2) a2.innerHTML = "वर्डप्रेस एक स्क्वायर इमेज अपलोड करने की सलाह देता है जो कम से कम 512×512 पिक्सल की हो। यह पक्का करता है कि आइकन PWA इंस्टॉल और मोबाइल स्क्रीन पर सही तरीके से स्केल हो।";
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'HTML फ़ेविकॉन लिंक टैग्स रेफ़रेंस | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'स्टैंडर्ड, स्टैंडर्ड-कम्प्लायंट लिंक मार्कअप एलिमेंट्स पेस्ट करके परफेक्ट क्रॉस-ब्राउज़र आइकन सपोर्ट पक्का करें।');
@@ -35715,11 +35721,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "HTML फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/html-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "HTML फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -37245,7 +37253,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'Referensi Tag Tautan Favicon HTML | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Pastikan dukungan ikon lintas browser yang sempurna dengan menempelkan elemen markup tautan standar yang sesuai standar.');
@@ -37264,11 +37272,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Referensi Tag Tautan HTML";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/html-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Referensi Tag Tautan HTML";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38659,7 +38669,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (a2) a2.innerHTML = "WordPress recommande d'importer une image carrée d'au moins 512 × 512 pixels. Cela garantit que l'icône s'affiche correctement sur les installations PWA et les écrans mobiles.";
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'Référence des balises de lien Favicon HTML | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Assurez une compatibilité parfaite des icônes avec tous les navigateurs en collant des éléments de balisage de lien standard et conformes aux normes.');
@@ -38670,11 +38680,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon HTML";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/html-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon HTML";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -40346,7 +40358,7 @@ export default function Document() {
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'Referência de tags de ligação para favicon em HTML | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Garanta um suporte perfeito para ícones em diferentes navegadores, colando elementos de marcação de ligação padrão e em conformidade com as normas.');
@@ -40365,11 +40377,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon HTML";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/html-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon HTML";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -42362,7 +42376,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/html-favicon/index.html') {
         if (doc.title) doc.title = 'HTML Favicon Bağlantı Etiketleri Referansı | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Standart, standartlara uygun bağlantı işaretleme öğelerini yapıştırarak tarayıcılar arası mükemmel simge desteği sağlayın.');
@@ -42381,11 +42395,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "HTML Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/html-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "HTML Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -44357,7 +44373,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'html-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/html-favicon/index.html') {
         doc.title = "HTML Favicon لنک ٹیگز کا حوالہ | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "معیاری، معیارات کے مطابق لنک مارک اپ عناصر کو چسپاں کر کے کامل کراس براؤزر آئیکن سپورٹ کو یقینی بنائیں۔");
@@ -44378,11 +44394,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "HTML Favicon لنک ٹیگز کا حوالہ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/html-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "HTML Favicon لنک ٹیگز کا حوالہ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/html-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {

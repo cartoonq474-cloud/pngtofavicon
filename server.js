@@ -104,6 +104,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 301 Redirect for html-favicon to tutorials/html-favicon
+  const htmlMatch = pathname.match(/^\/((?:[a-z]{2}\/)?)html-favicon\/?$/i);
+  if (htmlMatch) {
+    const langPrefix = htmlMatch[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/html-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 
