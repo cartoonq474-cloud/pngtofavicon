@@ -8037,7 +8037,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'blogger-favicon/index.html') {
+    if (targetLang === 'ar' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'تغيير أيقونة الموقع على بلوجر | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'استبدل أيقونة بلوجر الافتراضية بأيقونة علامتك التجارية الشخصية. دليل إعداد أيقونات بلوجر.');
@@ -8048,11 +8048,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "الرئيسية";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ar/";
-                        schema.itemListElement[1].name = "دليل أيقونة بلوجر";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/blogger-favicon/";
+                        schema.itemListElement[1].name = "دروس تعليمية";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ar/tutorials/";
+                        schema.itemListElement[2].name = "دليل أيقونة بلوجر";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ar/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -8487,7 +8489,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'blogger-favicon/index.html') {
+    if (targetLang === 'de' && normPath === 'tutorials/blogger-favicon/index.html') {
         dict['Blogger'] = 'Blogger';
         if (doc.title) doc.title = 'Favicon auf Blogger ändern (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -8499,11 +8501,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Startseite";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/de/";
-                        schema.itemListElement[1].name = "Blogger-Favicon-Anleitung";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/blogger-favicon/";
+                        schema.itemListElement[1].name = "Anleitungen";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/de/tutorials/";
+                        schema.itemListElement[2].name = "Blogger-Favicon-Anleitung";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/de/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -34608,7 +34612,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'Copiar';
         }
-    } else if (targetLang === 'es' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'es' && normPath === 'tutorials/blogger-favicon/index.html') {
         dict['Blogger'] = 'Blogger';
         if (doc.title) doc.title = 'Cambiar el favicon en Blogger | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -34620,11 +34624,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Inicio";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/es/";
-                        schema.itemListElement[1].name = "Guía de favicon de Blogger";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/blogger-favicon/";
+                        schema.itemListElement[1].name = "Tutoriales";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/es/tutorials/";
+                        schema.itemListElement[2].name = "Guía de favicon de Blogger";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/es/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -35856,7 +35862,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'कॉपी करें';
         }
-    } else if (targetLang === 'hi' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'hi' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'ब्लॉगर पर फ़ेविकॉन बदलें | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'डिफ़ॉल्ट ब्लॉगर आइकन को अपनी पर्सनल ब्रांडिंग से बदलें। ब्लॉगस्पॉट आइकन सेट करने के लिए गाइड।');
@@ -35867,11 +35873,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "होम";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/hi/";
-                        schema.itemListElement[1].name = "ब्लॉगर फ़ेविकॉन गाइड";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/blogger-favicon/";
+                        schema.itemListElement[1].name = "ट्यूटोरियल";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/hi/tutorials/";
+                        schema.itemListElement[2].name = "ब्लॉगर फ़ेविकॉन गाइड";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/hi/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -37546,7 +37554,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'id' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'Mengubah Favicon di Blogger | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Ganti ikon Blogger default dengan branding pribadi Anda. Panduan untuk mengatur ikon Blogspot.');
@@ -37565,11 +37573,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Beranda";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/id/";
-                        schema.itemListElement[1].name = "Panduan Favicon Blogger";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/blogger-favicon/";
+                        schema.itemListElement[1].name = "Tutorial";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/id/tutorials/";
+                        schema.itemListElement[2].name = "Panduan Favicon Blogger";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/id/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -38799,7 +38809,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'Copier';
         }
-    } else if (targetLang === 'fr' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'fr' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'Changer l\'icône de votre blog Blogger | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Remplacez l\'icône par défaut de Blogger par votre propre logo. Guide pour configurer les icônes Blogspot.');
@@ -38810,11 +38820,13 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Accueil";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/fr/";
-                        schema.itemListElement[1].name = "Guide de favicon Blogger";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/blogger-favicon/";
+                        schema.itemListElement[1].name = "Tutoriels";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/fr/tutorials/";
+                        schema.itemListElement[2].name = "Guide de favicon Blogger";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/fr/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -40633,7 +40645,7 @@ export default function Document() {
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'pt' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'Alterar o Favicon no Blogger | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Substitua o ícone padrão do Blogger pela sua própria identidade visual. Guia para configurar ícones no Blogspot.');
@@ -40652,11 +40664,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Sobre";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/pt/";
-                        schema.itemListElement[1].name = "Guia de favicon do Blogger";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/blogger-favicon/";
+                        schema.itemListElement[1].name = "Tutoriais";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/pt/tutorials/";
+                        schema.itemListElement[2].name = "Guia de favicon do Blogger";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/pt/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -42643,7 +42657,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'tr' && normPath === 'tutorials/blogger-favicon/index.html') {
         if (doc.title) doc.title = 'Blogger\'da Favicon Değiştirme | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Varsayılan Blogger simgesini kendi kişisel markanızla değiştirin. Blogspot simgelerini ayarlama kılavuzu.');
@@ -42662,11 +42676,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "Ana Sayfa";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/tr/";
-                        schema.itemListElement[1].name = "Blogger Favicon Kılavuzu";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/blogger-favicon/";
+                        schema.itemListElement[1].name = "Eğitimler";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/tr/tutorials/";
+                        schema.itemListElement[2].name = "Blogger Favicon Kılavuzu";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/tr/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {
@@ -44505,7 +44521,7 @@ export default function Document() {
             const copyBtn = card1.querySelector('.copy-btn');
             if (copyBtn) copyBtn.textContent = 'کاپی کریں';
         }
-    } else if (targetLang === 'ur' && normPath === 'blogger-favicon/index.html') {
+    } else if (targetLang === 'ur' && normPath === 'tutorials/blogger-favicon/index.html') {
         doc.title = "بلاگر پر فیویکن کو تبدیل کریں | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "پہلے سے طے شدہ بلاگر آئیکن کو اپنی ذاتی برانڈنگ سے تبدیل کریں۔ بلاگ سپاٹ شبیہیں ترتیب دینے کے لیے گائیڈ۔");
@@ -44526,11 +44542,13 @@ export default function Document() {
             if (jsonText.includes('"BreadcrumbList"')) {
                 try {
                     const schema = JSON.parse(jsonText);
-                    if (schema.itemListElement && schema.itemListElement.length >= 2) {
+                    if (schema.itemListElement && schema.itemListElement.length >= 3) {
                         schema.itemListElement[0].name = "ہوم پیج";
                         schema.itemListElement[0].item = "https://pngtofavicon.com/ur/";
-                        schema.itemListElement[1].name = "Blogger Favicon گائیڈ";
-                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/blogger-favicon/";
+                        schema.itemListElement[1].name = "سبق";
+                        schema.itemListElement[1].item = "https://pngtofavicon.com/ur/tutorials/";
+                        schema.itemListElement[2].name = "Blogger Favicon گائیڈ";
+                        schema.itemListElement[2].item = "https://pngtofavicon.com/ur/tutorials/blogger-favicon/";
                     }
                     script.textContent = JSON.stringify(schema, null, 2);
                 } catch(e) {

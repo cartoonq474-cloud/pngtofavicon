@@ -65,6 +65,19 @@ const server = http.createServer((req, res) => {
     return;
   }
 
+  // 301 Redirect for blogger-favicon to tutorials/blogger-favicon
+  const bloggerMatch = pathname.match(/^\/((?:[a-z]{2}\/)?)blogger-favicon\/?$/i);
+  if (bloggerMatch) {
+    const langPrefix = bloggerMatch[1] || '';
+    const targetUrl = `/${langPrefix}tutorials/blogger-favicon/${parsedUrl.search}`;
+    res.writeHead(301, {
+      'Location': targetUrl,
+      'Cache-Control': 'public, max-age=31536000'
+    });
+    res.end();
+    return;
+  }
+
   // Normalize path to avoid directory traversal
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 
