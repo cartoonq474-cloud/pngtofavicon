@@ -7298,7 +7298,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'tutorials/shopify-favicon/index.html') {
+    if (false && targetLang === 'ar' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'كيفية إضافة أيقونة الموقع (Favicon) إلى متجر Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'عزز مصداقية متجرك. اتبع هذا الدليل السريع لتخصيص متجرك الإلكتروني على Shopify باستخدام أيقونة موقع عالية الدقة.');
@@ -7467,7 +7467,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'tutorials/shopify-favicon/index.html') {
+    if (false && targetLang === 'de' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'So fügen Sie ein Favicon zu Shopify hinzu (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie Ihren Shopify-Shop anpassen, indem Sie ein benutzerdefiniertes Favicon hinzufügen. Optimieren Sie den Wiederkennungswert und das Shop-Design.');
@@ -33613,7 +33613,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "Verificar ahora →";
             }
         }
-    } else if (targetLang === 'es' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'es' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Cómo añadir un favicon a Shopify (Guía Paso a Paso) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aumenta la credibilidad de tu tienda. Sigue este breve tutorial para personalizar tu tienda online de Shopify con un favicon de alta definición.');
@@ -34845,7 +34845,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "अभी चेक करें →";
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'hi' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Shopify में फ़ेविकॉन कैसे जोड़ें (स्टेप-बाय-स्टेप गाइड) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'स्टोर की क्रेडिबिलिटी बनाएं। अपने ऑनलाइन Shopify स्टोर को हाई-डेफ़िनिशन फ़ेविकॉन टैब आइकन के साथ कस्टमाइज़ करने के लिए यह क्विक ट्यूटोरियल फ़ॉलो करें।');
@@ -36126,7 +36126,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
-    } else if (targetLang === 'id' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'id' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Menambahkan Favicon ke Shopify (Panduan 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Bangun kredibilitas toko. Ikuti tutorial singkat ini untuk menyesuaikan toko Shopify online Anda dengan ikon tab favicon berdefinisi tinggi.');
@@ -37732,7 +37732,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (linkText) linkText.textContent = "Vérifier maintenant →";
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'fr' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Comment ajouter une favicon à Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Renforcez la crédibilité de votre boutique. Suivez ce tutoriel rapide pour personnaliser votre boutique Shopify en ligne avec une favicon haute définition.');
@@ -38992,7 +38992,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
-    } else if (targetLang === 'pt' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'pt' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Como adicionar um favicon à sua loja Shopify | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aumente a credibilidade da sua loja. Siga este tutorial rápido para personalizar a sua loja online Shopify com um ícone de guia favicon de alta definição.');
@@ -40852,7 +40852,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
-    } else if (targetLang === 'tr' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'tr' && normPath === 'tutorials/shopify-favicon/index.html') {
         if (doc.title) doc.title = 'Shopify\'a Favicon Nasıl Eklenir? (Adım Adım Kılavuz) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Mağazanızın güvenilirliğini artırın. Çevrimiçi Shopify mağazanızı yüksek çözünürlüklü bir favicon sekme simgesiyle özelleştirmek için bu hızlı kılavuzu izleyin.');
@@ -42711,7 +42711,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'tutorials/shopify-favicon/index.html') {
+    } else if (false && targetLang === 'ur' && normPath === 'tutorials/shopify-favicon/index.html') {
         doc.title = "Shopify میں فیویکن کیسے شامل کریں؟ (مرحلہ وار گائیڈ) | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "اسٹور کی ساکھ بنائیں۔ ہائی ڈیفینیشن فیوی کون ٹیب آئیکن کے ساتھ اپنے آن لائن Shopify اسٹور کو حسب ضرورت بنانے کے لیے اس فوری ٹیوٹوریل پر عمل کریں۔");

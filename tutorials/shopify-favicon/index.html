@@ -197,26 +197,302 @@
     
       <section class="section">
         <div class="container" style="max-width: 800px;">
+
+          <!-- Introduction Card -->
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Step-by-Step Shopify Favicon Installation</h2>
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-primary);">Adding a favicon to Shopify is a straightforward theme customization. You can upload an image from your Shopify admin without editing your theme code in most Shopify themes. In this tutorial, you’ll learn how to prepare a favicon, add it to your Shopify store, replace or remove it, verify that it is working, and troubleshoot cases where the favicon does not appear. You’ll also learn what to do if your theme places the favicon setting in a different location.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">Before you start, have a square favicon image ready. Shopify recommends a favicon size of 32 × 32 pixels, although a 16 × 16 pixel image is also listed as an ideal favicon size in Shopify's documentation. Images larger than 32 × 32 pixels can be reduced to 32 × 32 pixels when uploaded.</p>
+          </div>
+
+          <!-- What Is a Shopify Favicon Card -->
+          <div class="glass-card animate-fade-in animate-delay-1" style="margin-bottom: 2rem;">
+            <h2>What Is a Shopify Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">A favicon is the small image associated with your website. It commonly appears beside your store's page title in a browser tab, in browser history, bookmarks, and other browser interfaces. Shopify describes it as a small image or logo that helps strengthen your store's branding.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Your favicon is different from your Shopify store logo. Your logo is normally displayed as part of your storefront design, such as in the header. Your favicon is much smaller and is mainly used as a browser-level identifier.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">For example, a clothing store might use its complete brand logo in the website header but use only its distinctive symbol or initials as the favicon. A good Shopify favicon should therefore remain recognizable when displayed at a very small size.</p>
+          </div>
+
+          <!-- What to Prepare Card -->
+          <div class="glass-card animate-fade-in animate-delay-2" style="margin-bottom: 2rem;">
+            <h2>What Should You Prepare Before Adding a Favicon to Shopify?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Prepare the image before opening the Shopify theme editor. This avoids having to stop halfway through the process to resize or redesign the icon.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Use a square image:</strong> Favicons are displayed as small square icons, so use a square image rather than a wide banner or horizontal logo. A square version of your logo usually works better than uploading the full horizontal logo.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Use an appropriate favicon size:</strong> Shopify's documentation recommends 32 × 32 pixels for a favicon. Its favicon documentation also lists 16 × 16 pixels as an ideal size and notes that larger favicon images can be reduced to 32 × 32 pixels when uploaded. Starting with a clean square image and letting Shopify scale it down is preferable to starting with an extremely small, low-quality image.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Keep the design simple:</strong> A favicon has very little space. Avoid long business names, tiny text, detailed illustrations, thin lines, too many colors, and multiple unrelated symbols. A recognizable symbol, initial, or short monogram usually works better.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Use strong contrast:</strong> The favicon should remain visible against different browser backgrounds. For example, dark lettering on a dark background can become difficult to recognize. A strong contrast between the icon and its background generally produces a clearer result.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Start with a high-quality source:</strong> Do not enlarge a tiny logo and expect it to become a sharp favicon. Start with a clean logo, icon, or other high-resolution brand asset, then create a simplified square version for the favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Consider transparency:</strong> A transparent background can work well when the favicon needs to blend naturally with different browser interfaces. A solid background can be better when the icon needs stronger separation from its surroundings. Choose the option that keeps your brand mark easiest to recognize.</li>
+            </ul>
+          </div>
+
+          <!-- How Do You Add Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Add a Favicon to Shopify?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Shopify provides a favicon setting through the theme editor for eligible stores. The exact location of the setting can vary by theme version. Shopify's current instructions place it under Theme settings, where it may appear as Favicon or under Logo.</p>
             <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Log in to your <strong>Shopify admin dashboard</strong>.</li>
-              <li>Go to <strong>Online Store &gt; Themes</strong> in the left sidebar menu.</li>
-              <li>Find your current active theme and click the <strong>Customize</strong> button.</li>
-              <li>Click on the <strong>Theme Settings</strong> tab (represented by a gear icon on the left panel).</li>
-              <li>Select the <strong>Logo</strong> or <strong>Favicon</strong> setting (depending on your theme).</li>
-              <li>In the Favicon area, click <strong>Select Image</strong> and upload your square PNG favicon.</li>
-              <li>Click <strong>Save</strong> at the top right to apply changes.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Log in to Shopify:</strong> Sign in to your Shopify admin. You need access to the store whose favicon you want to change.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open Online Store &gt; Themes:</strong> From the Shopify admin, go to <strong>Online Store &gt; Themes</strong>. Locate the theme that you want to modify.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open the theme editor:</strong> Click <strong>Customize</strong> (or Edit theme) next to the theme you want to customize. The important point is to open the theme editor for the theme you want to change.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open Theme settings:</strong> Inside the theme editor, click the <strong>Theme settings</strong> icon (represented by a gear icon on the left panel).</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Find the favicon setting:</strong> Depending on your theme version, click <strong>Logo</strong> or <strong>Favicon</strong>. Shopify specifically notes that the location can differ depending on the theme version. Do not assume that every Shopify theme will display an identically named setting in the same place.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Select your favicon image:</strong> In the Favicon image section, click <strong>Select image</strong>. You can then either select an image that is already uploaded to your Shopify admin, or click <strong>Add images</strong> and upload an image from your computer. Select the favicon you prepared.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Click Done:</strong> After selecting the image, click <strong>Done</strong>. Shopify will return you to the favicon settings.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Add alt text when available:</strong> Some themes let you add alt text to the favicon. To do this, click <strong>Edit</strong> in the Favicon image section and enter a brief description of the image. Shopify notes that some themes provide this option. A descriptive example would be: <em>Brand initials in white on a black background</em>.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Save your changes:</strong> Click <strong>Save</strong> at the top right. This applies the favicon to the theme you are editing.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check the live store:</strong> Open your published Shopify store in a normal browser window. Look at the browser tab and check whether your new favicon appears beside the page title. Do not rely solely on the preview inside the Shopify theme editor. Shopify notes that favicons do not display when viewing a theme through the Theme Editor because the editor is part of Shopify admin rather than the live storefront.</li>
             </ol>
           </div>
 
-          <div class="glass-card animate-fade-in animate-delay-1" style="margin-bottom: 2rem;">
-            <h2>Tips for Shopify Favicons</h2>
-            <ul style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li><strong>Optimal Size:</strong> Shopify recommends uploading a square image (typically 32x32px or higher). Our converter output works perfectly.</li>
-              <li><strong>Contrast:</strong> Make sure your icon has good contrast against both light and dark browser tabs, as many users browse in dark mode.</li>
+          <!-- Where Is setting Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Where Is the Favicon Setting in Shopify?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">In current Shopify instructions, the favicon setting is accessed through the theme editor:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Shopify admin → Online Store → Themes → Edit theme/Customize → Theme settings</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">From there, the setting can appear as <strong>Favicon</strong> or under <strong>Logo</strong>, depending on the theme version. This variation is important because an older tutorial may tell you to click Favicon immediately, while your theme may place the same option inside Logo. If you cannot find the setting, check the complete Theme settings panel rather than looking only for a specific label.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">Shopify also requires themes submitted to its Theme Store to have a favicon setting, which means themes designed for Shopify's ecosystem are expected to provide support for this customization.</p>
+          </div>
+
+          <!-- What If Cannot Find Setting Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>What If You Cannot Find a Favicon Setting?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">First, confirm that you are editing the correct theme. Then check:</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Go to <strong>Online Store &gt; Themes</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Open the theme you actually want to publish.</li>
+              <li style="margin-bottom: 0.5rem;">Open <strong>Theme settings</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Check both <strong>Favicon</strong> and <strong>Logo</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Look through the complete theme settings panel. Some themes organize their settings differently.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 0;">If your theme genuinely does not expose a favicon setting, theme code may provide an alternative. Shopify themes can expose global settings through settings_schema.json, and Shopify's developer documentation shows that favicon settings can be rendered through the theme's global settings object. Code editing should not be the first option when the theme already provides a favicon setting.</p>
+          </div>
+
+          <!-- What Size Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>What Size Should a Shopify Favicon Be?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Shopify recommends 32 × 32 pixels for a favicon. Its help documentation also identifies 16 × 16 pixels as an ideal favicon size and explains that larger images can be reduced to 32 × 32 pixels when uploaded.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">The practical priority is not simply choosing a number. The image must remain recognizable after it is displayed at favicon size. For example, a 32 × 32 pixel icon containing an entire company name may technically fit but still be impossible to read. A simple symbol with strong contrast can work much better.</p>
+          </div>
+
+          <!-- How to Create Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Create a Favicon for Shopify?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">You have several options depending on what brand assets you already have.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Create a favicon from your logo</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Start with the most recognizable part of your logo. A horizontal logo containing a symbol and a long company name should usually be simplified rather than reduced proportionally until the text becomes unreadable. Use the symbol alone or combine one or two recognizable initials.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Create a favicon from initials</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">If your company has no distinct icon, create a simple favicon using one or two letters. For example, <em>NS</em> could represent a brand called North Star. Use a clear typeface, sufficient spacing, and strong contrast.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Convert an existing PNG into a favicon</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">If you already have a square PNG image, you can convert it into favicon-ready artwork before uploading it. A tool such as <a href="https://pngtofavicon.com/">PNGtoFavicon.com</a> can convert a PNG into a favicon, which is useful when you already have a brand image but need a dedicated favicon version.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">After conversion, inspect the resulting icon at a small size before uploading it to Shopify.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Create a favicon specifically for small-screen display</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Do not simply shrink your full-size logo without checking the result. Remove unnecessary elements, increase contrast when needed, and make sure the important part of the icon remains visible. The favicon is successful when a visitor can identify your brand from the tiny icon without needing to zoom in.</p>
+          </div>
+
+          <!-- How to Check Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Check if Your Shopify Favicon Is Working?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">After saving the favicon, verify it on the live storefront.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Check the browser tab:</strong> Open the published store and look beside the page title in your browser tab. Shopify identifies the browser tab as one of the main places where a favicon appears.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check browser history:</strong> Visit another page, return to your store, and check the browser's history entries. Shopify lists browser history as another location where a favicon can appear.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check a bookmark:</strong> Bookmark the store and check whether the favicon appears beside the bookmark. Shopify specifically identifies bookmarked stores as another location where the favicon can display.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Test a private or incognito window:</strong> If the old favicon is still visible in your regular browser, open a private or incognito window and visit the live store. This helps separate a browser-cache issue from a Shopify configuration problem.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Test another browser:</strong> Open the store in another desktop browser. If the new icon appears in one browser but not another, browser caching or browser-specific behavior is a more likely explanation than a failed Shopify upload.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check mobile behavior:</strong> Do not assume that desktop and mobile browsers will display the favicon identically. More importantly, distinguish the live storefront from Shopify's admin interfaces. Shopify states that favicons do not appear in the Theme Editor preview itself.</li>
             </ul>
           </div>
+
+          <!-- Why Not Showing Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Why Is My Shopify Favicon Not Showing?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Several different problems can produce the same symptom.</p>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">The browser is showing a cached favicon</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> You uploaded the new favicon, but the browser still shows the previous icon.<br><strong>Fix:</strong> Open the site in an incognito or private window. You can also clear the browser's cached data and restart the browser.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You did not save the theme</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The image was selected but the change was never saved.<br><strong>Fix:</strong> Return to the favicon setting, confirm the image is selected, and click Save.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You are editing the wrong theme</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The favicon looks unchanged on the live store because you modified a draft or different theme.<br><strong>Fix:</strong> Return to Online Store &gt; Themes and confirm which theme is currently published.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You are checking the Shopify Theme Editor</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> You cannot see the favicon in the theme preview.<br><strong>Fix:</strong> Open the actual published storefront in a browser. Shopify explicitly notes that favicons do not display in the Theme Editor because it is part of Shopify admin.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Your theme uses a different setting location</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> You cannot find a setting called Favicon.<br><strong>Fix:</strong> Open Theme settings and look for Logo. Shopify notes that the setting name can differ by theme version.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Your favicon design is too detailed</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The favicon technically appears, but it is difficult to recognize.<br><strong>Fix:</strong> Simplify the image. Remove tiny text and unnecessary visual elements.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Your image is too large</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The uploaded image is displayed smaller than expected or loses detail.<br><strong>Fix:</strong> Prepare a favicon around Shopify's recommended 32 × 32 pixel size or use a clean source that can be reduced effectively.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How to Fix Not Updating Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Fix a Shopify Favicon That Is Not Updating?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Work through these checks in order:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Open <strong>Online Store &gt; Themes</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Confirm that you are editing the correct theme.</li>
+              <li style="margin-bottom: 0.5rem;">Open <strong>Theme settings</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Check the <strong>Favicon</strong> or <strong>Logo</strong> setting.</li>
+              <li style="margin-bottom: 0.5rem;">Confirm that the correct image is selected.</li>
+              <li style="margin-bottom: 0.5rem;">Click <strong>Save</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Open the published storefront, not the Theme Editor.</li>
+              <li style="margin-bottom: 0.5rem;">Test the site in a private or incognito browser window.</li>
+              <li style="margin-bottom: 0.5rem;">Test another browser.</li>
+              <li style="margin-bottom: 0.5rem;">Check the favicon again in the browser tab.</li>
+            </ol>
+            <p style="line-height: 1.8; margin-top: 1.5rem; margin-bottom: 0;">This sequence helps identify whether the problem comes from Shopify settings, the selected theme, or browser caching.</p>
+          </div>
+
+          <!-- How to Change/Replace Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Change or Replace a Shopify Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Replacing a favicon uses the same theme settings as the initial upload.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Log in to your Shopify admin.</li>
+              <li style="margin-bottom: 0.5rem;">Go to Online Store &gt; Themes.</li>
+              <li style="margin-bottom: 0.5rem;">Find the theme you want to update.</li>
+              <li style="margin-bottom: 0.5rem;">Click Edit theme/Customize.</li>
+              <li style="margin-bottom: 0.5rem;">Open Theme settings.</li>
+              <li style="margin-bottom: 0.5rem;">Click Logo or Favicon, depending on your theme.</li>
+              <li style="margin-bottom: 0.5rem;">In the Favicon image section, click Select image.</li>
+              <li style="margin-bottom: 0.5rem;">Choose the replacement favicon or upload a new image.</li>
+              <li style="margin-bottom: 0.5rem;">Click Done.</li>
+              <li style="margin-bottom: 0.5rem;">Click Save.</li>
+              <li style="margin-bottom: 0.5rem;">Open the live store and verify the new icon.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 0;">Shopify's current documentation confirms this workflow and the theme-dependent Logo/Favicon variation.</p>
+          </div>
+
+          <!-- How to Remove Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Remove a Shopify Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">The removal process depends on the controls exposed by your theme.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Open:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Online Store → Themes → Edit theme/Customize → Theme settings</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Then open the Favicon or Logo area and look for the control associated with the currently selected favicon image.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">If your theme provides a remove or clear option, use it and save the theme. Do not add custom code simply to remove a favicon when your theme already provides a setting for managing it.</p>
+          </div>
+
+          <!-- Code Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Can You Add a Shopify Favicon With Custom Code?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Yes, but most stores should use the built-in theme setting first.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Shopify's theme architecture supports global settings through settings_schema.json. A theme can define a favicon image setting and access its value through the Liquid settings object. Shopify's developer documentation includes an example that renders a PNG favicon from settings.favicon.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">For a custom theme, code can therefore be part of the implementation. For a normal Shopify store, however, editing Liquid just to add a favicon is unnecessary when the theme already provides the setting.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">When Should You Use Theme Settings Instead of Code?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Use the built-in theme setting when it is available. It is easier to manage, less likely to introduce theme errors, and can be changed later without modifying Liquid files.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">What Should You Check Before Editing Theme Code?</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">If you must edit code, first identify the published theme, the theme's favicon implementation, the relevant layout file, whether a global favicon setting already exists, and whether the theme is updated or maintained by another developer. Do not paste favicon code into a random theme file without understanding how the theme handles global settings.</p>
+          </div>
+
+          <!-- Mistakes Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Common Shopify Favicon Mistakes to Avoid</h2>
+            <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Using your entire logo:</strong> A long logo can become unreadable when reduced to favicon dimensions.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using tiny text:</strong> One or two initials may work. A full slogan usually will not.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using a complicated image:</strong> A simple brand mark is easier to recognize than a detailed illustration.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using a non-square image:</strong> Start with square artwork so the favicon does not rely on aggressive cropping or scaling.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using a low-quality source:</strong> A blurry source image will produce a poor favicon even after resizing.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Forgetting to save:</strong> Selecting an image is not enough. Save the theme changes.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Checking only the Theme Editor:</strong> The favicon may not appear in Shopify's Theme Editor preview. Test the published storefront instead.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Checking only one browser:</strong> A stale favicon in one browser does not automatically mean the Shopify configuration is wrong.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Testing an unpublished theme:</strong> You can customize a theme that is not currently live, but that does not change the favicon visitors see on your published storefront.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Editing code unnecessarily:</strong> If the theme already has a favicon setting, use it instead of changing Liquid.</li>
+            </ul>
+          </div>
+
+          <!-- FAQ Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Shopify Favicon FAQs</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I add a PNG favicon to Shopify?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. Shopify allows you to select or upload a favicon image through the theme editor's favicon settings.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">What size should a Shopify favicon be?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Shopify recommends 32 × 32 pixels. Its documentation also lists 16 × 16 pixels as an ideal favicon size and states that larger images can be reduced to 32 × 32 pixels when uploaded.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I use my logo as a Shopify favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. A logo can be used, but it should remain recognizable at a very small size. In many cases, using only the logo symbol or initials produces a better favicon than using the complete wordmark.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Why is my Shopify favicon not showing?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Check that you edited the correct theme, saved the favicon, and are viewing the published store rather than the Shopify Theme Editor. Then test the store in a private window or another browser to rule out caching. Shopify specifically notes that the Theme Editor does not display favicons.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How do I change my favicon in Shopify?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Go to Online Store &gt; Themes &gt; Edit theme/Customize &gt; Theme settings, then open Favicon or Logo, depending on your theme version. Select the new image and save.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Does Shopify automatically resize the favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Shopify states that images larger than 32 × 32 pixels are reduced to 32 × 32 pixels when uploaded as a favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How do I make a favicon for Shopify?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Create a simple square icon using your logo, symbol, or initials. Export or convert it into a suitable favicon image, then upload it through the Shopify theme settings. A tool such as <a href="https://pngtofavicon.com/">PNGtoFavicon.com</a> can convert an existing PNG into a favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How long does a Shopify favicon take to update?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Shopify can save the favicon as soon as you save the theme, but the icon you see in a particular browser may not change immediately because of cached browser data. Test the live store in a private window or another browser before assuming the upload failed.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I add a favicon to any Shopify theme?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Shopify's theme requirements specify that themes submitted to the Shopify Theme Store must have a favicon setting. However, the location and label of the setting can vary by theme version.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Do I need to edit Shopify code to add a favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Usually, no. Shopify provides a favicon setting through the theme editor for eligible stores. Custom code is mainly relevant when working with a custom theme or when the built-in setting is unavailable or needs special behavior.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How to Create Before Uploading Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How to Create a Favicon Before Uploading It to Shopify</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">If you do not already have a favicon, use this simple workflow:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Start with your logo, brand symbol, or initials.</li>
+              <li style="margin-bottom: 0.5rem;">Create a square version of the design.</li>
+              <li style="margin-bottom: 0.5rem;">Remove details that will disappear at small sizes.</li>
+              <li style="margin-bottom: 0.5rem;">Use strong contrast between the icon and background.</li>
+              <li style="margin-bottom: 0.5rem;">Prepare the image around Shopify's recommended 32 × 32 pixel size or use a clean larger source that Shopify can reduce.</li>
+              <li style="margin-bottom: 0.5rem;">Convert an existing PNG with a favicon tool when necessary.</li>
+              <li style="margin-bottom: 0.5rem;">Upload the finished image through Theme settings.</li>
+              <li style="margin-bottom: 0.5rem;">Save the theme.</li>
+              <li style="margin-bottom: 0.5rem;">Test the favicon on the live storefront.</li>
+            </ol>
+          </div>
+
+          <!-- Conclusion Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Conclusion</h2>
+            <p style="line-height: 1.8; margin-bottom: 0;">Adding a favicon to Shopify is primarily a theme-editor task. Open Online Store &gt; Themes, edit the relevant theme, open Theme settings, find Favicon or Logo, select your image, and save the theme. Use a simple square icon that remains recognizable at a very small size. When the new favicon does not appear immediately, check the published store in a private window or another browser before changing the Shopify settings again. Browser caching can make a successfully updated favicon appear unchanged.</p>
+          </div>
+
         </div>
       </section>
     
