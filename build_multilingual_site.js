@@ -6608,7 +6608,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    if (false && targetLang === 'ar' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'كيفية إضافة أيقونة الموقع (Favicon) إلى ووردبريس | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'يُشغّل ووردبريس أكثر من 40% من مواقع الويب. اتبع هذا الدليل الحديث لعام 2026 لضمان عرض أيقونة موقعك بشكل صحيح في علامات تبويب المتصفح وشاشات الجوال الرئيسية.');
@@ -6798,7 +6798,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    if (false && targetLang === 'de' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'So fügen Sie ein Favicon in WordPress hinzu (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie ganz einfach ein Favicon zu Ihrer WordPress-Website hinzufügen. Schritt-für-Schritt-Anleitung zur Verwendung des Customizers, von Plugins oder zum Bearbeiten von Header-Dateien.');
@@ -33928,7 +33928,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn2 = card2.querySelector('.copy-btn');
             if (copyBtn2) copyBtn2.textContent = 'Copiar';
         }
-    } else if (targetLang === 'es' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'es' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Cómo añadir un favicon a WordPress (Guía Paso a Paso) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aprende a añadir fácilmente un favicon a tu sitio web de WordPress. Guía paso a paso usando el Personalizador, plugins o editando los archivos del encabezado.');
@@ -35142,7 +35142,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const copyBtn2 = card2.querySelector('.copy-btn');
             if (copyBtn2) copyBtn2.textContent = 'कॉपी करें';
         }
-    } else if (targetLang === 'hi' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'hi' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'वर्डप्रेस में फ़ेविकॉन कैसे जोड़ें | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'वर्डप्रेस 40% से ज़्यादा वेब पर काम करता है। यह पक्का करने के लिए कि आपका वर्डप्रेस फ़ेविकॉन ब्राउज़र टैब और मोबाइल होम स्क्रीन पर सही तरीके से दिखे, इस मॉडर्न, 2026 गाइड को फ़ॉलो करें।');
@@ -36521,7 +36521,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'id' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Menambahkan Favicon ke WordPress (Panduan 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress menggerakkan lebih dari 40% situs web. Ikuti panduan modern tahun 2026 ini untuk memastikan favicon WordPress Anda ditampilkan dengan benar di tab browser dan layar beranda ponsel.');
@@ -38022,7 +38022,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
             const p1 = card2.querySelector('p');
             if (p1) p1.innerHTML = 'Si vous utilisez Pages Router, modifiez votre fichier <code>_document.js</code> dans le répertoire pages et ajoutez les métadonnées standard :';
         }
-    } else if (targetLang === 'fr' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'fr' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Comment ajouter une favicon à WordPress | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress alimente plus de 40 % du web. Suivez ce guide moderne (2026) pour vous assurer que votre favicon WordPress s\'affiche correctement dans les onglets de votre navigateur et sur les écrans d\'accueil mobiles.');
@@ -39545,7 +39545,7 @@ export default function Document() {
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'pt' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'Como adicionar um favicon ao WordPress | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'O WordPress alimenta mais de 40% da web. Siga este guia moderno de 2026 para garantir que o seu favicon do WordPress é apresentado corretamente nos separadores do navegador e nos ecrãs iniciais dos dispositivos móveis.');
@@ -41405,7 +41405,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'tr' && normPath === 'tutorials/wordpress-favicon/index.html') {
         if (doc.title) doc.title = 'WordPress\'e Favicon Nasıl Eklenir? (2026 Kılavuzu) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'WordPress sitenize nasıl kolayca favicon ekleyeceğinizi öğrenin. Özelleştirici, eklentiler veya başlık dosyalarını düzenlemeyi içeren adım adım kılavuz.');
@@ -43249,7 +43249,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'tutorials/wordpress-favicon/index.html') {
+    } else if (false && targetLang === 'ur' && normPath === 'tutorials/wordpress-favicon/index.html') {
         doc.title = "ورڈپریس میں فیویکن کیسے شامل کریں۔ | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "ورڈپریس ویب کے 40% سے زیادہ طاقت رکھتا ہے۔ اس جدید، 2026 گائیڈ کی پیروی کریں تاکہ یہ یقینی بنایا جا سکے کہ آپ کا ورڈپریس فیویکون براؤزر ٹیبز اور موبائل ہوم اسکرینز میں صحیح طریقے سے دکھاتا ہے۔");

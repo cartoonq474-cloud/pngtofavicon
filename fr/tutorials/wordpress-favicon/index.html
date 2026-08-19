@@ -10,23 +10,23 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment ajouter une favicon à WordPress | PNGtoFavicon</title>
-  <meta name="description" content="WordPress alimente plus de 40 % du web. Suivez ce guide moderne (2026) pour vous assurer que votre favicon WordPress s'affiche correctement dans les onglets de votre navigateur et sur les écrans d'accueil mobiles.">
-  <meta name="keywords" content="wordpress favicon, add favicon to wordpress, wordpress customizer favicon, wordpress site icon">
+  <title>Comment ajouter un Favicon à WordPress (Tutoriel 2026) | PNG vers Favicon</title>
+  <meta name="description" content="Découvrez comment ajouter facilement une favicon à votre site WordPress. Tutoriel pas à pas utilisant le Customizer, les plugins ou la modification des fichiers d'en-tête. Gratuit et optimisé.">
+  <meta name="keywords" content="favicon wordpress, ajouter un favicon à wordpress, favicon de personnalisation wordpress, icône du site wordpress">
   <link rel="canonical" href="https://pngtofavicon.com/fr/tutorials/wordpress-favicon/">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://pngtofavicon.com/fr/tutorials/wordpress-favicon/">
-  <meta property="og:title" content="How to Add a Favicon to WordPress (2026 Tutorial) | PNGtoFavicon">
-  <meta property="og:description" content="Learn how to easily add a favicon to your WordPress site. Step-by-step tutorial using Customizer, plugins, or editing header files. Free and optimized.">
+  <meta property="og:title" content="Comment ajouter un Favicon à WordPress (Tutoriel 2026) | PNG vers Favicon">
+  <meta property="og:description" content="Découvrez comment ajouter facilement une favicon à votre site WordPress. Tutoriel pas à pas utilisant le Customizer, les plugins ou la modification des fichiers d'en-tête. Gratuit et optimisé.">
   <meta property="og:image" content="https://pngtofavicon.com/images/og.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://pngtofavicon.com/fr/tutorials/wordpress-favicon/">
-  <meta property="twitter:title" content="How to Add a Favicon to WordPress (2026 Tutorial) | PNGtoFavicon">
-  <meta property="twitter:description" content="Learn how to easily add a favicon to your WordPress site. Step-by-step tutorial using Customizer, plugins, or editing header files. Free and optimized.">
+  <meta property="twitter:title" content="Comment ajouter un Favicon à WordPress (Tutoriel 2026) | PNG vers Favicon">
+  <meta property="twitter:description" content="Découvrez comment ajouter facilement une favicon à votre site WordPress. Tutoriel pas à pas utilisant le Customizer, les plugins ou la modification des fichiers d'en-tête. Gratuit et optimisé.">
   <meta property="twitter:image" content="https://pngtofavicon.com/images/og.png">
 
   <!-- Google Fonts -->
@@ -45,20 +45,20 @@
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Accueil",
-      "item": "https://pngtofavicon.com/fr/"
+      "name": "Maison",
+      "item": "https://pngtofavicon.com/"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Tutoriels",
-      "item": "https://pngtofavicon.com/fr/tutorials/"
+      "item": "https://pngtofavicon.com/tutorials/"
     },
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Guide de favicon WordPress",
-      "item": "https://pngtofavicon.com/fr/tutorials/wordpress-favicon/"
+      "name": "Guide des icônes de favoris WordPress",
+      "item": "https://pngtofavicon.com/tutorials/wordpress-favicon/"
     }
   ]
 }</script>
@@ -181,58 +181,336 @@
     <section class="hero" id="hero">
       <div class="container">
         <h1>Comment ajouter une favicon à <span class="gradient-text">WordPress</span></h1>
-        <p class="subtitle">WordPress alimente plus de 40 % du web. Suivez ce guide moderne (2026) pour vous assurer que votre favicon WordPress s'affiche correctement dans les onglets de votre navigateur et sur les écrans d'accueil mobiles.</p>
+        <p class="subtitle">WordPress alimente plus de 40 % du Web. Suivez ce guide moderne de 2026 pour vous assurer que votre favicon WordPress s'affiche correctement dans les onglets du navigateur et les écrans d'accueil des mobiles.</p>
       </div>
     </section>
 
     <!-- Page Content -->
     
+    <!-- Page Content -->
+    
       <section class="section">
         <div class="container" style="max-width: 800px;">
+
+          <!-- Introduction Card -->
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Méthode 1 : Utiliser l'outil de personnalisation WordPress (recommandée)</h2>
-            <p>WordPress intègre une fonctionnalité appelée « Icône du site » qui simplifie grandement l'ajout d'une favicon. Le redimensionnement pour les principaux appareils est géré automatiquement.</p>
-            <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Connectez-vous à votre tableau de bord WordPress (généralement à l'adresse votresite.com/wp-admin).</li>
-              <li>Dans le menu latéral gauche, cliquez sur <strong>Apparence &gt; Personnaliser</strong>.</li>
-              <li>Cliquez sur <strong>Identité du site</strong> (dans certains thèmes, cette option se trouve dans Réglages d'en-tête).</li>
-              <li>Faites défiler jusqu'à la section <strong>Icône du site</strong>. Cliquez sur <strong>Sélectionner l'icône du site</strong>.</li>
-              <li>Importez votre icône PNG haute résolution (nous recommandons au moins 512 × 512 pixels).</li>
-              <li>Cliquez sur <strong>Publier</strong> pour enregistrer les modifications. Votre favicon est maintenant en ligne !</li>
-            </ol>
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-primary);">L'ajout d'un favicon à WordPress est géré via la fonctionnalité d'icône de site intégrée à WordPress. Vous n'avez normalement pas besoin de créer un fichier favicon.ico, de modifier vos fichiers de thème ou d'installer un plugin favicon. Dans WordPress, le favicon est appelé icône de site. Vous pouvez en ajouter un à partir des paramètres généraux sur WordPress 6.5 et versions ultérieures. Les anciennes versions de WordPress utilisent le Customizer, tandis que les thèmes de bloc peuvent également gérer l'icône via le bloc Logo du site.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">Avant de commencer, préparez une image carrée d'au moins 512 × 512 pixels. WordPress recommande le format PNG pour l'icône du site.</p>
           </div>
 
+          <!-- What Is a WordPress Favicon Card -->
           <div class="glass-card animate-fade-in animate-delay-1" style="margin-bottom: 2rem;">
-            <h2>Méthode 2 : Téléchargement direct dans l’en-tête de votre thème</h2>
-            <p>Si vous préférez le code HTML standard ou si votre thème ne prend pas en charge la fonctionnalité « Icône du site » du personnalisateur, vous pouvez télécharger les icônes manuellement :</p>
+            <h2>Qu'est-ce qu'une favicon WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Un favicon est la petite image associée à un site Web. Les navigateurs peuvent l'afficher à côté du titre de la page dans les onglets du navigateur, les signets, la barre d'adresse, l'historique du navigateur et d'autres interfaces du navigateur. Il peut également être utilisé comme icône d’application sur certains appareils. WordPress appelle cette image une icône de site.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">L'icône du site et le logo du site ne sont pas nécessairement la même chose&nbsp;:</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Icône du site&nbsp;:</strong> La petite icône utilisée pour identifier votre site Web dans les interfaces du navigateur et autres emplacements pris en charge.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Logo du site&nbsp;:</strong> L'image de marque plus grande affichée dans le cadre de la conception de votre site Web, comme dans l'en-tête.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 0;">Vous pouvez utiliser la même image pour les deux, mais ce n’est pas obligatoire. WordPress prend spécifiquement en charge l'utilisation d'une image de logo de site comme icône de site dans les thèmes de bloc.</p>
+          </div>
+
+          <!-- What Should You Prepare Card -->
+          <div class="glass-card animate-fade-in animate-delay-2" style="margin-bottom: 2rem;">
+            <h2>Que devez-vous préparer avant d’ajouter une favicon à WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Préparez l'image avant d'ouvrir vos paramètres WordPress.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Utilisez une image carrée&nbsp;:</strong> WordPress exige que l'image de l'icône du site soit carrée et mesure au moins 512 × 512 pixels. Un canevas carré a également du sens visuellement, car les navigateurs affichent les favicons sous forme de petites icônes carrées.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Utilisez PNG lorsque cela est possible&nbsp;:</strong> WordPress recommande le format PNG pour l'icône du site. PNG fonctionne particulièrement bien pour les logos, les symboles, les initiales et les graphiques qui nécessitent des bords nets ou de la transparence.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Gardez le design simple&nbsp;:</strong> Une favicon est affichée en très petite taille. Un logo détaillé peut paraître beau à 500 pixels mais devenir illisible lorsqu'il est réduit à une icône de navigateur. Évitez les textes longs, les petits caractères, les lignes fines, les illustrations compliquées et trop d’éléments visuels. Un simple symbole, une initiale ou une marque reconnaissable fonctionne généralement mieux.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Utilisez un contraste fort&nbsp;:</strong> Assurez-vous que l'élément principal de l'icône reste visible sur son arrière-plan. Par exemple, un texte sombre sur un fond sombre peut devenir difficile à reconnaître lorsque l'icône est réduite.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Commencez avec une image de haute qualité&nbsp;:</strong> N'agrandissez pas une très petite image et attendez-vous à ce qu'elle produise un favicon net. Commencez avec des illustrations épurées, puis préparez la version carrée dont vous avez besoin pour WordPress.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Ne présumez pas que le logo de votre site est automatiquement le meilleur favicon&nbsp;:</strong> Un logo d'entreprise complet peut bien fonctionner dans l'en-tête d'un site Web, mais mal comme favicon. Par exemple, un logo horizontal contenant un symbole et un long nom d'entreprise peut devenir illisible une fois réduit. Dans ce cas, utilisez plutôt le symbole ou un court monogramme.</li>
+            </ul>
+          </div>
+
+          <!-- How Do You Add Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment ajouter une favicon sur WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Pour WordPress 6.5 et versions ultérieures, WordPress a déplacé le paramètre Icône du site vers Paramètres généraux. Il s’agit de la principale méthode à utiliser sur les installations WordPress actuelles.</p>
             <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Commencez par convertir votre PNG en favicon à l’aide de notre convertisseur PNG vers favicon gratuit.</li>
-              <li>Téléversez tous les fichiers (<code>favicon.ico</code>, <code>apple-touch-icon.png</code>, etc.) dans le répertoire racine de votre installation WordPress via FTP ou le gestionnaire de fichiers de votre panneau de contrôle d’hébergement.</li>
-              <li>Modifiez le fichier <code>header.php</code> de votre thème (utilisez un thème enfant pour éviter que les mises à jour n’écrasent les modifications existantes).</li>
-              <li>Ajoutez les liens HTML suivants directement dans la balise <code>&lt;head&gt;</code> :</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Connectez-vous à votre tableau de bord WordPress&nbsp;:</strong> Ouvrez votre zone d'administration WordPress et connectez-vous. Vous avez besoin d'un accès de niveau administrateur ou d'autorisations suffisantes pour modifier les paramètres du site.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Ouvrez les paramètres généraux&nbsp;:</strong> Depuis le tableau de bord WordPress, ouvrez <strong>Paramètres ��� Général</strong>.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Recherchez le paramètre Icône du site&nbsp;:</strong> Recherchez la section Icône du site. Vous devriez voir une option intitulée <strong>Choisissez une icône de site</strong>.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Téléchargez ou sélectionnez votre favicon&nbsp;:</strong> Cliquez <strong>Choisissez une icône de site</strong>. WordPress vous permettra de sélectionner une image dans votre médiathèque ou de télécharger l'image préparée. Choisissez votre image favicon carrée (au moins 512 × 512 pixels, PNG recommandé).</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Confirmez l'image&nbsp;:</strong> Après avoir sélectionné l'image, vérifiez attentivement l'aperçu. Assurez-vous que la bonne image est sélectionnée, que la partie importante de votre conception est visible, que l'icône n'est pas inutilement compliquée et que l'image est carrée. Si l'image contient un logo avec un très petit texte, pensez à préparer une version simplifiée avant de l'utiliser comme icône du site.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Enregistrer l'icône du site&nbsp;:</strong> Enregistrez les modifications des paramètres généraux. L'icône du site est désormais associée à votre site WordPress.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Ouvrez le site Web en direct&nbsp;:</strong> Ouvrez votre site Web dans un nouvel onglet de navigateur. Vérifiez l'icône à côté du titre de la page. Ne jugez pas le résultat uniquement à partir de l’écran d’administration de WordPress. Le véritable test est le site Web publié dans un navigateur.</li>
             </ol>
-            <div class="code-block" style="margin-top: 1rem; background: #111827;">
-              <button class="copy-btn" data-copy="wpCode">Copier</button>
-              <code id="wpCode">&lt;link rel="shortcut icon" href="/favicon.ico"&gt;
-&lt;link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"&gt;
-&lt;link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"&gt;
-&lt;link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"&gt;</code>
+          </div>
+
+          <!-- Where Is setting Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Où est le paramètre Favicon dans WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">L'emplacement dépend principalement de votre version de WordPress et de la configuration du thème.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Où se trouve le paramètre Favicon dans WordPress 6.5 et versions ultérieures ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Pour WordPress 6.5 et versions ultérieures, utilisez&nbsp;:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Administrateur WordPress → Paramètres → Général → Icône du site</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">WordPress a déplacé l'icône du site du personnalisateur vers les paramètres généraux dans WordPress 6.5. Il s’agit de l’itinéraire standard actuel.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Où était le paramètre Favicon dans les anciennes versions de WordPress ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Dans les versions 4.3 à 6.4 de WordPress, l'icône du site était gérée via le personnalisateur&nbsp;:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Administrateur WordPress → Apparence → Personnaliser → Identité du site → Icône du site</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Vous avez ensuite sélectionné ou téléchargé une image carrée d'au moins 512 × 512 pixels. Cela explique pourquoi les anciens didacticiels WordPress peuvent afficher un chemin de navigation différent. Si votre tableau de bord ne correspond pas à ces instructions, vérifiez d'abord votre version de WordPress avant de supposer que la fonctionnalité a disparu.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Où est le paramètre Favicon dans un thème de bloc&nbsp;?</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Les thèmes de blocs fournissent un autre flux de travail via l'éditeur de site. Le bloc Logo du site comprend un <strong>Utiliser comme icône du site</strong> choix. Lorsqu'elle est activée, l'image attribuée au bloc Logo du site est également utilisée comme icône du site. Ceci est particulièrement pertinent lorsque vous travaillez avec un thème de bloc moderne et que vous passez la plupart de votre temps dans <strong>Apparence → Éditeur</strong>.</p>
+          </div>
+
+          <!-- Block Theme Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment ajouter un Favicon avec un thème de bloc WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Un thème de bloc peut gérer l'icône du site via le bloc Logo du site.</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Ouvrir l'apparence → Éditeur&nbsp;:</strong> Depuis votre tableau de bord WordPress, accédez à <strong>Apparence → Éditeur</strong>. Cela ouvre l'éditeur de site WordPress pour un thème de bloc.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Recherchez ou ajoutez le bloc Logo du site&nbsp;:</strong> Votre thème comporte peut-être déjà un bloc Logo du site dans son en-tête. Sélectionnez-le. S’il n’en existe pas, ajoutez un bloc Logo du site via l’outil d’insertion de blocs. La documentation de WordPress explique que le bloc peut être inséré dans des modèles dans l'éditeur de site.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Ajoutez votre image&nbsp;:</strong> Sélectionnez le bloc Logo du site et téléchargez une image ou choisissez-en une dans la médiathèque.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Ouvrez les paramètres du bloc&nbsp;:</strong> Avec le bloc Logo du site sélectionné, ouvrez la barre latérale des paramètres. Cherchez le <strong>Utiliser comme icône du site</strong> choix.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Activez «&nbsp;Utiliser comme icône du site&nbsp;»&nbsp;:</strong> Allumer <strong>Utiliser comme icône du site</strong>. WordPress utilisera cette image comme icône du site.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Enregistrez vos modifications&nbsp;:</strong> Enregistrez les modifications dans l'éditeur de site, puis ouvrez le site Web en direct et vérifiez l'onglet du navigateur.</li>
+            </ol>
+            <p style="line-height: 1.8; margin-top: 1.5rem; margin-bottom: 0;">Le logo du site et l'icône du site peuvent également être différents. WordPress documente un flux de travail de logo de site dans lequel le logo peut être utilisé pour définir initialement l'icône, puis une autre icône de site peut être sélectionnée par la suite.</p>
+          </div>
+
+          <!-- How to Create Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment créer un Favicon pour WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Vous disposez de plusieurs façons de créer l’image avant de la télécharger.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Comment créer un Favicon à partir de votre logo ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Commencez par le logo de votre marque existant. Si le logo est déjà un simple symbole carré, il vous suffira peut-être de le redimensionner et de l’exporter. Si le logo est horizontal, simplifiez-le d’abord. Supprimez le texte inutile ou utilisez la partie la plus reconnaissable du logo. Ne traduisez pas le logo et ne modifiez pas le nom de la marque dans le cadre du processus de création de favicon. Préserver l’identité originale de la marque tout en adaptant l’œuvre à un petit format carré.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Comment créer un Favicon à partir d'initiales ou de texte ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Un favicon peut utiliser une ou deux lettres au lieu d’un logo complet. Par exemple, une société appelée North Star Digital pourrait utiliser <em>N.-É.</em> plutôt que d'essayer d'insérer le nom complet dans l'icône. Utilisez des caractères gros et lisibles avec suffisamment de contraste.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Comment convertir un PNG en Favicon ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Si vous disposez déjà d'une image PNG, vous pouvez utiliser un outil de conversion de favicon pour préparer une version de favicon. Par exemple, <a href="https://pngtofavicon.com/">PNGversFavicon.com</a> peut convertir un PNG existant en illustration favicon. Ceci est utile lorsque vous disposez déjà d’un logo ou d’une icône appropriée mais que vous devez préparer une version de favicon avant de la télécharger sur WordPress. Après la conversion, vérifiez l'image résultante en petite taille avant de l'utiliser comme icône de votre site.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">L’exigence importante de WordPress est toujours la même : l’image doit être carrée et faire au moins 512 × 512 pixels.</p>
+          </div>
+
+          <!-- What Size Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Quelle doit être la taille d’un favicon WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">WordPress nécessite qu'une icône de site soit carrée, d'au moins 512 × 512 pixels, et recommande le format PNG. Ce sont les exigences documentées actuelles de WordPress.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">Ne confondez pas la taille de l'image que vous téléchargez avec la taille à laquelle le navigateur affiche finalement le favicon. Un navigateur peut afficher l'icône dans une taille beaucoup plus petite que l'image originale téléchargée. C’est pourquoi il est important de commencer avec une image suffisamment grande et propre.</p>
+          </div>
+
+          <!-- How to Check Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment vérifier si votre favicon WordPress fonctionne ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Après avoir enregistré l'icône du site, consultez le site Web en direct.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Vérifiez l'onglet du navigateur&nbsp;:</strong> Ouvrez votre site Web et regardez l'onglet du navigateur. L'icône du site doit apparaître à côté du titre de la page. C'est le moyen le plus simple de confirmer que le favicon est diffusé par votre site Web.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Vérifiez un favori&nbsp;:</strong> Ajoutez le site Web à vos favoris et vérifiez si l'icône apparaît à côté du signet. Les favicons peuvent également être utilisés dans l'historique du navigateur et dans d'autres interfaces du navigateur.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Testez le site dans une fenêtre privée ou incognito&nbsp;:</strong> Si votre ancien favicon est toujours visible, ouvrez le site Web dans une fenêtre privée ou incognito. Cela vous donne un test plus propre, car votre session de navigateur normale peut toujours avoir le favicon précédent en cache.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Testez un autre navigateur&nbsp;:</strong> Ouvrez le site Web dans un deuxième navigateur. Si le nouveau favicon apparaît ici mais pas dans votre navigateur principal, le paramètre WordPress est peut-être déjà correct et le problème restant peut être la mise en cache du navigateur.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Vérifiez le domaine actif&nbsp;:</strong> Assurez-vous que vous visitez le bon domaine publié. Ne testez pas accidentellement un site Web intermédiaire, une installation de développement, un ancien domaine ou une autre installation WordPress.</li>
+            </ul>
+          </div>
+
+          <!-- Why Not Showing Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Pourquoi mon favicon WordPress ne s'affiche-t-il pas ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Une favicon manquante ne signifie pas automatiquement que le téléchargement de l'icône du site a échoué. Plusieurs problèmes différents peuvent provoquer le même résultat.</p>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Cache du navigateur</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Votre navigateur continue d'afficher l'icône précédente.<br><strong>Réparer:</strong> Ouvrez le site Web dans une fenêtre privée ou incognito. Si la nouvelle icône apparaît ici, l'icône du site fonctionne probablement. Vous pouvez également vider le cache du navigateur et redémarrer le navigateur.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">L'icône du site n'a pas été enregistrée</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Vous avez sélectionné l'image mais n'avez pas enregistré le paramètre.<br><strong>Réparer:</strong> Revenez aux paramètres de l'icône du site, confirmez que la bonne image est sélectionnée et enregistrez les modifications.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Vous consultez le mauvais site Web</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Le favicon n’a pas changé car vous avez modifié une installation ou un domaine WordPress différent.<br><strong>Réparer:</strong> Confirmez le domaine que vous modifiez et le domaine que vous testez.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">L'image ne répond pas aux exigences de WordPress</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> L'image n'est pas carrée ou mesure moins de 512 × 512 pixels.<br><strong>Réparer:</strong> Préparez une image carrée avec des dimensions d'au moins 512 × 512 pixels. PNG est le format recommandé.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">La favicon a été modifiée récemment</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> WordPress a la nouvelle icône du site, mais le navigateur affiche toujours la version précédente.<br><strong>Réparer:</strong> Testez dans un autre navigateur ou dans une fenêtre privée avant de modifier à nouveau l'icône du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Votre thème de bloc utilise le workflow Logo du site</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Vous vous attendiez à trouver un paramètre d'icône de site traditionnel, mais votre thème utilise principalement le bloc Logo du site.<br><strong>Réparer:</strong> Accédez à Apparence → Éditeur, sélectionnez le bloc Logo du site et cochez Utiliser comme icône du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Un plugin de mise en cache sert une ancienne version</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Votre site WordPress utilise un plugin de mise en cache qui n'a pas encore régénéré sa sortie en cache.<br><strong>Réparer:</strong> Videz le cache du plugin de mise en cache, puis testez à nouveau le site Web. (Cela s'applique uniquement lorsqu'un système de mise en cache est réellement utilisé.)</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Un CDN ou un cache serveur est impliqué</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problème:</strong> Le navigateur continue de recevoir une ancienne version des actifs du site.<br><strong>Réparer:</strong> Purgez le CDN ou le cache du serveur concerné si votre configuration d'hébergement en utilise un, puis testez à nouveau dans une fenêtre privée.</p>
+              </div>
             </div>
           </div>
 
-          <div class="glass-card animate-fade-in animate-delay-2" style="margin-bottom: 2rem;">
-            <h2>Foire aux questions</h2>
-            <div class="faq-list" style="margin-top: 1rem;">
-              <details class="faq-item">
-                <summary><h3>Pourquoi mon nouveau favicon WordPress ne s'affiche-t-il pas ?</h3></summary>
-                <div class="faq-answer">Les navigateurs web mettent en cache les favicons de manière agressive. Si vous avez récemment mis à jour votre icône, essayez de vider le cache de votre navigateur, de visiter votre site dans une fenêtre de navigation privée ou d'ajouter une chaîne de requête dans votre lien d'en-tête (par exemple, <code>/favicon.ico?v=2</code>).</div>
-              </details>
-              <details class="faq-item">
-                <summary><h3>Quelle la taille recommandée pour une icône de site WordPress ?</h3></summary>
-                <div class="faq-answer">WordPress recommande d'importer une image carrée d'au moins 512 × 512 pixels. Cela garantit que l'icône s'affiche correctement sur les installations PWA et les écrans mobiles.</div>
-              </details>
+          <!-- How to Clear Cache Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment vider le cache de WordPress ou du navigateur après avoir modifié une favicon ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">La mise en cache ne doit être vérifiée qu'après avoir confirmé que l'icône du site a bien été enregistrée. Utilisez cette séquence&nbsp;:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Confirmez que l'icône du site est correcte dans WordPress.</li>
+              <li style="margin-bottom: 0.5rem;">Enregistrez la modification.</li>
+              <li style="margin-bottom: 0.5rem;">Videz le cache de votre plugin de mise en cache WordPress, s'il est installé.</li>
+              <li style="margin-bottom: 0.5rem;">Videz votre cache CDN si votre site Web utilise un CDN.</li>
+              <li style="margin-bottom: 0.5rem;">Ouvrez le site Web dans une fenêtre privée ou incognito.</li>
+              <li style="margin-bottom: 0.5rem;">Testez le site Web dans un autre navigateur.</li>
+              <li style="margin-bottom: 0.5rem;">Vérifiez le favicon dans l'onglet du navigateur.</li>
+            </ol>
+            <p style="line-height: 1.8; margin-top: 1.5rem; margin-bottom: 0;">Cela sépare le problème de configuration de WordPress du problème de mise en cache. Ne remplacez pas le favicon à plusieurs reprises simplement parce que votre navigateur continue d'afficher l'image précédente.</p>
+          </div>
+
+          <!-- How to Change/Replace Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment modifier ou remplacer un favicon WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Remplacer une icône de site est similaire à en ajouter une.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Pour WordPress 6.5 et versions ultérieures</h3>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Connectez-vous à WordPress.</li>
+              <li style="margin-bottom: 0.5rem;">Accédez à Paramètres → Général.</li>
+              <li style="margin-bottom: 0.5rem;">Rechercher l'icône du site.</li>
+              <li style="margin-bottom: 0.5rem;">Choisissez une autre image dans la médiathèque ou téléchargez-la.</li>
+              <li style="margin-bottom: 0.5rem;">Confirmez l'image.</li>
+              <li style="margin-bottom: 0.5rem;">Enregistrez les paramètres.</li>
+              <li style="margin-bottom: 0.5rem;">Ouvrez le site Web en direct et vérifiez l'onglet du navigateur.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">La documentation actuelle de WordPress place l'icône du site dans les paramètres généraux pour WordPress 6.5 et versions ultérieures.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Pour les anciennes versions de WordPress</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Sur WordPress 4.3 à 6.4, utilisez <strong>Apparence → Personnaliser → Identité du site → Icône du site</strong>, puis sélectionnez l'image de remplacement et enregistrez vos modifications.</p>
+          </div>
+
+          <!-- How to Remove Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment supprimer un favicon WordPress ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Le processus de suppression dépend de si vous utilisez les paramètres généraux, le personnalisateur ou un thème de bloc.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Supprimer l'icône du site de WordPress actuel</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Ouvrez les contrôles de l'icône du site sous <strong>Paramètres ��� Général</strong> et utilisez le contrôle de suppression ou de remplacement disponible fourni par votre installation WordPress. Étant donné que les interfaces WordPress peuvent varier selon les versions et les thèmes, ne vous fiez pas à un nom de bouton spécifique provenant d'un ancien didacticiel.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Supprimez l'icône du site du personnalisateur</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Les anciennes installations WordPress gèrent l'icône via <strong>Apparence → Personnaliser → Identité du site</strong>. Le panneau Identité du site contient le contrôle Icône du site et permet de modifier ou de supprimer l'image.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Supprimer l'icône du site d'un thème de bloc</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Les thèmes de bloc peuvent utiliser le bloc Logo du site pour contrôler l'icône du site. Ouvert <strong>Apparence → Éditeur</strong>, sélectionnez le bloc Logo du site et vérifiez ses paramètres d'image et d'icône du site. Supprimer l'image du bloc Logo du site et supprimer l'icône du site ne sont pas nécessairement la même opération, alors vérifiez le paramètre Icône du site lui-même lorsque votre objectif est spécifiquement de supprimer le favicon.</p>
+          </div>
+
+          <!-- Code Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Pouvez-vous ajouter une favicon WordPress avec du code ?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Oui, mais le codage est généralement inutile. WordPress dispose d'une fonctionnalité d'icône de site intégrée, de sorte que les sites Web normaux doivent utiliser le paramètre intégré plut��t que d'ajouter manuellement un balisage favicon aux fichiers de thème. WordPress propose la fonctionnalité Site Icon depuis la version 4.3.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Quand devriez-vous utiliser l’icône de site intégrée à WordPress ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Utilisez l'option intégrée lorsqu'elle est disponible. Il est plus simple, plus facile à maintenir et évite les modifications inutiles des fichiers de thème.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Quand un code personnalisé peut-il être nécessaire&nbsp;?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Le code personnalisé peut avoir du sens pour un thème personnalisé ou une implémentation spécialisée dans laquelle les contrôles intégrés ne fournissent pas le comportement requis. Avant de modifier le code du thème, déterminez si le thème existant prend déjà en charge la fonctionnalité Icône du site. N'ajoutez pas une deuxième implémentation de favicon simplement parce que vous ne pouvez pas trouver imm��diatement le paramètre.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Avez-vous besoin d’un plugin pour ajouter un Favicon à WordPress ?</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Non. Un plugin favicon dédié n’est normalement pas nécessaire. WordPress dispose d'une fonctionnalité intégrée d'icône de site et la documentation officielle recommande de l'utiliser plutôt que de créer et d'installer manuellement une implémentation favicon.ico distincte. Un plugin peut être pertinent pour une exigence spécialisée, mais en installer un simplement pour ajouter une icône de site standard ajoute une dépendance inutile.</p>
+          </div>
+
+          <!-- Mistakes Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Erreurs courantes de favicon WordPress à éviter</h2>
+            <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Utiliser une image non carrée&nbsp;:</strong> WordPress exige que l'icône du site soit carrée.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Téléchargement d'une image inférieure à 512 × 512 pixels&nbsp;:</strong> Préparez l'icône aux dimensions minimales requises plutôt que de commencer avec une petite image source.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Utiliser un logo compliqué&nbsp;:</strong> Un logo détaillé peut devenir impossible à reconnaître lorsqu'il est réduit à la taille d'un favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Rendre le texte trop petit&nbsp;:</strong> Les noms d’entreprises et les slogans longs deviennent généralement illisibles.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Utilisation d'un mauvais contraste&nbsp;:</strong> Une favicon à faible contraste peut disparaître sur l'interface d'un navigateur.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Commencer avec une source de mauvaise qualité&nbsp;:</strong> Une image floue ou fortement compressée ne produira pas un résultat net.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Oublier de sauvegarder :</strong> La sélection d'une image n'aide pas si le paramètre n'est pas enregistré.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Vérification d'un seul navigateur&nbsp;:</strong> Utilisez une fenêtre privée ou un autre navigateur lors de la vérification d'un favicon récemment modifié.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Confondre le logo du site avec l'icône du site&nbsp;:</strong> Ils servent à des fins différentes. Le logo de votre site apparaît dans la conception du site Web, tandis que l'icône du site est utilisée comme petite icône de navigateur et d'application.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Modification du code inutilement&nbsp;:</strong> Utilisez la fonctionnalité intégrée d'icône de site de WordPress avant de modifier les fichiers de thème.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>En supposant que le favicon a échoué parce que l'ancienne icône reste visible&nbsp;:</strong> La mise en cache du navigateur peut faire apparaître une modification réussie comme un échec.</li>
+            </ul>
+          </div>
+
+          <!-- FAQ Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>FAQ sur les favicons WordPress</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Comment s’appelle un Favicon dans WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">WordPress appelle le favicon une icône de site. Il identifie votre site Web dans les onglets du navigateur, les signets et autres emplacements pris en charge.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Quelle doit être la taille d’un favicon WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">L'icône du site doit être une image carrée d'au moins 512 × 512 pixels. WordPress recommande PNG comme format.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Puis-je utiliser un PNG comme favicon WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Oui. PNG est le format recommandé par WordPress pour les icônes de site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Puis-je utiliser mon logo comme favicon WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Oui. Un logo peut être utilisé comme icône de site, mais il doit rester reconnaissable lorsqu'il est réduit à une très petite taille. Un logo horizontal complexe devra peut-être être simplifié en un symbole, un monogramme ou un autre élément de marque reconnaissable.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Pourquoi mon favicon WordPress ne s’affiche-t-il pas ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Vérifiez d’abord que l’icône du site a été enregistrée et que vous testez le bon site Web en direct. Ouvrez ensuite le site dans une fenêtre privée ou dans un autre navigateur pour exclure la mise en cache des favicon. Si vous utilisez un plugin de mise en cache ou un CDN, purgez également son cache.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Comment changer mon favicon dans WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Sur WordPress 6.5 et versions ultérieures, accédez à Paramètres → Général → Icône du site, choisissez la nouvelle image et enregistrez les modifications. Les anciennes versions de WordPress utilisent Apparence → Personnaliser → Identité du site → Icône du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Comment supprimer une favicon WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Ouvrez les contrôles Site Icon utilisés par votre version WordPress et supprimez ou remplacez l'image sélectionnée à l'aide du contrôle disponible. Les anciennes versions le gèrent via Apparence → Personnaliser → Identité du site, tandis que les thèmes de bloc peuvent exposer les contrôles de l'icône du site via le bloc Logo du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Ai-je besoin d’un plugin pour ajouter une favicon dans WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Non. WordPress dispose d’une fonctionnalité d’icône de site intégrée, donc un plugin n’est normalement pas requis.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Où est le paramètre d’icône du site dans WordPress 6.5 ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Accédez à Paramètres → Général → Icône du site. WordPress a déplacé l'icône du site vers les paramètres généraux dans la version 6.5.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Où se trouve le paramètre d’icône du site dans les anciennes versions de WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Pour WordPress 4.3 à 6.4, utilisez Apparence → Personnaliser → Identité du site → Icône du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Puis-je utiliser la même image pour mon logo et mon Favicon&nbsp;?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Oui, mais vous n’êtes pas obligé. Un logo de site complet peut contenir des détails qui ne fonctionnent pas bien à la taille d'une favicon. Dans les thèmes de bloc, WordPress permet également d'utiliser l'image du logo du site comme icône du site via Utiliser comme icône du site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Combien de temps faut-il pour mettre à jour une favicon WordPress ?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Il n’existe pas d’heure d’affichage universelle fiable car les navigateurs peuvent mettre en cache les données des favicon. Après avoir enregistré l'icône du site, testez le site en direct dans une fenêtre de navigateur privée ou dans un autre navigateur. Effacez également les caches de WordPress, du CDN ou du serveur, le cas échéant.</p>
+              </div>
             </div>
           </div>
+
+          <!-- How to Create Before Uploading Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Comment créer un Favicon avant de le télécharger sur WordPress</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Utilisez ce flux de travail lorsque vous ne disposez pas déjà d’une icône de site appropriée&nbsp;:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Commencez par votre logo, symbole ou initiales existant. Gardez le logo original et l’identité de la marque intacts.</li>
+              <li style="margin-bottom: 0.5rem;">Simplifiez l’illustration pour qu’elle reste reconnaissable lorsqu’elle est affichée très petite.</li>
+              <li style="margin-bottom: 0.5rem;">Créez une toile carrée.</li>
+              <li style="margin-bottom: 0.5rem;">Faites en sorte que l'image fasse au moins 512 × 512 pixels.</li>
+              <li style="margin-bottom: 0.5rem;">Exportez-le au format PNG.</li>
+              <li style="margin-bottom: 0.5rem;">Vérifiez l'icône sur les petites tailles d'affichage.</li>
+              <li style="margin-bottom: 0.5rem;">Convertissez un PNG existant en illustration favicon si nécessaire.</li>
+              <li style="margin-bottom: 0.5rem;">Téléchargez l'image terminée sur WordPress en tant qu'icône du site.</li>
+            </ol>
+          </div>
+
+          <!-- Conclusion Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Conclusion</h2>
+            <p style="line-height: 1.8; margin-bottom: 0;">Pour ajouter un favicon à WordPress, préparez une image carrée d'au moins 512 × 512 pixels, puis ouvrez Paramètres → Général → Icône du site sur WordPress 6.5 et versions ultérieures. Sélectionnez ou téléchargez l'image, enregistrez les paramètres et consultez le site Web en direct dans un navigateur. Les anciennes installations WordPress utilisent Apparence → Personnaliser → Identité du site, tandis que les thèmes de bloc peuvent également gérer l'icône via le bloc Logo du site. Si le nouveau favicon n'apparaît pas immédiatement, vérifiez la mise en cache du navigateur, de WordPress, du CDN ou du serveur avant de supposer que le téléchargement a échoué.</p>
+          </div>
+
         </div>
       </section>
     
@@ -339,66 +617,66 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Qu'est-ce qu'un favicon ?",
+      "name": "What is a favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Un favicon (raccourci de « favorite icon ») est une petite icône associée à un site web. Il apparaît dans les onglets du navigateur, les listes de signets, l'historique du navigateur et les résultats de recherche. Les favicons aident les utilisateurs à identifier rapidement votre site web parmi plusieurs onglets ouverts et favoris. La plupart des navigateurs modernes prennent en charge plusieurs tailles de favicon pour différents contextes, depuis les petites icônes d'onglet de 16×16 pixels jusqu'aux grandes icônes de 512×512 pixels utilisées par les Progressive Web Apps (PWA) pour les raccourcis sur l'écran d'accueil et les écrans de démarrage."
+        "text": "A favicon (short for \"favorite icon\") is a small icon associated with a website. It appears in browser tabs, bookmark lists, browser history, and search results. Favicons help users quickly identify your website among multiple open tabs and bookmarks. Most modern browsers support multiple favicon sizes for different contexts — from tiny 16×16 pixel tab icons to large 512×512 pixel icons used by Progressive Web Apps (PWAs) for home screen shortcuts and splash screens."
       }
     },
     {
       "@type": "Question",
-      "name": "De quelles tailles de favicon avez-vous besoin ?",
+      "name": "What sizes do I need for a favicon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pour une prise en charge complète sur tous les navigateurs et appareils, vous avez besoin de : 16×16 (icône d'onglet standard), 32×32 (icône d'onglet HiDPI), 48×48 (icône de site Windows), 180×180 (Apple Touch Icon), 192×192 (icône Android Chrome) et 512×512 (icône d'installation PWA). PNGtoFavicon génère automatiquement toutes ces tailles à partir d'un seul fichier PNG importé, ainsi qu'un fichier favicon.ico multi-tailles."
+        "text": "For comprehensive cross-browser and cross-device support, you need: 16×16 (standard tab icon), 32×32 (HiDPI tab icon), 48×48 (Windows site icon), 180×180 (Apple Touch Icon), 192×192 (Android Chrome icon), and 512×512 (PWA install icon). PNGtoFavicon generates all of these automatically from a single PNG upload, plus a multi-size favicon.ico file."
       }
     },
     {
       "@type": "Question",
-      "name": "Comment ajouter un favicon à mon site ?",
+      "name": "How do I add a favicon to my website?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Après avoir téléchargé votre pack de favicons depuis PNGtoFavicon, extrayez le fichier ZIP dans le répertoire racine de votre site web et ajoutez les balises HTML fournies dans votre section <head>. PNGtoFavicon génère le code HTML exact à copier-coller."
+        "text": "After downloading your favicon package from PNGtoFavicon, extract the ZIP file to your website's root directory and add the provided HTML link tags inside your <head> section. PNGtoFavicon generates the exact HTML code snippet you need, ready to copy and paste."
       }
     },
     {
       "@type": "Question",
-      "name": "Mon image est-elle téléchargée sur un serveur ?",
+      "name": "Is my image uploaded to a server?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non, votre image ne quitte jamais votre navigateur. PNGtoFavicon traite tout à 100 % côté client à l'aide de JavaScript et de l'API HTML5 Canvas. Aucune donnée n'est envoyée à un serveur, ce qui en fait le générateur de favicons le plus privé et sécurisé disponible."
+        "text": "No — your image never leaves your browser. PNGtoFavicon processes everything 100% client-side using JavaScript and the HTML5 Canvas API. No data is sent to any server, making this the most private favicon generator available."
       }
     },
     {
       "@type": "Question",
-      "name": "Quels formats d'image d'entrée sont pris en charge ?",
+      "name": "What file formats are supported for input?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "PNGtoFavicon accepte le PNG (recommandé car il gère la transparence), le JPG/JPEG, le SVG (format vectoriel), le WEBP (format moderne) et le GIF. Pour de meilleurs résultats, utilisez une image PNG carrée d'au moins 512×512 pixels avec un fond transparent."
+        "text": "PNGtoFavicon accepts PNG (recommended, supports transparency), JPG/JPEG, SVG (vector format), WEBP (modern format), and GIF. For best results, use a square PNG image of at least 512×512 pixels with a transparent background."
       }
     },
     {
       "@type": "Question",
-      "name": "Puis-je utiliser cet outil sur mon smartphone ?",
+      "name": "Can I use this tool on mobile?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui ! PNGtoFavicon est entièrement réactif et fonctionne sur n'importe quel appareil équipé d'un navigateur web moderne, y compris les smartphones et les tablettes. Vous pouvez importer des images, configurer les options et télécharger votre pack complet de favicons directement depuis votre appareil mobile."
+        "text": "Yes! PNGtoFavicon is fully responsive and works on any device with a modern web browser — including smartphones and tablets. You can upload images, configure options, and download your complete favicon package right from your mobile device."
       }
     },
     {
       "@type": "Question",
-      "name": "Quelle la différence entre les favicons .ico et .png ?",
+      "name": "What is the difference between .ico and .png favicons?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le format .ico est un conteneur hérité qui peut contenir plusieurs tailles d'icônes dans un seul fichier, nécessaire pour la compatibilité avec les anciens navigateurs. Les navigateurs modernes préfèrent les fichiers .png individuels spécifiés par des balises de liaison, car ils offrent une meilleure qualité et des tailles de fichier plus petites. PNGtoFavicon génère les deux formats."
+        "text": "The .ico format is a legacy container that can hold multiple icon sizes in a single file, required for compatibility with older browsers. Modern browsers prefer individual .png files specified with link tags, offering better quality and smaller file sizes. PNGtoFavicon generates both formats."
       }
     },
     {
       "@type": "Question",
-      "name": "Qu'est-ce que le fichier site.webmanifest et en ai-je besoin ?",
+      "name": "What is site.webmanifest and do I need it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le fichier site.webmanifest est un fichier JSON qui fournit aux navigateurs des informations sur votre application web, notamment son nom, sa couleur de thème et ses références d'icônes. Il est essentiel pour les fonctionnalités des Progressive Web Apps (PWA) et améliore la compatibilité avec Android Chrome et d'autres navigateurs modernes."
+        "text": "The site.webmanifest is a JSON file that tells browsers about your web application — including its name, theme color, and icon references. It's essential for Progressive Web App (PWA) functionality and improves compatibility with Android Chrome and other modern browsers."
       }
     }
   ]
