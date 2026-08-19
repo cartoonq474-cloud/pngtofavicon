@@ -7645,7 +7645,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'ar' && normPath === 'tutorials/wix-favicon/index.html') {
+    if (false && targetLang === 'ar' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'كيفية تخصيص أيقونة الموقع (Favicon) على Wix | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'يتيح لك Wix إزالة الأيقونات الافتراضية في الخطط المدفوعة. خصص أيقونة موقعك لتعزيز تناسق تصميم متجرك.');
@@ -8108,7 +8108,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         }
     }
 
-    if (targetLang === 'de' && normPath === 'tutorials/wix-favicon/index.html') {
+    if (false && targetLang === 'de' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'So passen Sie Ihr Favicon bei Wix an (Anleitung 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Erfahren Sie, wie Sie das Standard-Favicon von Wix durch Ihr eigenes Branding ersetzen. Detaillierte Schritt-für-Schritt-Anleitung.');
@@ -33736,7 +33736,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis2[1].innerHTML = '<strong>Contraste:</strong> Asegúrate de que tu icono tenga un buen contraste tanto en las pestañas claras como en las oscuras del navegador, ya que muchos usuarios navegan en modo oscuro.';
             }
         }
-    } else if (targetLang === 'es' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'es' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Cómo personalizar el favicon en Wix | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Aprende cómo cambiar el favicon predeterminado de Wix por tu marca personalizada. Tutorial paso a paso detallado de los ajustes del panel de control.');
@@ -34959,7 +34959,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis2[1].innerHTML = '<strong>कंट्रास्ट:</strong> पक्का करें कि आपके आइकॉन में लाइट और डार्क दोनों ब्राउज़र टैब के साथ अच्छा कंट्रास्ट हो, क्योंकि कई यूज़र डार्क मोड में ब्राउज़ करते हैं।';
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'hi' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Wix पर फ़ेविकॉन को कस्टमाइज़ कैसे करें | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Wix आपको प्रीमियम प्लान पर डिफ़ॉल्ट आइकन हटाने देता है। स्टोर डिज़ाइन को एक जैसा बनाने के लिए अपने फ़ेविकॉन को कस्टमाइज़ करें।');
@@ -36249,7 +36249,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis2[1].innerHTML = '<strong>Kontras:</strong> Pastikan ikon Anda memiliki kontras yang baik terhadap tab browser terang dan gelap, karena banyak pengguna menjelajah dalam mode gelap.';
             }
         }
-    } else if (targetLang === 'id' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'id' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Cara Mengkustomisasi Favicon di Wix (Panduan 2026) | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Wix memungkinkan Anda menghapus ikon default pada paket premium. Kustomisasi favicon Anda untuk meningkatkan konsistensi desain toko.');
@@ -37845,7 +37845,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 lis2[1].innerHTML = "<strong>Contraste</strong> : Assurez-vous que votre icône offre un bon contraste sur les onglets clairs et sombres, car de nombreux utilisateurs naviguent en mode sombre.";
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'fr' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Comment personnaliser votre favicon sur Wix | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Wix vous permet de supprimer les icônes par défaut avec les forfaits Premium. Personnalisez votre favicon pour une meilleure cohérence visuelle de votre boutique.');
@@ -39182,7 +39182,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 copyright.textContent = '©2026 PNGtoFavicon.com — Todos os direitos reservados.';
             }
         }
-    } else if (targetLang === 'pt' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'pt' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Como personalizar o favicon no Wix | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'O Wix permite remover os ícones padrão nos planos premium. Personalize o seu favicon para aumentar a consistência do design da sua loja.');
@@ -41042,7 +41042,7 @@ export default function Document() {
                 copyright.textContent = '© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.';
             }
         }
-    } else if (targetLang === 'tr' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'tr' && normPath === 'tutorials/wix-favicon/index.html') {
         if (doc.title) doc.title = 'Wix Web Sitesinde Favicon Nasıl Değiştirilir? | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', 'Wix, premium planlarda varsayılan simgeleri kaldırmanıza olanak tanır. Mağaza tasarım tutarlılığını artırmak için favicon\'unuzu özelleştirin.');
@@ -42896,7 +42896,7 @@ export default function Document() {
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'ur' && normPath === 'tutorials/wix-favicon/index.html') {
+    } else if (false && targetLang === 'ur' && normPath === 'tutorials/wix-favicon/index.html') {
         doc.title = "Wix پر فیویکن کو کس طرح اپنی مرضی کے مطابق بنائیں | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
         if (metaDesc) metaDesc.setAttribute('content', "Wix آپ کو پریمیم پلانز پر ڈیفالٹ آئیکنز کو ہٹانے دیتا ہے۔ اسٹور ڈیزائن کی مستقل مزاجی کو بڑھانے کے لیے اپنے فیویکون کو حسب ضرورت بنائیں۔");

@@ -195,19 +195,345 @@
 
     <!-- Page Content -->
     
+    <!-- Page Content -->
+    
       <section class="section">
         <div class="container" style="max-width: 800px;">
+
+          <!-- Introduction Card -->
           <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
-            <h2>Changing Your Wix Favicon</h2>
-            <p>Note: Wix requires a Premium hosting plan to upload a custom favicon.</p>
+            <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-primary);">A favicon is the small icon that represents your Wix website in browser tabs, bookmarks, and other browser interfaces. Wix provides a built-in favicon setting, so you do not normally need to edit your site's code.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">For standard Wix sites, you need a Premium plan and a connected domain to add a custom favicon, and Wix requires the site to be published before you add one. The current Wix workflow uses Website Settings, while the newer Wix Harmony Editor also provides an Add Favicon option directly from its Site Overview panel.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">This guide explains how to prepare a favicon, customize it in Wix, replace or remove it, verify that it works, and troubleshoot common problems.</p>
+          </div>
+
+          <!-- What Is a Favicon Card -->
+          <div class="glass-card animate-fade-in animate-delay-1" style="margin-bottom: 2rem;">
+            <h2>What Is a Favicon on Wix?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">A favicon is the small image that identifies your website in a browser. Visitors can see it next to your site's name in browser tabs and bookmarks. Wix also notes that favicons can appear alongside your site's URL in search results when search engines choose to display them.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">For example, a business might use its full logo in the website header but use only its symbol or initials as the favicon.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">A favicon is different from your:</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Site logo:</strong> The larger brand image displayed within your website.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Site title:</strong> The text that can appear as the page or browser title.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Favicon:</strong> The small visual icon associated with the website.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 0;">A favicon should therefore be designed for recognition at a very small size rather than simply treating it as a miniature version of the full website logo.</p>
+          </div>
+
+          <!-- What Do You Need Card -->
+          <div class="glass-card animate-fade-in animate-delay-2" style="margin-bottom: 2rem;">
+            <h2>What Do You Need Before Customizing Your Wix Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Before uploading a favicon, check both the Wix requirements and the practical design requirements.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Do You Need a Wix Premium Plan?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Yes. Wix states that you need a Premium plan and a connected domain to add a custom favicon. Free Wix sites use the standard Wix favicon instead.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Does Your Wix Site Need to Be Published?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Yes. Wix states that your site must be published before you can add a favicon. Make sure you are working with the site and domain that visitors actually use.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">What Image Size Should a Wix Favicon Be?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Wix requires the favicon image to be a multiple of 48 pixels square, such as 48 × 48, 96 × 96, or 144 × 144 pixels. Wix notes an exception for SVG files, which do not need to follow the same pixel-dimension rule. Wix also states that Google rescales favicons to 16 × 16 pixels for search results.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Which File Formats Can You Use for a Wix Favicon?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Wix lists ICO, PNG, JPG, and SVG as suitable favicon formats. PNG is particularly useful for logos and icons because it can preserve transparency.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Can a Wix Favicon Have a Transparent Background?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Yes. Wix specifically states that a transparent background can be used when the favicon is uploaded as a PNG. This can be useful when your logo or icon does not need a solid square background.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">What Makes a Good Favicon?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">A favicon should be easy to recognize at a very small size. A logo that looks excellent on a large website header can become unreadable when reduced to a favicon.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 0; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Use:</strong> A simple symbol, one or two initials, strong contrast, clean shapes, and a recognizable brand mark.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Avoid:</strong> Long business names, tiny text, highly detailed illustrations, thin lines, and too many visual elements.</li>
+            </ul>
+          </div>
+
+          <!-- How Do You Customize Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Customize the Favicon on Wix?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">For Wix sites using the Wix Editor or Studio Editor, Wix's current dashboard workflow is through Website Settings.</p>
             <ol style="padding-left: 1.5rem; margin-top: 1rem; line-height: 1.8; color: var(--text-secondary);">
-              <li>Log in to your Wix Site Dashboard.</li>
-              <li>Click on <strong>Settings</strong> in the left-hand sidebar menu.</li>
-              <li>Click <strong>Website Settings</strong> under General Settings.</li>
-              <li>Find the <strong>Favicon</strong> section, and click <strong>Update Image</strong> (or Upload Image).</li>
-              <li>Choose your PNG image and click <strong>Apply</strong>.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open Your Wix Site Dashboard:</strong> Log in to your Wix account and open the dashboard for the website whose favicon you want to change. If you manage multiple Wix websites, verify the site name before continuing.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open Settings:</strong> From the Wix dashboard, open <strong>Settings</strong>. Wix uses the settings area to manage key website information, including the site's favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Open Website Settings:</strong> Select <strong>Website settings</strong>. Wix identifies Website Settings as the place where you can manage essential website information such as the publish status, site name, URL, favicon, and social sharing image.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Find the Favicon Section:</strong> Look for the Favicon section. You should see an option to upload or replace the current favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Upload the Favicon:</strong> Click <strong>Upload Image</strong> under Favicon. Select the prepared image from your computer. Wix's documented process is: settings, Website settings, click Upload Image, choose the file.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Save the Changes:</strong> After selecting the image, save the favicon setting. Wix's Website Settings documentation states that after updating a website setting, you should click <strong>Save</strong>.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check the Live Wix Website:</strong> Open the published website in a browser. Look at the browser tab and check whether your custom favicon appears beside the site's name. Do not rely only on the Wix dashboard to verify the final result.</li>
             </ol>
           </div>
+
+          <!-- Where Is setting Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Where Is the Favicon Setting in Wix?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">The exact location depends on which Wix editor you are using.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Where Is the Favicon Setting in Wix Editor?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">For sites built with the Wix Editor, use:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Wix Dashboard → Settings → Website settings → Favicon</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Where Is the Favicon Setting in Wix Studio?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Wix Studio sites also use the site's dashboard and Website Settings for essential site-level information. The exact interface can look different from the classic Wix Editor, but the favicon remains a website-level setting.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Where Is the Favicon Setting in the Wix Harmony Editor?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">The newer Wix Harmony Editor, released in January 2026, provides a separate shortcut:</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem; font-family: monospace; background: var(--bg-secondary); padding: 0.75rem 1rem; border-radius: 6px; color: var(--text-primary);">Harmony Editor → Click Site Name (top-left) → Site Overview → Add Favicon</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">This variation is important because older tutorials that tell every Wix user to navigate through the same dashboard menus may not match the interface you currently see.</p>
+          </div>
+
+          <!-- Wix Harmony Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Customize a Favicon in Wix Harmony Editor?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">If you are using the newer Wix Harmony Editor, you can access the favicon directly from the Site Overview panel.</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Open the Site Overview Panel:</strong> Open your website in the Harmony Editor. Click your site's name at the top-left of the editor.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Click Add Favicon:</strong> In the Site Overview panel, find <strong>Add Favicon</strong>. Click it to start uploading the icon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Upload Your Favicon:</strong> Select the favicon image you prepared. Use an image that follows Wix's favicon requirements.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Save or Publish the Changes:</strong> Complete the upload and publish your website when necessary so the change is reflected on the live site.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Verify the Favicon:</strong> Open the live domain and check the browser tab. If the previous favicon remains visible, test the site in a private browser window.</li>
+            </ol>
+          </div>
+
+          <!-- How to Create Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Create a Favicon for Wix?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">You can create a favicon from an existing logo, a brand symbol, or a simple text-based design.</p>
+            
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">How Do You Create a Favicon From Your Logo?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Start with the most recognizable part of the logo. If your logo contains a symbol and a long wordmark, consider using only the symbol. Reducing the complete wordmark to favicon size can make the text unreadable. Preserve the original logo and brand identity rather than changing the wording or translating the logo as part of the favicon creation process.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">How Do You Create a Favicon From Initials or Text?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">One or two initials can work well when a brand does not have a standalone symbol. For example, a business called North Star Digital could use <em>NS</em> rather than trying to fit the complete business name into the favicon. Use large lettering, sufficient spacing, and strong contrast.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">How Do You Create a Simple Icon for Your Wix Website?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Use a square canvas and focus on one recognizable visual element. A good starting process is: choose the logo, symbol, or initials, remove unnecessary details, place it on a square canvas, use strong contrast, export it, and check the icon at small sizes.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">How Do You Convert a PNG Into a Wix Favicon?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">If you already have a PNG logo or icon, you can use a favicon conversion tool to prepare it. <a href="https://pngtofavicon.com/">PNGtoFavicon.com</a> can convert an existing PNG into favicon artwork. This is useful when you already have a suitable brand image and need to turn it into a dedicated favicon. After conversion, verify that the resulting file still follows Wix's favicon requirements (ICO, PNG, JPG, or SVG, non-SVG images must use square dimensions that are multiples of 48 pixels).</p>
+          </div>
+
+          <!-- What Size Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>What Size Should a Wix Favicon Be?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Wix's current requirement is that a favicon should be a multiple of 48 pixels square, unless you are using an SVG file. Examples include 48 × 48 and 96 × 96 pixels.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">The important distinction is between the uploaded image and the size at which a favicon is displayed. A browser may display the favicon at a much smaller size than the original image. Wix also states that Google rescales favicons to 16 × 16 pixels for search results. Therefore, a technically valid favicon can still be a poor favicon if its text or graphics are too detailed.</p>
+          </div>
+
+          <!-- How to Check Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Check if Your Wix Favicon Is Working?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">After uploading the favicon, check the live website rather than assuming the upload succeeded just because the image appears in the Wix settings.</p>
+            <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Check the Browser Tab:</strong> Open your published website. The favicon should appear beside the website or page name in the browser tab.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Check Your Bookmarks:</strong> Bookmark the site and check the bookmark entry. Favicons are commonly used in bookmark interfaces.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Test the Live Website:</strong> Make sure you are checking the published domain, not only the editor or dashboard.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Test in a Private or Incognito Window:</strong> Open a private or incognito window and visit the site. This can reveal whether your normal browser is displaying an older cached favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Test Another Browser:</strong> Open the same website in another browser. If the new favicon appears in one browser and not another, browser caching is a likely explanation.</li>
+            </ul>
+          </div>
+
+          <!-- Why Not Showing Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Why Is My Wix Favicon Not Showing?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Several issues can cause the favicon to appear missing.</p>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You Do Not Have the Required Wix Plan</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> Wix requires a Premium plan and a connected domain for a custom favicon.<br><strong>Fix:</strong> Check your plan and confirm that your custom domain is connected to the site.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Your Website Has Not Been Published</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> Wix states that the site needs to be published before adding a favicon.<br><strong>Fix:</strong> Publish the website, then return to the favicon settings.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You Edited the Wrong Wix Site</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> Your account manages multiple sites and you changed a different site's favicon.<br><strong>Fix:</strong> Check the site name and connected domain before editing.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You Uploaded an Unsuitable Image</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The image does not meet the required dimensions or uses a format that Wix does not support.<br><strong>Fix:</strong> Use ICO, PNG, JPG, or SVG and make sure a non-SVG favicon uses square dimensions that are a multiple of 48 pixels.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Your Browser Has Cached the Old Favicon</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The old favicon remains visible after you successfully change it.<br><strong>Fix:</strong> Test the website in a private window or another browser. Clear cached browser data if necessary.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">You Are Testing the Editor Instead of the Live Website</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> The favicon appears incorrect while working inside Wix.<br><strong>Fix:</strong> Open the published domain and check the browser tab there.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Google Has Not Updated the Favicon in Search</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);"><strong>Problem:</strong> A favicon appearing in Google Search is separate from the favicon being correctly configured on Wix. Wix states that indexing is controlled by Google and that Wix cannot guarantee when Google will display the favicon.<br><strong>Fix:</strong> First confirm that the favicon works on the live website. Treat Google Search display as a separate process.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How to Fix Not Updating Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Fix a Wix Favicon That Is Not Updating?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Work through the checks in this order:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Confirm you have a Premium plan and your domain is connected.</li>
+              <li style="margin-bottom: 0.5rem;">Confirm the site is published.</li>
+              <li style="margin-bottom: 0.5rem;">Open the correct Wix site in your dashboard.</li>
+              <li style="margin-bottom: 0.5rem;">Go to <strong>Settings → Website settings → Favicon</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Confirm the correct image is selected and click <strong>Save</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Open the published domain, and test in a private/incognito window or another browser.</li>
+              <li style="margin-bottom: 0.5rem;">Clear browser cache if the previous icon continues to appear.</li>
+            </ol>
+            <p style="line-height: 1.8; margin-top: 1.5rem; margin-bottom: 0;">If the issue only concerns Google Search, allow for Google's separate crawling and indexing process. This sequence separates Wix configuration problems from browser caching and search-engine behavior.</p>
+          </div>
+
+          <!-- How to Change/Replace Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Change or Replace a Wix Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Replacing an existing favicon uses the same settings area.</p>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Open your Wix site dashboard and click <strong>Settings</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Open <strong>Website settings</strong>.</li>
+              <li style="margin-bottom: 0.5rem;">Find the Favicon section and click the upload/replace image option.</li>
+              <li style="margin-bottom: 0.5rem;">Select your new favicon and save the change.</li>
+              <li style="margin-bottom: 0.5rem;">Publish the site when required, then open the live site and verify.</li>
+            </ul>
+            <p style="line-height: 1.8; margin-bottom: 0;">Wix's current Website Settings documentation confirms that the favicon can be uploaded or replaced from this area. For Harmony Editor users, the alternative route is to open the Site Overview panel and click Add Favicon.</p>
+          </div>
+
+          <!-- How to Remove Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How Do You Remove a Wix Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">The removal process depends on the current Wix interface and how the site's favicon is managed.</p>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Open the site's favicon settings and look for the available option for removing, replacing, or resetting the current favicon. Do not assume that every Wix interface exposes an identically named removal button.</p>
+            <p style="line-height: 1.8; margin-bottom: 0;">There is also an important distinction between removing a custom favicon and removing Wix branding. Wix states that free sites use the Wix favicon, while a custom favicon requires the appropriate Premium plan and connected domain.</p>
+          </div>
+
+          <!-- Code Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Can You Add a Wix Favicon With Custom Code?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Normally, no custom code is necessary. Wix provides a native favicon setting through Website Settings, and the newer Harmony Editor provides a direct Add Favicon control.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">When Should You Use Wix's Built-In Favicon Setting?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Use Wix's built-in setting whenever it is available. It is simpler to manage and avoids unnecessary changes to the site's implementation.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">When Might Custom Code Be Necessary?</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Custom code is generally relevant only for unusual or highly customized implementations. Do not modify your site's code simply because a tutorial written for an older Wix interface shows a code-based favicon method.</p>
+          </div>
+
+          <!-- Logo vs Favicon Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Can You Use Your Logo as a Wix Favicon?</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Yes. Wix specifically notes that most companies use their own logo for the favicon. However, the full logo may not always be the best choice.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Should You Use the Full Logo?</h3>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Use the full logo only when it remains recognizable at favicon size. A horizontal wordmark with several words can become too small to read.</p>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">When Should You Use a Symbol or Initials Instead?</h3>
+            <p style="line-height: 1.8; margin-bottom: 0;">Use the most recognizable part of your brand when the full logo contains too much detail. A symbol, monogram, or one or two initials can make a stronger favicon.</p>
+          </div>
+
+          <!-- Mistakes Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Common Wix Favicon Mistakes to Avoid</h2>
+            <ul style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;"><strong>Using the wrong dimensions:</strong> For non-SVG favicons, use square dimensions that are multiples of 48 pixels.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using an unnecessarily complicated logo:</strong> Reduce the number of elements so the icon remains recognizable.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using tiny text:</strong> Text that is readable in a large logo may become invisible in a favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Using poor contrast:</strong> Make the icon distinct from its background.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Uploading low-quality artwork:</strong> Start with a clean source image.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Forgetting the Premium plan requirement:</strong> A custom favicon requires a Premium plan and connected domain.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Forgetting to publish:</strong> Wix requires the website to be published before adding a favicon.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Checking only one browser:</strong> A cached favicon can make a successful update look like a failed upload.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Expecting Google to update immediately:</strong> Google controls when it crawls and displays favicons. Wix cannot guarantee when that will happen.</li>
+              <li style="margin-bottom: 0.5rem;"><strong>Confusing the favicon with the browser title:</strong> Changing your favicon changes the small icon. It does not automatically change the text shown as the page title.</li>
+            </ul>
+          </div>
+
+          <!-- FAQ Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Wix Favicon FAQs</h2>
+            <div style="display: grid; gap: 1.5rem; margin-top: 1rem;">
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I Add a Favicon to Wix for Free?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">No. Wix states that adding a custom favicon requires a Premium plan and a connected domain. Free Wix sites use the standard Wix favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">What Size Should a Wix Favicon Be?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">For non-SVG files, the favicon must be a multiple of 48 pixels square, such as 48 × 48 or 96 × 96 pixels. SVG files are exempt from this pixel-dimension requirement.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">What File Format Does Wix Use for Favicons?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Wix supports suitable favicon formats including ICO, PNG, JPG, and SVG.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I Use a PNG as a Wix Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. PNG is supported, including PNG images with transparent backgrounds.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I Use an SVG as a Wix Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. Wix lists SVG as a supported favicon format, and SVG is exempt from the multiple-of-48-pixels requirement.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Can I Use My Logo as a Wix Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. A logo is a common choice, but simplify it when necessary so it remains recognizable at a small size. Wix notes that most companies use their own logo as the favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Why Is My Wix Favicon Not Showing?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Confirm that your site has the required Premium plan and connected domain, that the site is published, and that you uploaded the favicon to the correct Wix site. Then test the live site in a private window or another browser to rule out caching.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Why Is the Wix Logo Still Showing as My Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Free Wix sites use the Wix favicon. A custom favicon requires a Premium plan and a connected domain.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How Do I Change My Favicon on Wix?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Go to Settings → Website settings → Favicon, upload or replace the image, and save the change. In the newer Harmony Editor, you can also open the Site Overview panel and click Add Favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How Do I Remove a Wix Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Open the favicon controls in your Wix site settings and use the available remove, replace, or reset option. The exact control can vary by Wix interface.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">How Long Does a Wix Favicon Take to Update?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">There is no universal display time. Your Wix settings can be updated while your browser continues showing a cached favicon. Google Search has a separate crawling and indexing process, and Wix does not guarantee when Google will display the updated favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Why Is My Wix Favicon Not Showing in Google Search?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Wix states that Google decides when to index a favicon and whether to display it in search results. A favicon working correctly in your browser does not guarantee that Google will immediately display it beside your search listing.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Do I Need to Publish My Wix Site Before Adding a Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. Wix's favicon documentation states that the site must be published before you can add a favicon.</p>
+              </div>
+              <div>
+                <h4 style="margin-bottom: 0.25rem; color: var(--text-primary);">Do I Need a Premium Wix Plan to Add a Favicon?</h4>
+                <p style="line-height: 1.6; margin-bottom: 0; font-size: 0.95rem; color: var(--text-secondary);">Yes. Wix requires a Premium plan and a connected domain for a custom favicon.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- How to Create Before Uploading Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>How to Create a Favicon Before Uploading It to Wix</h2>
+            <p style="line-height: 1.8; margin-bottom: 1.5rem;">Use this workflow if you do not already have a favicon:</p>
+            <ol style="padding-left: 1.5rem; line-height: 1.8; color: var(--text-secondary);">
+              <li style="margin-bottom: 0.5rem;">Start with your logo, symbol, or initials. Keep the original logo and brand identity unchanged.</li>
+              <li style="margin-bottom: 0.5rem;">Simplify the artwork for small-scale display.</li>
+              <li style="margin-bottom: 0.5rem;">Create a square image (for non-SVG files, use dimensions that are multiples of 48 pixels).</li>
+              <li style="margin-bottom: 0.5rem;">Export the image as PNG, JPG, ICO, or SVG.</li>
+              <li style="margin-bottom: 0.5rem;">Check the favicon at a small size.</li>
+              <li style="margin-bottom: 0.5rem;">Use a favicon converter such as <a href="https://pngtofavicon.com/">PNGtoFavicon.com</a> when you already have a PNG that needs to be converted.</li>
+              <li style="margin-bottom: 0.5rem;">Upload the finished favicon to Wix.</li>
+              <li style="margin-bottom: 0.5rem;">Save and publish the site.</li>
+              <li style="margin-bottom: 0.5rem;">Check the live website in a browser tab.</li>
+            </ol>
+          </div>
+
+          <!-- Conclusion Card -->
+          <div class="glass-card animate-fade-in" style="margin-bottom: 2rem;">
+            <h2>Conclusion</h2>
+            <p style="line-height: 1.8; margin-bottom: 0;">To customize a favicon on Wix, prepare a simple square icon, then open Settings → Website settings → Favicon and upload the image. Save the change and verify the result on the published website. If you use the newer Wix Harmony Editor, you can access the same task directly through Site Overview → Add Favicon. The two requirements that matter most are Wix's Premium plan with a connected domain and a published site. If the favicon still does not appear after saving, test the live site in a private window or another browser. Google Search visibility is a separate process controlled by Google.</p>
+          </div>
+
         </div>
       </section>
     
