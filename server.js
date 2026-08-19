@@ -118,7 +118,7 @@ const server = http.createServer((req, res) => {
   }
 
   // Normalize path to avoid directory traversal
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+  let filePath = path.join(__dirname, pathname === '/' ? 'index.html' : pathname);
 
   // If path is a directory, default to index.html inside it
   try {
