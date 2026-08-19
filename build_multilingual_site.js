@@ -63,7 +63,22 @@ const isRelativeUrl = (url) => {
 };
 
 const isTranslatable = (node) => {
-    if (node.parentElement && ['CODE', 'PRE', 'SCRIPT', 'STYLE', 'SVG', 'NOSCRIPT'].includes(node.parentElement.tagName)) return false;
+    if (node.parentElement) {
+        if (['CODE', 'PRE', 'SCRIPT', 'STYLE', 'SVG', 'NOSCRIPT'].includes(node.parentElement.tagName)) return false;
+        
+        let parent = node.parentElement;
+        while (parent) {
+            if (parent.classList && (
+                parent.classList.contains('nav-brand') || 
+                parent.classList.contains('footer-brand') || 
+                parent.classList.contains('navbar-brand') || 
+                parent.classList.contains('logo')
+            )) {
+                return false;
+            }
+            parent = parent.parentElement;
+        }
+    }
     return true;
 };
 
