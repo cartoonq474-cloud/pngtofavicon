@@ -72,7 +72,10 @@ const isTranslatable = (node) => {
                 parent.classList.contains('nav-brand') || 
                 parent.classList.contains('footer-brand') || 
                 parent.classList.contains('navbar-brand') || 
-                parent.classList.contains('logo')
+                parent.classList.contains('logo') ||
+                parent.classList.contains('lang-dropdown-wrapper') ||
+                parent.classList.contains('lang-dropdown') ||
+                parent.classList.contains('lang-dropdown-item')
             )) {
                 return false;
             }
