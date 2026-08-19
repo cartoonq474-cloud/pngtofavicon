@@ -3,702 +3,702 @@
     {
       "source": "/shopify-favicon",
       "destination": "/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/shopify-favicon/",
       "destination": "/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/shopify-favicon",
       "destination": "/ar/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/shopify-favicon/",
       "destination": "/ar/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/shopify-favicon",
       "destination": "/de/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/shopify-favicon/",
       "destination": "/de/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/shopify-favicon",
       "destination": "/es/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/shopify-favicon/",
       "destination": "/es/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/shopify-favicon",
       "destination": "/fr/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/shopify-favicon/",
       "destination": "/fr/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/shopify-favicon",
       "destination": "/hi/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/shopify-favicon/",
       "destination": "/hi/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/shopify-favicon",
       "destination": "/id/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/shopify-favicon/",
       "destination": "/id/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/shopify-favicon",
       "destination": "/pt/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/shopify-favicon/",
       "destination": "/pt/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/shopify-favicon",
       "destination": "/tr/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/shopify-favicon/",
       "destination": "/tr/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/shopify-favicon",
       "destination": "/ur/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/shopify-favicon/",
       "destination": "/ur/tutorials/shopify-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/wordpress-favicon",
       "destination": "/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/wordpress-favicon/",
       "destination": "/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/wordpress-favicon",
       "destination": "/ar/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/wordpress-favicon/",
       "destination": "/ar/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/wordpress-favicon",
       "destination": "/de/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/wordpress-favicon/",
       "destination": "/de/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/wordpress-favicon",
       "destination": "/es/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/wordpress-favicon/",
       "destination": "/es/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/wordpress-favicon",
       "destination": "/fr/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/wordpress-favicon/",
       "destination": "/fr/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/wordpress-favicon",
       "destination": "/hi/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/wordpress-favicon/",
       "destination": "/hi/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/wordpress-favicon",
       "destination": "/id/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/wordpress-favicon/",
       "destination": "/id/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/wordpress-favicon",
       "destination": "/pt/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/wordpress-favicon/",
       "destination": "/pt/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/wordpress-favicon",
       "destination": "/tr/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/wordpress-favicon/",
       "destination": "/tr/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/wordpress-favicon",
       "destination": "/ur/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/wordpress-favicon/",
       "destination": "/ur/tutorials/wordpress-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/wix-favicon",
       "destination": "/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/wix-favicon/",
       "destination": "/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/wix-favicon",
       "destination": "/ar/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/wix-favicon/",
       "destination": "/ar/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/wix-favicon",
       "destination": "/de/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/wix-favicon/",
       "destination": "/de/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/wix-favicon",
       "destination": "/es/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/wix-favicon/",
       "destination": "/es/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/wix-favicon",
       "destination": "/fr/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/wix-favicon/",
       "destination": "/fr/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/wix-favicon",
       "destination": "/hi/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/wix-favicon/",
       "destination": "/hi/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/wix-favicon",
       "destination": "/id/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/wix-favicon/",
       "destination": "/id/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/wix-favicon",
       "destination": "/pt/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/wix-favicon/",
       "destination": "/pt/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/wix-favicon",
       "destination": "/tr/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/wix-favicon/",
       "destination": "/tr/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/wix-favicon",
       "destination": "/ur/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/wix-favicon/",
       "destination": "/ur/tutorials/wix-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/blogger-favicon",
       "destination": "/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/blogger-favicon/",
       "destination": "/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/blogger-favicon",
       "destination": "/ar/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/blogger-favicon/",
       "destination": "/ar/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/blogger-favicon",
       "destination": "/de/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/blogger-favicon/",
       "destination": "/de/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/blogger-favicon",
       "destination": "/es/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/blogger-favicon/",
       "destination": "/es/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/blogger-favicon",
       "destination": "/fr/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/blogger-favicon/",
       "destination": "/fr/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/blogger-favicon",
       "destination": "/hi/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/blogger-favicon/",
       "destination": "/hi/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/blogger-favicon",
       "destination": "/id/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/blogger-favicon/",
       "destination": "/id/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/blogger-favicon",
       "destination": "/pt/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/blogger-favicon/",
       "destination": "/pt/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/blogger-favicon",
       "destination": "/tr/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/blogger-favicon/",
       "destination": "/tr/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/blogger-favicon",
       "destination": "/ur/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/blogger-favicon/",
       "destination": "/ur/tutorials/blogger-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/react-favicon",
       "destination": "/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/react-favicon/",
       "destination": "/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/react-favicon",
       "destination": "/ar/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/react-favicon/",
       "destination": "/ar/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/react-favicon",
       "destination": "/de/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/react-favicon/",
       "destination": "/de/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/react-favicon",
       "destination": "/es/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/react-favicon/",
       "destination": "/es/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/react-favicon",
       "destination": "/fr/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/react-favicon/",
       "destination": "/fr/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/react-favicon",
       "destination": "/hi/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/react-favicon/",
       "destination": "/hi/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/react-favicon",
       "destination": "/id/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/react-favicon/",
       "destination": "/id/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/react-favicon",
       "destination": "/pt/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/react-favicon/",
       "destination": "/pt/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/react-favicon",
       "destination": "/tr/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/react-favicon/",
       "destination": "/tr/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/react-favicon",
       "destination": "/ur/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/react-favicon/",
       "destination": "/ur/tutorials/react-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/nextjs-favicon",
       "destination": "/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/nextjs-favicon/",
       "destination": "/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/nextjs-favicon",
       "destination": "/ar/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/nextjs-favicon/",
       "destination": "/ar/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/nextjs-favicon",
       "destination": "/de/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/nextjs-favicon/",
       "destination": "/de/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/nextjs-favicon",
       "destination": "/es/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/nextjs-favicon/",
       "destination": "/es/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/nextjs-favicon",
       "destination": "/fr/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/nextjs-favicon/",
       "destination": "/fr/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/nextjs-favicon",
       "destination": "/hi/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/nextjs-favicon/",
       "destination": "/hi/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/nextjs-favicon",
       "destination": "/id/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/nextjs-favicon/",
       "destination": "/id/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/nextjs-favicon",
       "destination": "/pt/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/nextjs-favicon/",
       "destination": "/pt/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/nextjs-favicon",
       "destination": "/tr/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/nextjs-favicon/",
       "destination": "/tr/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/nextjs-favicon",
       "destination": "/ur/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/nextjs-favicon/",
       "destination": "/ur/tutorials/nextjs-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/html-favicon",
       "destination": "/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/html-favicon/",
       "destination": "/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/html-favicon",
       "destination": "/ar/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ar/html-favicon/",
       "destination": "/ar/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/html-favicon",
       "destination": "/de/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/de/html-favicon/",
       "destination": "/de/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/html-favicon",
       "destination": "/es/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/es/html-favicon/",
       "destination": "/es/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/html-favicon",
       "destination": "/fr/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/fr/html-favicon/",
       "destination": "/fr/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/html-favicon",
       "destination": "/hi/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/hi/html-favicon/",
       "destination": "/hi/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/html-favicon",
       "destination": "/id/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/id/html-favicon/",
       "destination": "/id/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/html-favicon",
       "destination": "/pt/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/pt/html-favicon/",
       "destination": "/pt/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/html-favicon",
       "destination": "/tr/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/tr/html-favicon/",
       "destination": "/tr/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/html-favicon",
       "destination": "/ur/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     },
     {
       "source": "/ur/html-favicon/",
       "destination": "/ur/tutorials/html-favicon/",
-      "permanent": true
+      "statusCode": 301
     }
   ]
 }
