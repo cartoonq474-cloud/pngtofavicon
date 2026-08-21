@@ -4961,7 +4961,7 @@ async function localizePage(relativePath, targetLang) {
     }
 
     // Custom logic for Arabic blog/favicon-seo-guide/index.html page translation
-    if (targetLang === 'ar' && normPath === 'blog/favicon-seo-guide/index.html') {
+    if (false && targetLang === 'ar' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Title & Description
         if (doc.title) doc.title = 'دليل سيو (SEO) لأيقونة الموقع: زيادة نسبة النقر إلى الظهور لمقتطفات البحث | PNGtoFavicon';
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -27621,7 +27621,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
     }
-     else if (targetLang === 'id' && normPath === 'blog/favicon-seo-guide/index.html') {
+     else if (false && targetLang === 'id' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Panduan SEO Favicon | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -27772,7 +27772,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Semua hak dilindungi undang-undang.";
-    } else if (targetLang === 'tr' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'tr' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Favicon SEO Rehberi | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -27923,7 +27923,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — Tüm hakları saklıdır.";
-    } else if (targetLang === 'pt' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'pt' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Guia de SEO para Favicons | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -28077,7 +28077,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "©2026 PNGtoFavicon.com — Todos os direitos reservados.";
     }
-     else if (targetLang === 'es' && normPath === 'blog/favicon-seo-guide/index.html') {
+     else if (false && targetLang === 'es' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Guía SEO de Favicons | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -28168,7 +28168,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (link_2) link_2.textContent = "Comprobar ahora →";
             }
         }
-    } else if (targetLang === 'hi' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'hi' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "फ़ेविकॉन SEO गाइड | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -28259,7 +28259,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (link_2) link_2.textContent = "अभी चेक करें →";
             }
         }
-    } else if (targetLang === 'fr' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'fr' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Guide SEO pour les favicons | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -28350,7 +28350,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
                 if (link_2) link_2.textContent = "Vérifier maintenant →";
             }
         }
-    } else if (targetLang === 'ur' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'ur' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "فیویکن SEO گائیڈ | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');
@@ -28526,7 +28526,7 @@ if (targetLang === 'de' && normPath === 'tutorials/squarespace-favicon/index.htm
 
         const copyright = doc.querySelector('.footer-bottom p');
         if (copyright) copyright.textContent = "© 2026 PNGtoFavicon.com — جملہ حقوق محفوظ ہیں۔";
-    } else if (targetLang === 'de' && normPath === 'blog/favicon-seo-guide/index.html') {
+    } else if (false && targetLang === 'de' && normPath === 'blog/favicon-seo-guide/index.html') {
         // Page title & metadata
         doc.title = "Favicon-SEO-Leitfaden | PNGtoFavicon";
         const metaDesc = doc.querySelector('meta[name="description"]');

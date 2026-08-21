@@ -1,704 +1,564 @@
 {
-  "redirects": [
+  "routes": [
     {
-      "source": "/shopify-favicon",
-      "destination": "/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/shopify-favicon/",
-      "destination": "/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/shopify-favicon",
-      "destination": "/ar/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/ar/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/shopify-favicon/",
-      "destination": "/ar/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/ar/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/shopify-favicon",
-      "destination": "/de/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/de/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/de/shopify-favicon/",
-      "destination": "/de/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/de/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/shopify-favicon",
-      "destination": "/es/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/es/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/es/shopify-favicon/",
-      "destination": "/es/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/es/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/shopify-favicon",
-      "destination": "/fr/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/fr/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/shopify-favicon/",
-      "destination": "/fr/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/fr/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/shopify-favicon",
-      "destination": "/hi/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/hi/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/shopify-favicon/",
-      "destination": "/hi/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/hi/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/shopify-favicon",
-      "destination": "/id/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/id/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/id/shopify-favicon/",
-      "destination": "/id/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/id/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/shopify-favicon",
-      "destination": "/pt/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/pt/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/shopify-favicon/",
-      "destination": "/pt/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/pt/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/shopify-favicon",
-      "destination": "/tr/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/tr/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/shopify-favicon/",
-      "destination": "/tr/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/tr/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/shopify-favicon",
-      "destination": "/ur/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/ur/shopify-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/shopify-favicon/",
-      "destination": "/ur/tutorials/shopify-favicon/",
-      "statusCode": 301
+      "src": "/ur/shopify-favicon/",
+      "status": 410
     },
     {
-      "source": "/wordpress-favicon",
-      "destination": "/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/wordpress-favicon/",
-      "destination": "/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/wordpress-favicon",
-      "destination": "/ar/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/ar/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/wordpress-favicon/",
-      "destination": "/ar/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/ar/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/wordpress-favicon",
-      "destination": "/de/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/de/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/de/wordpress-favicon/",
-      "destination": "/de/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/de/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/wordpress-favicon",
-      "destination": "/es/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/es/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/es/wordpress-favicon/",
-      "destination": "/es/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/es/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/wordpress-favicon",
-      "destination": "/fr/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/fr/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/wordpress-favicon/",
-      "destination": "/fr/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/fr/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/wordpress-favicon",
-      "destination": "/hi/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/hi/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/wordpress-favicon/",
-      "destination": "/hi/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/hi/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/wordpress-favicon",
-      "destination": "/id/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/id/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/id/wordpress-favicon/",
-      "destination": "/id/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/id/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/wordpress-favicon",
-      "destination": "/pt/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/pt/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/wordpress-favicon/",
-      "destination": "/pt/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/pt/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/wordpress-favicon",
-      "destination": "/tr/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/tr/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/wordpress-favicon/",
-      "destination": "/tr/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/tr/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/wordpress-favicon",
-      "destination": "/ur/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/ur/wordpress-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/wordpress-favicon/",
-      "destination": "/ur/tutorials/wordpress-favicon/",
-      "statusCode": 301
+      "src": "/ur/wordpress-favicon/",
+      "status": 410
     },
     {
-      "source": "/wix-favicon",
-      "destination": "/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/wix-favicon/",
-      "destination": "/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/wix-favicon",
-      "destination": "/ar/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/ar/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/wix-favicon/",
-      "destination": "/ar/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/ar/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/wix-favicon",
-      "destination": "/de/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/de/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/de/wix-favicon/",
-      "destination": "/de/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/de/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/wix-favicon",
-      "destination": "/es/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/es/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/es/wix-favicon/",
-      "destination": "/es/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/es/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/wix-favicon",
-      "destination": "/fr/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/fr/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/wix-favicon/",
-      "destination": "/fr/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/fr/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/wix-favicon",
-      "destination": "/hi/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/hi/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/wix-favicon/",
-      "destination": "/hi/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/hi/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/wix-favicon",
-      "destination": "/id/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/id/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/id/wix-favicon/",
-      "destination": "/id/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/id/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/wix-favicon",
-      "destination": "/pt/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/pt/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/wix-favicon/",
-      "destination": "/pt/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/pt/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/wix-favicon",
-      "destination": "/tr/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/tr/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/wix-favicon/",
-      "destination": "/tr/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/tr/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/wix-favicon",
-      "destination": "/ur/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/ur/wix-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/wix-favicon/",
-      "destination": "/ur/tutorials/wix-favicon/",
-      "statusCode": 301
+      "src": "/ur/wix-favicon/",
+      "status": 410
     },
     {
-      "source": "/blogger-favicon",
-      "destination": "/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/blogger-favicon/",
-      "destination": "/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/blogger-favicon",
-      "destination": "/ar/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/ar/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/blogger-favicon/",
-      "destination": "/ar/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/ar/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/blogger-favicon",
-      "destination": "/de/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/de/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/de/blogger-favicon/",
-      "destination": "/de/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/de/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/blogger-favicon",
-      "destination": "/es/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/es/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/es/blogger-favicon/",
-      "destination": "/es/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/es/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/blogger-favicon",
-      "destination": "/fr/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/fr/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/blogger-favicon/",
-      "destination": "/fr/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/fr/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/blogger-favicon",
-      "destination": "/hi/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/hi/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/blogger-favicon/",
-      "destination": "/hi/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/hi/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/blogger-favicon",
-      "destination": "/id/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/id/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/id/blogger-favicon/",
-      "destination": "/id/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/id/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/blogger-favicon",
-      "destination": "/pt/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/pt/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/blogger-favicon/",
-      "destination": "/pt/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/pt/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/blogger-favicon",
-      "destination": "/tr/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/tr/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/blogger-favicon/",
-      "destination": "/tr/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/tr/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/blogger-favicon",
-      "destination": "/ur/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/ur/blogger-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/blogger-favicon/",
-      "destination": "/ur/tutorials/blogger-favicon/",
-      "statusCode": 301
+      "src": "/ur/blogger-favicon/",
+      "status": 410
     },
     {
-      "source": "/react-favicon",
-      "destination": "/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/react-favicon",
+      "status": 410
     },
     {
-      "source": "/react-favicon/",
-      "destination": "/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/react-favicon",
-      "destination": "/ar/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/ar/react-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/react-favicon/",
-      "destination": "/ar/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/ar/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/react-favicon",
-      "destination": "/de/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/de/react-favicon",
+      "status": 410
     },
     {
-      "source": "/de/react-favicon/",
-      "destination": "/de/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/de/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/react-favicon",
-      "destination": "/es/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/es/react-favicon",
+      "status": 410
     },
     {
-      "source": "/es/react-favicon/",
-      "destination": "/es/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/es/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/react-favicon",
-      "destination": "/fr/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/fr/react-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/react-favicon/",
-      "destination": "/fr/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/fr/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/react-favicon",
-      "destination": "/hi/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/hi/react-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/react-favicon/",
-      "destination": "/hi/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/hi/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/react-favicon",
-      "destination": "/id/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/id/react-favicon",
+      "status": 410
     },
     {
-      "source": "/id/react-favicon/",
-      "destination": "/id/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/id/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/react-favicon",
-      "destination": "/pt/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/pt/react-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/react-favicon/",
-      "destination": "/pt/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/pt/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/react-favicon",
-      "destination": "/tr/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/tr/react-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/react-favicon/",
-      "destination": "/tr/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/tr/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/react-favicon",
-      "destination": "/ur/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/ur/react-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/react-favicon/",
-      "destination": "/ur/tutorials/react-favicon/",
-      "statusCode": 301
+      "src": "/ur/react-favicon/",
+      "status": 410
     },
     {
-      "source": "/nextjs-favicon",
-      "destination": "/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/nextjs-favicon/",
-      "destination": "/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/nextjs-favicon",
-      "destination": "/ar/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/ar/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/nextjs-favicon/",
-      "destination": "/ar/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/ar/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/nextjs-favicon",
-      "destination": "/de/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/de/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/de/nextjs-favicon/",
-      "destination": "/de/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/de/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/nextjs-favicon",
-      "destination": "/es/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/es/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/es/nextjs-favicon/",
-      "destination": "/es/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/es/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/nextjs-favicon",
-      "destination": "/fr/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/fr/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/nextjs-favicon/",
-      "destination": "/fr/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/fr/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/nextjs-favicon",
-      "destination": "/hi/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/hi/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/nextjs-favicon/",
-      "destination": "/hi/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/hi/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/nextjs-favicon",
-      "destination": "/id/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/id/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/id/nextjs-favicon/",
-      "destination": "/id/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/id/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/nextjs-favicon",
-      "destination": "/pt/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/pt/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/nextjs-favicon/",
-      "destination": "/pt/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/pt/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/nextjs-favicon",
-      "destination": "/tr/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/tr/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/nextjs-favicon/",
-      "destination": "/tr/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/tr/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/nextjs-favicon",
-      "destination": "/ur/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/ur/nextjs-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/nextjs-favicon/",
-      "destination": "/ur/tutorials/nextjs-favicon/",
-      "statusCode": 301
+      "src": "/ur/nextjs-favicon/",
+      "status": 410
     },
     {
-      "source": "/html-favicon",
-      "destination": "/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/html-favicon",
+      "status": 410
     },
     {
-      "source": "/html-favicon/",
-      "destination": "/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/ar/html-favicon",
-      "destination": "/ar/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/ar/html-favicon",
+      "status": 410
     },
     {
-      "source": "/ar/html-favicon/",
-      "destination": "/ar/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/ar/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/de/html-favicon",
-      "destination": "/de/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/de/html-favicon",
+      "status": 410
     },
     {
-      "source": "/de/html-favicon/",
-      "destination": "/de/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/de/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/es/html-favicon",
-      "destination": "/es/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/es/html-favicon",
+      "status": 410
     },
     {
-      "source": "/es/html-favicon/",
-      "destination": "/es/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/es/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/fr/html-favicon",
-      "destination": "/fr/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/fr/html-favicon",
+      "status": 410
     },
     {
-      "source": "/fr/html-favicon/",
-      "destination": "/fr/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/fr/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/hi/html-favicon",
-      "destination": "/hi/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/hi/html-favicon",
+      "status": 410
     },
     {
-      "source": "/hi/html-favicon/",
-      "destination": "/hi/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/hi/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/id/html-favicon",
-      "destination": "/id/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/id/html-favicon",
+      "status": 410
     },
     {
-      "source": "/id/html-favicon/",
-      "destination": "/id/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/id/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/pt/html-favicon",
-      "destination": "/pt/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/pt/html-favicon",
+      "status": 410
     },
     {
-      "source": "/pt/html-favicon/",
-      "destination": "/pt/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/pt/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/tr/html-favicon",
-      "destination": "/tr/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/tr/html-favicon",
+      "status": 410
     },
     {
-      "source": "/tr/html-favicon/",
-      "destination": "/tr/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/tr/html-favicon/",
+      "status": 410
     },
     {
-      "source": "/ur/html-favicon",
-      "destination": "/ur/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/ur/html-favicon",
+      "status": 410
     },
     {
-      "source": "/ur/html-favicon/",
-      "destination": "/ur/tutorials/html-favicon/",
-      "statusCode": 301
+      "src": "/ur/html-favicon/",
+      "status": 410
     }
   ]
 }
